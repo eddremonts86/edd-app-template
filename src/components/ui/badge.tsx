@@ -2,7 +2,7 @@
 
 import { Slot } from 'radix-ui'
 import * as React from 'react'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 import { badgeVariants, type BadgeVariantProps } from './badge-variants'
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement>, BadgeVariantProps {

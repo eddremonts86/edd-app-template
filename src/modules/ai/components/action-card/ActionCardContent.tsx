@@ -1,5 +1,5 @@
 import { AlertTriangle } from 'lucide-react'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 
 interface ActionCardContentProps {
   dataEntries: [string, string][]

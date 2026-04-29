@@ -11,7 +11,7 @@ import {
 import type { AiProviderStatus } from '@/modules/ai/providers/types'
 import { WidgetRefreshButton, WidgetRefreshingIndicator } from '@/modules/core/widget'
 import { useAiProviderStatuses } from '@/modules/settings'
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/lib/utils'
 
 function StatusIcon({ status }: { status: AiProviderStatus['status'] }) {
   if (status === 'available') return <IconCircleCheck className="h-4 w-4 text-green-500" />

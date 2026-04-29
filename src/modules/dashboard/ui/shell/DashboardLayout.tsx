@@ -18,7 +18,7 @@ import { AiSearchProvider, useAiSearch } from '@/modules/ai'
 import { UserProvider } from '@/modules/users'
 import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { isClientAuthBypassEnabled } from '@/shared/lib/auth/bypass'
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/lib/utils'
 import { AppSidebar } from '../navigation/AppSidebar'
 import { NotificationBell } from './NotificationBell'
 

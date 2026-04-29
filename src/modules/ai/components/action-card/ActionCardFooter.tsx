@@ -1,6 +1,6 @@
 import { AlertTriangle, Check, Loader2, Lock, Trash2, X } from 'lucide-react'
 import { Button } from '@/components/ui'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 import type { ActionVerb } from '../ActionConfirmationCard.utils'
 
 interface ActionCardFooterProps {

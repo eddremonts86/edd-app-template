@@ -1,6 +1,6 @@
 import { Pencil, Trash2 } from 'lucide-react'
 import * as React from 'react'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 import type { ActionVerb } from '../ActionConfirmationCard.utils'
 
 interface ActionCardHeaderProps {

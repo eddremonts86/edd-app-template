@@ -14,10 +14,10 @@
   "rtl": false,
   "aliases": {
     "components": "@/components",
-    "utils": "@/shared/utils",
+    "utils": "@/shared/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/shared/lib",
-    "hooks": "@/hooks"
+    "hooks": "@/shared/hooks"
   },
   "registries": {
     "@uitripled": "https://ui.tripled.work/r/{name}.json"

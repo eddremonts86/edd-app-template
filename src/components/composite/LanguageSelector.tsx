@@ -2,7 +2,7 @@ import { Globe } from 'lucide-react'
 import { useEffect, useState, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { languageNames, type SupportedLanguage, supportedLanguages } from '@/shared/lib/i18n'
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/lib/utils'
 
 const languageFlags: Record<SupportedLanguage, string> = {
   en: '🇺🇸',

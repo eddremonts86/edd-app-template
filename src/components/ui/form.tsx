@@ -11,7 +11,7 @@ import {
   type FieldValues,
 } from 'react-hook-form'
 import { Label } from '@/components/ui/label'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 import { FormFieldContext, FormItemContext, useFormField } from './form-context'
 
 function Form({ ...props }: React.ComponentProps<typeof FormProvider>) {

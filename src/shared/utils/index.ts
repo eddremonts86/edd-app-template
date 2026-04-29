@@ -1,6 +1,3 @@
-import { type ClassValue, clsx } from 'clsx'
-import { twMerge } from 'tailwind-merge'
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+// Re-export from canonical location so all import paths resolve to the same implementation.
+// Canonical source: src/shared/lib/utils.ts
+export * from '../lib/utils'

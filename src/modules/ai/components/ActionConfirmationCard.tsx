@@ -11,7 +11,7 @@ import {
 } from '@/modules/users'
 import { useCurrentUser } from '@/modules/users'
 import { toast } from '@/shared/lib/toast'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 import { ActionCardContent } from './action-card/ActionCardContent'
 import { ActionCardFooter } from './action-card/ActionCardFooter'
 import { ActionCardHeader } from './action-card/ActionCardHeader'

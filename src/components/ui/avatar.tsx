@@ -3,7 +3,7 @@
 import { Avatar as AvatarPrimitive } from 'radix-ui'
 import * as React from 'react'
 import { getSafeAvatarSrc } from '@/shared/lib/avatar'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 
 function Avatar({
   className,

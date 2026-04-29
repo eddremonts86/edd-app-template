@@ -14,7 +14,7 @@ import {
   AvatarFallback,
 } from '@/components/ui'
 import type { Conversation } from '@/modules/ai/storage/chat-storage'
-import { cn } from '@/shared/utils/index'
+import { cn } from '@/shared/lib/utils'
 
 // --- Types ---
 
