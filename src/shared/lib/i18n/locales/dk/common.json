@@ -1,0 +1,1247 @@
+{
+  "app": {
+    "name": "TanStack Template",
+    "brand": "AI Solutions",
+    "description": "En moderne full-stack skabelon drevet af TanStack"
+  },
+  "nav": {
+    "home": "Hjem",
+    "services": "Løsninger",
+    "timeline": "Historie",
+    "contact": "Lad os tale",
+    "settings": "Indstillinger",
+    "signIn": "Log ind",
+    "signOut": "Log ud"
+  },
+  "auth": {
+    "topbarCta": "Log ind",
+    "localCta": "Adgang med e-mail",
+    "workspaceAccess": "Workspace-adgang",
+    "eyebrow": "Hybrid godkendelse",
+    "title": "Vælg hvordan du vil logge ind.",
+    "description": "Brug din e-mail og adgangskode, eller fortsæt med din eksterne konto fra den samme skærm.",
+    "singleEntryTitle": "Log ind én gang. Fortsæt videre.",
+    "singleEntryDescription": "Brug den mulighed du allerede kender. Begge veje fører til det samme workspace uden ekstra trin.",
+    "localOnly": "Login med e-mail er ikke tilgængeligt lige nu.",
+    "localOnlyDescription": "Brug den alternative loginmulighed nedenfor for at fortsætte.",
+    "signInTab": "Log ind",
+    "signUpTab": "Opret konto",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Adgangskode",
+    "nameLabel": "Fuldt navn",
+    "emailPlaceholder": "dig@firma.dk",
+    "passwordPlaceholder": "Din adgangskode",
+    "passwordRequirementHint": "Brug mindst {{min}} tegn med bogstaver, tal og et symbol.",
+    "namePlaceholder": "Ada Lovelace",
+    "signInAction": "Gå til workspace",
+    "signUpAction": "Opret konto",
+    "submitting": "Arbejder...",
+    "recommendedLocal": "Den hurtigste vej ind",
+    "recommendedExternal": "En anden mulighed",
+    "signInHint": "Brug den e-mailkonto du allerede bruger til dette workspace.",
+    "signUpHint": "Opret en ny konto og kom i gang på få minutter.",
+    "localPanelTitle": "E-mail og adgangskode",
+    "localPanelDescription": "Log ind med den konto du bruger til daglig.",
+    "clerkPanelTitle": "En anden måde at logge ind på",
+    "clerkPanelDescription": "Brug din organisationskonto eller eksterne konto, hvis det er sådan du plejer at logge ind.",
+    "clerkAction": "Fortsæt",
+    "clerkUnavailable": "Denne loginmulighed er ikke tilgængelig lige nu.",
+    "clerkUnavailableLabel": "Ikke tilgængelig",
+    "clerkOffline": "Midlertidigt utilgængelig",
+    "sideTitle": "Ét workspace, din sædvanlige vej ind.",
+    "sideDescription": "Vælg den metode der føles mest naturlig. Du ender samme sted uanset hvad.",
+    "pointOne": "Brug den konto du allerede kender.",
+    "pointTwo": "Skift metode uden at skifte destination.",
+    "pointThree": "Log ind og fortsæt direkte med dit arbejde.",
+    "backHome": "Tilbage til forsiden",
+    "goDashboard": "Gå til dashboard",
+    "sessionVerificationError": "Serveren har endnu ikke bekræftet din session. Prøv igen om et øjeblik.",
+    "nameRequiredError": "Indtast dit fulde navn for at oprette en konto.",
+    "passwordWeakError": "Brug mindst {{min}} tegn med bogstaver, tal og et symbol."
+  },
+  "common": {
+    "loading": "Indlæser...",
+    "loadingMore": "Indlæser mere...",
+    "save": "Gem",
+    "cancel": "Annuller",
+    "delete": "Slet",
+    "edit": "Rediger",
+    "create": "Opret",
+    "search": "Søg",
+    "filter": "Filter",
+    "sort": "Sorter",
+    "actions": "Handlinger",
+    "confirm": "Bekræft",
+    "undoWarning": "Denne handling kan ikke fortrydes.",
+    "noPermission": "Du har ikke tilladelse til at udføre denne handling.",
+    "noPermissionEdit": "Du kan kun redigere opgaver, du har oprettet eller er tildelt.",
+    "noPermissionDelete": "Du kan kun slette opgaver, du har oprettet eller er tildelt.",
+    "yes": "Ja",
+    "no": "Nej",
+    "submit": "Indsend",
+    "reset": "Nulstil",
+    "back": "Tilbage",
+    "next": "Næste",
+    "previous": "Forrige",
+    "loadMore": "Indlæs flere",
+    "openMenu": "Åbn menu",
+    "optional": "valgfri",
+    "stop": "Stop",
+    "clear": "Ryd",
+    "clearFilters": "Ryd filtre",
+    "noResults": "Ingen resultater fundet.",
+    "noData": "Ingen data tilgængelig.",
+    "clearSearch": "Ryd søgning",
+    "selected": "valgt",
+    "send": "Send",
+    "backToHome": "Gå til startside",
+    "retry": "Prøv igen",
+    "unknownError": "Der opstod en uventet fejl.",
+    "error": {
+      "title": "Noget gik galt",
+      "description": "Der opstod en fejl under indlæsning af data. Prøv venligst igen."
+    }
+  },
+  "theme": {
+    "light": "Lys",
+    "dark": "Mørk",
+    "system": "System"
+  },
+  "language": {
+    "select": "Vælg sprog",
+    "en": "Engelsk",
+    "es": "Spansk",
+    "dk": "Dansk"
+  },
+  "themeToggle": {
+    "light": "Lyst tema",
+    "dark": "Mørkt tema",
+    "system": "Systemtema"
+  },
+  "sidebar": {
+    "main": {
+      "dashboard": "Dashboard",
+      "analytics": "Analyse",
+      "todos": "Opgaver",
+      "users": "Brugere",
+      "transactions": "Transaktioner",
+      "categories": "Kategorier",
+      "projects": "Projekter",
+      "budgets": "Budgetter",
+      "team": "Team",
+      "settings": "Indstillinger"
+    },
+    "secondary": {
+      "settings": "Indstillinger",
+      "help": "Hjælp",
+      "search": "Søg"
+    }
+  },
+  "ai": {
+    "search": {
+      "title": "AI-søgning",
+      "description": "Spørg assistenten eller hop til en sektion.",
+      "placeholder": "Søg i dashboardet...",
+      "providerAuto": "Automatisk udbyder",
+      "cta": "Søg",
+      "searching": "Søger...",
+      "shortcut": "⌘K / Ctrl+K",
+      "offline": "Du er offline. Søgning er ikke tilgængelig.",
+      "error": "Vi kunne ikke gennemføre søgningen.",
+      "resultsTitle": "Oversigt",
+      "empty": "Ingen AI-oversigt endnu. Stil et spørgsmål for at starte.",
+      "suggestions": "Foreslåede destinationer"
+    },
+    "chat": {
+      "title": "AI-hjælp",
+      "description": "Spørg om dashboardet, arbejdsgange eller data.",
+      "placeholder": "Skriv dit spørgsmål...",
+      "send": "Send",
+      "typing": "AI skriver...",
+      "offline": "Du er offline. Opret forbindelse for at sende beskeder.",
+      "error": "Vi kunne ikke nå AI-tjenesten.",
+      "empty": "Start samtalen med et spørgsmål.",
+      "providers": "Udbyderstatus",
+      "thinking": "Tankeproces",
+      "supportAssistant": "Supportassistent",
+      "agentInactive": "Assistenten er i øjeblikket utilgængelig",
+      "retry": "Prøv igen",
+      "connectionError": "Forbindelsesfejl med serveren",
+      "emptyResponse": "AI'en returnerede et tomt svar. Prøv at stille spørgsmålet igen eller omformuler det.",
+      "fileAutoInstruction": "Analyser den vedhæftede fil. Hvis den indeholder en liste over opgaver eller elementer, opret en opgave for hver ved hjælp af OPRET OPGAVE handlingsblokke.",
+      "fileAnalyzeInstruction": "Analyser den vedhæftede fil og giv et resumé eller relevante handlinger.",
+      "conversations": "Samtaler",
+      "newConversation": "Ny samtale",
+      "deleteConversation": "Slet samtale",
+      "deleteAllConversations": "Slet alle",
+      "confirmDeleteConversation": "Er du sikker på, at du vil slette denne samtale?",
+      "confirmDeleteAll": "Er du sikker på, at du vil slette alle samtaler?",
+      "noConversations": "Ingen samtaler endnu",
+      "today": "I dag",
+      "yesterday": "I går",
+      "previousDays": "Sidste 7 dage",
+      "older": "Ældre",
+      "untitledConversation": "Ny samtale"
+    }
+  },
+  "settings": {
+    "title": "Indstillinger",
+    "description": "Administrer dine dashboard-præferencer og applikationsindstillinger.",
+    "sections": {
+      "interface": "Brugerfladeindstillinger",
+      "development": "Udviklingsværktøjer"
+    },
+    "language": {
+      "title": "Sprog",
+      "description": "Vælg dit foretrukne visningssprog. Ændringer træder i kraft med det samme."
+    },
+    "theme": {
+      "title": "Tema",
+      "description": "Vælg dit foretrukne farveskema til grænsefladen."
+    },
+    "devtools": {
+      "title": "Udviklerværktøjer",
+      "description": "Vis eller skjul TanStack DevTools i grænsefladen.",
+      "show": "Vis DevTools",
+      "showDescription": "Vis TanStack DevTools-panelet til fejlfinding."
+    },
+    "actions": {
+      "save": "Gem Ændringer",
+      "reset": "Gendan Standarder",
+      "saving": "Gemmer..."
+    },
+    "messages": {
+      "saved": "Indstillingerne er gemt.",
+      "reset": "Indstillinger gendannet til standarder.",
+      "error": "Kunne ikke gemme indstillinger. Prøv igen."
+    },
+    "ai": {
+      "title": "AI Konfiguration",
+      "description": "Konfigurer parametre for AI-tjenesten, herunder base-URL, adgangstoken og endpoints.",
+      "sections": {
+        "connection": "Forbindelsesdetaljer",
+        "parameters": "Modelparametre",
+        "endpoints": "Endpoint-konfiguration"
+      },
+      "tabs": {
+        "system": "System",
+        "ai": "AI"
+      },
+      "providers": {
+        "openai": "OpenAI",
+        "anthropic": "Anthropic",
+        "lm-studio": "LM Studio"
+      },
+      "fields": {
+        "provider": "AI-udbyder",
+        "baseUrl": "Basis-URL",
+        "port": "Port",
+        "token": "Adgangstoken (valgfri)",
+        "apiKey": "API-nøgle",
+        "model": "Model-ID",
+        "temperature": "Temperatur",
+        "maxTokens": "Maksimalt antal tokens",
+        "topP": "Top P",
+        "frequencyPenalty": "Frekvensstraf",
+        "presencePenalty": "Tilstedeværelsesstraf",
+        "chatEndpoint": "Chat-endpoint",
+        "modelsEndpoint": "Model-endpoint",
+        "loadEndpoint": "Indlæs-endpoint",
+        "downloadEndpoint": "Download-endpoint",
+        "statusEndpoint": "Status-endpoint",
+        "timeout": "Timeout (ms)",
+        "additionalParams": "Yderligere parametre (JSON)"
+      },
+      "actions": {
+        "save": "Gem konfiguration",
+        "reset": "Gendan standardindstillinger",
+        "test": "Test forbindelse",
+        "confirmReset": "Er du sikker på, at du vil nulstille AI-konfigurationen til standardværdierne?"
+      },
+      "messages": {
+        "saved": "AI-konfigurationen er gemt.",
+        "reset": "AI-konfigurationen er nulstillet.",
+        "testSuccess": "Forbindelse til AI-tjenesten oprettet.",
+        "testError": "Kunne ikke oprette forbindelse til AI-tjenesten."
+      }
+    }
+  },
+  "dashboard": {
+    "error": {
+      "title": "Fejl",
+      "description": "Der opstod en fejl ved indlæsning af dashboard-data."
+    },
+    "upcomingTasks": {
+      "title": "Kommende Opgaver (Næste 7 Dage)",
+      "description": "Opgaver der forfalder i denne uge.",
+      "filterByResponsible": "Ansvarlig",
+      "noTasks": "Ingen kommende opgaver i denne uge.",
+      "noFilteredResults": "Ingen opgaver fundet for de valgte filtre."
+    },
+    "stats": {
+      "netBalance": "Netto balance",
+      "totalRevenue": "Samlet omsætning",
+      "totalExpenses": "Samlede udgifter",
+      "pendingApproval": "Afventer godkendelse",
+      "subscriptions": "Abonnementer",
+      "sales": "Salg",
+      "activeNow": "Aktive nu",
+      "activeProjects": "Aktive projekter",
+      "change": "{{value}} siden sidste måned",
+      "activeNowContext": "{{value}} {{context}}"
+    },
+    "recentTransactions": "Seneste transaktioner",
+    "recentSummary": "Du har lavet {{count}} salg denne måned.",
+    "table": {
+      "customer": "Kunde",
+      "status": "Status",
+      "date": "Dato",
+      "amount": "Beløb"
+    },
+    "widgets": {
+      "projectsStatus": "Projektstatus",
+      "projectsStatusDesc": "Oversigt over projekter efter aktuel status.",
+      "totalProjects": "Projekter i alt",
+      "pendingApprovals": "Afventende Godkendelser",
+      "pendingApprovalsDesc": "Transaktioner der afventer gennemgang.",
+      "awaitingReview": "afventer gennemgang",
+      "reviewTransactions": "Gennemse transaktioner →",
+      "recentTransactions": "Seneste Transaktioner",
+      "recentTransactionsDesc": "Nyeste finansielle aktivitet.",
+      "teamOverview": "Teamoversigt",
+      "teamOverviewDesc": "Alle teams og deres antal medlemmer.",
+      "totalTeams": "Teams",
+      "totalMembers": "Medlemmer",
+      "avgTeamSize": "Gns. størrelse",
+      "largestTeams": "Største teams",
+      "noDescription": "Ingen beskrivelse",
+      "members": "medlemmer",
+      "userStats": "Brugermappe",
+      "userStatsDesc": "Samlet antal medarbejdere og topafdelinger.",
+      "totalUsers": "Brugere i alt",
+      "topDepartments": "Topafdelinger",
+      "quickSettings": "Hurtige Indstillinger",
+      "quickSettingsDesc": "Juster udseende og sprog øjeblikkeligt.",
+      "aiStatus": "AI Udbydere",
+      "aiStatusDesc": "Forbindelsesstatus for konfigurerede AI-udbydere.",
+      "aiOnline": "online",
+      "models": "modeller",
+      "categoriesList": "Kategorier",
+      "categoriesListDesc": "Alle tilgængelige kategorier på et øjekast.",
+      "totalCategories": "i alt",
+      "quickLinks": "Hurtige Links",
+      "quickLinksDesc": "Hurtig adgang til vigtige sektioner i arbejdsrummet.",
+      "linkProjects": "Projekter",
+      "linkTransactions": "Transaktioner",
+      "linkTasks": "Opgaver",
+      "linkTeam": "Team",
+      "linkSettings": "Indstillinger",
+      "linkHelp": "Hjælp"
+    },
+    "actions": {
+      "refreshProjectsStatus": "Opdater projektstatus",
+      "refreshPendingApprovals": "Opdater afventende godkendelser",
+      "refreshRecentTransactions": "Opdater transaktioner",
+      "refreshTeamOverview": "Opdater teams",
+      "refreshUserStats": "Opdater brugerstatistik",
+      "refreshAiStatus": "Opdater AI-status",
+      "refreshCategories": "Opdater kategorier",
+      "refreshUpcomingTasks": "Opdater kommende opgaver",
+      "refreshExpenseDistribution": "Opdater udgiftsfordeling",
+      "refreshWorkload": "Opdater arbejdsbelastning"
+    }
+  },
+  "analytics": {
+    "title": "Analyse",
+    "pageViews": "Sidevisninger",
+    "overview": "Oversigt",
+    "placeholder": "Analyse-graf kommer snart...",
+    "netBalance": "Netto balance",
+    "netBalanceDesc": "Indtægter minus udgifter",
+    "totalRevenue": "Samlet omsætning",
+    "totalRevenueDesc": "Samlet godkendt indkomst",
+    "totalExpenses": "Samlede udgifter",
+    "totalExpensesDesc": "Samlede godkendte udgifter",
+    "activeProjects": "Aktive projekter",
+    "activeProjectsDesc": "Aktive projekter i øjeblikket",
+    "taskCompletion": "Opgavegennemførelse",
+    "tasks": "opgaver",
+    "activeUsers": "Aktive brugere",
+    "activeUsersDesc": "Samlet antal registrerede brugere",
+    "error": "Fejl ved indlæsning af KPI'er",
+    "searchPlaceholder": "Søg...",
+    "export": "Eksporter",
+    "last7Days": "Seneste 7 dage",
+    "last30Days": "Seneste 30 dage",
+    "last90Days": "Seneste 90 dage",
+    "financialTrend": {
+      "title": "Økonomisk tendens",
+      "description": "Indtægter og udgifter over de seneste {{days}} dage",
+      "error": "Fejl ved indlæsning af økonomiske data",
+      "income": "Indtægt",
+      "expenses": "Udgifter"
+    },
+    "taskCompletionTrend": {
+      "title": "Tendens for opgavegennemførelse",
+      "description": "Opgaver gennemført over de seneste {{days}} dage",
+      "label": "Opgaver gennemført"
+    },
+    "taskDistribution": {
+      "byStatus": "Opgaver efter status",
+      "byStatusDesc": "Nuværende fordeling af opgaver",
+      "byPriority": "Opgaver efter prioritet",
+      "byPriorityDesc": "Opdeling efter prioritet",
+      "label": "Opgaver",
+      "error": "Fejl ved indlæsning af opgavedata"
+    },
+    "projectPerformance": {
+      "title": "Projektets ydeevne",
+      "description": "Oversigt over projektets fremdrift og budgetforbrug",
+      "searchPlaceholder": "Søg efter projekter...",
+      "columns": {
+        "name": "Projektnavn",
+        "status": "Status",
+        "budget": "Brugt budget",
+        "completion": "Opgavegennemførelse",
+        "tasks": "Opgaver"
+      },
+      "status": {
+        "active": "Aktiv",
+        "completed": "Gennemført",
+        "on_hold": "På hold"
+      }
+    }
+  },
+  "sectionCards": {
+    "totalRevenue": {
+      "title": "Samlet omsætning",
+      "trend": "Stigende denne måned",
+      "detail": "Besøgende de seneste 6 måneder"
+    },
+    "newCustomers": {
+      "title": "Nye kunder",
+      "trend": "Ned 20% i denne periode",
+      "detail": "Kundeanskaffelse kræver opmærksomhed"
+    },
+    "activeAccounts": {
+      "title": "Aktive konti",
+      "trend": "Stærk brugerfastholdelse",
+      "detail": "Engagement overgår målene"
+    },
+    "growthRate": {
+      "title": "Vækstrate",
+      "trend": "Stabil præstationsforbedring",
+      "detail": "Opfylder vækstprognoserne"
+    }
+  },
+  "chart": {
+    "timeRange": {
+      "placeholder": "Vælg et interval",
+      "90d": "Seneste 3 måneder",
+      "30d": "Seneste 30 dage",
+      "7d": "Seneste 7 dage"
+    }
+  },
+  "categories": {
+    "title": "Kategorier",
+    "add": "Tilføj kategori",
+    "nameLabel": "Navn",
+    "namePlaceholder": "Kategorinavn",
+    "colorLabel": "Farve",
+    "save": "Gem kategori",
+    "summary": "Viser {{shown}} af {{total}} kategorier",
+    "columns": {
+      "name": "Navn",
+      "color": "Farve"
+    },
+    "description": {
+      "create": "Tilføj en ny kategori til dine transaktioner.",
+      "edit": "Opdater kategoridetaljerne."
+    },
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette denne kategori?"
+    },
+    "error": {
+      "title": "Fejl",
+      "description": "Der opstod en fejl ved indlæsning af kategorier."
+    },
+    "mutations": {
+      "created": "Kategori oprettet",
+      "updated": "Kategori opdateret",
+      "deleted": "Kategori slettet"
+    }
+  },
+  "projects": {
+    "title": "Projekter",
+    "actions": {
+      "create": "Opret nyt projekt",
+      "new": "Nyt projekt",
+      "edit": "Rediger projekt",
+      "delete": "Slet projekt",
+      "createAnother": "Opret et andet projekt"
+    },
+    "form": {
+      "nameLabel": "Projektnavn",
+      "namePlaceholder": "Indtast projektnavn",
+      "descriptionLabel": "Beskrivelse",
+      "descriptionPlaceholder": "Beskriv projektets mål...",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Vælg status",
+      "typeLabel": "Projekttype",
+      "typePlaceholder": "Vælg type",
+      "startDateLabel": "Startdato",
+      "endDateLabel": "Slutdato",
+      "technologiesLabel": "Teknologier",
+      "technologiesPlaceholder": "React, TypeScript, Tailwind...",
+      "skillsLabel": "Kompetencer",
+      "skillsPlaceholder": "Søg kompetencer...",
+      "skillsEmpty": "Ingen kompetencer fundet.",
+      "budgetLabel": "Budget",
+      "budgetPlaceholder": "0",
+      "priorityLabel": "Prioritet",
+      "priorityPlaceholder": "Vælg prioritet",
+      "departmentLabel": "Afdeling",
+      "departmentPlaceholder": "Vælg afdeling",
+      "teamLabel": "Teammedlemmer",
+      "teamPlaceholder": "Vælg teammedlemmer",
+      "createTitle": "Opret projekt",
+      "createDescription": "Tilføj et nyt projekt til dit arbejdsområde. Udfyld detaljerne nedenfor.",
+      "editTitle": "Rediger projekt",
+      "editDescription": "Opdater projektdetaljer og konfiguration.",
+      "confirmationDescription": "Dit projekt er blevet oprettet. Du kan nu begynde at tilføje opgaver og teammedlemmer."
+    },
+    "status": {
+      "active": "Aktiv",
+      "completed": "Afsluttet",
+      "on_hold": "På vent",
+      "planning": "Planlægning",
+      "cancelled": "Annulleret"
+    },
+    "type": {
+      "internal": "Intern",
+      "external": "Ekstern",
+      "research": "Forskning",
+      "maintenance": "Vedligeholdelse"
+    },
+    "priority": {
+      "low": "Lav",
+      "medium": "Mellem",
+      "high": "Høj"
+    },
+    "success": {
+      "created": "Projektet blev oprettet korrekt",
+      "updated": "Projektet blev opdateret korrekt",
+      "deleted": "Projektet blev slettet korrekt"
+    },
+    "error": {
+      "create": "Kunne ikke oprette projektet",
+      "update": "Kunne ikke opdatere projektet",
+      "delete": "Kunne ikke slette projektet",
+      "hasTasks": "Kan ikke slette projektet '{{name}}', fordi det har tilknyttede opgaver."
+    },
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette projektet '{{name}}'?"
+    },
+    "members": {
+      "removeConfirm": "Er du sikker på, at du vil fjerne {{name}} fra dette projekt?"
+    }
+  },
+  "team": {
+    "title": "Team",
+    "actions": {
+      "new": "Nyt team",
+      "create": "Opret team",
+      "edit": "Rediger team"
+    },
+    "members": "Medlemmer",
+    "emptyMembers": "Ingen medlemmer tildelt.",
+    "emptyUsers": "Ingen brugere tilgængelige.",
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette \"{{name}}\"?"
+    },
+    "toast": {
+      "created": "Team oprettet",
+      "updated": "Team opdateret",
+      "deleted": "Team slettet"
+    }
+  },
+  "todos": {
+    "title": "Opgaver",
+    "subtitlePrefix": "Administrer din arbejdsgang. Du har ",
+    "subtitleSuffix": " aktive opgaver.",
+    "actions": {
+      "new": "Ny opgave",
+      "create": "Opret opgave",
+      "update": "Opdater opgave",
+      "edit": "Rediger opgave",
+      "delete": "Slet"
+    },
+    "form": {
+      "headerTitle": "Opgavedetaljer",
+      "headerSubtitle": "Definer mål og deadlines.",
+      "titleLabel": "Projekt titel",
+      "titlePlaceholder": "Fx: Dashboard redesign",
+      "descriptionLabel": "Detaljeret beskrivelse",
+      "descriptionPlaceholder": "Beskriv de næste skridt...",
+      "statusLabel": "Nuværende status",
+      "statusPlaceholder": "Vælg status",
+      "statusPending": "Afventer",
+      "statusInProgress": "I gang",
+      "statusCompleted": "Gennemført",
+      "priorityLabel": "Prioritet",
+      "priorityPlaceholder": "Vælg prioritet",
+      "priorityLow": "Lav",
+      "priorityMedium": "Mellem",
+      "priorityHigh": "Høj",
+      "dueDateLabel": "Forfaldsdato",
+      "dueDatePlaceholder": "Vælg dato",
+      "assignedToLabel": "Tildelt til",
+      "assignedToPlaceholder": "Vælg bruger",
+      "assignedToSelf": "Mig"
+    },
+    "status": {
+      "pending": "Afventer",
+      "inProgress": "I gang",
+      "in_progress": "I gang",
+      "completed": "Gennemført",
+      "on_hold": "På hold",
+      "testing": "Afprøvning",
+      "blocked": "Blokeret",
+      "cancelled": "Annulleret"
+    },
+    "filters": {
+      "label": "Filtre",
+      "onlyMyTasks": "Kun mine opgaver",
+      "allStatuses": "Alle statusser",
+      "allUsers": "Alle brugere",
+      "myTasks": "Mine opgaver"
+    },
+    "priority": {
+      "low": "Lav",
+      "medium": "Mellem",
+      "high": "Høj"
+    },
+    "table": {
+      "title": "Opgave",
+      "status": "Status",
+      "priority": "Prioritet",
+      "assignedTo": "Tildelt til",
+      "createdAt": "Oprettet",
+      "dueDate": "Forfaldsdato"
+    },
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette denne opgave?"
+    },
+    "searchPlaceholder": "Søg opgaver...",
+    "noSearchResults": "Ingen opgaver matcher din søgning",
+    "empty": "Ingen opgaver fundet",
+    "clearSearch": "Ryd søgning",
+    "loadingMore": "Indlæser flere opgaver...",
+    "error": {
+      "title": "Indlæsningsfejl",
+      "description": "Vi kunne ikke hente dine opgaver. Tjek din forbindelse og prøv igen.",
+      "retry": "Prøv igen"
+    },
+    "sheet": {
+      "createTitle": "Opret opgave",
+      "createDescription": "Tilføj en ny opgave til din liste. Udfyld detaljerne nedenfor.",
+      "editTitle": "Rediger opgave",
+      "editDescription": "Opdater dine opgavedetaljer. Ændringer gemmes straks."
+    },
+    "toast": {
+      "created": "Opgave oprettet",
+      "updated": "Opgave opdateret",
+      "deleted": "Opgave slettet"
+    }
+  },
+  "users": {
+    "title": "Brugere",
+    "subtitlePrefix": "Administrer adgangsniveauer for ",
+    "subtitleSuffix": " teammedlemmer.",
+    "actions": {
+      "new": "Ny bruger",
+      "save": "Gem bruger",
+      "editProfile": "Rediger profil",
+      "deleteAccount": "Slet konto"
+    },
+    "form": {
+      "nameLabel": "Navn",
+      "namePlaceholder": "Brugernavn",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "Bruger e-mail",
+      "roleLabel": "Rolle",
+      "rolePlaceholder": "Vælg rolle",
+      "roleUser": "Bruger",
+      "roleAdmin": "Admin",
+      "avatarLabel": "Avatar-URL",
+      "avatarPlaceholder": "Avatar-URL",
+      "avatarRandom": "Tilfældig",
+      "avatarHelp": "Indsæt en URL eller generer en tilfældig avatar"
+    },
+    "table": {
+      "user": "Bruger",
+      "role": "Rolle / Adgang"
+    },
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette denne bruger?"
+    },
+    "loadingMore": "Synkroniserer...",
+    "loadMore": "Indlæs flere brugere",
+    "error": {
+      "title": "Forbindelsesfejl",
+      "description": "Vi kunne ikke synkronisere brugerlisten. Prøv igen om lidt.",
+      "retry": "Prøv igen"
+    },
+    "sheet": {
+      "createTitle": "Brugerregistrering",
+      "createDescription": "Opret en ny adgangsprofil til dit team.",
+      "editTitle": "Brugerprofil",
+      "editDescription": "Opdater kontaktinfo og tilladelser."
+    },
+    "toast": {
+      "created": "Bruger oprettet",
+      "updated": "Bruger opdateret",
+      "deleted": "Bruger slettet"
+    }
+  },
+  "transactions": {
+    "title": "Transaktioner",
+    "summary": "Viser {{shown}} af {{total}} transaktioner",
+    "actions": {
+      "add": "Tilføj transaktion",
+      "save": "Gem transaktion",
+      "edit": "Rediger",
+      "delete": "Slet",
+      "create": "Opret transaktion"
+    },
+    "form": {
+      "customerNameLabel": "Kundenavn",
+      "customerNamePlaceholder": "Kundenavn",
+      "customerEmailLabel": "Kunde e-mail",
+      "customerEmailPlaceholder": "Kunde e-mail",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Vælg status",
+      "statusApproved": "Godkendt",
+      "statusPending": "Afventer",
+      "statusRejected": "Afvist",
+      "amountLabel": "Beløb",
+      "amountPlaceholder": "0.00",
+      "dateLabel": "Dato",
+      "userLabel": "Bruger",
+      "userPlaceholder": "Vælg Bruger",
+      "projectLabel": "Projekt",
+      "projectPlaceholder": "Vælg Projekt",
+      "createDescription": "Opret en ny transaktionspost.",
+      "editDescription": "Rediger transaktionsdetaljer."
+    },
+    "table": {
+      "customer": "Kunde",
+      "status": "Status",
+      "date": "Dato",
+      "amount": "Beløb"
+    },
+    "status": {
+      "approved": "Godkendt",
+      "pending": "Afventer",
+      "rejected": "Afvist"
+    },
+    "confirm": {
+      "delete": "Er du sikker på, at du vil slette denne transaktion?"
+    },
+    "error": {
+      "title": "Fejl",
+      "description": "Der opstod en fejl ved indlæsning af transaktioner."
+    },
+    "toast": {
+      "created": "Transaktion oprettet",
+      "updated": "Transaktion opdateret",
+      "deleted": "Transaktion slettet"
+    },
+    "history": "Transaktionshistorik",
+    "pending": {
+      "title": "Kræver din godkendelse",
+      "approveConfirm": "Er du sikker på, at du vil godkende denne transaktion?",
+      "approveSuccess": "Transaktion godkendt korrekt",
+      "rejectPrompt": "Angiv venligst en årsag til afvisning:",
+      "rejectSuccess": "Transaktion afvist korrekt",
+      "approve": "Godkend",
+      "reject": "Afvis"
+    }
+  },
+  "validation": {
+    "required": "Dette felt er påkrævet",
+    "minLength": "Skal være mindst {{min}} tegn",
+    "maxLength": "Skal være højst {{max}} tegn",
+    "invalidEmail": "Ugyldig e-mailadresse",
+    "invalidUrl": "Ugyldig URL",
+    "invalidColor": "Ugyldig farve",
+    "invalidDate": "Ugyldig dato",
+    "futureDate": "Dato skal være i fremtiden",
+    "minAmount": "Skal være større end 0"
+  },
+  "home": {
+    "hero": {
+      "badge": "Formål i hver pixel",
+      "title": "Hvor menneskelig intuition",
+      "titleHighlight": "møder AI",
+      "description": "Vi er ikke her for at erstatte din stemme, men for at forstærke den. Vi skaber systemer, der lærer af din essens, så du kan vende tilbage til det, der virkelig betyder noget: at skabe, forestille sig og lede.",
+      "ctaPrimary": "Start din transformation",
+      "ctaSecondary": "Vores filosofi",
+      "pills": {
+        "alma": "Teknologi med Sjæl",
+        "impacto": "Reel Indflydelse",
+        "friccion": "Nul Friktion"
+      },
+      "stats": {
+        "hours": {
+          "label": "Timer givet tilbage til talentet",
+          "value": "2.5k+"
+        },
+        "precision": {
+          "label": "Menneskelig Præcision",
+          "value": "99.9%"
+        },
+        "projects": {
+          "label": "Projekter med formål",
+          "value": "150+"
+        }
+      }
+    },
+    "newHero": {
+      "badge": "Vi forstår støjen, vi søger klarhed",
+      "title": "Din virksomhed er unik,",
+      "titleHighlight": "din AI bør også være det",
+      "description": "Føles nuværende teknologi som en barriere i stedet for en bro? Vi har hjulpet hundredvis af teams med at genvinde 15 timer om ugen af mekanisk arbejde, så de kan fokusere på den strategi, som kun mennesker kan lægge.",
+      "ctaPrimary": "Planlæg en ærlig samtale",
+      "ctaSecondary": "Se hvordan vi arbejder",
+      "stats": {
+        "customers": {
+          "label": "Glade Kunder",
+          "value": "10K+"
+        },
+        "projects": {
+          "label": "Afsluttede Projekter",
+          "value": "500+"
+        },
+        "satisfaction": {
+          "label": "Tilfredshedsrate",
+          "value": "99%"
+        }
+      }
+    },
+    "features": {
+      "title": "Vores søjler er ikke til forhandling",
+      "description": "Vi mener, at teknologi skal tjene mennesker, ikke omvendt. Disse er de løfter, vi holder i hver linje kode.",
+      "items": {
+        "efficiency": {
+          "title": "Usynlig Effektivitet",
+          "description": "Vi automatiserer det, der udmatter dig, ikke det, der definerer dig. Systemer, der arbejder i baggrunden, så du er hovedpersonen."
+        },
+        "ethics": {
+          "title": "Etik ved Design",
+          "description": "Dine data er din arv. Vi bygger med ikke-forhandlingsbar privatlivsbeskyttelse, der beskytter den tillid, du har vundet hos dine kunder."
+        },
+        "closeness": {
+          "title": "Radikal Nærhed",
+          "description": "Vi leverer ikke bare kode og går. Vi er dine teknologiske partnere, der forstår dine udfordringer, som om de var vores egne."
+        }
+      }
+    },
+    "services": {
+      "badge": "Hvordan vi ledsager dig",
+      "title": "Løsninger der løser, ikke komplicerer",
+      "description": "Vi forstår, at der bag ethvert teknisk krav er et menneskeligt mål. Her er hvordan vi gør det til virkelighed.",
+      "cta": "Se hvordan",
+      "items": {
+        "software": {
+          "title": "Software med Mening",
+          "description": "Vi lancerer ikke kode ud i intetheden. Vi udvikler værktøjer, der eliminerer dit teams daglige friktion og giver dem den tid tilbage, de fortjener.",
+          "badge": "Direkte Indflydelse"
+        },
+        "design": {
+          "title": "Empatisk Design",
+          "description": "Brugerflader der ikke behøver en manual. Vi sætter os i de personers sted, der skal bruge dit produkt, så hvert klik føles naturligt og stressfrit."
+        },
+        "mobility": {
+          "title": "Digital Nærhed",
+          "description": "Vær hvor dine brugere er, men på en respektfuld måde. Vi skaber mobiloplevelser, der føles som en forlængelse af deres dagligdag.",
+          "badge": "Essentiel"
+        },
+        "clarity": {
+          "title": "Klarhed i Kaos",
+          "description": "I en verden mættet med information hjælper vi dit reelle budskab med at nå de mennesker, der virkelig har brug for det."
+        },
+        "growth": {
+          "title": "Bæredygtig Vækst",
+          "description": "Skalering behøver ikke at være traumatisk. Vi optimerer dine processer, så dit projekt vokser i takt med dine ambitioner, ikke dine bekymringer."
+        },
+        "trust": {
+          "title": "Total Ro i Sindet",
+          "description": "Vi beskytter det, du værdsætter mest: dine brugeres tillid. Vi implementerer robust sikkerhed, så du kun behøver at bekymre dig om at innovere.",
+          "badge": "Forpligtelse"
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Vores Evolution",
+      "title": "En vej af mennesker, ikke kun kode",
+      "description": "Vi ser tilbage, ikke for at fejre præstationer, men for at huske, hvorfor vi startede denne rejse i første omgang.",
+      "events": {
+        "seed": {
+          "title": "Frøet til en Idé",
+          "description": "Vi blev født i et lille studie, trætte af at se, hvordan teknologien bevægede sig væk fra mennesker."
+        },
+        "listening": {
+          "title": "Lytter til Virkelige Historier",
+          "description": "Vi nåede vores første 1.000 brugere, ikke som tal, men som samtaler, der formede vores platform."
+        },
+        "growth": {
+          "title": "Vokser med Ansvar",
+          "description": "Vi modtog støtte til at ekspandere, mens vi altid holdt vores løfte om ikke at miste det menneskelige strejf."
+        },
+        "impact": {
+          "title": "Indflydelse Uden Grænser",
+          "description": "Vi åbnede kontorer i 5 lande og lærte, at ønsket om at arbejde bedre er et universelt sprog."
+        },
+        "purpose": {
+          "title": "Formålsbestemt Intelligens",
+          "description": "Vi lancerede vores AI-funktioner, designet til at give dig den tid tilbage, som administrativt arbejde stjal fra dig."
+        }
+      },
+      "footer": "Og historien fortsætter med dig..."
+    },
+    "contact": {
+      "title": "Lad os tale om det, der holder dig vågen om natten",
+      "description": "Har du et projekt i tankerne, eller vil du bare forstå, hvordan teknologi kan give dig din tid tilbage? Vi er her for at lytte til dig, uden unødvendige tekniske termer.",
+      "form": {
+        "name": {
+          "label": "Hvad er dit navn?",
+          "placeholder": "Dit navn"
+        },
+        "email": {
+          "label": "Din personlige e-mail",
+          "placeholder": "eksempel@mail.com"
+        },
+        "subject": {
+          "label": "Hvad har du i tankerne?",
+          "placeholder": "Fortæl os kort..."
+        },
+        "message": {
+          "label": "Fortæl os din historie",
+          "placeholder": "Hvad er den største udfordring, du står over for i dag?"
+        },
+        "submit": "Send besked og start samtalen"
+      },
+      "info": {
+        "email": "E-mail",
+        "phone": "Telefon",
+        "location": "Lokation"
+      },
+      "workingHours": {
+        "title": "Arbejdstider",
+        "weekdays": "Mandag - Fredag",
+        "saturday": "Lørdag",
+        "sunday": "Søndag",
+        "closed": "Lukket"
+      }
+    },
+    "footer": {
+      "brand": "Brand",
+      "since": "Siden 2018",
+      "copyright": "© {{year}} Brand Inc. Alle rettigheder forbeholdes.",
+      "description": "Humanisering af teknologi så du kan være mere menneskelig. Vi er ikke bare en AI-virksomhed, vi er dine partnere i søgen efter tid og formål.",
+      "subscribe": {
+        "title": "Deltag i vores ugentlige samtale",
+        "placeholder": "Din bedste e-mail",
+        "button": "Tilmeld dig"
+      },
+      "links": {
+        "essence": {
+          "title": "Vores Essens",
+          "items": ["Filosofi", "Succeshistorier", "Metode", "Menneskelig Blog"]
+        },
+        "company": {
+          "title": "Virksomhed",
+          "items": ["Om os", "Kultur", "Arbejd hos os", "Presse"]
+        },
+        "community": {
+          "title": "Fællesskab",
+          "items": ["Events", "Hjælpecenter", "Partnere", "Netværksstatus"]
+        },
+        "legal": {
+          "title": "Juridisk",
+          "items": ["Etisk Privatliv", "Brugsvilkår", "Cookies", "Licenser"]
+        }
+      }
+    }
+  },
+  "budgets": {
+    "title": "Budgetter",
+    "description": "Administrer og følg dine finansielle budgetter.",
+    "empty": {
+      "title": "Ingen budgetter endnu",
+      "description": "Opret dit første budget for at begynde at spore indtægter og udgifter."
+    },
+    "actions": {
+      "create": "Nyt Budget",
+      "edit": "Rediger Budget",
+      "save": "Gem Budget",
+      "delete": "Slet Budget",
+      "deleteConfirm": "Er du sikker på, at du vil slette dette budget?"
+    },
+    "create": {
+      "title": "Nyt Budget",
+      "description": "Opret et nyt budget for at spore dine indtægter og udgifter."
+    },
+    "edit": {
+      "title": "Rediger Budget",
+      "description": "Opdater dine budgetdetaljer."
+    },
+    "fields": {
+      "name": "Budgetnavn",
+      "namePlaceholder": "f.eks. Marketing K1",
+      "description": "Beskrivelse",
+      "descriptionPlaceholder": "Hvad er dette budget til?",
+      "scope": "Omfang",
+      "project": "Projekt",
+      "projectPlaceholder": "Vælg projekt",
+      "targetAmount": "Forbrugsgrænse",
+      "noLimit": "Ingen grænse",
+      "currency": "Valuta",
+      "periodType": "Periode",
+      "startDate": "Startdato",
+      "endDate": "Slutdato (valgfri)"
+    },
+    "scopes": {
+      "personal": "Personlig",
+      "project": "Projekt",
+      "department": "Afdeling",
+      "company": "Virksomhed"
+    },
+    "periods": {
+      "monthly": "Månedlig",
+      "quarterly": "Kvartalsvis",
+      "semiannual": "Halvårlig",
+      "annual": "Årlig",
+      "one_time": "Engangsbetaling"
+    },
+    "health": {
+      "healthy": "Sund",
+      "on_track": "På sporet",
+      "warning": "Advarsel",
+      "approaching": "Nærmer sig grænse",
+      "overBudget": "Over budget",
+      "noLimit": "Ingen grænse"
+    },
+    "summary": {
+      "income": "Indtægt",
+      "expenses": "Udgifter",
+      "balance": "Balance",
+      "remaining": "Resterende",
+      "overBy": "Overskredet med",
+      "noLimit": "Ingen grænse",
+      "used": "brugt"
+    },
+    "detail": {
+      "notFound": "Budget ikke fundet.",
+      "overBudget": "Over budget",
+      "spent": "brugt",
+      "overBy": "Over med {{amount}}",
+      "totalSpent": "Samlet forbrug",
+      "balance": "Balance",
+      "tabs": {
+        "transactions": "Transaktioner",
+        "categories": "Kategorier",
+        "members": "Medlemmer",
+        "recurring": "Tilbagevendende",
+        "report": "Rapport"
+      }
+    },
+    "report": {
+      "title": "Årsrapport",
+      "subtitle": "Udgifter og indtægter efter kategori på tværs af måneder",
+      "item": "Transaktioner",
+      "year": "År",
+      "category": "Kategori",
+      "totalExpenses": "Samlede udgifter",
+      "totalIncome": "Samlede indtægter",
+      "expensesTable": "Udgifter efter kategori",
+      "incomeTable": "Indtægter efter kategori",
+      "balance": "Saldo",
+      "total": "Total",
+      "month": "Måned",
+      "accumExpenses": "Akk. udgifter",
+      "summarySection": "Oversigt",
+      "noData": "Ingen transaktioner fundet for {{year}}",
+      "showIncome": "Vis indtægtsrækker",
+      "hideIncome": "Skjul indtægtsrækker",
+      "directLabel": "ikke planlagt",
+      "directExpenseLabel": "ikke planlagt"
+    },
+    "alerts": {
+      "overBudget": "budget(ter) over grænsen"
+    },
+    "toast": {
+      "created": "Budget oprettet",
+      "updated": "Budget opdateret",
+      "deleted": "Budget slettet"
+    },
+    "messages": {
+      "created": "Budget oprettet",
+      "updated": "Budget opdateret",
+      "deleted": "Budget slettet",
+      "memberAdded": "Medlem tilføjet til budget",
+      "memberRemoved": "Medlem fjernet fra budget",
+      "limitSet": "Kategorigrænse gemt",
+      "recurrenceCreated": "Tilbagevendende transaktion oprettet",
+      "recurrenceDeleted": "Tilbagevendende transaktion slettet"
+    },
+    "transactions": {
+      "count": "transaktioner",
+      "add": "Tilføj transaktion",
+      "addTitle": "Tilføj transaktion til budget",
+      "editTitle": "Rediger transaktion",
+      "deleteConfirm": "Slet denne transaktion?",
+      "empty": "Ingen transaktioner knyttet til dette budget.",
+      "noDescription": "Ingen beskrivelse",
+      "type": "Type",
+      "expense": "Udgift",
+      "income": "Indtægt",
+      "description": "Beskrivelse",
+      "descriptionPlaceholder": "Hvad er dette til?",
+      "amount": "Beløb",
+      "date": "Dato",
+      "category": "Kategori",
+      "categoryPlaceholder": "Vælg kategori"
+    },
+    "limits": {
+      "count": "kategorigrænser",
+      "add": "Tilføj grænse",
+      "addTitle": "Sæt kategorigrænse",
+      "editTitle": "Rediger kategorigrænse",
+      "empty": "Ingen kategorigrænser konfigureret.",
+      "category": "Kategori",
+      "selectCategory": "Vælg kategori",
+      "amount": "Grænsebeløb",
+      "spent": "Brugt",
+      "allocated": "grænse",
+      "toast": {
+        "upserted": "Kategorigrænse gemt",
+        "deleted": "Kategorigrænse fjernet"
+      }
+    },
+    "members": {
+      "count": "medlemmer",
+      "add": "Tilføj medlem",
+      "addTitle": "Tilføj medlem til budget",
+      "empty": "Ingen medlemmer endnu.",
+      "owner": "Ejer",
+      "role": "Rolle",
+      "searchUser": "Søg brugere",
+      "searchPlaceholder": "Skriv et navn eller email...",
+      "selectUser": "Vælg bruger",
+      "userPlaceholder": "Vælg en bruger",
+      "addBtn": "Tilføj Medlem",
+      "toast": {
+        "added": "Medlem tilføjet",
+        "roleUpdated": "Rolle opdateret",
+        "removed": "Medlem fjernet"
+      }
+    },
+    "roles": {
+      "admin": "Administrator",
+      "contributor": "Bidragyder",
+      "viewer": "Læser"
+    },
+    "recurrences": {
+      "count": "regler",
+      "add": "Tilføj regel",
+      "createTitle": "Opret tilbagevendende regel",
+      "empty": "Ingen tilbagevendende regler endnu.",
+      "noDescription": "Unavngiven regel",
+      "description": "Beskrivelse",
+      "descriptionPlaceholder": "f.eks. Månedlig husleje",
+      "amount": "Beløb",
+      "frequencyLabel": "Frekvens",
+      "interval": "Hver (n)",
+      "startDate": "Startdato",
+      "category": "Kategori",
+      "categoryPlaceholder": "Ingen kategori",
+      "nextOn": "næste",
+      "pause": "Pause",
+      "resume": "Genoptag",
+      "manualPause": "Manuelt sat på pause",
+      "type": "Type",
+      "typeExpense": "Udgift",
+      "typeIncome": "Indtægt",
+      "status": {
+        "active": "Aktiv",
+        "paused": "På pause",
+        "completed": "Afsluttet"
+      },
+      "frequency": {
+        "daily": "Daglig",
+        "weekly": "Ugentlig",
+        "monthly": "Månedlig",
+        "quarterly": "Kvartalsvis",
+        "semiannual": "Halvårlig",
+        "annual": "Årlig"
+      },
+      "toast": {
+        "created": "Tilbagevendende regel oprettet",
+        "updated": "Tilbagevendende regel opdateret",
+        "deleted": "Tilbagevendende regel slettet"
+      }
+    },
+    "categories": {
+      "uncategorized": "Ukategoriseret"
+    },
+    "widgets": {
+      "refreshBalance": "Opdater balance",
+      "refreshOverview": "Opdater oversigt",
+      "refreshCategories": "Opdater kategorier"
+    },
+    "import": {
+      "title": "Importer Budget",
+      "description": "Upload et kontoudtog for at analysere og oprette et budget med rigtige data.",
+      "upload": {
+        "dropLabel": "Slip filen her, eller klik for at vælge",
+        "dropSub": "Understøttet: CSV, XLSX, PDF kontoudtog",
+        "maxSize": "Maks {{size}}",
+        "supportedHint": "Kompatibel med alle bankformater",
+        "supportedDesc": "Kolonner registreres automatisk på engelsk, spansk og dansk. Datoer og beløb håndteres automatisk."
+      },
+      "analysis": {
+        "title": "Analyseresultater",
+        "processing": "Analyserer transaktioner…",
+        "parsed": "Behandlet",
+        "transactions": "transaktioner",
+        "recurringFound": "{{count}} tilbagevendende transaktioner fundet",
+        "confidence": "Sikkerhed",
+        "noRecurring": "Ingen tilbagevendende transaktioner fundet.",
+        "dateRange": "Periode: {{from}} — {{to}}"
+      },
+      "confirm": {
+        "title": "Klar til at oprette budget",
+        "readyTitle": "Import klar",
+        "readyDesc": "{{recurrences}} tilbagevendende regler og {{transactions}} transaktioner i alt. Opret budgettet for at anvende dem.",
+        "incomeRecurrences": "Tilbagevendende indkomst",
+        "expenseRecurrences": "Tilbagevendende udgifter",
+        "nextStepHint": "Tilbagevendende regler tilføjes til det nye budget. Du kan gennemgå og justere dem efter oprettelsen."
+      },
+      "actions": {
+        "import": "Importer",
+        "next": "Fortsæt",
+        "back": "Tilbage",
+        "retry": "Prøv igen",
+        "createBudget": "Opret Budget",
+        "downloadOriginal": "Download original fil"
+      },
+      "errors": {
+        "fileTooLarge": "Filen overstiger grænsen på 10 MB.",
+        "unsupportedType": "Kun CSV, XLSX og PDF-filer er understøttet.",
+        "parseFailed": "Kunne ikke læse filen. Kontroller at det er et gyldigt kontoudtog."
+      }
+    }
+  }
+}

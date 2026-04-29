@@ -1,0 +1,1351 @@
+{
+  "app": {
+    "name": "TanStack Template",
+    "brand": "AI Solutions",
+    "description": "A modern full-stack template powered by TanStack"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Solutions",
+    "timeline": "Story",
+    "contact": "Let's Talk",
+    "settings": "Settings",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
+  },
+  "auth": {
+    "topbarCta": "Sign in",
+    "localCta": "Email access",
+    "workspaceAccess": "Workspace access",
+    "eyebrow": "Hybrid authentication",
+    "title": "Choose how you want to sign in.",
+    "description": "Use your email and password, or continue with your external account from the same screen.",
+    "singleEntryTitle": "Sign in once. Keep moving.",
+    "singleEntryDescription": "Use the option you already know. Both paths take you to the same workspace without extra steps.",
+    "localOnly": "Email sign-in is unavailable right now.",
+    "localOnlyDescription": "Use the alternative sign-in option below to continue.",
+    "signInTab": "Sign in",
+    "signUpTab": "Create account",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "nameLabel": "Full name",
+    "emailPlaceholder": "you@company.com",
+    "passwordPlaceholder": "Your password",
+    "passwordRequirementHint": "Use at least {{min}} characters with letters, numbers, and a symbol.",
+    "namePlaceholder": "Ada Lovelace",
+    "signInAction": "Enter workspace",
+    "signUpAction": "Create account",
+    "submitting": "Working...",
+    "recommendedLocal": "Fastest way to enter",
+    "recommendedExternal": "Another option",
+    "signInHint": "Use the email account you already have for this workspace.",
+    "signUpHint": "Create a new account and start using the workspace in minutes.",
+    "localPanelTitle": "Email and password",
+    "localPanelDescription": "Sign in with the account you use every day.",
+    "clerkPanelTitle": "Another way to sign in",
+    "clerkPanelDescription": "Use your organization or external account if that is how you usually enter.",
+    "clerkAction": "Continue",
+    "clerkUnavailable": "This sign-in option is not available right now.",
+    "clerkUnavailableLabel": "Unavailable",
+    "clerkOffline": "Temporarily unavailable",
+    "sideTitle": "One workspace, your usual way in.",
+    "sideDescription": "Choose the sign-in method that feels familiar. You will arrive in the same place either way.",
+    "pointOne": "Use the same account you already recognize.",
+    "pointTwo": "Switch methods without changing your destination.",
+    "pointThree": "Sign in and continue right where you need to work.",
+    "backHome": "Back to home",
+    "goDashboard": "Go to dashboard",
+    "sessionVerificationError": "Your sign-in was not confirmed by the server yet. Try again in a moment.",
+    "nameRequiredError": "Enter your full name to create an account.",
+    "passwordWeakError": "Use at least {{min}} characters with letters, numbers, and a symbol."
+  },
+  "common": {
+    "loading": "Loading...",
+    "loadingMore": "Loading more...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "actions": "Actions",
+    "confirm": "Confirm",
+    "undoWarning": "This action cannot be undone.",
+    "noPermission": "You don't have permission to perform this action.",
+    "noPermissionEdit": "You can only edit tasks you created or are assigned to.",
+    "noPermissionDelete": "You can only delete tasks you created or are assigned to.",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "reset": "Reset",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loadMore": "Load More",
+    "openMenu": "Open menu",
+    "optional": "optional",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "pinVisible": "Pin visible",
+    "stop": "Stop",
+    "clear": "Clear",
+    "clearFilters": "Clear filters",
+    "noResults": "No results found.",
+    "noData": "No data available.",
+    "clearSearch": "Clear search",
+    "selected": "selected",
+    "send": "Send",
+    "backToHome": "Go to Homepage",
+    "retry": "Retry",
+    "unknownError": "An unexpected error occurred.",
+    "none": "None",
+    "saving": "Saving...",
+    "error": {
+      "title": "Something went wrong",
+      "description": "An error occurred while loading data. Please try again."
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "select": "Select language",
+    "en": "English",
+    "es": "Spanish",
+    "dk": "Danish"
+  },
+  "themeToggle": {
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "system": "System theme"
+  },
+  "sidebar": {
+    "main": {
+      "dashboard": "Dashboard",
+      "analytics": "Analytics",
+      "todos": "Todos",
+      "users": "Users",
+      "transactions": "Transactions",
+      "categories": "Categories",
+      "projects": "Projects",
+      "budgets": "Budgets",
+      "team": "Team",
+      "settings": "Settings"
+    },
+    "secondary": {
+      "settings": "Settings",
+      "help": "Get Help",
+      "search": "Search"
+    }
+  },
+  "ai": {
+    "search": {
+      "title": "AI Search",
+      "description": "Ask the assistant or jump to a section.",
+      "placeholder": "Search the dashboard...",
+      "providerAuto": "Auto provider",
+      "cta": "Search",
+      "searching": "Searching...",
+      "shortcut": "⌘K / Ctrl+K",
+      "offline": "You're offline. Search is unavailable.",
+      "error": "We couldn't complete the search.",
+      "resultsTitle": "Summary",
+      "empty": "No AI summary yet. Ask a question to get started.",
+      "suggestions": "Suggested destinations"
+    },
+    "chat": {
+      "title": "AI Help",
+      "description": "Ask about the dashboard, workflows, or data.",
+      "placeholder": "Type your question...",
+      "send": "Send",
+      "typing": "AI is typing...",
+      "offline": "You're offline. Connect to send messages.",
+      "error": "We couldn't reach the AI service.",
+      "empty": "Start the conversation with a question.",
+      "providers": "Provider status",
+      "thinking": "Thinking Process",
+      "dropFiles": "Drop files here to upload",
+      "pressEnter": "Press Enter to send",
+      "emptyDescription": "How can I help you today? You can ask about your data, configure the dashboard, or upload an image to analyze.",
+      "assistantName": "Smart Assistant",
+      "supportAssistant": "Support Assistant",
+      "agentInactive": "The assistant is currently unavailable",
+      "retry": "Retry",
+      "connectionError": "Connection error with the server",
+      "emptyResponse": "The AI returned an empty response. Try asking again or rephrasing your question.",
+      "fileAutoInstruction": "Analyze the attached file. If it contains a list of tasks or items, create a task for each one using CREAR TAREA action blocks.",
+      "fileAnalyzeInstruction": "Analyze the attached file and provide a summary or relevant actions.",
+      "conversations": "Conversations",
+      "newConversation": "New conversation",
+      "deleteConversation": "Delete conversation",
+      "deleteAllConversations": "Delete all",
+      "confirmDeleteConversation": "Are you sure you want to delete this conversation?",
+      "confirmDeleteAll": "Are you sure you want to delete all conversations?",
+      "noConversations": "No conversations yet",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "previousDays": "Previous 7 days",
+      "older": "Older",
+      "untitledConversation": "New conversation"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your dashboard preferences and application settings.",
+    "sections": {
+      "interface": "Interface Settings",
+      "development": "Development Tools"
+    },
+    "language": {
+      "title": "Language",
+      "description": "Select your preferred display language. Changes apply immediately."
+    },
+    "theme": {
+      "title": "Theme",
+      "description": "Choose your preferred color scheme for the interface."
+    },
+    "devtools": {
+      "title": "Developer Tools",
+      "description": "Show or hide TanStack DevTools in the interface.",
+      "show": "Show DevTools",
+      "showDescription": "Display TanStack DevTools panel for debugging."
+    },
+    "actions": {
+      "save": "Save Changes",
+      "reset": "Restore Defaults",
+      "saving": "Saving..."
+    },
+    "messages": {
+      "saved": "Settings saved successfully.",
+      "reset": "Settings restored to defaults.",
+      "error": "Failed to save settings. Please try again."
+    },
+    "ai": {
+      "title": "AI Configuration",
+      "description": "Configure AI service parameters, including base URL, access token, and endpoints.",
+      "sections": {
+        "status": "System Status",
+        "configurations": "Configurations",
+        "logs": "Logs",
+        "statusDescription": "Check the availability of your local and remote models.",
+        "fallback": "System Fallback Priority",
+        "connection": "Connection Details",
+        "parameters": "Model Parameters",
+        "endpoints": "Endpoints Configuration"
+      },
+      "tabs": {
+        "system": "System",
+        "ai": "AI Configuration"
+      },
+      "providers": {
+        "openai": "OpenAI",
+        "anthropic": "Anthropic",
+        "lm-studio": "LM Studio"
+      },
+      "fields": {
+        "provider": "AI Provider",
+        "baseUrl": "Base URL",
+        "port": "Port",
+        "token": "Access Token (optional)",
+        "apiKey": "API Key",
+        "model": "Model ID",
+        "temperature": "Temperature",
+        "maxTokens": "Max Tokens",
+        "topP": "Top P",
+        "frequencyPenalty": "Frequency Penalty",
+        "presencePenalty": "Presence Penalty",
+        "chatEndpoint": "Chat Endpoint",
+        "modelsEndpoint": "Models Endpoint",
+        "loadEndpoint": "Load Endpoint",
+        "downloadEndpoint": "Download Endpoint",
+        "statusEndpoint": "Status Endpoint",
+        "timeout": "Timeout (ms)",
+        "additionalParams": "Additional Params (JSON)"
+      },
+      "actions": {
+        "save": "Save Configuration",
+        "reset": "Restore Defaults",
+        "test": "Test Connection",
+        "confirmReset": "Are you sure you want to reset AI configuration to default values?"
+      },
+      "messages": {
+        "saved": "AI configuration saved successfully.",
+        "reset": "AI configuration reset.",
+        "testSuccess": "Successfully connected to AI service.",
+        "testError": "Failed to connect to AI service.",
+        "checkingStatus": "Checking service status...",
+        "fallbackDescription": "The system will automatically try the next available provider if the active one fails.",
+        "active": "Active",
+        "noModels": "No models found",
+        "modelsCount": "{{count}} models"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Welcome to your dashboard.",
+    "stats": {
+      "netBalance": "Net Balance",
+      "totalRevenue": "Total Revenue",
+      "totalExpenses": "Total Expenses",
+      "pendingApproval": "Pending approval",
+      "subscriptions": "Subscriptions",
+      "sales": "Sales",
+      "activeNow": "Active Now",
+      "activeProjects": "Active Projects",
+      "change": "{{value}} from last month"
+    },
+    "recentTasks": {
+      "title": "Recent Tasks",
+      "description": "Your team's latest activity."
+    },
+    "workload": {
+      "title": "Team Workload",
+      "description": "Task distribution across team members."
+    },
+    "error": {
+      "title": "Error loading dashboard",
+      "description": "We couldn't load the dashboard data. Please try again later."
+    },
+    "upcomingTasks": {
+      "title": "Upcoming Tasks (Next 7 Days)",
+      "description": "Tasks due this week.",
+      "filterByResponsible": "Responsible",
+      "noTasks": "No upcoming tasks for this week.",
+      "noFilteredResults": "No tasks found for selected filters."
+    },
+    "widgets": {
+      "projectsStatus": "Project Status",
+      "projectsStatusDesc": "Overview of projects by current status.",
+      "totalProjects": "Total Projects",
+      "pendingApprovals": "Pending Approvals",
+      "pendingApprovalsDesc": "Transactions awaiting review.",
+      "awaitingReview": "awaiting review",
+      "reviewTransactions": "Review transactions →",
+      "recentTransactions": "Recent Transactions",
+      "recentTransactionsDesc": "Latest financial activity.",
+      "teamOverview": "Team Overview",
+      "teamOverviewDesc": "All teams and their member counts.",
+      "totalTeams": "Teams",
+      "totalMembers": "Members",
+      "avgTeamSize": "Avg size",
+      "largestTeams": "Largest teams",
+      "noDescription": "No description",
+      "members": "members",
+      "userStats": "User Directory",
+      "userStatsDesc": "Team headcount and top departments.",
+      "totalUsers": "Total users",
+      "topDepartments": "Top Departments",
+      "quickSettings": "Quick Settings",
+      "quickSettingsDesc": "Adjust appearance and language instantly.",
+      "aiStatus": "AI Providers",
+      "aiStatusDesc": "Connection status of configured AI providers.",
+      "aiOnline": "online",
+      "models": "models",
+      "categoriesList": "Categories",
+      "categoriesListDesc": "All available categories at a glance.",
+      "totalCategories": "total",
+      "quickLinks": "Quick Links",
+      "quickLinksDesc": "Fast access to key workspace sections.",
+      "linkProjects": "Projects",
+      "linkTransactions": "Transactions",
+      "linkTasks": "Tasks",
+      "linkTeam": "Team",
+      "linkSettings": "Settings",
+      "linkHelp": "Help"
+    },
+    "actions": {
+      "refreshProjectsStatus": "Refresh project status",
+      "refreshPendingApprovals": "Refresh pending approvals",
+      "refreshRecentTransactions": "Refresh transactions",
+      "refreshTeamOverview": "Refresh teams",
+      "refreshUserStats": "Refresh user stats",
+      "refreshAiStatus": "Refresh AI status",
+      "refreshCategories": "Refresh categories",
+      "refreshUpcomingTasks": "Refresh upcoming tasks",
+      "refreshExpenseDistribution": "Refresh expense distribution",
+      "refreshWorkload": "Refresh workload"
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "pageViews": "Page Views",
+    "overview": "Overview",
+    "placeholder": "Analytics chart coming soon...",
+    "netBalance": "Net Balance",
+    "netBalanceDesc": "Income minus expenses",
+    "totalRevenue": "Total Revenue",
+    "totalRevenueDesc": "Total approved income",
+    "totalExpenses": "Total Expenses",
+    "totalExpensesDesc": "Total approved expenses",
+    "activeProjects": "Active Projects",
+    "activeProjectsDesc": "Currently active projects",
+    "taskCompletion": "Task Completion",
+    "tasks": "tasks",
+    "activeUsers": "Active Users",
+    "activeUsersDesc": "Total registered users",
+    "error": "Error loading KPIs",
+    "searchPlaceholder": "Search...",
+    "export": "Export",
+    "last7Days": "Last 7 days",
+    "last30Days": "Last 30 days",
+    "last90Days": "Last 90 days",
+    "financialTrend": {
+      "title": "Financial Trend",
+      "description": "Income and expenses over the last {{days}} days",
+      "error": "Error loading financial data",
+      "income": "Income",
+      "expenses": "Expenses"
+    },
+    "taskCompletionTrend": {
+      "title": "Task Completion Trend",
+      "description": "Tasks completed over the last {{days}} days",
+      "label": "Tasks Completed"
+    },
+    "taskDistribution": {
+      "byStatus": "Tasks by Status",
+      "byStatusDesc": "Current distribution of tasks",
+      "byPriority": "Tasks by Priority",
+      "byPriorityDesc": "Priority breakdown",
+      "label": "Tasks",
+      "error": "Error loading task data"
+    },
+    "projectPerformance": {
+      "title": "Project Performance",
+      "description": "Overview of project progress and budget usage",
+      "searchPlaceholder": "Search projects...",
+      "columns": {
+        "name": "Project Name",
+        "status": "Status",
+        "budget": "Budget Used",
+        "completion": "Task Completion",
+        "tasks": "Tasks"
+      },
+      "status": {
+        "active": "Active",
+        "completed": "Completed",
+        "on_hold": "On Hold"
+      }
+    }
+  },
+  "sectionCards": {
+    "totalRevenue": {
+      "title": "Total Revenue",
+      "trend": "Trending up this month",
+      "detail": "Visitors for the last 6 months"
+    },
+    "newCustomers": {
+      "title": "New Customers",
+      "trend": "Down 20% this period",
+      "detail": "Acquisition needs attention"
+    },
+    "activeAccounts": {
+      "title": "Active Accounts",
+      "trend": "Strong user retention",
+      "detail": "Engagement exceeds targets"
+    },
+    "growthRate": {
+      "title": "Growth Rate",
+      "trend": "Steady performance increase",
+      "detail": "Meets growth projections"
+    }
+  },
+  "chart": {
+    "timeRange": {
+      "placeholder": "Select a range",
+      "90d": "Last 3 months",
+      "30d": "Last 30 days",
+      "7d": "Last 7 days"
+    }
+  },
+  "categories": {
+    "title": "Categories",
+    "add": "Add Category",
+    "nameLabel": "Name",
+    "namePlaceholder": "Category name",
+    "colorLabel": "Color",
+    "save": "Save Category",
+    "summary": "Showing {{shown}} of {{total}} categories",
+    "columns": {
+      "name": "Name",
+      "color": "Color"
+    },
+    "description": {
+      "create": "Add a new category for your transactions.",
+      "edit": "Update category details."
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this category?"
+    },
+    "error": {
+      "title": "Error",
+      "description": "An error occurred while loading categories."
+    },
+    "mutations": {
+      "created": "Category created successfully",
+      "updated": "Category updated successfully",
+      "deleted": "Category deleted successfully"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "actions": {
+      "create": "Create New Project",
+      "new": "New Project",
+      "edit": "Edit Project",
+      "delete": "Delete Project",
+      "createAnother": "Create Another Project"
+    },
+    "form": {
+      "nameLabel": "Project Name",
+      "namePlaceholder": "Enter project name",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Describe the project objectives...",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Select status",
+      "typeLabel": "Project Type",
+      "typePlaceholder": "Select type",
+      "startDateLabel": "Start Date",
+      "endDateLabel": "End Date",
+      "technologiesLabel": "Technologies",
+      "technologiesPlaceholder": "React, TypeScript, Tailwind...",
+      "skillsLabel": "Skills",
+      "skillsPlaceholder": "Search skills...",
+      "skillsEmpty": "No skills found.",
+      "budgetLabel": "Budget",
+      "budgetPlaceholder": "0",
+      "priorityLabel": "Priority",
+      "priorityPlaceholder": "Select priority",
+      "departmentLabel": "Department",
+      "departmentPlaceholder": "Select department",
+      "teamLabel": "Team Members",
+      "teamPlaceholder": "Search users...",
+      "teamEmpty": "No users found.",
+      "createTitle": "Create Project",
+      "createDescription": "Add a new project to your workspace. Fill in the details below.",
+      "editTitle": "Edit Project",
+      "editDescription": "Update project details and configuration.",
+      "confirmationDescription": "Your project has been successfully created. You can now start adding tasks and team members.",
+      "tabs": {
+        "general": "General",
+        "team": "Team"
+      }
+    },
+    "members": {
+      "title": "Team Members",
+      "description": "Manage who has access to this project and their roles.",
+      "add": "Add Member",
+      "register": "Register New Member",
+      "registerDescription": "Create a new user and add them to the project team.",
+      "searchUsers": "Search users...",
+      "searchMembers": "Search team members...",
+      "noAvailableUsers": "No more users available.",
+      "empty": "No members in this project.",
+      "removeConfirm": "Are you sure you want to remove {{name}} from this project?",
+      "success": {
+        "added": "Member added successfully",
+        "updated": "Role updated successfully",
+        "removed": "Member removed successfully"
+      }
+    },
+    "status": {
+      "active": "Active",
+      "completed": "Completed",
+      "on_hold": "On Hold",
+      "planning": "Planning",
+      "cancelled": "Cancelled"
+    },
+    "type": {
+      "internal": "Internal",
+      "external": "External",
+      "research": "Research",
+      "maintenance": "Maintenance"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "success": {
+      "created": "Project created successfully",
+      "updated": "Project updated successfully",
+      "deleted": "Project deleted successfully"
+    },
+    "error": {
+      "create": "Failed to create project",
+      "update": "Failed to update project",
+      "delete": "Failed to delete project",
+      "hasTasks": "Cannot delete project '{{name}}' because it has associated tasks."
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete project '{{name}}'?"
+    },
+    "member": {
+      "role": "Role",
+      "owner": "Owner",
+      "manager": "Manager",
+      "contributor": "Contributor",
+      "viewer": "Viewer",
+      "add": "Add Member",
+      "remove": "Remove Member",
+      "updateRole": "Update Role",
+      "joinedAt": "Joined on"
+    }
+  },
+  "team": {
+    "title": "Team",
+    "actions": {
+      "new": "New Team",
+      "create": "Create Team",
+      "edit": "Edit Team"
+    },
+    "members": "Members",
+    "emptyMembers": "No members assigned.",
+    "emptyUsers": "No users available.",
+    "confirm": {
+      "delete": "Are you sure you want to delete \"{{name}}\"?"
+    },
+    "toast": {
+      "created": "Team created successfully",
+      "updated": "Team updated successfully",
+      "deleted": "Team deleted successfully"
+    }
+  },
+  "todos": {
+    "title": "Todos",
+    "subtitlePrefix": "Manage your workflow. You have ",
+    "subtitleSuffix": " active tasks.",
+    "actions": {
+      "new": "New Task",
+      "create": "Create Task",
+      "update": "Update Task",
+      "edit": "Edit Task",
+      "delete": "Delete"
+    },
+    "form": {
+      "headerTitle": "Task Details",
+      "headerSubtitle": "Define objectives and delivery dates.",
+      "titleLabel": "Project Title",
+      "titlePlaceholder": "Ex: Dashboard redesign",
+      "descriptionLabel": "Detailed Description",
+      "descriptionPlaceholder": "Describe the steps to follow...",
+      "statusLabel": "Current Status",
+      "statusPlaceholder": "Select status",
+      "statusPending": "Pending",
+      "statusInProgress": "In Progress",
+      "statusCompleted": "Completed",
+      "priorityLabel": "Priority",
+      "priorityPlaceholder": "Select priority",
+      "priorityLow": "Low",
+      "priorityMedium": "Medium",
+      "priorityHigh": "High",
+      "dueDateLabel": "Due Date",
+      "dueDatePlaceholder": "Select date",
+      "assignedToLabel": "Assigned To",
+      "assignedToPlaceholder": "Select user",
+      "assignedToSelf": "Me",
+      "projectLabel": "Project",
+      "projectPlaceholder": "Select project",
+      "complexityLabel": "Complexity",
+      "complexityPlaceholder": "1-10 (e.g. 5)",
+      "estimatedTimeLabel": "Estimated Time",
+      "estimatedTimePlaceholder": "Hours (e.g. 4)",
+      "actualTimeLabel": "Actual Time",
+      "actualTimePlaceholder": "Hours (e.g. 2)",
+      "acceptanceCriteriaLabel": "Acceptance Criteria",
+      "acceptanceCriteriaPlaceholder": "Ex: Feature must be accessible...",
+      "dependenciesLabel": "Dependencies",
+      "dependenciesPlaceholder": "Select tasks...",
+      "sections": {
+        "general": {
+          "title": "General Information",
+          "description": "Define the basic aspects of the task so everyone understands what it's about."
+        },
+        "planning": {
+          "title": "Planning & Timing",
+          "description": "Set deadlines and estimate the effort required to complete the work."
+        },
+        "assignment": {
+          "title": "Assignment & Context",
+          "description": "Place the task within a project and assign it to the responsible person."
+        },
+        "tracking": {
+          "title": "Tracking & Relations",
+          "description": "Manage the current status and link this task with other dependencies."
+        }
+      }
+    },
+    "status": {
+      "pending": "Pending",
+      "inProgress": "In Progress",
+      "in_progress": "In Progress",
+      "completed": "Completed",
+      "on_hold": "On Hold",
+      "testing": "Testing",
+      "blocked": "Blocked",
+      "cancelled": "Cancelled"
+    },
+    "filters": {
+      "label": "Filters",
+      "onlyMyTasks": "Only my tasks",
+      "allStatuses": "All statuses",
+      "allUsers": "All users",
+      "myTasks": "My tasks"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "table": {
+      "title": "Task",
+      "status": "Status",
+      "priority": "Priority",
+      "assignedTo": "Assigned To",
+      "createdAt": "Created",
+      "dueDate": "Due Date"
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this task?"
+    },
+    "searchPlaceholder": "Search tasks...",
+    "noSearchResults": "No tasks match your search",
+    "empty": "No tasks found",
+    "clearSearch": "Clear search",
+    "loadingMore": "Loading more tasks...",
+    "error": {
+      "title": "Load Error",
+      "description": "We couldn't fetch your tasks. Check your connection and try again.",
+      "retry": "Retry"
+    },
+    "sheet": {
+      "createTitle": "Create Task",
+      "createDescription": "Add a new task to your list. Complete the details below.",
+      "editTitle": "Edit Task",
+      "editDescription": "Update your task details. Changes are saved immediately."
+    },
+    "toast": {
+      "created": "Task created successfully",
+      "updated": "Task updated successfully",
+      "deleted": "Task deleted successfully"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "subtitlePrefix": "Manage access levels for ",
+    "subtitleSuffix": " team members.",
+    "actions": {
+      "new": "New User",
+      "save": "Save User",
+      "editProfile": "Edit Profile",
+      "deleteAccount": "Delete Account"
+    },
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "User name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "User email",
+      "roleLabel": "Role",
+      "rolePlaceholder": "Select role",
+      "roleHelp": "The role defines the user's permissions.",
+      "roleUser": "User",
+      "roleAdmin": "Admin",
+      "avatarLabel": "Avatar URL",
+      "avatarPlaceholder": "Avatar URL",
+      "avatarRandom": "Random",
+      "avatarHelp": "Paste a URL or generate a random avatar",
+      "jobTitleLabel": "Job Title",
+      "jobTitlePlaceholder": "e.g. Senior Developer",
+      "departmentLabel": "Department",
+      "departmentPlaceholder": "Select department",
+      "reportsToLabel": "Reports To",
+      "reportsToPlaceholder": "Select manager",
+      "reportsToHelp": "The person this user reports to directly.",
+      "sections": {
+        "account": {
+          "title": "Account Information",
+          "description": "Manage basic user data and identity on the platform."
+        },
+        "professional": {
+          "title": "Professional Details",
+          "description": "Define the user's role and job title within the organization."
+        },
+        "organization": {
+          "title": "Organizational Structure",
+          "description": "Place the user in a department and define their reporting line."
+        }
+      }
+    },
+    "table": {
+      "user": "User",
+      "role": "Role / Access",
+      "jobTitle": "Job Title",
+      "department": "Department"
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this user?"
+    },
+    "loadingMore": "Syncing...",
+    "loadMore": "Load more users",
+    "error": {
+      "title": "Connection Error",
+      "description": "We couldn't sync the user list. Please retry in a moment.",
+      "retry": "Retry"
+    },
+    "sheet": {
+      "createTitle": "User Registration",
+      "createDescription": "Create a new access profile for your team.",
+      "editTitle": "User Profile",
+      "editDescription": "Update contact information and permissions."
+    },
+    "toast": {
+      "created": "User created successfully",
+      "updated": "User updated successfully",
+      "deleted": "User deleted successfully"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "summary": "Showing {{shown}} of {{total}} transactions",
+    "actions": {
+      "add": "Add Transaction",
+      "save": "Save Transaction",
+      "edit": "Edit",
+      "delete": "Delete",
+      "create": "Create Transaction"
+    },
+    "form": {
+      "customerNameLabel": "Customer Name",
+      "customerNamePlaceholder": "Customer name",
+      "customerEmailLabel": "Customer Email",
+      "customerEmailPlaceholder": "Customer email",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Select status",
+      "statusApproved": "Approved",
+      "statusPending": "Pending",
+      "statusRejected": "Rejected",
+      "amountLabel": "Amount",
+      "amountPlaceholder": "0.00",
+      "dateLabel": "Date",
+      "userLabel": "User",
+      "userPlaceholder": "Select User",
+      "projectLabel": "Project",
+      "projectPlaceholder": "Select Project",
+      "createDescription": "Create a new transaction record.",
+      "editDescription": "Edit transaction details."
+    },
+    "table": {
+      "customer": "Customer",
+      "status": "Status",
+      "date": "Date",
+      "amount": "Amount"
+    },
+    "status": {
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected"
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this transaction?"
+    },
+    "error": {
+      "title": "Error",
+      "description": "An error occurred while loading transactions."
+    },
+    "toast": {
+      "created": "Transaction created successfully",
+      "updated": "Transaction updated successfully",
+      "deleted": "Transaction deleted successfully"
+    },
+    "history": "Transaction History",
+    "pending": {
+      "title": "Requires Your Approval",
+      "approveConfirm": "Are you sure you want to approve this transaction?",
+      "approveSuccess": "Transaction approved successfully",
+      "rejectPrompt": "Please provide a reason for rejection:",
+      "rejectSuccess": "Transaction rejected successfully",
+      "approve": "Approve",
+      "reject": "Reject"
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must be at most {{max}} characters",
+    "invalidEmail": "Invalid email address",
+    "invalidUrl": "Invalid URL",
+    "invalidColor": "Invalid color",
+    "invalidDate": "Invalid date",
+    "futureDate": "Date must be in the future",
+    "minAmount": "Must be greater than 0"
+  },
+  "home": {
+    "hero": {
+      "badge": "Purpose in every pixel",
+      "title": "Where human intuition",
+      "titleHighlight": "meets AI",
+      "description": "We're not here to replace your voice, but to amplify it. We create systems that learn from your essence so you can return to what really matters: creating, imagining, and leading.",
+      "ctaPrimary": "Start your transformation",
+      "ctaSecondary": "Our philosophy",
+      "pills": {
+        "alma": "Technology with Soul",
+        "impacto": "Real Impact",
+        "friccion": "Zero Friction"
+      },
+      "stats": {
+        "hours": {
+          "label": "Hours returned to talent",
+          "value": "2.5k+"
+        },
+        "precision": {
+          "label": "Human Precision",
+          "value": "99.9%"
+        },
+        "projects": {
+          "label": "Purpose-driven projects",
+          "value": "150+"
+        }
+      }
+    },
+    "newHero": {
+      "badge": "We understand the noise, we seek clarity",
+      "title": "Your business is unique,",
+      "titleHighlight": "your AI should be too",
+      "description": "Does current technology feel like a barrier instead of a bridge? We've helped hundreds of teams recover 15 hours a week of mechanical work so they can focus on the strategy only humans can trace.",
+      "ctaPrimary": "Schedule an honest talk",
+      "ctaSecondary": "See how we work",
+      "stats": {
+        "customers": {
+          "label": "Happy Customers",
+          "value": "10K+"
+        },
+        "projects": {
+          "label": "Projects Completed",
+          "value": "500+"
+        },
+        "satisfaction": {
+          "label": "Satisfaction Rate",
+          "value": "99%"
+        }
+      }
+    },
+    "features": {
+      "title": "Our pillars are non-negotiable",
+      "description": "We believe technology should serve people, not the other way around. These are the promises we keep in every line of code.",
+      "items": {
+        "efficiency": {
+          "title": "Invisible Efficiency",
+          "description": "We automate what exhausts you, not what defines you. Systems that work in the background so you are the protagonist."
+        },
+        "ethics": {
+          "title": "Ethics by Design",
+          "description": "Your data is your legacy. We build with non-negotiable privacy, protecting the trust you've earned with your customers."
+        },
+        "closeness": {
+          "title": "Radical Closeness",
+          "description": "We don't just deliver code and leave. We are your technological partners, understanding your challenges as if they were our own."
+        }
+      }
+    },
+    "services": {
+      "badge": "How we accompany you",
+      "title": "Solutions that solve, not complicate",
+      "description": "We understand that behind every technical requirement there is a human goal. Here's how we make it happen.",
+      "cta": "See how",
+      "items": {
+        "software": {
+          "title": "Software with Meaning",
+          "description": "We don't launch code into the void. We develop tools that eliminate your team's daily friction, giving them back the time they deserve.",
+          "badge": "Direct Impact"
+        },
+        "design": {
+          "title": "Empathetic Design",
+          "description": "Interfaces that don't need a manual. We put ourselves in the shoes of those who will use your product so that every click is natural and stress-free."
+        },
+        "mobility": {
+          "title": "Digital Proximity",
+          "description": "Be where your users are, but respectfully. We create mobile experiences that feel like an extension of their daily lives.",
+          "badge": "Essential"
+        },
+        "clarity": {
+          "title": "Clarity in Chaos",
+          "description": "In a world saturated with information, we help your real message reach the people who genuinely need it."
+        },
+        "growth": {
+          "title": "Sustainable Growth",
+          "description": "Scaling doesn't have to be traumatic. We optimize your processes so your project grows at the pace of your ambitions, not your worries."
+        },
+        "trust": {
+          "title": "Total Peace of Mind",
+          "description": "We protect what you value most: your users' trust. We implement robust security so you only worry about innovating.",
+          "badge": "Commitment"
+        }
+      }
+    },
+    "timeline": {
+      "badge": "Our Evolution",
+      "title": "A path of people, not just code",
+      "description": "We look back not to celebrate achievements, but to remember why we started this journey in the first place.",
+      "events": {
+        "seed": {
+          "title": "The Seed of an Idea",
+          "description": "We were born in a small studio, tired of seeing how technology was moving away from people."
+        },
+        "listening": {
+          "title": "Listening to Real Stories",
+          "description": "We reached our first 1,000 users, not as numbers, but as conversations that shaped our platform."
+        },
+        "growth": {
+          "title": "Growing with Responsibility",
+          "description": "We received support to expand, always keeping our promise not to lose the human touch."
+        },
+        "impact": {
+          "title": "Impact Without Borders",
+          "description": "We opened offices in 5 countries, learning that the desire to work better is a universal language."
+        },
+        "purpose": {
+          "title": "Purposeful Intelligence",
+          "description": "We launched our AI features, designed to give you back the time that administrative work stole from you."
+        }
+      },
+      "footer": "And the story continues with you..."
+    },
+    "contact": {
+      "title": "Let's talk about what keeps you up at night",
+      "description": "Do you have a project in mind or just want to understand how technology can give you back your time? We are here to listen to you, without unnecessary technicalities.",
+      "form": {
+        "name": {
+          "label": "What is your name?",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Your personal email",
+          "placeholder": "example@mail.com"
+        },
+        "subject": {
+          "label": "What do you have in mind?",
+          "placeholder": "Tell us briefly..."
+        },
+        "message": {
+          "label": "Tell us your story",
+          "placeholder": "What is the biggest challenge you face today?"
+        },
+        "submit": "Send message and start the chat"
+      },
+      "info": {
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location"
+      },
+      "workingHours": {
+        "title": "Working Hours",
+        "weekdays": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "closed": "Closed"
+      }
+    },
+    "footer": {
+      "brand": "Brand",
+      "since": "Since 2018",
+      "copyright": "© {{year}} Brand Inc. All rights reserved.",
+      "description": "Humanizing technology so you can be more human. We are not just an AI company, we are your partners in the search for time and purpose.",
+      "subscribe": {
+        "title": "Join our weekly talk",
+        "placeholder": "Your best email",
+        "button": "Subscribe"
+      },
+      "links": {
+        "essence": {
+          "title": "Our Essence",
+          "items": ["Philosophy", "Success stories", "Methodology", "Human Blog"]
+        },
+        "company": {
+          "title": "Company",
+          "items": ["About us", "Culture", "Work with us", "Press"]
+        },
+        "community": {
+          "title": "Community",
+          "items": ["Events", "Help Center", "Partners", "Network Status"]
+        },
+        "legal": {
+          "title": "Legal",
+          "items": ["Ethical Privacy", "Terms of Use", "Cookies", "Licenses"]
+        }
+      }
+    }
+  },
+  "budgets": {
+    "title": "Budgets",
+    "description": "Manage and track your financial budgets.",
+    "empty": {
+      "title": "No budgets yet",
+      "description": "Create your first budget to start tracking income and expenses."
+    },
+    "actions": {
+      "create": "New Budget",
+      "edit": "Edit Budget",
+      "save": "Save Budget",
+      "delete": "Delete Budget",
+      "deleteConfirm": "Are you sure you want to delete this budget?"
+    },
+    "create": {
+      "title": "New Budget",
+      "description": "Create a new budget to track your income and spending."
+    },
+    "edit": {
+      "title": "Edit Budget",
+      "description": "Update your budget details."
+    },
+    "fields": {
+      "name": "Budget Name",
+      "namePlaceholder": "e.g. Marketing Q1",
+      "description": "Description",
+      "descriptionPlaceholder": "What is this budget for?",
+      "scope": "Scope",
+      "project": "Project",
+      "projectPlaceholder": "Select project",
+      "targetAmount": "Spending Limit",
+      "noLimit": "No limit",
+      "currency": "Currency",
+      "periodType": "Period",
+      "startDate": "Start Date",
+      "endDate": "End Date (optional)"
+    },
+    "scopes": {
+      "personal": "Personal",
+      "project": "Project",
+      "department": "Department",
+      "company": "Company"
+    },
+    "periods": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "semiannual": "Semiannual",
+      "annual": "Annual",
+      "one_time": "One-time"
+    },
+    "health": {
+      "healthy": "Healthy",
+      "on_track": "On Track",
+      "warning": "Warning",
+      "approaching": "Approaching",
+      "overBudget": "Over Budget",
+      "noLimit": "No Limit"
+    },
+    "summary": {
+      "income": "Income",
+      "expenses": "Expenses",
+      "balance": "Balance",
+      "remaining": "Remaining",
+      "overBy": "Over by",
+      "noLimit": "No limit",
+      "used": "used"
+    },
+    "detail": {
+      "notFound": "Budget not found.",
+      "overBudget": "Over Budget",
+      "spent": "spent",
+      "overBy": "Over by {{amount}}",
+      "totalSpent": "Total Spent",
+      "balance": "Balance",
+      "tabs": {
+        "transactions": "Transactions",
+        "categories": "Categories",
+        "members": "Members",
+        "recurring": "Recurring",
+        "report": "Report"
+      }
+    },
+    "report": {
+      "title": "Annual Report",
+      "subtitle": "Expenses and income by category across months",
+      "item": "Transactions",
+      "year": "Year",
+      "category": "Category",
+      "totalExpenses": "Total Expenses",
+      "totalIncome": "Total Income",
+      "expensesTable": "Expenses by Category",
+      "incomeTable": "Income by Category",
+      "balance": "Balance",
+      "total": "Total",
+      "month": "Month",
+      "accumExpenses": "Acum. Expenses",
+      "summarySection": "Summary",
+      "noData": "No transactions found for {{year}}",
+      "showIncome": "Show income rows",
+      "hideIncome": "Hide income rows",
+      "directLabel": "unplanned",
+      "directExpenseLabel": "unplanned"
+    },
+    "alerts": {
+      "overBudget": "budget(s) over limit"
+    },
+    "toast": {
+      "created": "Budget created successfully",
+      "updated": "Budget updated successfully",
+      "deleted": "Budget deleted successfully"
+    },
+    "messages": {
+      "created": "Budget created successfully",
+      "updated": "Budget updated successfully",
+      "deleted": "Budget deleted successfully",
+      "memberAdded": "Member added to budget",
+      "memberRemoved": "Member removed from budget",
+      "limitSet": "Category limit saved",
+      "recurrenceCreated": "Recurring transaction created",
+      "recurrenceDeleted": "Recurring transaction deleted"
+    },
+    "transactions": {
+      "count": "transactions",
+      "add": "Add Transaction",
+      "addTitle": "Add Transaction to Budget",
+      "editTitle": "Edit Transaction",
+      "deleteConfirm": "Delete this transaction?",
+      "empty": "No transactions linked to this budget.",
+      "noDescription": "No description",
+      "type": "Type",
+      "expense": "Expense",
+      "income": "Income",
+      "description": "Description",
+      "descriptionPlaceholder": "What is this for?",
+      "amount": "Amount",
+      "date": "Date",
+      "category": "Category",
+      "categoryPlaceholder": "Select category"
+    },
+    "limits": {
+      "count": "category limits",
+      "add": "Add Limit",
+      "addTitle": "Set Category Limit",
+      "editTitle": "Edit Category Limit",
+      "empty": "No category limits set.",
+      "category": "Category",
+      "selectCategory": "Select category",
+      "amount": "Limit Amount",
+      "spent": "Spent",
+      "allocated": "limit",
+      "toast": {
+        "upserted": "Category limit saved",
+        "deleted": "Category limit removed"
+      }
+    },
+    "members": {
+      "count": "members",
+      "add": "Add Member",
+      "addTitle": "Add Member to Budget",
+      "empty": "No members yet.",
+      "owner": "Owner",
+      "role": "Role",
+      "searchUser": "Search users",
+      "searchPlaceholder": "Type a name or email...",
+      "selectUser": "Select user",
+      "userPlaceholder": "Choose a user",
+      "addBtn": "Add Member",
+      "toast": {
+        "added": "Member added",
+        "roleUpdated": "Role updated",
+        "removed": "Member removed"
+      }
+    },
+    "roles": {
+      "admin": "Admin",
+      "contributor": "Contributor",
+      "viewer": "Viewer"
+    },
+    "recurrences": {
+      "count": "rules",
+      "add": "Add Rule",
+      "createTitle": "Create Recurrence Rule",
+      "empty": "No recurring rules yet.",
+      "noDescription": "Unnamed rule",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Monthly rent",
+      "amount": "Amount",
+      "frequencyLabel": "Frequency",
+      "interval": "Every (n)",
+      "startDate": "Start Date",
+      "category": "Category",
+      "categoryPlaceholder": "No category",
+      "nextOn": "next",
+      "pause": "Pause",
+      "resume": "Resume",
+      "manualPause": "Manually paused",
+      "type": "Type",
+      "typeExpense": "Expense",
+      "typeIncome": "Income",
+      "status": {
+        "active": "Active",
+        "paused": "Paused",
+        "completed": "Completed"
+      },
+      "frequency": {
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "quarterly": "Quarterly",
+        "semiannual": "Semiannual",
+        "annual": "Annual"
+      },
+      "toast": {
+        "created": "Recurrence rule created",
+        "updated": "Recurrence rule updated",
+        "deleted": "Recurrence rule deleted"
+      }
+    },
+    "categories": {
+      "uncategorized": "Uncategorized"
+    },
+    "widgets": {
+      "refreshBalance": "Refresh balance",
+      "refreshOverview": "Refresh overview",
+      "refreshCategories": "Refresh categories"
+    },
+    "import": {
+      "title": "Import Budget",
+      "description": "Upload a bank statement to analyze and create a budget from real data.",
+      "upload": {
+        "dropLabel": "Drop your file here, or click to browse",
+        "dropSub": "Supported: CSV, XLSX, PDF bank statements",
+        "maxSize": "Max {{size}}",
+        "supportedHint": "Compatible with any bank format",
+        "supportedDesc": "Columns are auto-detected in English, Spanish, and Danish. Date and amount formats are handled automatically."
+      },
+      "analysis": {
+        "title": "Analysis Results",
+        "processing": "Parsing and analysing transactions…",
+        "parsed": "Parsed",
+        "transactions": "transactions",
+        "recurringFound": "{{count}} recurring transactions detected",
+        "confidence": "Confidence",
+        "noRecurring": "No recurring transactions detected.",
+        "dateRange": "Period: {{from}} — {{to}}"
+      },
+      "confirm": {
+        "title": "Ready to Create Budget",
+        "readyTitle": "Import ready",
+        "readyDesc": "{{recurrences}} recurring rules and {{transactions}} total transactions found. Create the budget to apply them.",
+        "incomeRecurrences": "Recurring income",
+        "expenseRecurrences": "Recurring expenses",
+        "nextStepHint": "Recurring rules will be added to the new budget. You can review and adjust them after creation."
+      },
+      "actions": {
+        "import": "Import",
+        "next": "Continue",
+        "back": "Back",
+        "retry": "Try again",
+        "createBudget": "Create Budget",
+        "downloadOriginal": "Download original file"
+      },
+      "errors": {
+        "fileTooLarge": "File exceeds the 10 MB limit.",
+        "unsupportedType": "Only CSV, XLSX, and PDF files are supported.",
+        "parseFailed": "Could not read the file. Make sure it's a valid bank statement."
+      }
+    }
+  }
+}
