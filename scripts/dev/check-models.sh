@@ -20,13 +20,13 @@ fi
 
 models="$(ls -1 "$MODEL_DIR"/*.gguf 2>/dev/null || true)"
 if [ -z "$models" ]; then
-  echo "❌ ERROR: No llama.cpp GGUF models found in $MODEL_DIR"
+  echo "⚠️  WARNING: No llama.cpp GGUF models found in $MODEL_DIR"
+  echo "   Local llama.cpp provider will be unavailable."
+  echo "   The default provider is MiniMax (cloud). Set MINIMAX_API_KEY in .env to use it."
+  echo "   To enable llama.cpp locally, run:"
+  echo "   pnpm docker:up:full   OR   sh scripts/ai/bootstrap-llama-cpp.sh"
   echo ""
-  echo "👉 ACTION REQUIRED: Run one of:"
-  echo "   pnpm docker:up:full"
-  echo "   sh scripts/ai/bootstrap-llama-cpp.sh"
-  echo ""
-  exit 1
+  exit 0
 fi
 
 echo "✅ AI models detected:"

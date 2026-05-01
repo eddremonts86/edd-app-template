@@ -15,6 +15,8 @@ It is the distilled, business-domain-agnostic core extracted from `apps/budget-a
 
 **Goal:** Clone this template, rename the package, add a domain-specific module, and have a fully working SaaS running in under 30 minutes.
 
+**AI Default:** MiniMax is integrated as the default LLM agent. See .env.example for configuration.
+
 ---
 
 ## 2. Core Features & Acceptance Criteria

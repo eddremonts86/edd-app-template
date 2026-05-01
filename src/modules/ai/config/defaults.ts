@@ -63,6 +63,30 @@ export const ANTHROPIC_BASE_URL =
   'https://api.anthropic.com/v1'
 
 export const PROVIDER_DEFAULTS: Record<AiProvider, AiConfigFormData> = {
+  minimax: {
+    provider: 'minimax',
+    baseUrl: getEnv('MINIMAX_BASE_URL', 'https://api.minimaxi.chat/v1'),
+    port: parsePort(getEnv('MINIMAX_BASE_URL', 'https://api.minimaxi.chat/v1'), 443),
+    token: '',
+    apiKey: getEnv('MINIMAX_API_KEY', ''),
+    parameters: {
+      model: getEnv('MINIMAX_MODEL', 'abab6.5-chat'),
+      temperature: 0.7,
+      max_tokens: 2048,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+    },
+    endpoints: {
+      chat: '/v1/chat/completions',
+      models: '/v1/models',
+      load: '',
+      download: '',
+      status: '',
+    },
+    timeout: 30000,
+    additionalParams: '',
+  },
   'llama-cpp': {
     provider: 'llama-cpp',
     baseUrl: LLAMA_CPP_BASE_URL,
@@ -220,11 +244,12 @@ export const normalizeStore = (store?: Partial<AiConfigStore> | null): AiConfigS
   const activeProvider =
     store?.activeProvider && AI_PROVIDER_SET.has(store.activeProvider)
       ? store.activeProvider
-      : 'llama-cpp'
+      : 'minimax'
 
   return {
     activeProvider,
     providers: {
+      minimax: normalizeConfig(store?.providers?.minimax, 'minimax'),
       'llama-cpp': normalizeConfig(store?.providers?.['llama-cpp'], 'llama-cpp'),
       ollama: normalizeConfig(store?.providers?.ollama, 'ollama'),
       openai: normalizeConfig(store?.providers?.openai, 'openai'),
