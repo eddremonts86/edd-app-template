@@ -11,6 +11,10 @@ const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITEST
 const isViteDevtoolsDisabled = process.env.DISABLE_TANSTACK_VITE_DEVTOOLS === 'true'
 
 const config = defineConfig((configEnv) => {
+  // NOTE: TanStack Start's Vite plugin does not set isSsrBuild=true for its
+  // server bundle (it uses the Environment API internally). This alias therefore
+  // applies to the CLIENT bundle only — server-only code must import via the
+  // explicit subpath '@/shared/lib/db/index' to bypass this alias.
   const shouldStubDbForClientBuild = configEnv.command === 'build' && !configEnv.isSsrBuild
   const streamWebShim = fileURLToPath(
     new URL('./src/shared/lib/node/stream-web.ts', import.meta.url),
