@@ -87,15 +87,6 @@ const server = createServer(async (req, res) => {
   const host = req.headers.host ?? `localhost:${PORT}`
   const url = new URL(req.url ?? '/', `${protocol}://${host}`)
 
-  // Redirect root domain to canonical subdomain (301 permanent)
-  const hostname = url.hostname
-  if (hostname === 'eduardoinerarte.dk') {
-    const target = `https://profile.eduardoinerarte.dk${url.pathname}${url.search}`
-    res.writeHead(301, { Location: target })
-    res.end()
-    return
-  }
-
   // Serve static files from dist/client/ before hitting the SSR handler
   if (req.method === 'GET' || req.method === 'HEAD') {
     if (tryServeStatic(url.pathname, res)) return
