@@ -44,7 +44,7 @@ export const getAuthUser = async (): Promise<ServerAuthUser> => {
         email: session.user.email ?? null,
         name: session.user.name ?? null,
         image: session.user.image ?? null,
-        role: 'user',
+        role: (session.user as { role?: string }).role ?? 'user',
       }
     }
   }
