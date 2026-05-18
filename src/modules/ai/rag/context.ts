@@ -419,7 +419,7 @@ async function fetchDynamicContext(intents: Intent[]): Promise<string | null> {
   const sections: string[] = []
 
   try {
-    const { getDb } = await import('@/shared/lib/db')
+    const { getDb } = await import('@/shared/lib/db/index')
     const db = getDb()
 
     if (intents.includes('users')) {
