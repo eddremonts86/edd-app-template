@@ -76,7 +76,8 @@
     "docker:ai:smoke": "sh scripts/ai/smoke.sh",
     "docker:ai:smoke:chat": "sh scripts/ai/smoke-chat.sh",
     "docker:verify": "pnpm docker:check && pnpm docker:ai:smoke && pnpm docker:ai:smoke:chat",
-    "routes:inventory": "tsx scripts/routes/generate-inventory.ts"
+    "routes:inventory": "tsx scripts/routes/generate-inventory.ts",
+    "release": "node scripts/release/create-edd-app-release.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.1",

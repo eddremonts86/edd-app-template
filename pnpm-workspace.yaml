@@ -3,7 +3,7 @@ allowBuilds:
   '@parcel/watcher': false
   '@percy/core': false
   esbuild: false
-  msgpackr-extract: set this to true or false
+  msgpackr-extract: true
   onnxruntime-node: false
   protobufjs: false
   sharp: false

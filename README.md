@@ -201,6 +201,20 @@ apps/edd-app-template/
 
 ---
 
+## Releasing the create-edd-app CLI
+
+The `@edd_remonts/create-edd-app` npm package lives in `tools/create-edd-app/`.
+A single command handles the full release flow:
+
+```bash
+pnpm release
+```
+
+Bumps the version, commits, tags, pushes, and triggers CI to publish to npm.
+See [`tools/create-edd-app/README.md`](tools/create-edd-app/README.md) for full details.
+
+---
+
 ## License
 
 MIT

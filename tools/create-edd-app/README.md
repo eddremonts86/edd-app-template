@@ -25,36 +25,47 @@ npx @edd_remonts/create-edd-app my-product --package-manager pnpm
 node ./bin/create-edd-app.mjs demo-app --no-install
 ```
 
-## Publish
+## Releasing a new version
+
+Use the automated release script from the **project root**:
+
+```bash
+pnpm release
+```
+
+The script will:
+
+1. Check your working tree is clean.
+2. Prompt for bump type (`patch` / `minor` / `major`) or an explicit version.
+3. Bump the version in `tools/create-edd-app/package.json`.
+4. Create a commit: `chore(create-edd-app): bump version to X.Y.Z`.
+5. Create an annotated tag: `create-edd-app-vX.Y.Z`.
+6. Push the branch and tag to `origin`.
+7. Optionally create a GitHub Release (requires the `gh` CLI).
+
+GitHub Actions then publishes `@edd_remonts/create-edd-app` to npm automatically.
+
+You can also pass the bump type directly to skip the interactive prompt:
+
+```bash
+pnpm release patch     # 0.1.1 → 0.1.2
+pnpm release minor     # 0.1.1 → 0.2.0
+pnpm release major     # 0.1.1 → 1.0.0
+pnpm release 1.0.0-rc.1  # explicit pre-release
+```
+
+Monitor the publish run:
+<https://github.com/eddremonts86/edd-app-template/actions>
+
+### CI validation rules
+
+- Tag must match `package.json` version exactly: `create-edd-app-v<version>`.
+- Publish is silently skipped if that version already exists on npm.
+- All publishes use npm provenance (`--provenance`).
+
+### Manual publish (emergency only)
 
 ```bash
 cd tools/create-edd-app
-npm publish --access public
+npm publish --access public --provenance
 ```
-
-After publish, users can run:
-
-```bash
-npx @edd_remonts/create-edd-app my-product
-```
-
-## Release Best Practices (Tags + GitHub Release)
-
-The project workflow publishes automatically from this repository when a release tag is pushed.
-
-1. Bump version in `tools/create-edd-app/package.json`.
-1. Commit changes to `main`.
-1. Create and push a tag using this exact format:
-
-```bash
-git tag create-edd-app-v0.1.2
-git push origin create-edd-app-v0.1.2
-```
-
-1. (Recommended) Create a GitHub Release using the same tag.
-
-Validation rules in CI:
-
-- Tag must match package version exactly: `create-edd-app-v<package.json version>`.
-- Publish is skipped if that version already exists on npm.
-- Publish runs with npm provenance enabled.
