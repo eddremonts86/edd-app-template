@@ -57,7 +57,7 @@ import type {
   PersistedActionState,
   StoredMessage,
 } from '@/modules/ai/storage/chat-storage'
-import { aiConfigApi, useAiConfigStore  } from '@/modules/settings'
+import { aiConfigApi, useAiConfigStore } from '@/modules/settings'
 import { useCurrentUser } from '@/modules/users'
 import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { useTQuery } from '@/shared/lib/query'
@@ -159,6 +159,7 @@ function useConversationManager(userId: string | null, userRole: 'admin' | 'user
   // Load the active conversation object when activeId changes
   React.useEffect(() => {
     if (!activeId) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- clear derived state when id is removed
       setActiveConv(null)
       return
     }

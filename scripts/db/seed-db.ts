@@ -7,8 +7,8 @@
  * Requires:  BETTER_AUTH_URL and BETTER_AUTH_SECRET env vars to be set.
  */
 
-import * as fs from 'fs'
 import * as crypto from 'crypto'
+import * as fs from 'fs'
 import * as path from 'path'
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'admin@app.local'
@@ -95,4 +95,3 @@ main().catch((err) => {
   console.error(err)
   process.exit(1)
 })
-

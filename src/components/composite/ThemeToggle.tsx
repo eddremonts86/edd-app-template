@@ -1,8 +1,8 @@
 import { Monitor, Moon, Sun, type LucideIcon } from 'lucide-react'
 import { useEffect, useState, memo, useMemo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useTheme } from '@/shared/providers/theme-context'
 import { cn } from '@/shared/lib/utils'
+import { useTheme } from '@/shared/providers/theme-context'
 
 type Theme = 'light' | 'dark' | 'system'
 
@@ -50,7 +50,6 @@ export const ThemeToggle = memo(function ThemeToggle() {
 
   // Avoid hydration mismatch by only rendering theme-specific classes after mount
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
   }, [])
 

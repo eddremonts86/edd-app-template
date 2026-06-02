@@ -33,7 +33,9 @@ function useSheetPing(enabled = true) {
 
   React.useEffect(() => {
     if (!enabled) return
-    ping()
+    const initial = window.setTimeout(() => {
+      void ping()
+    }, 0)
     const intervalId = window.setInterval(ping, 30000)
     const onOnline = () => ping()
     const onOffline = () => {
@@ -43,6 +45,7 @@ function useSheetPing(enabled = true) {
     window.addEventListener('online', onOnline)
     window.addEventListener('offline', onOffline)
     return () => {
+      window.clearTimeout(initial)
       window.clearInterval(intervalId)
       window.removeEventListener('online', onOnline)
       window.removeEventListener('offline', onOffline)

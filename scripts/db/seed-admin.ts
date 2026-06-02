@@ -12,8 +12,8 @@
  * Safe to run multiple times (ON CONFLICT DO UPDATE).
  */
 
-import postgres from 'postgres'
 import { hashPassword } from 'better-auth/crypto'
+import postgres from 'postgres'
 
 const __NODE_ENV = process.env.NODE_ENV
 const __adminEmailEnv = process.env.DEFAULT_ADMIN_EMAIL
@@ -29,8 +29,6 @@ if (__NODE_ENV === 'production' && (!__adminEmailEnv || !__adminPasswordEnv)) {
   )
   process.exit(1)
 }
-
-
 
 const DATABASE_URL = process.env.DATABASE_URL
 const email = process.env.DEFAULT_ADMIN_EMAIL ?? 'edd_admin@local.com'

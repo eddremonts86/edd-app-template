@@ -12,6 +12,7 @@ export function AiSearchProvider({ children }: { children: React.ReactNode }) {
     const storedOpen = window.localStorage.getItem('ai-search-open') === 'true'
 
     if (storedPinned) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot hydration from localStorage
       setIsPinnedState(true)
       // If pinned, we force it open regardless of stored open state
       setIsOpenState(true)
@@ -37,6 +38,7 @@ export function AiSearchProvider({ children }: { children: React.ReactNode }) {
   // If pinned, ensure it stays open when pin state changes
   React.useEffect(() => {
     if (isPinned) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- syncs derived open state with pin
       setIsOpen(true)
     }
   }, [isPinned, setIsOpen])

@@ -109,6 +109,7 @@ export function InfiniteMultiSelect<T = unknown>({
       const timer = setTimeout(() => searchInputRef.current?.focus(), 50)
       return () => clearTimeout(timer)
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset search input when popover closes
     setInternalSearch('')
     onSearchChange?.('')
   }, [open, onSearchChange])

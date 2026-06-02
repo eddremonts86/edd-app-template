@@ -32,6 +32,7 @@ export function UserDirectoryStatsWidget() {
   const totalUsers = users.length
   // Placeholder breakdown — extend in your app with real categories
   const recentUsers = users.filter(
+    // eslint-disable-next-line react-hooks/purity -- time-bucketed filter; recomputes each render is fine
     (u) => Date.now() - new Date(u.createdAt).getTime() < 7 * 24 * 60 * 60 * 1000,
   ).length
   const topDepts: [string, number][] = [
