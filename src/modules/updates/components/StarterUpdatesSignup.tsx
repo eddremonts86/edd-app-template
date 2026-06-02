@@ -1,12 +1,13 @@
 'use client'
 
-import { FormEvent, useId, useMemo, useState } from 'react'
+import type { FormEvent} from 'react';
+import { useCallback, useId, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { toast } from '@/shared/lib/toast'
-import { starterUpdatesSubscriptionSchema } from '../model'
 import { useStarterUpdatesSubscriptionMutation } from '../api/updates.queries'
+import { starterUpdatesSubscriptionSchema } from '../model'
 
 export function StarterUpdatesSignup() {
   const { t } = useTranslation()
@@ -22,7 +23,7 @@ export function StarterUpdatesSignup() {
 
   const showValidation = wasBlurred || attemptedSubmit
 
-  const getValidationMessage = (value: string, shouldValidate: boolean) => {
+  const getValidationMessage = useCallback((value: string, shouldValidate: boolean) => {
     const trimmed = value.trim()
     if (!shouldValidate) return ''
     if (trimmed.length === 0) {
@@ -33,11 +34,11 @@ export function StarterUpdatesSignup() {
       return t('updates.subscribe.errors.invalidEmail')
     }
     return ''
-  }
+  }, [t])
 
   const validationMessage = useMemo(() => {
     return getValidationMessage(email, showValidation)
-  }, [email, showValidation, t])
+  }, [email, showValidation, getValidationMessage])
 
   const hasError = validationMessage.length > 0
 
@@ -92,7 +93,7 @@ export function StarterUpdatesSignup() {
           className="max-w-60"
           disabled={subscription.isPending}
         />
-        <Button size="sm" type="submit" disabled={subscription.isPending}>
+        <Button type="submit" disabled={subscription.isPending}>
           {subscription.isPending
             ? t('updates.subscribe.actions.subscribing')
             : t('home.footer.subscribe.button')}

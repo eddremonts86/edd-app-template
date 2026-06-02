@@ -2,9 +2,9 @@
 
 import { Link } from '@tanstack/react-router'
 import { m } from 'framer-motion'
-import { LogIn } from 'lucide-react'
+import { LogIn, ArrowUp } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Badge, Card } from '@/components/ui'
+import { Badge, Card, Button } from '@/components/ui'
 import { StarterUpdatesSignup } from '@/modules/updates'
 import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { FooterColumn } from './FooterColumn'
@@ -116,11 +116,22 @@ export function FooterBlock() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between border-t border-border/40 pt-8 sm:flex-row">
+        <div className="mt-16 flex flex-col items-center justify-between border-t border-border/40 pt-8 sm:flex-row gap-4">
           <p className="text-sm text-muted-foreground">
             {t('home.footer.copyright', { year: new Date().getFullYear() })}
           </p>
-          <SocialLinks />
+          <div className="flex items-center gap-6">
+            <SocialLinks />
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-xs text-muted-foreground hover:text-foreground gap-1.5 h-8 px-2"
+            >
+              <ArrowUp className="h-3.5 w-3.5" />
+              Back to Top
+            </Button>
+          </div>
         </div>
       </div>
     </footer>

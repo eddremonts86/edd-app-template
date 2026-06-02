@@ -37,9 +37,9 @@ export function FeatureCardsBlock() {
   ]
 
   return (
-    <section className="px-6 py-36">
+    <section className="px-6 py-20 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-20 space-y-5 text-center">
+        <div className="mb-12 space-y-5 text-center">
           <h2 className="text-5xl font-bold tracking-tight md:text-6xl">
             {t('home.features.title')}
           </h2>

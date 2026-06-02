@@ -116,11 +116,6 @@ export const Topbar = memo(function Topbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            {!auth.isAuthenticated && (
-              <Button size="sm" className="gap-2" onClick={(e) => handleScroll(e, 'start')}>
-                Start
-              </Button>
-            )}
 
             {auth.isAuthenticated && auth.user && (
               <div className="flex items-center gap-2">

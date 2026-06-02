@@ -97,20 +97,20 @@ export function GlowyWavesHero() {
           </p>
 
           {/* Command Copy Action & secondary scroll CTA */}
-          <div className="mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row w-full max-w-lg">
+          <div className="mb-16 flex flex-col items-center justify-center gap-6 w-full max-w-2xl">
             {/* Interactive command console */}
             <div
               id="start"
-              className="relative flex items-center justify-between w-full sm:w-auto flex-1 min-w-[280px] rounded-lg border border-border/50 bg-muted/60 p-1 pl-4 backdrop-blur-sm dark:bg-muted/30"
+              className="relative flex items-center justify-between w-full max-w-md md:max-w-lg rounded-xl border border-border/60 bg-muted/80 p-1.5 pl-5 shadow-xs backdrop-blur-md dark:bg-muted/40"
             >
-              <code className="text-left text-xs sm:text-sm font-mono text-foreground/90 select-all pr-2">
+              <code className="text-left text-xs sm:text-sm font-mono text-foreground/90 select-all pr-4 whitespace-nowrap overflow-x-auto scrollbar-none">
                 npx @edd_remonts/create-edd-app my-product
               </code>
               <Button
                 size="sm"
                 variant="ghost"
                 onClick={handleCopy}
-                className="h-8 w-8 p-0 rounded-md text-muted-foreground hover:text-foreground hover:bg-background/80"
+                className="h-8 w-8 p-0 shrink-0 rounded-lg text-muted-foreground hover:text-foreground hover:bg-background/80"
                 aria-label="Copy installation command"
               >
                 {copied ? (
@@ -125,7 +125,7 @@ export function GlowyWavesHero() {
               size="lg"
               variant="outline"
               onClick={handleScrollToServices}
-              className="w-full sm:w-auto group gap-2 rounded-lg text-sm border-border/60 hover:bg-secondary/40 backdrop-blur-sm"
+              className="group gap-2 rounded-lg text-sm border-border/60 hover:bg-secondary/40 backdrop-blur-sm"
             >
               {t('home.hero.ctaSecondary', 'Explore stack')}
               <ArrowRight
