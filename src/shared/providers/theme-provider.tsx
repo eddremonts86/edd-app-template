@@ -20,7 +20,7 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
 
   const [resolvedTheme, setResolvedTheme] = useState<'dark' | 'light'>(() => {
     // Default to a safe guess or defaultTheme logic, but consistent
-    return 'light' 
+    return 'light'
   })
 
   // Hydrate from storage on mount
@@ -75,7 +75,7 @@ export function ThemeProvider({ children, defaultTheme = 'system' }: ThemeProvid
   // Standard pattern: render children, but theme might flash.
   // To avoid mismatch, we render. But the Provider value changes.
   // Context value change doesn't cause hydration mismatch itself, but what components render based on it might.
-  
+
   // Since we are fixing hydration, we should just let it run.
   // But wait, if we changed `theme` state initialization to be consistent, we are good.
 

@@ -28,7 +28,6 @@ export async function retrieveContext(query: string, limit = 5): Promise<string>
       })
       .join('\n\n')
   } catch (error) {
-     
     console.error('Error retrieving context:', error)
     return '' // Fail gracefully
   }

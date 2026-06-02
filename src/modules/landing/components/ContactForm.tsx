@@ -2,7 +2,17 @@
 
 import { Send } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, Label, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Textarea } from '@/components/ui'
+import {
+  Button,
+  Input,
+  Label,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Textarea,
+} from '@/components/ui'
 
 interface ContactFormProps {
   onSubmit?: (data: Record<string, unknown>) => void
@@ -36,7 +46,10 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           {t('home.contact.form.projectType.label', 'Project type')}
         </Label>
         <Select>
-          <SelectTrigger id="projectType" className="bg-background/50 transition-colors focus:bg-background">
+          <SelectTrigger
+            id="projectType"
+            className="bg-background/50 transition-colors focus:bg-background"
+          >
             <SelectValue
               placeholder={t('home.contact.form.projectType.placeholder', 'Select project type')}
             />

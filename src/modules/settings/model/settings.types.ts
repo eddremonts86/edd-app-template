@@ -9,7 +9,7 @@ export interface SettingsState {
 export const DEFAULT_SETTINGS: SettingsState = {
   language: 'en',
   theme: 'system',
-  devtoolsVisible: true,
+  devtoolsVisible: false,
 }
 
 export const SETTINGS_STORAGE_KEY = 'tanstack-template-settings'

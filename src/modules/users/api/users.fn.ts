@@ -43,10 +43,7 @@ export const getUsersFn = createServerFn({ method: 'GET' })
     const conditions = []
     if (search?.trim()) {
       conditions.push(
-        or(
-          ilike(users.name, `%${search.trim()}%`),
-          ilike(users.email, `%${search.trim()}%`),
-        ),
+        or(ilike(users.name, `%${search.trim()}%`), ilike(users.email, `%${search.trim()}%`)),
       )
     }
 
@@ -110,7 +107,12 @@ export const createUserFn = createServerFn({ method: 'POST' })
     const db = await loadDb()
     const [u] = await db
       .insert(users)
-      .values({ id: crypto.randomUUID(), name: input.name, email: input.email, avatar: input.avatar ?? null })
+      .values({
+        id: crypto.randomUUID(),
+        name: input.name,
+        email: input.email,
+        avatar: input.avatar ?? null,
+      })
       .returning()
     return {
       id: u.id,
@@ -137,11 +139,7 @@ export const updateUserFn = createServerFn({ method: 'POST' })
     if (updates.avatar !== undefined) patch.avatar = updates.avatar
     patch.updatedAt = new Date()
 
-    const [u] = await db
-      .update(users)
-      .set(patch)
-      .where(eq(users.id, id))
-      .returning()
+    const [u] = await db.update(users).set(patch).where(eq(users.id, id)).returning()
 
     return {
       id: u.id,
@@ -203,11 +201,7 @@ export const syncAuthenticatedUserFn = createServerFn({ method: 'POST' })
     }
 
     if (data.email) {
-      const [byEmail] = await db
-        .select()
-        .from(users)
-        .where(eq(users.email, data.email))
-        .limit(1)
+      const [byEmail] = await db.select().from(users).where(eq(users.email, data.email)).limit(1)
 
       if (byEmail) {
         // Link authUserId

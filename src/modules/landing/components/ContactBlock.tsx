@@ -54,7 +54,10 @@ export function ContactBlock() {
                     {t('home.contact.support.channels', 'Asynchronous support')}
                   </p>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {t('home.contact.support.channelsDesc', 'Communicate directly through our developer sandbox ticket panel. No meetings required.')}
+                    {t(
+                      'home.contact.support.channelsDesc',
+                      'Communicate directly through our developer sandbox ticket panel. No meetings required.',
+                    )}
                   </p>
                 </div>
               </div>
@@ -68,10 +71,15 @@ export function ContactBlock() {
                     <p className="text-sm font-semibold text-foreground">
                       {t('home.contact.support.sla', 'Response target: 24-48h')}
                     </p>
-                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Included</span>
+                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">
+                      Included
+                    </span>
                   </div>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {t('home.contact.support.slaDesc', 'We answer architectural queries and template questions typically within 24-48 hours.')}
+                    {t(
+                      'home.contact.support.slaDesc',
+                      'We answer architectural queries and template questions typically within 24-48 hours.',
+                    )}
                   </p>
                 </div>
               </div>

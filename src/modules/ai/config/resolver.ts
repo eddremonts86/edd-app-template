@@ -59,6 +59,7 @@ export const resolveAiConfig = (
       process.env.VITE_AI_BASE_URL,
     openai: process.env.OPENAI_BASE_URL || process.env.VITE_AI_OPENAI_BASE_URL,
     anthropic: process.env.ANTHROPIC_BASE_URL || process.env.VITE_AI_ANTHROPIC_BASE_URL,
+    minimax: process.env.AI_MINIMAX_BASE_URL || process.env.VITE_AI_MINIMAX_BASE_URL,
   }
 
   const resolvedBaseUrl = envBaseUrlByProvider[providerId] || baseUrlFromConfig

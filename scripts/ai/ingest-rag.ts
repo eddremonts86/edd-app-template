@@ -8,7 +8,9 @@ import { users } from '@/shared/lib/db/schema'
 
 async function main() {
   const db = getDb()
-  const allUsers = await db.select({ id: users.id, name: users.name, email: users.email }).from(users)
+  const allUsers = await db
+    .select({ id: users.id, name: users.name, email: users.email })
+    .from(users)
 
   console.log(`Ingesting ${allUsers.length} users into RAG index...`)
   // TODO: inject into ChromaDB via your AI ingestion pipeline

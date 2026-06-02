@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const AUTH_E2E_DB_URL = 'postgresql://postgres:postgres@127.0.0.1:5433/tanstack_template_auth_e2e'
+const AUTH_E2E_DB_URL = 'postgresql://postgres:postgres@127.0.0.1:5432/tanstack_template_auth_e2e'
 const AUTH_E2E_BASE_URL = 'http://127.0.0.1:3100'
 
 export default defineConfig({

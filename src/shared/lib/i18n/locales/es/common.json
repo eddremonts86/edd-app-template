@@ -1028,39 +1028,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Arquitectura",
-            "Mapa de módulos",
-            "Design tokens",
-            "Convenciones"
-          ]
+          "items": ["Arquitectura", "Mapa de módulos", "Design tokens", "Convenciones"]
         },
         "company": {
           "title": "Producto",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integraciones",
-            "Notas de versión"
-          ]
+          "items": ["Roadmap", "Changelog", "Integraciones", "Notas de versión"]
         },
         "community": {
           "title": "Soporte",
-          "items": [
-            "Documentación",
-            "Guías",
-            "Ejemplos",
-            "FAQ"
-          ]
+          "items": ["Documentación", "Guías", "Ejemplos", "FAQ"]
         },
         "legal": {
           "title": "Legal",
-          "items": [
-            "Privacidad",
-            "Términos",
-            "Cookies",
-            "Licencias"
-          ]
+          "items": ["Privacidad", "Términos", "Cookies", "Licencias"]
         }
       }
     }

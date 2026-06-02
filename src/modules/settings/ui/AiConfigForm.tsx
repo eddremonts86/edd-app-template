@@ -130,6 +130,22 @@ const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
       presence_penalty: 0,
     },
   },
+  minimax: {
+    baseUrl: 'https://api.minimax.chat/v1',
+    port: 443,
+    endpoints: {
+      chat: '/text/chatcompletion_v2',
+      models: '/text/chatcompletion_v2',
+    },
+    parameters: {
+      model: 'auto',
+      temperature: 0.7,
+      max_tokens: 2048,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+    },
+  },
 }
 
 const AI_CONFIG_TABS = ['status', 'configurations', 'logs'] as const
@@ -487,7 +503,7 @@ export function AiConfigForm() {
                   },
                 ].map((provider, index) => {
                   const providerId = provider.id as AiProvider
-                  const status = providerStatuses?.find((s) => s.id === provider.id)
+                  const status = providerStatuses?.find((s) => s?.id === provider.id)
                   const isActive = config?.provider === provider.id
                   const isAvailable = status?.available
                   const isError = status?.status === 'error' || status?.status === 'unreachable'

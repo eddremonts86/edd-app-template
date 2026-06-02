@@ -22,7 +22,7 @@ export function NotFoundPage() {
               damping: 20,
               repeat: Infinity,
               repeatType: 'reverse',
-              duration: 2
+              duration: 2,
             }}
           >
             <AlertCircle className="h-16 w-16 text-destructive/80" />
@@ -52,7 +52,8 @@ export function NotFoundPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Sorry, we couldn't find the page you're looking for. It might have been removed, renamed, or doesn't exist.
+            Sorry, we couldn't find the page you're looking for. It might have been removed,
+            renamed, or doesn't exist.
           </motion.p>
         </div>
 

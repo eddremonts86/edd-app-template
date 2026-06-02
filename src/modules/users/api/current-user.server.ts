@@ -40,11 +40,7 @@ export async function getCurrentAppUser(): Promise<CurrentAppUser | null> {
 
   const findByEmail = async () => {
     if (!authUser.email) return null
-    const [record] = await db
-      .select()
-      .from(users)
-      .where(eq(users.email, authUser.email))
-      .limit(1)
+    const [record] = await db.select().from(users).where(eq(users.email, authUser.email)).limit(1)
     return record ?? null
   }
 

@@ -36,7 +36,12 @@ const baseProjects = [
  */
 export default defineConfig({
   testDir: './tests/e2e',
-  testIgnore: ['**/auth.local.spec.ts', '**/auth.logout.local.spec.ts'],
+  testIgnore: [
+    '**/auth.local.spec.ts',
+    '**/auth.logout.local.spec.ts',
+    '**/auth.signup.local.spec.ts',
+    '**/auth.approval.local.spec.ts',
+  ],
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,

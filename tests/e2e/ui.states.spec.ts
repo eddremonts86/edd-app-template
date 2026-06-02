@@ -2,13 +2,13 @@ import { expect, test } from '@playwright/test'
 
 test.describe('Loading and error states', () => {
   test('shows loading indicator while data is delayed', async ({ page }) => {
-    await page.route('**/*', async (route) => {
-      await new Promise((resolve) => setTimeout(resolve, 150))
+    await page.route('**/api/users**', async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 1200))
       await route.continue()
     })
 
-    await page.goto('/dashboard/projects', { waitUntil: 'domcontentloaded' })
-    await expect(page.locator('.animate-spin').first()).toBeVisible({ timeout: 15000 })
+    await page.goto('/dashboard/users', { waitUntil: 'domcontentloaded' })
+    await expect(page.locator('[data-slot="skeleton"]').first()).toBeVisible({ timeout: 15000 })
   })
 
   test('shows not-found error state for invalid path', async ({ page }) => {

@@ -54,7 +54,11 @@ export function GlowyWavesHero() {
       role="region"
       aria-label="Developer-first hero section"
     >
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-60" aria-hidden="true" />
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 h-full w-full opacity-60"
+        aria-hidden="true"
+      />
 
       {/* Modern gradient blobs */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -95,7 +99,10 @@ export function GlowyWavesHero() {
           {/* Command Copy Action & secondary scroll CTA */}
           <div className="mb-16 flex flex-col items-center justify-center gap-4 sm:flex-row w-full max-w-lg">
             {/* Interactive command console */}
-            <div id="start" className="relative flex items-center justify-between w-full sm:w-auto flex-1 min-w-[280px] rounded-lg border border-border/50 bg-muted/60 p-1 pl-4 backdrop-blur-sm dark:bg-muted/30">
+            <div
+              id="start"
+              className="relative flex items-center justify-between w-full sm:w-auto flex-1 min-w-[280px] rounded-lg border border-border/50 bg-muted/60 p-1 pl-4 backdrop-blur-sm dark:bg-muted/30"
+            >
               <code className="text-left text-xs sm:text-sm font-mono text-foreground/90 select-all pr-2">
                 npx @edd_remonts/create-edd-app my-product
               </code>
@@ -121,7 +128,10 @@ export function GlowyWavesHero() {
               className="w-full sm:w-auto group gap-2 rounded-lg text-sm border-border/60 hover:bg-secondary/40 backdrop-blur-sm"
             >
               {t('home.hero.ctaSecondary', 'Explore stack')}
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
             </Button>
           </div>
 
@@ -179,18 +189,25 @@ export function GlowyWavesHero() {
                     {/* App Shell Box */}
                     <div className="rounded-xl border border-border/50 bg-background/80 p-5 shadow-xs relative group hover:border-primary/40 transition-colors">
                       <div className="absolute top-2 right-2 flex gap-1">
-                        <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-medium text-green-500">typed</span>
+                        <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-medium text-green-500">
+                          typed
+                        </span>
                       </div>
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Code className="h-5 w-5" />
                       </div>
                       <h4 className="text-sm font-bold text-foreground mb-1">App Shell</h4>
                       <p className="text-xs text-muted-foreground">
-                        Theme provider, sidebar navigation layouts, dialog systems, responsive layouts.
+                        Theme provider, sidebar navigation layouts, dialog systems, responsive
+                        layouts.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-1.5">
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">tanstack router</span>
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">tailwind v4</span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          tanstack router
+                        </span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          tailwind v4
+                        </span>
                       </div>
                     </div>
 
@@ -202,18 +219,25 @@ export function GlowyWavesHero() {
                     {/* Domain Modules Box */}
                     <div className="rounded-xl border border-border/50 bg-background/80 p-5 shadow-xs relative group hover:border-primary/40 transition-colors md:translate-x-0">
                       <div className="absolute top-2 right-2 flex gap-1">
-                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">isolated</span>
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">
+                          isolated
+                        </span>
                       </div>
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Layers className="h-5 w-5" />
                       </div>
                       <h4 className="text-sm font-bold text-foreground mb-1">Domain Modules</h4>
                       <p className="text-xs text-muted-foreground">
-                        Users directory, budgets, transactions, settings dashboard, asynchronous SSE AI chat client.
+                        Users directory, budgets, transactions, settings dashboard, asynchronous SSE
+                        AI chat client.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-1.5">
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">decoupled context</span>
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">SSE stream</span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          decoupled context
+                        </span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          SSE stream
+                        </span>
                       </div>
                     </div>
 
@@ -225,18 +249,25 @@ export function GlowyWavesHero() {
                     {/* Integrations & Database Box */}
                     <div className="rounded-xl border border-border/50 bg-background/80 p-5 shadow-xs relative group hover:border-primary/40 transition-colors">
                       <div className="absolute top-2 right-2 flex gap-1">
-                        <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-medium text-amber-500">security</span>
+                        <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-[10px] font-medium text-amber-500">
+                          security
+                        </span>
                       </div>
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Database className="h-5 w-5" />
                       </div>
                       <h4 className="text-sm font-bold text-foreground mb-1">Integrations & QA</h4>
                       <p className="text-xs text-muted-foreground">
-                        Better Auth, Clerk hooks, Drizzle ORM queries, Playwright and Vitest testing configurations.
+                        Better Auth, Clerk hooks, Drizzle ORM queries, Playwright and Vitest testing
+                        configurations.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-1.5">
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">drizzle</span>
-                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">playwright E2E</span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          drizzle
+                        </span>
+                        <span className="text-[10px] bg-secondary px-2 py-0.5 rounded text-muted-foreground">
+                          playwright E2E
+                        </span>
                       </div>
                     </div>
                   </m.div>
@@ -255,11 +286,15 @@ export function GlowyWavesHero() {
                     <div className="w-full max-w-sm rounded-xl border border-border/60 bg-background p-6 shadow-xl">
                       <div className="mb-6 space-y-1">
                         <h4 className="text-lg font-bold text-foreground">Access Workspace</h4>
-                        <p className="text-xs text-muted-foreground">Sign in to your product development sandbox.</p>
+                        <p className="text-xs text-muted-foreground">
+                          Sign in to your product development sandbox.
+                        </p>
                       </div>
                       <div className="space-y-4">
                         <div className="space-y-1">
-                          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">Email Address</label>
+                          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">
+                            Email Address
+                          </label>
                           <input
                             type="email"
                             disabled
@@ -268,7 +303,9 @@ export function GlowyWavesHero() {
                           />
                         </div>
                         <div className="space-y-1">
-                          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">Password</label>
+                          <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">
+                            Password
+                          </label>
                           <input
                             type="password"
                             disabled
@@ -281,15 +318,27 @@ export function GlowyWavesHero() {
                         </Button>
                       </div>
                       <div className="relative my-4">
-                        <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-border/30"></span></div>
-                        <div className="relative flex justify-center text-[10px] uppercase"><span className="bg-background px-2 text-muted-foreground">or access via</span></div>
+                        <div className="absolute inset-0 flex items-center">
+                          <span className="w-full border-t border-border/30"></span>
+                        </div>
+                        <div className="relative flex justify-center text-[10px] uppercase">
+                          <span className="bg-background px-2 text-muted-foreground">
+                            or access via
+                          </span>
+                        </div>
                       </div>
                       <div className="grid grid-cols-2 gap-2">
-                        <button disabled className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-muted/10 py-1.5 text-[10px] font-medium text-muted-foreground">
+                        <button
+                          disabled
+                          className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-muted/10 py-1.5 text-[10px] font-medium text-muted-foreground"
+                        >
                           <Users className="h-3 w-3" />
                           Social Login
                         </button>
-                        <button disabled className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-primary/10 py-1.5 text-[10px] font-medium text-primary">
+                        <button
+                          disabled
+                          className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-primary/10 py-1.5 text-[10px] font-medium text-primary"
+                        >
                           <Shield className="h-3 w-3" />
                           Clerk SSO
                         </button>
@@ -332,40 +381,58 @@ export function GlowyWavesHero() {
                       {/* Metric cards */}
                       <div className="grid grid-cols-3 gap-2">
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
-                          <p className="text-[10px] uppercase font-bold text-muted-foreground">Volume</p>
+                          <p className="text-[10px] uppercase font-bold text-muted-foreground">
+                            Volume
+                          </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">$12,450.00</p>
                           <span className="text-[8px] text-green-500 font-bold">▲ +12.4%</span>
                         </div>
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
-                          <p className="text-[10px] uppercase font-bold text-muted-foreground">Projects</p>
+                          <p className="text-[10px] uppercase font-bold text-muted-foreground">
+                            Projects
+                          </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">4 Active</p>
                           <span className="text-[8px] text-primary font-bold">In production</span>
                         </div>
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
-                          <p className="text-[10px] uppercase font-bold text-muted-foreground">API Latency</p>
+                          <p className="text-[10px] uppercase font-bold text-muted-foreground">
+                            API Latency
+                          </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">48 ms</p>
-                          <span className="text-[8px] text-green-500 font-bold">100% operational</span>
+                          <span className="text-[8px] text-green-500 font-bold">
+                            100% operational
+                          </span>
                         </div>
                       </div>
 
                       {/* Mini transactions table */}
                       <div className="rounded-lg border border-border/30 bg-background p-2.5">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-[10px] font-bold text-foreground">Recent Activity</span>
-                          <span className="text-[8px] bg-primary/15 text-primary px-1.5 py-0.5 rounded font-bold">Auto-sync active</span>
+                          <span className="text-[10px] font-bold text-foreground">
+                            Recent Activity
+                          </span>
+                          <span className="text-[8px] bg-primary/15 text-primary px-1.5 py-0.5 rounded font-bold">
+                            Auto-sync active
+                          </span>
                         </div>
                         <div className="space-y-1.5">
                           <div className="flex justify-between items-center text-[10px] border-b border-border/20 pb-1">
                             <span className="text-foreground font-medium">Acme Corp Ltd.</span>
                             <span className="text-muted-foreground">Today, 10:14 AM</span>
                             <span className="font-bold text-foreground">$1,200.00</span>
-                            <span className="px-1.5 py-0.2 rounded bg-green-500/10 text-green-500 font-semibold text-[8px]">Approved</span>
+                            <span className="px-1.5 py-0.2 rounded bg-green-500/10 text-green-500 font-semibold text-[8px]">
+                              Approved
+                            </span>
                           </div>
                           <div className="flex justify-between items-center text-[10px] pb-0.5">
-                            <span className="text-foreground font-medium">Global Delivery Inc.</span>
+                            <span className="text-foreground font-medium">
+                              Global Delivery Inc.
+                            </span>
                             <span className="text-muted-foreground">Yesterday, 4:32 PM</span>
                             <span className="font-bold text-foreground">$450.00</span>
-                            <span className="px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-500 font-semibold text-[8px]">Pending</span>
+                            <span className="px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-500 font-semibold text-[8px]">
+                              Pending
+                            </span>
                           </div>
                         </div>
                       </div>

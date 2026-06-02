@@ -163,6 +163,10 @@ BETTER_AUTH_SECRET=your-secret-here
 BETTER_AUTH_URL=http://localhost:3000
 VITE_BETTER_AUTH_URL=http://localhost:3000
 
+# Default local admin (used by db:seed:admin and auth-local E2E)
+DEFAULT_ADMIN_EMAIL=edd_admin@local.com
+DEFAULT_ADMIN_PASSWORD=Passw0rd!234
+
 # Clerk (optional — only if using Clerk)
 VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
 CLERK_SECRET_KEY=sk_test_...
@@ -170,6 +174,9 @@ CLERK_SECRET_KEY=sk_test_...
 # Dev bypass (never in production)
 VITE_SKIP_AUTH=true                 # bypass all auth for local dev
 VITE_E2E=true                       # bypass for E2E tests
+
+# Devtools (default should remain disabled)
+DISABLE_TANSTACK_VITE_DEVTOOLS=true
 ```
 
 ## Auth Config Helpers
@@ -192,7 +199,9 @@ import {
 - [ ] Logout gated on `auth.canSignOut` (false in bypass)
 - [ ] Server functions use `requireAuthUser()` for protected operations
 - [ ] `AUTH_MODE` env set correctly for environment
+- [ ] Default admin is seeded from `.env` for local auth checks
 - [ ] No `VITE_SKIP_AUTH` in production env files
+- [ ] Devtools remain disabled by default unless explicitly enabled by user
 
 ---
 

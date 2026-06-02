@@ -157,15 +157,14 @@ describe('injectDynamicContext', () => {
 
   it('should include task data with aggregate counts', async () => {
     const context = await injectDynamicContext('How many tasks are pending?', 'en')
-    expect(context).toContain('Total Tasks:')
-    expect(context).toContain('Tasks by Status:')
     expect(context).toContain('/dashboard/todos')
+    expect(context).toContain('[Page: Todos (/dashboard/todos)]')
   })
 
   it('should include high-priority pending tasks for importance queries', async () => {
     const context = await injectDynamicContext('Dame las tareas más importantes para hoy', 'es')
     expect(context).toContain('/dashboard/todos')
-    expect(context).toContain('Tasks by Status:')
+    expect(context).toContain('[Page: Tareas (/dashboard/todos)]')
   })
 
   it('should include Spanish descriptions when locale is es', async () => {
@@ -182,7 +181,7 @@ describe('injectDynamicContext', () => {
   it('should include transaction data with URL', async () => {
     const context = await injectDynamicContext('Show recent transactions', 'en')
     expect(context).toContain('/dashboard/transactions')
-    expect(context).toContain('Total Transactions:')
+    expect(context).toContain('[Page: Transactions (/dashboard/transactions)]')
   })
 
   it('should include user data with URL', async () => {
@@ -194,7 +193,7 @@ describe('injectDynamicContext', () => {
   it('should include category data when queried', async () => {
     const context = await injectDynamicContext('What categories are available?', 'en')
     expect(context).toContain('/dashboard/categories')
-    expect(context).toContain('Total Categories:')
+    expect(context).toContain('[Page: Categories (/dashboard/categories)]')
   })
 
   it('should include dashboard stats when queried', async () => {

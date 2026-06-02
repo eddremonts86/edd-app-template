@@ -59,36 +59,48 @@ Expert guide for building accessible, customizable UI components with shadcn/ui,
 ### Complete Form with Validation
 
 ```tsx
-"use client"
+'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { Button } from '@/components/ui/button'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
 const formSchema = z.object({
-  email: z.string().email("Invalid email"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.string().email('Invalid email'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
 })
 
 export function LoginForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: '', password: '' },
   })
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(console.log)} className="space-y-4">
-        <FormField name="email" render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormControl><Input type="email" {...field} /></FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input type="email" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <Button type="submit">Login</Button>
       </form>
     </Form>
@@ -150,6 +162,7 @@ npx shadcn@latest init
 ```
 
 During setup, you'll configure:
+
 - TypeScript or JavaScript
 - Style (Default, New York, etc.)
 - Base color theme
@@ -247,80 +260,80 @@ npm install @radix-ui/react-slot
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
-  prefix: "",
+  prefix: '',
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: '2rem',
       screens: {
-        "2xl": "1400px",
+        '2xl': '1400px',
       },
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require('tailwindcss-animate')],
 }
 ```
 
@@ -401,17 +414,17 @@ npx shadcn@latest add button
 Basic usage:
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 export function ButtonDemo() {
-  return <Button>Click me</Button>;
+  return <Button>Click me</Button>
 }
 ```
 
 Button variants:
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 export function ButtonVariants() {
   return (
@@ -423,7 +436,7 @@ export function ButtonVariants() {
       <Button variant="ghost">Ghost</Button>
       <Button variant="link">Link</Button>
     </div>
-  );
+  )
 }
 ```
 
@@ -443,8 +456,8 @@ Button sizes:
 With loading state:
 
 ```tsx
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
 
 export function ButtonLoading() {
   return (
@@ -452,7 +465,7 @@ export function ButtonLoading() {
       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
-  );
+  )
 }
 ```
 
@@ -469,18 +482,18 @@ npx shadcn@latest add input
 Basic input:
 
 ```tsx
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input'
 
 export function InputDemo() {
-  return <Input type="email" placeholder="Email" />;
+  return <Input type="email" placeholder="Email" />
 }
 ```
 
 Input with label:
 
 ```tsx
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 export function InputWithLabel() {
   return (
@@ -488,23 +501,25 @@ export function InputWithLabel() {
       <Label htmlFor="email">Email</Label>
       <Input type="email" id="email" placeholder="Email" />
     </div>
-  );
+  )
 }
 ```
 
 Input with button:
 
 ```tsx
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export function InputWithButton() {
   return (
     <div className="flex w-full max-w-sm items-center gap-2">
       <Input type="email" placeholder="Email" />
-      <Button type="submit" variant="outline">Subscribe</Button>
+      <Button type="submit" variant="outline">
+        Subscribe
+      </Button>
     </div>
-  );
+  )
 }
 ```
 
@@ -521,13 +536,13 @@ This installs React Hook Form, Zod, and form components.
 Complete form example:
 
 ```tsx
-"use client"
+'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -536,16 +551,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { toast } from "@/components/ui/use-toast"
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { toast } from '@/components/ui/use-toast'
 
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: 'Username must be at least 2 characters.',
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: 'Please enter a valid email address.',
   }),
 })
 
@@ -553,14 +568,14 @@ export function ProfileForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      email: "",
+      username: '',
+      email: '',
     },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     toast({
-      title: "You submitted the following values:",
+      title: 'You submitted the following values:',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(values, null, 2)}</code>
@@ -581,14 +596,12 @@ export function ProfileForm() {
               <FormControl>
                 <Input placeholder="shadcn" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              <FormDescription>This is your public display name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="email"
@@ -602,7 +615,7 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
-        
+
         <Button type="submit">Submit</Button>
       </form>
     </Form>
@@ -628,7 +641,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from '@/components/ui/card'
 
 export function CardDemo() {
   return (
@@ -651,7 +664,7 @@ export function CardDemo() {
 Card with form:
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -659,9 +672,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 export function CardWithForm() {
   return (
@@ -700,7 +713,7 @@ npx shadcn@latest add dialog
 Basic dialog:
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -709,7 +722,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from '@/components/ui/dialog'
 
 export function DialogDemo() {
   return (
@@ -752,7 +765,7 @@ npx shadcn@latest add sheet
 Basic sheet:
 
 ```tsx
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
@@ -760,7 +773,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
+} from '@/components/ui/sheet'
 
 export function SheetDemo() {
   return (
@@ -805,9 +818,7 @@ Sheet with side placement:
   <SheetContent side="right">
     <SheetHeader>
       <SheetTitle>Settings</SheetTitle>
-      <SheetDescription>
-        Configure your application settings here.
-      </SheetDescription>
+      <SheetDescription>Configure your application settings here.</SheetDescription>
     </SheetHeader>
     {/* Settings content */}
   </SheetContent>
@@ -838,7 +849,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menubar"
+} from '@/components/ui/menubar'
 
 export function MenubarDemo() {
   return (
@@ -901,7 +912,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from '@/components/ui/select'
 
 export function SelectDemo() {
   return (
@@ -957,7 +968,7 @@ npx shadcn@latest add toast
 Setup toast provider in root layout:
 
 ```tsx
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from '@/components/ui/toaster'
 
 export default function RootLayout({ children }) {
   return (
@@ -974,8 +985,8 @@ export default function RootLayout({ children }) {
 Using toast:
 
 ```tsx
-import { useToast } from "@/components/ui/use-toast"
-import { Button } from "@/components/ui/button"
+import { useToast } from '@/components/ui/use-toast'
+import { Button } from '@/components/ui/button'
 
 export function ToastDemo() {
   const { toast } = useToast()
@@ -984,8 +995,8 @@ export function ToastDemo() {
     <Button
       onClick={() => {
         toast({
-          title: "Scheduled: Catch up",
-          description: "Friday, February 10, 2023 at 5:57 PM",
+          title: 'Scheduled: Catch up',
+          description: 'Friday, February 10, 2023 at 5:57 PM',
         })
       }}
     >
@@ -1000,21 +1011,21 @@ Toast variants:
 ```tsx
 // Success
 toast({
-  title: "Success",
-  description: "Your changes have been saved.",
+  title: 'Success',
+  description: 'Your changes have been saved.',
 })
 
 // Error
 toast({
-  variant: "destructive",
-  title: "Error",
-  description: "Something went wrong.",
+  variant: 'destructive',
+  title: 'Error',
+  description: 'Something went wrong.',
 })
 
 // With action
 toast({
-  title: "Uh oh! Something went wrong.",
-  description: "There was a problem with your request.",
+  title: 'Uh oh! Something went wrong.',
+  description: 'There was a problem with your request.',
   action: <ToastAction altText="Try again">Try again</ToastAction>,
 })
 ```
@@ -1038,11 +1049,11 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table'
 
 const invoices = [
-  { invoice: "INV001", status: "Paid", method: "Credit Card", amount: "$250.00" },
-  { invoice: "INV002", status: "Pending", method: "PayPal", amount: "$150.00" },
+  { invoice: 'INV001', status: 'Paid', method: 'Credit Card', amount: '$250.00' },
+  { invoice: 'INV002', status: 'Pending', method: 'PayPal', amount: '$150.00' },
 ]
 
 export function TableDemo() {
@@ -1115,56 +1126,51 @@ Since you own the code, customize directly:
 
 ```tsx
 // components/ui/button.tsx
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors",
+  'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent",
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        outline: 'border border-input bg-background hover:bg-accent',
         // Add custom variant
-        custom: "bg-gradient-to-r from-purple-500 to-pink-500 text-white",
+        custom: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white',
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: 'h-10 px-4 py-2',
+        sm: 'h-9 rounded-md px-3',
+        lg: 'h-11 rounded-md px-8',
         // Add custom size
-        xl: "h-14 rounded-md px-10 text-lg",
+        xl: 'h-14 rounded-md px-10 text-lg',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
-  }
+  },
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : 'button'
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
     )
-  }
+  },
 )
-Button.displayName = "Button"
+Button.displayName = 'Button'
 
 export { Button, buttonVariants }
 ```
@@ -1177,12 +1183,12 @@ For Next.js 13+ with App Router, ensure components use `"use client"` directive:
 
 ```tsx
 // src/components/ui/button.tsx
-"use client"
+'use client'
 
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+import * as React from 'react'
+import { Slot } from '@radix-ui/react-slot'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn } from '@/lib/utils'
 
 // ... rest of component
 ```
@@ -1193,14 +1199,10 @@ Add the Toaster to your root layout:
 
 ```tsx
 // app/layout.tsx
-import { Toaster } from "@/components/ui/toaster"
-import "./globals.css"
+import { Toaster } from '@/components/ui/toaster'
+import './globals.css'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
@@ -1218,8 +1220,8 @@ When using shadcn/ui components in Server Components, wrap them in a Client Comp
 
 ```tsx
 // app/dashboard/page.tsx
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ButtonClient } from "@/components/ui/button-client"
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { ButtonClient } from '@/components/ui/button-client'
 
 export default function DashboardPage() {
   return (
@@ -1239,9 +1241,9 @@ export default function DashboardPage() {
 
 ```tsx
 // src/components/ui/button-client.tsx
-"use client"
+'use client'
 
-import { Button } from "./button"
+import { Button } from './button'
 
 export function ButtonClient(props: React.ComponentProps<typeof Button>) {
   return <Button {...props} />
@@ -1254,8 +1256,8 @@ Create API routes for form submissions:
 
 ```tsx
 // app/api/contact/route.ts
-import { NextRequest, NextResponse } from "next/server"
-import { z } from "zod"
+import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -1269,21 +1271,15 @@ export async function POST(request: NextRequest) {
     const validated = contactSchema.parse(body)
 
     // Process form data
-    console.log("Form submission:", validated)
+    console.log('Form submission:', validated)
 
     return NextResponse.json({ success: true })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return NextResponse.json(
-        { errors: error.errors },
-        { status: 400 }
-      )
+      return NextResponse.json({ errors: error.errors }, { status: 400 })
     }
 
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }
 ```
@@ -1294,12 +1290,12 @@ Using Next.js 14+ Server Actions:
 
 ```tsx
 // app/contact/page.tsx
-"use client"
+'use client'
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -1307,10 +1303,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/components/ui/use-toast"
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { toast } from '@/components/ui/use-toast'
 
 const formSchema = z.object({
   name: z.string().min(2),
@@ -1320,23 +1316,23 @@ const formSchema = z.object({
 
 async function onSubmit(values: z.infer<typeof formSchema>) {
   try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values),
     })
 
-    if (!response.ok) throw new Error("Failed to submit")
+    if (!response.ok) throw new Error('Failed to submit')
 
     toast({
-      title: "Success!",
-      description: "Your message has been sent.",
+      title: 'Success!',
+      description: 'Your message has been sent.',
     })
   } catch (error) {
     toast({
-      variant: "destructive",
-      title: "Error",
-      description: "Failed to send message. Please try again.",
+      variant: 'destructive',
+      title: 'Error',
+      description: 'Failed to send message. Please try again.',
     })
   }
 }
@@ -1385,11 +1381,7 @@ export default function ContactPage() {
               <FormItem>
                 <FormLabel>Message</FormLabel>
                 <FormControl>
-                  <Textarea
-                    placeholder="Your message..."
-                    className="resize-none"
-                    {...field}
-                  />
+                  <Textarea placeholder="Your message..." className="resize-none" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -1412,23 +1404,23 @@ Using shadcn/ui components in metadata:
 
 ```tsx
 // app/layout.tsx
-import { Metadata } from "next"
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    default: "My App",
-    template: "%s | My App",
+    default: 'My App',
+    template: '%s | My App',
   },
-  description: "Built with shadcn/ui and Next.js",
+  description: 'Built with shadcn/ui and Next.js',
 }
 
 // app/about/page.tsx
-import { Metadata } from "next"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Metadata } from 'next'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Learn more about our company",
+  title: 'About Us',
+  description: 'Learn more about our company',
 }
 
 export default function AboutPage() {
@@ -1453,21 +1445,17 @@ Optimize fonts with next/font:
 
 ```tsx
 // app/layout.tsx
-import { Inter } from "next/font/google"
-import { Toaster } from "@/components/ui/toaster"
-import { cn } from "@/lib/utils"
-import "./globals.css"
+import { Inter } from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster'
+import { cn } from '@/lib/utils'
+import './globals.css'
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.className)}>
+      <body className={cn('min-h-screen bg-background font-sans antialiased', inter.className)}>
         {children}
         <Toaster />
       </body>
@@ -1485,7 +1473,7 @@ const formSchema = z.object({
   username: z.string().min(2).max(50),
   email: z.string().email(),
   bio: z.string().max(160).min(4),
-  role: z.enum(["admin", "user", "guest"]),
+  role: z.enum(['admin', 'user', 'guest']),
   notifications: z.boolean().default(false),
 })
 
@@ -1493,10 +1481,10 @@ export function AdvancedForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      email: "",
-      bio: "",
-      role: "user",
+      username: '',
+      email: '',
+      bio: '',
+      role: 'user',
       notifications: false,
     },
   })
@@ -1546,11 +1534,7 @@ export function AdvancedForm() {
             <FormItem>
               <FormLabel>Bio</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Tell us about yourself"
-                  className="resize-none"
-                  {...field}
-                />
+                <Textarea placeholder="Tell us about yourself" className="resize-none" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -1588,16 +1572,11 @@ export function AdvancedForm() {
           render={({ field }) => (
             <FormItem className="flex flex-row items-start space-x-3 space-y-0">
               <FormControl>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
+                <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
               <div className="space-y-1 leading-none">
                 <FormLabel>Email notifications</FormLabel>
-                <FormDescription>
-                  Receive emails about your account activity.
-                </FormDescription>
+                <FormDescription>Receive emails about your account activity.</FormDescription>
               </div>
             </FormItem>
           )}
@@ -1660,7 +1639,9 @@ export function AdvancedForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">Login</Button>
+        <Button type="submit" className="w-full">
+          Login
+        </Button>
       </form>
     </Form>
   </CardContent>

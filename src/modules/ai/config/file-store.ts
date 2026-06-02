@@ -39,6 +39,7 @@ export const readAiConfig = async (): Promise<AiConfigStore> => {
       'lm-studio': resolveAiConfig('lm-studio', userConfig.providers?.['lm-studio']),
       openai: resolveAiConfig('openai', userConfig.providers?.openai),
       anthropic: resolveAiConfig('anthropic', userConfig.providers?.anthropic),
+      minimax: resolveAiConfig('minimax', userConfig.providers?.minimax),
     },
   }
 }

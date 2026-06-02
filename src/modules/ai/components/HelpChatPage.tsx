@@ -921,7 +921,7 @@ export function HelpChatPage() {
     if (!providerQuery.data?.statuses) return true
     const activeId = configStore?.activeProvider
     if (!activeId) return providerQuery.data.statuses[0]?.available ?? true
-    const status = providerQuery.data.statuses.find((s) => s.id === activeId)
+    const status = providerQuery.data.statuses.find((s) => s?.id === activeId)
     return status?.available ?? true
   }, [providerQuery.data, configStore?.activeProvider])
 

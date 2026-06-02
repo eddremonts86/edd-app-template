@@ -312,5 +312,13 @@ export const aiConfig: AiRuntimeConfig = {
       defaultModel: getEnv('AI_ANTHROPIC_MODEL', 'auto'),
       generation: { temperature: 0.4, maxTokens: 1024, topP: 0.9 },
     },
+    minimax: {
+      id: 'minimax',
+      baseUrl: getEnv('AI_MINIMAX_BASE_URL', 'https://api.minimax.chat/v1'),
+      endpoints: { chat: '/text/chatcompletion_v2', models: '/text/chatcompletion_v2' },
+      headers: parseHeaderJson(getEnv('AI_MINIMAX_HEADERS')),
+      defaultModel: getEnv('AI_MINIMAX_MODEL', 'auto'),
+      generation: { temperature: 0.7, maxTokens: 2048, topP: 0.9 },
+    },
   },
 }

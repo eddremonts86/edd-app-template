@@ -54,7 +54,6 @@ export async function generateEmbedding(text: string): Promise<number[]> {
 
     return await generateLocalEmbedding(text)
   } catch (error) {
-     
     console.error('Error generating embedding:', error)
     return await generateLocalEmbedding(text)
   } finally {

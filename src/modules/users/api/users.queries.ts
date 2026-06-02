@@ -54,11 +54,9 @@ export const useUserById = (id: string) =>
   })
 
 export const useCreateUser = () =>
-  useTQMutation(
-    ['users', 'create'],
-    (data: UserInput) => createUserFn({ data }),
-    { invalidateKeys: [userKeys.all] },
-  )
+  useTQMutation(['users', 'create'], (data: UserInput) => createUserFn({ data }), {
+    invalidateKeys: [userKeys.all],
+  })
 
 export const useUpdateUser = () =>
   useTQMutation(
@@ -69,8 +67,6 @@ export const useUpdateUser = () =>
   )
 
 export const useDeleteUser = () =>
-  useTQMutation(
-    ['users', 'delete'],
-    (id: string) => deleteUserFn({ data: id }),
-    { invalidateKeys: [userKeys.all] },
-  )
+  useTQMutation(['users', 'delete'], (id: string) => deleteUserFn({ data: id }), {
+    invalidateKeys: [userKeys.all],
+  })

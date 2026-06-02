@@ -28,7 +28,12 @@ pnpm playwright test --headed --debug
 
 ## Auth Bypass (Dev / E2E without login)
 
-**Bypass allows E2E tests to skip the login flow.**
+Bypass is available but should be treated as a fallback for route-level smoke checks.
+Prefer validating auth flows with the real default admin seeded from `.env`:
+
+- `DEFAULT_ADMIN_EMAIL` (default: `edd_admin@local.com`)
+- `DEFAULT_ADMIN_PASSWORD` (default: `Passw0rd!234`)
+
 Active when ALL of these are true:
 
 1. `NODE_ENV !== 'production'`
@@ -137,12 +142,17 @@ await expect(page.getByText('Submit')).toBeVisible()
 ## Seed Data for Tests
 
 ```bash
-# Prepare E2E DB with test user seeded
+# Prepare auth-local E2E DB (migrations + roles + default admin from .env)
 pnpm tsx scripts/testing/prepare-auth-e2e-db.ts
+
+# Seed default admin in current DATABASE_URL (non-E2E DB)
+pnpm db:seed:admin
 
 # Smoke test auth approval flow
 bash scripts/testing/auth-local-approval-smoke.sh
 ```
+
+For UI login validation, use `.env` credentials instead of generated users whenever possible.
 
 ## Route Inventory
 
@@ -157,13 +167,15 @@ pnpm tsx scripts/routes/generate-inventory.ts
 ## CI Environment
 
 ```bash
-# CI skips auth setup — bypass mode recommended
+# CI can run in bypass for broad route coverage
 SKIP_AUTH=true
 VITE_SKIP_AUTH=true
 TEST_USER_ID=ci_test_user
 VITE_TEST_USER_ID=ci_test_user
 CI=true
 ```
+
+For auth-local suites, prefer explicit login with `DEFAULT_ADMIN_EMAIL` / `DEFAULT_ADMIN_PASSWORD`.
 
 In CI, `playwright.config.ts` sets:
 

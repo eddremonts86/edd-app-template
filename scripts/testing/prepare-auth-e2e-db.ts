@@ -1,9 +1,10 @@
 import { spawnSync } from 'node:child_process'
+import { hashPassword } from 'better-auth/crypto'
 import postgres from 'postgres'
 
-const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5433/postgres'
+const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5432/postgres'
 const databaseName = 'tanstack_template_auth_e2e'
-const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5433/${databaseName}`
+const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5432/${databaseName}`
 
 async function waitForPostgresReady() {
   for (let attempt = 0; attempt < 20; attempt += 1) {
@@ -41,13 +42,17 @@ async function recreateDatabase() {
 }
 
 function runMigrations() {
-  const result = spawnSync('pnpm', ['db:migrate'], {
-    stdio: 'inherit',
-    env: {
-      ...process.env,
-      DATABASE_URL: databaseUrl,
+  const result = spawnSync(
+    'pnpm',
+    ['exec', 'drizzle-kit', 'push', '--config=drizzle.config.ts', '--force'],
+    {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        DATABASE_URL: databaseUrl,
+      },
     },
-  })
+  )
 
   if (result.status !== 0) {
     throw new Error('Failed to run auth-local E2E migrations')
@@ -58,6 +63,15 @@ async function seedAuthRoles() {
   const db = postgres(databaseUrl, { max: 1, prepare: false })
 
   try {
+    const [{ exists }] = await db<{ exists: string | null }[]>`
+      SELECT to_regclass('public.roles') AS exists
+    `
+
+    if (!exists) {
+      console.log('Skipping role seed: roles table not present in schema')
+      return
+    }
+
     await db`
       INSERT INTO roles (id, name, description)
       VALUES
@@ -74,11 +88,57 @@ async function seedAuthRoles() {
   }
 }
 
+async function seedDefaultAdmin() {
+  const db = postgres(databaseUrl, { max: 1, prepare: false })
+  const email = process.env.DEFAULT_ADMIN_EMAIL ?? 'edd_admin@local.com'
+  const password = process.env.DEFAULT_ADMIN_PASSWORD ?? 'Passw0rd!234'
+  const name = 'Admin'
+
+  try {
+    const hashedPassword = await hashPassword(password)
+    const userId = crypto.randomUUID()
+    const accountId = crypto.randomUUID()
+    const now = new Date()
+
+    const [user] = await db<{ id: string }[]>`
+      INSERT INTO auth_users (id, name, email, email_verified, created_at, updated_at)
+      VALUES (${userId}, ${name}, ${email}, true, ${now}, ${now})
+      ON CONFLICT (email) DO UPDATE
+      SET name = EXCLUDED.name,
+          updated_at = now()
+      RETURNING id
+    `
+
+    await db`
+      INSERT INTO auth_accounts (
+        id, user_id, account_id, provider_id, password, created_at, updated_at
+      )
+      VALUES (
+        ${accountId},
+        ${user.id},
+        ${email},
+        'credential',
+        ${hashedPassword},
+        ${now},
+        ${now}
+      )
+      ON CONFLICT (account_id, provider_id) DO UPDATE
+      SET password = EXCLUDED.password,
+          updated_at = now()
+    `
+
+    console.log(`Seeded default admin for auth-local E2E: ${email}`)
+  } finally {
+    await db.end({ timeout: 5 })
+  }
+}
+
 async function main() {
   await waitForPostgresReady()
   await recreateDatabase()
   runMigrations()
   await seedAuthRoles()
+  await seedDefaultAdmin()
   console.log(`Prepared auth-local E2E database: ${databaseName}`)
 }
 

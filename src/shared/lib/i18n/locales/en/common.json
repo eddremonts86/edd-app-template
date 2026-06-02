@@ -1083,39 +1083,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Architecture",
-            "Module map",
-            "Design tokens",
-            "Conventions"
-          ]
+          "items": ["Architecture", "Module map", "Design tokens", "Conventions"]
         },
         "company": {
           "title": "Product",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integrations",
-            "Release notes"
-          ]
+          "items": ["Roadmap", "Changelog", "Integrations", "Release notes"]
         },
         "community": {
           "title": "Support",
-          "items": [
-            "Documentation",
-            "Guides",
-            "Examples",
-            "FAQ"
-          ]
+          "items": ["Documentation", "Guides", "Examples", "FAQ"]
         },
         "legal": {
           "title": "Legal",
-          "items": [
-            "Privacy",
-            "Terms",
-            "Cookies",
-            "Licenses"
-          ]
+          "items": ["Privacy", "Terms", "Cookies", "Licenses"]
         }
       }
     }

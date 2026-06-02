@@ -24,83 +24,142 @@ interface PlanDay {
 export function FiveDayPlanBlock() {
   const { t } = useTranslation()
   const [selectedDay, setSelectedDay] = useState<number>(1)
-  
+
   // Keep track of checked tasks globally (dayNum-taskId)
   const [checkedTasks, setCheckedTasks] = useState<Record<string, boolean>>({
     '1-clone': true, // Clone step is checked by default to feel started
   })
 
-  const days: PlanDay[] = useMemo(() => [
-    {
-      dayNum: 1,
-      titleKey: 'home.plan.day1.title',
-      titleFallback: 'Day 1: Setup & Env',
-      subtitleKey: 'home.plan.day1.subtitle',
-      subtitleFallback: 'Clone the repository and validate your local environment variables.',
-      command: 'pnpm install && pnpm lint',
-      fileTarget: '.env.example',
-      tasks: [
-        { id: 'clone', textKey: 'home.plan.day1.task1', textFallback: 'Clone template repository' },
-        { id: 'env', textKey: 'home.plan.day1.task2', textFallback: 'Create local .env copy' },
-        { id: 'install', textKey: 'home.plan.day1.task3', textFallback: 'Install packages and verify dev server' },
-      ],
-    },
-    {
-      dayNum: 2,
-      titleKey: 'home.plan.day2.title',
-      titleFallback: 'Day 2: Visual & Tokens',
-      subtitleKey: 'home.plan.day2.subtitle',
-      subtitleFallback: 'Define your branding palettes and configure App Shell navigation.',
-      fileTarget: 'src/shared/styles/globals.css',
-      tasks: [
-        { id: 'theme', textKey: 'home.plan.day2.task1', textFallback: 'Edit OKLCH branding colors in globals.css' },
-        { id: 'logo', textKey: 'home.plan.day2.task2', textFallback: 'Replace default logo components' },
-        { id: 'sidebar', textKey: 'home.plan.day2.task3', textFallback: 'Map dashboard navigation entries' },
-      ],
-    },
-    {
-      dayNum: 3,
-      titleKey: 'home.plan.day3.title',
-      titleFallback: 'Day 3: Auth & Database',
-      subtitleKey: 'home.plan.day3.subtitle',
-      subtitleFallback: 'Wired Better Auth credentials and migrate database tables.',
-      command: 'pnpm db:generate && pnpm db:migrate',
-      fileTarget: 'drizzle.config.ts',
-      tasks: [
-        { id: 'auth-keys', textKey: 'home.plan.day3.task1', textFallback: 'Configure AUTH_SECRET in environment' },
-        { id: 'schema', textKey: 'home.plan.day3.task2', textFallback: 'Define domain schemas in Drizzle kit' },
-        { id: 'migrations', textKey: 'home.plan.day3.task3', textFallback: 'Run migrations to database engine' },
-      ],
-    },
-    {
-      dayNum: 4,
-      titleKey: 'home.plan.day4.title',
-      titleFallback: 'Day 4: Domain Core',
-      subtitleKey: 'home.plan.day4.subtitle',
-      subtitleFallback: 'Add core routing controllers and plug-in AI chat capabilities.',
-      command: 'pnpm routes:inventory',
-      fileTarget: 'src/routes/',
-      tasks: [
-        { id: 'routes', textKey: 'home.plan.day4.task1', textFallback: 'Create custom route handlers under router tree' },
-        { id: 'logic', textKey: 'home.plan.day4.task2', textFallback: 'Build dashboard widgets and UI modules' },
-        { id: 'ai-stream', textKey: 'home.plan.day4.task3', textFallback: 'Connect SSE AI models in chat panel' },
-      ],
-    },
-    {
-      dayNum: 5,
-      titleKey: 'home.plan.day5.title',
-      titleFallback: 'Day 5: QA & Deployment',
-      subtitleKey: 'home.plan.day5.subtitle',
-      subtitleFallback: 'Run end-to-end playbooks and configure your container compilation.',
-      command: 'pnpm test:e2e && pnpm build',
-      fileTarget: 'Dockerfile',
-      tasks: [
-        { id: 'playwright', textKey: 'home.plan.day5.task1', textFallback: 'Execute E2E mock suites with Playwright' },
-        { id: 'prod-build', textKey: 'home.plan.day5.task2', textFallback: 'Run vite production optimizations check' },
-        { id: 'docker-up', textKey: 'home.plan.day5.task3', textFallback: 'Boot docker-compose.yml stack validation' },
-      ],
-    },
-  ], [])
+  const days: PlanDay[] = useMemo(
+    () => [
+      {
+        dayNum: 1,
+        titleKey: 'home.plan.day1.title',
+        titleFallback: 'Day 1: Setup & Env',
+        subtitleKey: 'home.plan.day1.subtitle',
+        subtitleFallback: 'Clone the repository and validate your local environment variables.',
+        command: 'pnpm install && pnpm lint',
+        fileTarget: '.env.example',
+        tasks: [
+          {
+            id: 'clone',
+            textKey: 'home.plan.day1.task1',
+            textFallback: 'Clone template repository',
+          },
+          { id: 'env', textKey: 'home.plan.day1.task2', textFallback: 'Create local .env copy' },
+          {
+            id: 'install',
+            textKey: 'home.plan.day1.task3',
+            textFallback: 'Install packages and verify dev server',
+          },
+        ],
+      },
+      {
+        dayNum: 2,
+        titleKey: 'home.plan.day2.title',
+        titleFallback: 'Day 2: Visual & Tokens',
+        subtitleKey: 'home.plan.day2.subtitle',
+        subtitleFallback: 'Define your branding palettes and configure App Shell navigation.',
+        fileTarget: 'src/shared/styles/globals.css',
+        tasks: [
+          {
+            id: 'theme',
+            textKey: 'home.plan.day2.task1',
+            textFallback: 'Edit OKLCH branding colors in globals.css',
+          },
+          {
+            id: 'logo',
+            textKey: 'home.plan.day2.task2',
+            textFallback: 'Replace default logo components',
+          },
+          {
+            id: 'sidebar',
+            textKey: 'home.plan.day2.task3',
+            textFallback: 'Map dashboard navigation entries',
+          },
+        ],
+      },
+      {
+        dayNum: 3,
+        titleKey: 'home.plan.day3.title',
+        titleFallback: 'Day 3: Auth & Database',
+        subtitleKey: 'home.plan.day3.subtitle',
+        subtitleFallback: 'Wired Better Auth credentials and migrate database tables.',
+        command: 'pnpm db:generate && pnpm db:migrate',
+        fileTarget: 'drizzle.config.ts',
+        tasks: [
+          {
+            id: 'auth-keys',
+            textKey: 'home.plan.day3.task1',
+            textFallback: 'Configure AUTH_SECRET in environment',
+          },
+          {
+            id: 'schema',
+            textKey: 'home.plan.day3.task2',
+            textFallback: 'Define domain schemas in Drizzle kit',
+          },
+          {
+            id: 'migrations',
+            textKey: 'home.plan.day3.task3',
+            textFallback: 'Run migrations to database engine',
+          },
+        ],
+      },
+      {
+        dayNum: 4,
+        titleKey: 'home.plan.day4.title',
+        titleFallback: 'Day 4: Domain Core',
+        subtitleKey: 'home.plan.day4.subtitle',
+        subtitleFallback: 'Add core routing controllers and plug-in AI chat capabilities.',
+        command: 'pnpm routes:inventory',
+        fileTarget: 'src/routes/',
+        tasks: [
+          {
+            id: 'routes',
+            textKey: 'home.plan.day4.task1',
+            textFallback: 'Create custom route handlers under router tree',
+          },
+          {
+            id: 'logic',
+            textKey: 'home.plan.day4.task2',
+            textFallback: 'Build dashboard widgets and UI modules',
+          },
+          {
+            id: 'ai-stream',
+            textKey: 'home.plan.day4.task3',
+            textFallback: 'Connect SSE AI models in chat panel',
+          },
+        ],
+      },
+      {
+        dayNum: 5,
+        titleKey: 'home.plan.day5.title',
+        titleFallback: 'Day 5: QA & Deployment',
+        subtitleKey: 'home.plan.day5.subtitle',
+        subtitleFallback: 'Run end-to-end playbooks and configure your container compilation.',
+        command: 'pnpm test:e2e && pnpm build',
+        fileTarget: 'Dockerfile',
+        tasks: [
+          {
+            id: 'playwright',
+            textKey: 'home.plan.day5.task1',
+            textFallback: 'Execute E2E mock suites with Playwright',
+          },
+          {
+            id: 'prod-build',
+            textKey: 'home.plan.day5.task2',
+            textFallback: 'Run vite production optimizations check',
+          },
+          {
+            id: 'docker-up',
+            textKey: 'home.plan.day5.task3',
+            textFallback: 'Boot docker-compose.yml stack validation',
+          },
+        ],
+      },
+    ],
+    [],
+  )
 
   const toggleTask = useCallback((dayNum: number, taskId: string) => {
     const key = `${dayNum}-${taskId}`
@@ -142,7 +201,10 @@ export function FiveDayPlanBlock() {
             {t('home.plan.title', '5-Day shipping framework')}
           </h2>
           <p className="mx-auto max-w-xl text-base text-muted-foreground">
-            {t('home.plan.description', 'Get your product fully live with an organized checklist. Stop guessing what step comes next.')}
+            {t(
+              'home.plan.description',
+              'Get your product fully live with an organized checklist. Stop guessing what step comes next.',
+            )}
           </p>
         </m.div>
 
@@ -153,11 +215,15 @@ export function FiveDayPlanBlock() {
               {t('home.plan.progress.title', 'Shipping Readiness')}
             </p>
             <p className="text-xs text-muted-foreground">
-              {t('home.plan.progress.stats', '{{completed}} of {{total}} tasks checked ({{percent}}%)', {
-                completed: completedTasksCount,
-                total: totalTasks,
-                percent: progressPercent,
-              })}
+              {t(
+                'home.plan.progress.stats',
+                '{{completed}} of {{total}} tasks checked ({{percent}}%)',
+                {
+                  completed: completedTasksCount,
+                  total: totalTasks,
+                  percent: progressPercent,
+                },
+              )}
             </p>
           </div>
           <div className="flex-1 max-w-md w-full">
@@ -170,8 +236,8 @@ export function FiveDayPlanBlock() {
           {/* Left Days navigation tab list */}
           <div className="flex flex-row md:flex-col gap-2 md:col-span-1 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
             {days.map((day) => {
-              const dayTasks = day.tasks.map(t => `${day.dayNum}-${t.id}`)
-              const dayCompletedCount = dayTasks.filter(k => checkedTasks[k]).length
+              const dayTasks = day.tasks.map((t) => `${day.dayNum}-${t.id}`)
+              const dayCompletedCount = dayTasks.filter((k) => checkedTasks[k]).length
               const isDayComplete = dayCompletedCount === day.tasks.length
 
               return (
@@ -242,7 +308,9 @@ export function FiveDayPlanBlock() {
                             ) : (
                               <Circle className="h-4 w-4 text-muted-foreground/50 group-hover:text-foreground shrink-0 mt-0.5" />
                             )}
-                            <span className={`text-xs sm:text-sm font-medium ${isChecked ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
+                            <span
+                              className={`text-xs sm:text-sm font-medium ${isChecked ? 'line-through text-muted-foreground' : 'text-foreground'}`}
+                            >
                               {t(task.textKey, task.textFallback)}
                             </span>
                           </button>

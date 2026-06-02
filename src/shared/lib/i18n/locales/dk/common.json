@@ -979,39 +979,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Arkitektur",
-            "Moduloversigt",
-            "Design tokens",
-            "Konventioner"
-          ]
+          "items": ["Arkitektur", "Moduloversigt", "Design tokens", "Konventioner"]
         },
         "company": {
           "title": "Produkt",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integrationer",
-            "Release notes"
-          ]
+          "items": ["Roadmap", "Changelog", "Integrationer", "Release notes"]
         },
         "community": {
           "title": "Support",
-          "items": [
-            "Dokumentation",
-            "Guides",
-            "Eksempler",
-            "FAQ"
-          ]
+          "items": ["Dokumentation", "Guides", "Eksempler", "FAQ"]
         },
         "legal": {
           "title": "Juridisk",
-          "items": [
-            "Privatliv",
-            "Vilkår",
-            "Cookies",
-            "Licenser"
-          ]
+          "items": ["Privatliv", "Vilkår", "Cookies", "Licenser"]
         }
       }
     }

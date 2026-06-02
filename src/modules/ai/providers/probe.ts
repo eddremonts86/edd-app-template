@@ -20,6 +20,8 @@ export async function probeProvider(config: AiConfigFormData): Promise<AiProvide
       return await probeOllamaProvider(config)
     case 'openai':
       return await probeOpenAiProvider(config)
+    case 'minimax':
+      return await probeOpenAiProvider(config)
   }
 }
 

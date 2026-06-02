@@ -1,6 +1,13 @@
 import { z } from 'zod'
 
-export const AI_PROVIDER_IDS = ['minimax', 'llama-cpp', 'ollama', 'lm-studio', 'openai', 'anthropic'] as const
+export const AI_PROVIDER_IDS = [
+  'minimax',
+  'llama-cpp',
+  'ollama',
+  'lm-studio',
+  'openai',
+  'anthropic',
+] as const
 
 export const aiProviderSchema = z.enum(AI_PROVIDER_IDS)
 export type AiProviderId = z.infer<typeof aiProviderSchema>

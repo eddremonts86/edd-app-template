@@ -3,7 +3,7 @@ import postgres from 'postgres'
 
 const AUTH_E2E_DB_URL =
   process.env.AUTH_E2E_DB_URL ??
-  'postgresql://postgres:postgres@127.0.0.1:5433/tanstack_template_auth_e2e'
+  'postgresql://postgres:postgres@127.0.0.1:5432/tanstack_template_auth_e2e'
 
 interface AuthUserRow {
   id: string

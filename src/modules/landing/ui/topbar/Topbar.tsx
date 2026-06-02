@@ -28,7 +28,6 @@ export const Topbar = memo(function Topbar() {
   const auth = useAppAuth()
   const [isOpen, setIsOpen] = useState(false)
 
-
   const handleScroll = useCallback((e: React.MouseEvent<HTMLElement>, id: string) => {
     setIsOpen(false)
     const element = document.getElementById(id)
@@ -56,9 +55,7 @@ export const Topbar = memo(function Topbar() {
             <Link
               to="/"
               className="flex items-center gap-2"
-              onClick={(e) =>
-                handleScroll(e, 'home')
-              }
+              onClick={(e) => handleScroll(e, 'home')}
             >
               <m.div
                 whileHover={{ rotate: 20, scale: 1.1 }}
@@ -120,11 +117,7 @@ export const Topbar = memo(function Topbar() {
 
           <div className="flex items-center gap-3">
             {!auth.isAuthenticated && (
-              <Button
-                size="sm"
-                className="gap-2"
-                onClick={(e) => handleScroll(e, 'start')}
-              >
+              <Button size="sm" className="gap-2" onClick={(e) => handleScroll(e, 'start')}>
                 Start
               </Button>
             )}

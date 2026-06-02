@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { Toggle as TogglePrimitive } from "radix-ui"
-import * as React from "react"
-import { toggleVariants, type ToggleVariantProps } from "@/components/ui/toggle-variants"
-import { cn } from "@/shared/utils/index"
+import { Toggle as TogglePrimitive } from 'radix-ui'
+import * as React from 'react'
+import { toggleVariants, type ToggleVariantProps } from '@/components/ui/toggle-variants'
+import { cn } from '@/shared/utils/index'
 
 function Toggle({
   className,

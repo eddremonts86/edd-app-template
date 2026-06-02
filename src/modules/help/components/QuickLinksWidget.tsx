@@ -1,8 +1,4 @@
-import {
-  IconSettings,
-  IconHelp,
-  IconUsers,
-} from '@tabler/icons-react'
+import { IconSettings, IconHelp, IconUsers } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui'

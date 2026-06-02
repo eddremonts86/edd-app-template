@@ -1,8 +1,4 @@
-import {
-  IconAdjustmentsHorizontal,
-  IconLoader2,
-  IconSettings,
-} from '@tabler/icons-react'
+import { IconAdjustmentsHorizontal, IconLoader2, IconSettings } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { toast } from '@/shared/lib/toast'
@@ -53,14 +49,8 @@ export function SystemSettings() {
               </h3>
             </div>
             <div className="space-y-6">
-              <LanguageSelector
-                value={pendingSettings.language}
-                onChange={setPendingLanguage}
-              />
-              <ThemeSelector
-                value={pendingSettings.theme as Theme}
-                onChange={setPendingTheme}
-              />
+              <LanguageSelector value={pendingSettings.language} onChange={setPendingLanguage} />
+              <ThemeSelector value={pendingSettings.theme as Theme} onChange={setPendingTheme} />
             </div>
           </div>
         </section>

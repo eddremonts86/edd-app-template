@@ -1,10 +1,4 @@
-import {
-  pgTable,
-  text,
-  timestamp,
-  boolean,
-  unique,
-} from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, boolean, unique } from 'drizzle-orm/pg-core'
 
 // ---------------------------------------------------------------------------
 // Authentication Tables (Better Auth)
@@ -93,4 +87,3 @@ export const users = pgTable('users', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
-

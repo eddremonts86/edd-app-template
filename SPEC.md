@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0  
 **Date:** 2026-04-29  
-**Status:** Approved  
+**Status:** Approved
 
 ---
 
@@ -22,78 +22,87 @@ It is the distilled, business-domain-agnostic core extracted from `apps/budget-a
 ## 2. Core Features & Acceptance Criteria
 
 ### 2.1 Authentication
-- Better Auth with email/password sign-up, sign-in, sign-out  
-- Session management (JWT/cookie)  
-- Protected routes (redirect unauthenticated to `/auth/sign-in`)  
+
+- Better Auth with email/password sign-up, sign-in, sign-out
+- Session management (JWT/cookie)
+- Protected routes (redirect unauthenticated to `/auth/sign-in`)
 - Acceptance: E2E tests for sign-up, sign-in, sign-out pass
 
 ### 2.2 Landing Page
-- Public marketing layout (`_landing` route group)  
-- Sections: Hero → Features → Pricing → CTA → Footer  
-- Responsive, Tailwind v4, dark/light mode  
+
+- Public marketing layout (`_landing` route group)
+- Sections: Hero → Features → Pricing → CTA → Footer
+- Responsive, Tailwind v4, dark/light mode
 - Acceptance: Visually renders all sections; no console errors
 
 ### 2.3 Dashboard Shell
-- Authenticated app layout (`_dashboard` route group)  
-- Sidebar navigation driven by module manifests  
-- Header with user avatar + profile dropdown  
-- Widget-based home screen (empty state by default)  
+
+- Authenticated app layout (`_dashboard` route group)
+- Sidebar navigation driven by module manifests
+- Header with user avatar + profile dropdown
+- Widget-based home screen (empty state by default)
 - Acceptance: Auth guard works; navigation renders registered module items
 
 ### 2.4 User & Settings
-- Profile page (name, email, avatar)  
-- Account settings (password change, delete account)  
+
+- Profile page (name, email, avatar)
+- Account settings (password change, delete account)
 - Acceptance: Profile updates persist to DB
 
 ### 2.5 AI Integration
-- Multi-provider AI client (OpenAI, Anthropic, Ollama) configurable via `.env`  
-- Provider switcher script (`pnpm ai:switch`)  
-- RAG ingestion pipeline (ChromaDB)  
-- AI search command (`Cmd+K` style)  
+
+- Multi-provider AI client (OpenAI, Anthropic, Ollama) configurable via `.env`
+- Provider switcher script (`pnpm ai:switch`)
+- RAG ingestion pipeline (ChromaDB)
+- AI search command (`Cmd+K` style)
 - Acceptance: Chat completion returns response from configured provider
 
 ### 2.6 Database
-- PostgreSQL via Drizzle ORM  
-- Schema: `users`, `sessions`, `accounts` (Better Auth tables)  
-- Docker Compose for local DB + ChromaDB  
-- Migrations managed with `drizzle-kit`  
+
+- PostgreSQL via Drizzle ORM
+- Schema: `users`, `sessions`, `accounts` (Better Auth tables)
+- Docker Compose for local DB + ChromaDB
+- Migrations managed with `drizzle-kit`
 - Acceptance: `pnpm db:migrate` runs clean on empty DB
 
 ### 2.7 Module Registry
-- `src/modules/core` manifest system  
-- Modules self-register via `registry.ts`  
-- Navigation items injected from manifests  
+
+- `src/modules/core` manifest system
+- Modules self-register via `registry.ts`
+- Navigation items injected from manifests
 - Acceptance: Adding a new module manifest auto-appears in sidebar
 
 ### 2.8 Help System
-- In-app help panel / FAQ  
+
+- In-app help panel / FAQ
 - Acceptance: Opens without errors; placeholder content
 
 ### 2.9 i18n
-- i18next with EN + ES locales  
-- Locale switcher in settings  
+
+- i18next with EN + ES locales
+- Locale switcher in settings
 - Acceptance: Switching locale updates all translated strings
 
 ---
 
 ## 3. Tech Stack (Fixed)
 
-| Layer | Technology |
-|-------|-----------|
-| Runtime | TanStack Start (React 18 + SSR) |
-| Routing | TanStack Router (file-based) |
-| Server state | TanStack Query |
-| Bundler | Vite |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 + shadcn/ui + Radix UI |
-| Database | PostgreSQL via Drizzle ORM |
-| Auth | Better Auth |
-| AI | Vercel AI SDK (multi-provider) |
-| Vector DB | ChromaDB |
-| Testing | Vitest (unit) + Playwright (E2E) |
-| Package manager | pnpm |
-| Containerization | Docker Compose |
-| Deployment | Netlify (netlify.toml) |
+| Layer            | Technology                             |
+| ---------------- | -------------------------------------- |
+| Runtime          | TanStack Start (React 18 + SSR)        |
+| Routing          | TanStack Router (file-based)           |
+| Server state     | TanStack Query                         |
+| Bundler          | Vite                                   |
+| Language         | TypeScript (strict)                    |
+| Styling          | Tailwind CSS v4 + shadcn/ui + Radix UI |
+| Database         | PostgreSQL via Drizzle ORM             |
+| Auth             | Better Auth                            |
+| AI               | Vercel AI SDK (multi-provider)         |
+| Vector DB        | ChromaDB                               |
+| Testing          | Vitest (unit) + Playwright (E2E)       |
+| Package manager  | pnpm                                   |
+| Containerization | Docker Compose                         |
+| Deployment       | Netlify (netlify.toml)                 |
 
 ---
 
@@ -198,12 +207,14 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 ## 6. Testing Strategy
 
 ### Unit (Vitest)
+
 - Module manifest shape validation
 - Auth utility functions
 - Core registry logic
 - i18n key completeness
 
 ### E2E (Playwright)
+
 - `auth.signup.local.spec.ts` — full sign-up flow
 - `auth.signin.local.spec.ts` — sign-in with valid + invalid credentials
 - `auth.logout.local.spec.ts` — sign-out clears session
@@ -211,6 +222,7 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 - `dashboard.spec.ts` — protected route redirects + dashboard loads after login
 
 ### Smoke
+
 - `pnpm test:seeded:smoke` — confirms app responds after DB seed
 
 ---
@@ -218,18 +230,21 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 ## 7. Boundaries
 
 ### Always do
+
 - Keep modules self-contained with a manifest
 - Use the module registry for navigation
 - Source all secrets from `.env` via typed config
 - Run `pnpm type-check` and `pnpm lint` before committing
 
 ### Ask first
+
 - Adding a new AI provider
 - Changing the DB schema (affects all apps derived from this template)
 - Modifying the module manifest type (breaking change for all registered modules)
 - Changing the auth provider
 
 ### Never do
+
 - Hardcode API keys, tokens, or connection strings
 - Add business-domain logic (budgets, tasks, orders, etc.) — that belongs in the consuming app
 - Set `Access-Control-Allow-Origin: *` in production
@@ -241,24 +256,24 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 
 ## 8. Module Classification (what stays in budget-app vs this template)
 
-| Module | Template | Budget-app only |
-|--------|----------|-----------------|
-| `auth` | ✅ | |
-| `ai` | ✅ | |
-| `core` | ✅ | |
-| `landing` | ✅ | |
-| `dashboard` | ✅ | |
-| `users` | ✅ | |
-| `settings` | ✅ | |
-| `help` | ✅ | |
-| `shared` | ✅ | |
-| `budgets` | | ✅ |
-| `categories` | | ✅ |
-| `transactions` | | ✅ |
-| `projects` | | ✅ |
-| `tasks` | | ✅ |
-| `team` | | ✅ |
-| `analytics` | | ✅ |
+| Module         | Template | Budget-app only |
+| -------------- | -------- | --------------- |
+| `auth`         | ✅       |                 |
+| `ai`           | ✅       |                 |
+| `core`         | ✅       |                 |
+| `landing`      | ✅       |                 |
+| `dashboard`    | ✅       |                 |
+| `users`        | ✅       |                 |
+| `settings`     | ✅       |                 |
+| `help`         | ✅       |                 |
+| `shared`       | ✅       |                 |
+| `budgets`      |          | ✅              |
+| `categories`   |          | ✅              |
+| `transactions` |          | ✅              |
+| `projects`     |          | ✅              |
+| `tasks`        |          | ✅              |
+| `team`         |          | ✅              |
+| `analytics`    |          | ✅              |
 
 ---
 

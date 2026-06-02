@@ -29,21 +29,25 @@ export const OLLAMA_CONFIG = {
       contextWindow: 32768,
       hardwareRequirements: {
         gpuMemory: '48GB', // Approximate
-      }
+      },
     },
-    'glm4': {
+    glm4: {
       id: 'glm4',
       family: 'glm',
       size: '9b', // Typical for GLM-4-9B
       contextWindow: 128000,
-    }
+    },
   },
 
   /**
    * Connection parameters for the Ollama API.
    */
   connection: {
-    baseUrl: process.env.AI_OLLAMA_BASE_URL || process.env.AI_API_BASE_URL || process.env.OLLAMA_BASE_URL || 'http://localhost:11435/v1',
+    baseUrl:
+      process.env.AI_OLLAMA_BASE_URL ||
+      process.env.AI_API_BASE_URL ||
+      process.env.OLLAMA_BASE_URL ||
+      'http://localhost:11435/v1',
     timeout: 60000, // 60s default
     headers: {
       'Content-Type': 'application/json',
@@ -95,5 +99,5 @@ export const OLLAMA_CONFIG = {
   healthCheck: {
     endpoint: '/', // Ollama root returns 200 OK
     interval: 30000,
-  }
-};
+  },
+}

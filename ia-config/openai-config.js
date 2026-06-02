@@ -20,7 +20,7 @@ export const OPENAI_CONFIG = {
       name: 'GPT-4o Mini',
       contextWindow: 128000,
       description: 'OpenAI GPT-4o Mini model',
-    }
+    },
   },
 
   /**
@@ -61,4 +61,4 @@ export const OPENAI_CONFIG = {
   logging: {
     level: 'info',
   },
-};
+}

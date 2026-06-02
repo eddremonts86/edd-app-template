@@ -14,19 +14,19 @@
 
 A battle-tested, opinionated monolith with every cross-cutting concern already wired up:
 
-| Layer | Choice |
-|---|---|
-| Framework | TanStack Start (SSR) + TanStack Router (file-based) |
-| Language | TypeScript 7 — strict mode |
-| Styling | Tailwind CSS v4 + shadcn/ui + Radix UI |
-| Database | PostgreSQL · Drizzle ORM · drizzle-kit migrations |
-| Auth | Better Auth — email/password, sessions, protected routes |
-| AI | Multi-provider (OpenAI, Anthropic, Ollama) + RAG (ChromaDB) |
-| Forms | TanStack Form + Zod validation |
-| Data fetching | TanStack Query with infinite scroll & optimistic updates |
-| Testing | Vitest (unit) + Playwright (E2E) |
-| i18n | i18next — EN + ES out of the box |
-| Infra | Docker Compose (Postgres + ChromaDB) · Netlify-ready |
+| Layer         | Choice                                                      |
+| ------------- | ----------------------------------------------------------- |
+| Framework     | TanStack Start (SSR) + TanStack Router (file-based)         |
+| Language      | TypeScript 7 — strict mode                                  |
+| Styling       | Tailwind CSS v4 + shadcn/ui + Radix UI                      |
+| Database      | PostgreSQL · Drizzle ORM · drizzle-kit migrations           |
+| Auth          | Better Auth — email/password, sessions, protected routes    |
+| AI            | Multi-provider (OpenAI, Anthropic, Ollama) + RAG (ChromaDB) |
+| Forms         | TanStack Form + Zod validation                              |
+| Data fetching | TanStack Query with infinite scroll & optimistic updates    |
+| Testing       | Vitest (unit) + Playwright (E2E)                            |
+| i18n          | i18next — EN + ES out of the box                            |
+| Infra         | Docker Compose (Postgres + ChromaDB) · Netlify-ready        |
 
 ---
 
@@ -123,45 +123,50 @@ Supported providers out of the box: **OpenAI**, **Anthropic Claude**, **Ollama**
 ## Scripts reference
 
 ### Dev
-| Command | Description |
-|---|---|
-| `pnpm dev` | Start dev server on port 3000 |
+
+| Command        | Description                          |
+| -------------- | ------------------------------------ |
+| `pnpm dev`     | Start dev server on port 3000        |
 | `pnpm dev:all` | Start DB + dev server in one command |
-| `pnpm build` | Production build |
-| `pnpm preview` | Preview production build locally |
+| `pnpm build`   | Production build                     |
+| `pnpm preview` | Preview production build locally     |
 
 ### Database
-| Command | Description |
-|---|---|
-| `pnpm db:up` | Start Postgres + ChromaDB containers |
-| `pnpm db:down` | Stop and remove containers |
-| `pnpm db:generate` | Generate SQL migration files |
-| `pnpm db:migrate` | Run pending migrations |
-| `pnpm db:push` | Push schema directly (dev only) |
-| `pnpm db:seed` | Load sample data |
+
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `pnpm db:up`       | Start Postgres + ChromaDB containers |
+| `pnpm db:down`     | Stop and remove containers           |
+| `pnpm db:generate` | Generate SQL migration files         |
+| `pnpm db:migrate`  | Run pending migrations               |
+| `pnpm db:push`     | Push schema directly (dev only)      |
+| `pnpm db:seed`     | Load sample data                     |
 
 ### Testing
-| Command | Description |
-|---|---|
-| `pnpm test` | Run unit tests (Vitest) |
-| `pnpm test:e2e` | Run Playwright E2E suite |
-| `pnpm test:e2e:ui` | Open Playwright UI mode |
-| `pnpm type-check` | TypeScript strict check — zero errors |
+
+| Command            | Description                           |
+| ------------------ | ------------------------------------- |
+| `pnpm test`        | Run unit tests (Vitest)               |
+| `pnpm test:e2e`    | Run Playwright E2E suite              |
+| `pnpm test:e2e:ui` | Open Playwright UI mode               |
+| `pnpm type-check`  | TypeScript strict check — zero errors |
 
 ### Code quality
-| Command | Description |
-|---|---|
-| `pnpm lint` | ESLint |
+
+| Command         | Description          |
+| --------------- | -------------------- |
+| `pnpm lint`     | ESLint               |
 | `pnpm lint:fix` | ESLint with auto-fix |
-| `pnpm format` | Prettier |
+| `pnpm format`   | Prettier             |
 
 ### AI & Docker
-| Command | Description |
-|---|---|
-| `pnpm ai:switch` | Switch AI provider interactively |
-| `pnpm docker:up` | Full stack (app + AI services) |
-| `pnpm docker:verify` | Verify all services are healthy |
-| `pnpm docker:reset` | Soft reset the Docker stack |
+
+| Command              | Description                      |
+| -------------------- | -------------------------------- |
+| `pnpm ai:switch`     | Switch AI provider interactively |
+| `pnpm docker:up`     | Full stack (app + AI services)   |
+| `pnpm docker:verify` | Verify all services are healthy  |
+| `pnpm docker:reset`  | Soft reset the Docker stack      |
 
 ---
 

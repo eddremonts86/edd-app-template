@@ -1,12 +1,6 @@
 import { IconUsers } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { WidgetRefreshButton, WidgetRefreshingIndicator } from '@/modules/core/widget'
 import { useDashboardStats } from '../api/dashboard.queries'
 
@@ -22,9 +16,7 @@ export function DashboardPage() {
     <div className="flex flex-col gap-6 animate-in fade-in duration-500">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">
-            {t('dashboard.title', 'Dashboard')}
-          </h2>
+          <h2 className="text-3xl font-bold tracking-tight">{t('dashboard.title', 'Dashboard')}</h2>
           <p className="text-muted-foreground">
             {t('dashboard.subtitle', 'Overview of your application.')}
           </p>
@@ -39,10 +31,7 @@ export function DashboardPage() {
             </CardTitle>
             <div className="flex items-center gap-1">
               {isFetching && <WidgetRefreshingIndicator />}
-              <WidgetRefreshButton
-                isRefreshing={isFetching}
-                onRefresh={refetch}
-              />
+              <WidgetRefreshButton isRefreshing={isFetching} onRefresh={refetch} />
               <IconUsers className="h-4 w-4 text-muted-foreground" />
             </div>
           </CardHeader>

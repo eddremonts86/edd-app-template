@@ -161,10 +161,7 @@ const words = text.split(' ')
 
 ```vue
 <!-- Morphing shapes -->
-<motion.path
-  :animate="{ d: isCircle ? circlePath : squarePath }"
-  :transition="{ duration: 0.5 }"
-/>
+<motion.path :animate="{ d: isCircle ? circlePath : squarePath }" :transition="{ duration: 0.5 }" />
 ```
 
 ### Background Effects
@@ -184,11 +181,7 @@ function handleMouse(e: MouseEvent) {
 }
 </script>
 
-<motion.div
-  :style="{ background }"
-  @mousemove="handleMouse"
-  class="fixed inset-0"
-/>
+<motion.div :style="{ background }" @mousemove="handleMouse" class="fixed inset-0" />
 ```
 
 ### Page Transitions

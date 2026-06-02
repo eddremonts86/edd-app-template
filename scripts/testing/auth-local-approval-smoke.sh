@@ -4,7 +4,7 @@ set -eu
 ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-AUTH_E2E_DB_URL="${AUTH_E2E_DB_URL:-postgresql://postgres:postgres@127.0.0.1:5433/tanstack_template_auth_e2e}"
+AUTH_E2E_DB_URL="${AUTH_E2E_DB_URL:-postgresql://postgres:postgres@127.0.0.1:5432/tanstack_template_auth_e2e}"
 AUTH_E2E_BASE_URL="${AUTH_E2E_BASE_URL:-http://127.0.0.1:3110}"
 AUTH_E2E_PORT="${AUTH_E2E_PORT:-3110}"
 

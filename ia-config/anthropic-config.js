@@ -20,7 +20,7 @@ export const ANTHROPIC_CONFIG = {
       name: 'Claude 3 Haiku',
       contextWindow: 200000,
       description: 'Anthropic Claude 3 Haiku model',
-    }
+    },
   },
 
   /**
@@ -60,4 +60,4 @@ export const ANTHROPIC_CONFIG = {
   logging: {
     level: 'info',
   },
-};
+}

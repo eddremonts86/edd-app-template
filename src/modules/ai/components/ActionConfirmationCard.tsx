@@ -3,12 +3,7 @@
 import { ListTodo } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import {
-  createUserFn,
-  deleteUserFn,
-  updateUserFn,
-  type UserInput,
-} from '@/modules/users'
+import { createUserFn, deleteUserFn, updateUserFn, type UserInput } from '@/modules/users'
 import { useCurrentUser } from '@/modules/users'
 import { toast } from '@/shared/lib/toast'
 import { cn } from '@/shared/lib/utils'

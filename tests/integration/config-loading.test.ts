@@ -23,7 +23,7 @@ describe('Configuration Loading System Integration', () => {
 
     expect(config.activeProvider).toBe('llama-cpp')
     expect(config.providers['ollama'].parameters.model).toBeDefined()
-    expect(config.providers['ollama'].baseUrl).toBe('http://localhost:11434/v1')
+    expect(config.providers['ollama'].baseUrl).toBe('http://localhost:11435/v1')
   })
 
   it('should load and merge user configuration correctly', async () => {
