@@ -1,0 +1,89 @@
+name: release-create-edd-app
+
+on:
+  push:
+    tags:
+      - create-edd-app-v*
+  release:
+    types:
+      - published
+  workflow_dispatch:
+
+concurrency:
+  group: publish-create-edd-app-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    defaults:
+      run:
+        working-directory: tools/create-edd-app
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Validate package files exist
+        run: |
+          test -f package.json
+          test -f bin/create-edd-app.mjs
+
+      - name: Read package metadata
+        id: pkg
+        run: |
+          PKG_NAME=$(node -p "require('./package.json').name")
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          echo "name=$PKG_NAME" >> "$GITHUB_OUTPUT"
+          echo "version=$PKG_VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve tag name
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG_NAME="${{ github.event.release.tag_name }}"
+          else
+            TAG_NAME="${GITHUB_REF_NAME}"
+          fi
+          echo "name=$TAG_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Validate tag matches package version
+        run: |
+          EXPECTED_TAG="create-edd-app-v${{ steps.pkg.outputs.version }}"
+          ACTUAL_TAG="${{ steps.tag.outputs.name }}"
+          if [ "$ACTUAL_TAG" != "$EXPECTED_TAG" ]; then
+            echo "Tag/version mismatch. Expected $EXPECTED_TAG but got $ACTUAL_TAG"
+            exit 1
+          fi
+
+      - name: Check if version already exists on npm
+        id: npm_check
+        run: |
+          if npm view "${{ steps.pkg.outputs.name }}@${{ steps.pkg.outputs.version }}" version >/dev/null 2>&1; then
+            echo "already_published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "already_published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish package
+        if: steps.npm_check.outputs.already_published == 'false'
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Skip publish (already published)
+        if: steps.npm_check.outputs.already_published == 'true'
+        run: |
+          echo "Version ${{ steps.pkg.outputs.version }} for ${{ steps.pkg.outputs.name }} is already published. Skipping."

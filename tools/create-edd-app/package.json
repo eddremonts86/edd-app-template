@@ -1,0 +1,34 @@
+{
+  "name": "@edd_remonts/create-edd-app",
+  "version": "0.1.1",
+  "description": "Bootstrap a new app from the edd-app-template starter.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "create-edd-app": "bin/create-edd-app.mjs"
+  },
+  "files": [
+    "bin"
+  ],
+  "keywords": [
+    "create-app",
+    "scaffold",
+    "starter",
+    "tanstack",
+    "saas"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddremonts86/edd-app-template.git"
+  },
+  "homepage": "https://github.com/eddremonts86/edd-app-template#readme",
+  "bugs": {
+    "url": "https://github.com/eddremonts86/edd-app-template/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
