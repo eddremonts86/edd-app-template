@@ -31,7 +31,7 @@ export function GlowyWavesHero() {
 
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText('npx create-edd-app my-product')
+      await navigator.clipboard.writeText('npx @edd_remonts/create-edd-app my-product')
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch (err) {
@@ -97,7 +97,7 @@ export function GlowyWavesHero() {
             {/* Interactive command console */}
             <div id="start" className="relative flex items-center justify-between w-full sm:w-auto flex-1 min-w-[280px] rounded-lg border border-border/50 bg-muted/60 p-1 pl-4 backdrop-blur-sm dark:bg-muted/30">
               <code className="text-left text-xs sm:text-sm font-mono text-foreground/90 select-all pr-2">
-                npx create-edd-app my-product
+                npx @edd_remonts/create-edd-app my-product
               </code>
               <Button
                 size="sm"

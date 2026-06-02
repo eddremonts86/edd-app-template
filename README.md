@@ -1,6 +1,6 @@
 # edd-app-template
 
-> Production-ready SaaS starter built on TanStack Start. Clone it, add your domain module, and ship in under 30 minutes.
+> Production-ready SaaS starter built on TanStack Start. Bootstrap it with npx, add your domain module, and ship in under 30 minutes.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-7.x-3178c6?logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
@@ -56,12 +56,11 @@ Each module is self-contained: `api/`, `components/`, `model/`, `ui/`, and a `ma
 - pnpm ≥ 9
 - Docker Desktop (for local Postgres + ChromaDB)
 
-### 1. Clone & install
+### 1. Bootstrap with npx
 
 ```bash
-git clone https://github.com/eddremonts86/edd-app-template.git my-app
+npx @edd_remonts/create-edd-app my-app
 cd my-app
-pnpm install
 ```
 
 ### 2. Environment
@@ -83,6 +82,14 @@ pnpm db:seed     # optional: loads sample data
 
 ```bash
 pnpm dev         # http://localhost:3000
+```
+
+### Alternative: clone manually
+
+```bash
+git clone https://github.com/eddremonts86/edd-app-template.git my-app
+cd my-app
+pnpm install
 ```
 
 ---

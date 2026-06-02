@@ -265,21 +265,22 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 ## 9. How to Use This Template for a New App
 
 ```bash
-# 1. Copy template
-cp -r apps/edd-app-template apps/my-new-app
+# 1. Bootstrap from npm
+npx @edd_remonts/create-edd-app my-new-app
+cd my-new-app
 
 # 2. Update package name
-# Edit apps/my-new-app/package.json → "name": "my-new-app"
+# Edit package.json → "name": "my-new-app"
 
 # 3. Configure environment
-cp apps/my-new-app/.env.example apps/my-new-app/.env.development
+cp .env.example .env
 # Fill in DB_URL, AUTH_SECRET, AI keys
 
 # 4. Start DB and run migrations
-cd apps/my-new-app && pnpm db:up && pnpm db:migrate
+pnpm db:up && pnpm db:migrate
 
 # 5. Create your domain module
-# Add apps/my-new-app/src/modules/my-feature/manifest.ts
+# Add src/modules/my-feature/manifest.ts
 # Register it in src/modules/index.ts
 
 # 6. Start dev server
