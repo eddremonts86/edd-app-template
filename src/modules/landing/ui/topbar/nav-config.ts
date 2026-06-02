@@ -2,10 +2,8 @@ import type { TFunction } from 'i18next'
 import type { NavItem } from './types'
 
 export const getNavItems = (t: TFunction): NavItem[] => [
-  { id: 'home', label: t('nav.home'), to: '/' },
-  { id: 'services', label: t('nav.services'), href: '#services' },
-  { id: 'timeline', label: t('nav.timeline'), href: '#timeline' },
-  { id: 'contact', label: t('nav.contact'), href: '#contact' },
+  { id: 'docs', label: t('nav.docs', 'Docs'), href: '#docs' },
+  { id: 'github', label: 'GitHub', href: 'https://github.com/eddremonts86/edd-app-template' },
 ]
 
 export const getDashboardItem = (): NavItem => ({

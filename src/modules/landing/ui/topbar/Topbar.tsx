@@ -2,11 +2,9 @@
 
 import { Link } from '@tanstack/react-router'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
-import { Rocket, LogIn, Menu } from 'lucide-react'
+import { Rocket, Menu } from 'lucide-react'
 import { memo, useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { LanguageSelector } from '@/components/composite/LanguageSelector'
-import { ThemeToggle } from '@/components/composite/ThemeToggle'
 import {
   Avatar,
   AvatarFallback,
@@ -20,11 +18,6 @@ import {
   Separator,
 } from '@/components/ui'
 import { useAppAuth } from '@/shared/lib/auth/app-auth'
-import {
-  getClerkPublishableKey,
-  isBetterAuthEnabled,
-  isClerkEnabled,
-} from '@/shared/lib/auth/config'
 import { TOPBAR_HEIGHT } from './constants'
 import { getDashboardItem, getNavItems } from './nav-config'
 import { NavLink } from './NavLink'
@@ -34,11 +27,9 @@ export const Topbar = memo(function Topbar() {
   const { t } = useTranslation()
   const auth = useAppAuth()
   const [isOpen, setIsOpen] = useState(false)
-  const hasClerkRuntime = isClerkEnabled() && !!getClerkPublishableKey()
-  const hasBetterAuthRuntime = isBetterAuthEnabled()
-  const hasUnifiedAuthEntry = hasBetterAuthRuntime || hasClerkRuntime
 
-  const handleScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+
+  const handleScroll = useCallback((e: React.MouseEvent<HTMLElement>, id: string) => {
     setIsOpen(false)
     const element = document.getElementById(id)
     if (element) {
@@ -66,7 +57,7 @@ export const Topbar = memo(function Topbar() {
               to="/"
               className="flex items-center gap-2"
               onClick={(e) =>
-                handleScroll(e as unknown as React.MouseEvent<HTMLAnchorElement>, 'home')
+                handleScroll(e, 'home')
               }
             >
               <m.div
@@ -121,21 +112,6 @@ export const Topbar = memo(function Topbar() {
                         />
                       )}
                     </div>
-
-                    <div className="mt-auto border-t p-6 flex flex-col gap-4 bg-muted/30">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-muted-foreground">
-                          {t('language.title', 'Language')}
-                        </span>
-                        <LanguageSelector side="top" align="right" />
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-muted-foreground">
-                          {t('theme.title', 'Theme')}
-                        </span>
-                        <ThemeToggle />
-                      </div>
-                    </div>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -143,17 +119,13 @@ export const Topbar = memo(function Topbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3">
-              <LanguageSelector />
-              <ThemeToggle />
-            </div>
-
-            {!auth.isAuthenticated && hasUnifiedAuthEntry && (
-              <Button variant="ghost" size="sm" className="gap-2" asChild>
-                <Link to="/auth" data-testid="topbar-auth-link">
-                  <LogIn className="h-4 w-4" />
-                  {t('auth.topbarCta', 'Access workspace')}
-                </Link>
+            {!auth.isAuthenticated && (
+              <Button
+                size="sm"
+                className="gap-2"
+                onClick={(e) => handleScroll(e, 'start')}
+              >
+                Start
               </Button>
             )}
 

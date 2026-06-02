@@ -1,14 +1,14 @@
 {
   "app": {
-    "name": "TanStack Template",
-    "brand": "AI Solutions",
-    "description": "A modern full-stack template powered by TanStack"
+    "name": "edd App Template",
+    "brand": "edd Starter",
+    "description": "A reusable starting point for every edd SaaS, landing, and web app"
   },
   "nav": {
     "home": "Home",
-    "services": "Solutions",
-    "timeline": "Story",
-    "contact": "Let's Talk",
+    "services": "Building Blocks",
+    "timeline": "Roadmap",
+    "contact": "Support",
     "settings": "Settings",
     "signIn": "Sign In",
     "signOut": "Sign Out"
@@ -885,196 +885,237 @@
   },
   "home": {
     "hero": {
-      "badge": "Purpose in every pixel",
-      "title": "Where human intuition",
-      "titleHighlight": "meets AI",
-      "description": "We're not here to replace your voice, but to amplify it. We create systems that learn from your essence so you can return to what really matters: creating, imagining, and leading.",
-      "ctaPrimary": "Start your transformation",
-      "ctaSecondary": "Our philosophy",
-      "pills": {
-        "alma": "Technology with Soul",
-        "impacto": "Real Impact",
-        "friccion": "Zero Friction"
-      },
-      "stats": {
-        "hours": {
-          "label": "Hours returned to talent",
-          "value": "2.5k+"
+      "badge": "MODULAR • TYPED • TESTED • ENV-FIRST",
+      "title": "Launch SaaS in 1 hour",
+      "titleHighlight": "with production-ready architecture",
+      "description": "Avoid rebuilding core primitives. Jump straight into business logic with hybrid authentication, clean route separation, pre-configured Playwright tests, and fully typed modules.",
+      "ctaSecondary": "Explore stack",
+      "tabs": {
+        "architecture": "Architecture Map",
+        "auth": "Auth & Roles UI",
+        "dashboard": "Dashboard Preview"
+      }
+    },
+    "comparison": {
+      "title": "Stop reinventing boilerplate",
+      "description": "See how starting with the edd template compares to configuring your application foundation from scratch.",
+      "rows": {
+        "auth": {
+          "name": "Pre-wired Hybrid Auth",
+          "starter": "Better Auth + Clerk providers pre-configured. Database sessions ready in 5 minutes.",
+          "scratch": "1-2 days configuring endpoints, JWTs, cookie security, middleware, and user db schemas."
         },
-        "precision": {
-          "label": "Human Precision",
-          "value": "99.9%"
+        "routes": {
+          "name": "Modular Architecture",
+          "starter": "Strict directory separation (Landing, App Shell, Domain Modules) to prevent domain coupling.",
+          "scratch": "Spaghetti folder structure that leads to tight coupling and refactoring roadblocks later."
         },
-        "projects": {
-          "label": "Purpose-driven projects",
-          "value": "150+"
+        "test": {
+          "name": "E2E & Unit Test Harnesses",
+          "starter": "Playwright and Vitest fully configured with realistic smoke tests and routing coverage.",
+          "scratch": "Hours adjusting config files, test runners, database seeding, and CI settings."
+        },
+        "ai": {
+          "name": "Streaming AI Integrations",
+          "starter": "SSE (Server-Sent Events) backend chat handlers and customizable AI chat UI already built.",
+          "scratch": "Writing custom chunk-parsing server endpoints and state handlers for AI chat."
+        },
+        "docker": {
+          "name": "Production Docker Compose",
+          "starter": "Multi-profile docker setup for database, ChromaDB, and app compilation ready for cloud/VPS.",
+          "scratch": "Creating Dockerfiles and docker-compose configurations manually for production."
         }
       }
     },
-    "newHero": {
-      "badge": "We understand the noise, we seek clarity",
-      "title": "Your business is unique,",
-      "titleHighlight": "your AI should be too",
-      "description": "Does current technology feel like a barrier instead of a bridge? We've helped hundreds of teams recover 15 hours a week of mechanical work so they can focus on the strategy only humans can trace.",
-      "ctaPrimary": "Schedule an honest talk",
-      "ctaSecondary": "See how we work",
-      "stats": {
-        "customers": {
-          "label": "Happy Customers",
-          "value": "10K+"
-        },
-        "projects": {
-          "label": "Projects Completed",
-          "value": "500+"
-        },
-        "satisfaction": {
-          "label": "Satisfaction Rate",
-          "value": "99%"
-        }
+    "plan": {
+      "badge": "5-DAY ROLLOUT WORKFLOW",
+      "title": "5-Day shipping framework",
+      "description": "Get your product fully live with an organized checklist. Stop guessing what step comes next.",
+      "stepLabel": "Step {{num}} of 5",
+      "progress": {
+        "title": "Shipping Readiness",
+        "stats": "{{completed}} of {{total}} tasks checked ({{percent}}%)"
+      },
+      "day1": {
+        "title": "Day 1: Setup & Env",
+        "subtitle": "Clone the repository and validate your local environment variables.",
+        "task1": "Clone template repository",
+        "task2": "Create local .env copy",
+        "task3": "Install packages and verify dev server"
+      },
+      "day2": {
+        "title": "Day 2: Visual & Tokens",
+        "subtitle": "Define your branding palettes and configure App Shell navigation.",
+        "task1": "Edit OKLCH branding colors in globals.css",
+        "task2": "Replace default logo components",
+        "task3": "Map dashboard navigation entries"
+      },
+      "day3": {
+        "title": "Day 3: Auth & Database",
+        "subtitle": "Wired Better Auth credentials and migrate database tables.",
+        "task1": "Configure AUTH_SECRET in environment",
+        "task2": "Define domain schemas in Drizzle kit",
+        "task3": "Run migrations to database engine"
+      },
+      "day4": {
+        "title": "Day 4: Domain Core",
+        "subtitle": "Add core routing controllers and plug-in AI chat capabilities.",
+        "task1": "Create custom route handlers under router tree",
+        "task2": "Build dashboard widgets and UI modules",
+        "task3": "Connect SSE AI models in chat panel"
+      },
+      "day5": {
+        "title": "Day 5: QA & Deployment",
+        "subtitle": "Run end-to-end playbooks and configure your container compilation.",
+        "task1": "Execute E2E mock suites with Playwright",
+        "task2": "Run vite production optimizations check",
+        "task3": "Boot docker-compose.yml stack validation"
       }
     },
     "features": {
-      "title": "Our pillars are non-negotiable",
-      "description": "We believe technology should serve people, not the other way around. These are the promises we keep in every line of code.",
+      "title": "Why this starter converts into shipping speed",
+      "description": "Three practical pillars that make every new product easier to launch and maintain.",
       "items": {
         "efficiency": {
-          "title": "Invisible Efficiency",
-          "description": "We automate what exhausts you, not what defines you. Systems that work in the background so you are the protagonist."
+          "title": "Structure",
+          "description": "Clear module boundaries and route organization keep features decoupled as your product grows.",
+          "example": "Example: domain modules stay independent, so new features do not break existing flows."
         },
         "ethics": {
-          "title": "Ethics by Design",
-          "description": "Your data is your legacy. We build with non-negotiable privacy, protecting the trust you've earned with your customers."
+          "title": "Security",
+          "description": "Authentication-ready patterns and environment-based configuration reduce risk from day one.",
+          "example": "Example: auth and config defaults are ready before business logic is added."
         },
         "closeness": {
-          "title": "Radical Closeness",
-          "description": "We don't just deliver code and leave. We are your technological partners, understanding your challenges as if they were our own."
+          "title": "Extension",
+          "description": "Swap branding, modules, and workflows without rewriting the core architecture.",
+          "example": "Example: customize landing copy and product modules while preserving shared foundations."
         }
       }
     },
     "services": {
-      "badge": "How we accompany you",
-      "title": "Solutions that solve, not complicate",
-      "description": "We understand that behind every technical requirement there is a human goal. Here's how we make it happen.",
-      "cta": "See how",
+      "badge": "60-SECOND STACK",
+      "title": "Stack de 60 segundos",
+      "description": "Jump from custom copy to app modules with pre-wired architecture blueprints.",
+      "cta": "See snippet",
       "items": {
         "software": {
-          "title": "Software with Meaning",
-          "description": "We don't launch code into the void. We develop tools that eliminate your team's daily friction, giving them back the time they deserve.",
-          "badge": "Direct Impact"
+          "title": "1. Landing page",
+          "description": "Ready hero, feature cards, timeline checklist, and contact brief elements.",
+          "badge": "Preview ready"
         },
         "design": {
-          "title": "Empathetic Design",
-          "description": "Interfaces that don't need a manual. We put ourselves in the shoes of those who will use your product so that every click is natural and stress-free."
+          "title": "2. App Shell Layout",
+          "description": "Vite-scaffolded dashboard with clean responsive navigation menus and toast alerts."
         },
         "mobility": {
-          "title": "Digital Proximity",
-          "description": "Be where your users are, but respectfully. We create mobile experiences that feel like an extension of their daily lives.",
-          "badge": "Essential"
+          "title": "3. Authentication Flow",
+          "description": "Better Auth pre-wired with secure database persistence and session helpers.",
+          "badge": "Secure"
         },
         "clarity": {
-          "title": "Clarity in Chaos",
-          "description": "In a world saturated with information, we help your real message reach the people who genuinely need it."
+          "title": "4. Data Schema Layer",
+          "description": "Drizzle mapping for Postgres database connections and automatic TS definitions."
         },
         "growth": {
-          "title": "Sustainable Growth",
-          "description": "Scaling doesn't have to be traumatic. We optimize your processes so your project grows at the pace of your ambitions, not your worries."
+          "title": "5. Config Tokens",
+          "description": "Central environment loading and Tailwind CSS v4 variables configuration."
         },
         "trust": {
-          "title": "Total Peace of Mind",
-          "description": "We protect what you value most: your users' trust. We implement robust security so you only worry about innovating.",
-          "badge": "Commitment"
+          "title": "6. CI Checklists",
+          "description": "Testing configurations, Playwright routes, and ESLint rule hooks.",
+          "badge": "QA"
         }
       }
     },
-    "timeline": {
-      "badge": "Our Evolution",
-      "title": "A path of people, not just code",
-      "description": "We look back not to celebrate achievements, but to remember why we started this journey in the first place.",
-      "events": {
-        "seed": {
-          "title": "The Seed of an Idea",
-          "description": "We were born in a small studio, tired of seeing how technology was moving away from people."
-        },
-        "listening": {
-          "title": "Listening to Real Stories",
-          "description": "We reached our first 1,000 users, not as numbers, but as conversations that shaped our platform."
-        },
-        "growth": {
-          "title": "Growing with Responsibility",
-          "description": "We received support to expand, always keeping our promise not to lose the human touch."
-        },
-        "impact": {
-          "title": "Impact Without Borders",
-          "description": "We opened offices in 5 countries, learning that the desire to work better is a universal language."
-        },
-        "purpose": {
-          "title": "Purposeful Intelligence",
-          "description": "We launched our AI features, designed to give you back the time that administrative work stole from you."
-        }
-      },
-      "footer": "And the story continues with you..."
-    },
     "contact": {
-      "title": "Let's talk about what keeps you up at night",
-      "description": "Do you have a project in mind or just want to understand how technology can give you back your time? We are here to listen to you, without unnecessary technicalities.",
+      "title": "Build your next application",
+      "description": "Tell us what you are launching. We map the fastest adoption path using this starter base.",
+      "responseTime": "Typical response: within 24-48 hours.",
       "form": {
         "name": {
-          "label": "What is your name?",
-          "placeholder": "Your name"
+          "label": "Your name",
+          "placeholder": "Jane Doe"
         },
         "email": {
-          "label": "Your personal email",
-          "placeholder": "example@mail.com"
+          "label": "Work email",
+          "placeholder": "you@company.com"
         },
         "subject": {
-          "label": "What do you have in mind?",
-          "placeholder": "Tell us briefly..."
+          "label": "Project type",
+          "placeholder": "SaaS, landing, internal web app..."
         },
         "message": {
-          "label": "Tell us your story",
-          "placeholder": "What is the biggest challenge you face today?"
+          "label": "What should the first version include? (optional)",
+          "placeholder": "Main goal, must-have features, and timeline."
         },
-        "submit": "Send message and start the chat"
+        "submit": "Send brief",
+        "projectType": {
+          "label": "Project type",
+          "placeholder": "Select project type",
+          "options": {
+            "saas": "SaaS product",
+            "landing": "Marketing landing page",
+            "webapp": "Internal web application"
+          }
+        }
       },
-      "info": {
-        "email": "Email",
-        "phone": "Phone",
-        "location": "Location"
-      },
-      "workingHours": {
-        "title": "Working Hours",
-        "weekdays": "Monday - Friday",
-        "saturday": "Saturday",
-        "sunday": "Sunday",
-        "closed": "Closed"
+      "support": {
+        "channels": "Asynchronous support",
+        "channelsDesc": "Communicate directly through our developer sandbox ticket panel. No meetings required.",
+        "sla": "Response target: 24-48h",
+        "slaDesc": "We answer architectural queries and template questions typically within 24-48 hours.",
+        "access": "Shared channels",
+        "accessDesc": "Private Slack or Discord keys are generated during project onboarding to keep developer feedback loop fast."
       }
     },
     "footer": {
-      "brand": "Brand",
-      "since": "Since 2018",
-      "copyright": "© {{year}} Brand Inc. All rights reserved.",
-      "description": "Humanizing technology so you can be more human. We are not just an AI company, we are your partners in the search for time and purpose.",
+      "brand": "edd Starter",
+      "since": "Foundation for future products",
+      "copyright": "© {{year}} edd. All rights reserved.",
+      "description": "One base to start every edd SaaS, landing, and web project with consistent quality and faster delivery.",
       "subscribe": {
-        "title": "Join our weekly talk",
-        "placeholder": "Your best email",
-        "button": "Subscribe"
+        "title": "Get starter updates",
+        "placeholder": "you@company.com",
+        "button": "Join updates",
+        "note": "Get release notes + best practices for fast shipping. Maximum one email per month."
       },
       "links": {
         "essence": {
-          "title": "Our Essence",
-          "items": ["Philosophy", "Success stories", "Methodology", "Human Blog"]
+          "title": "Starter",
+          "items": [
+            "Architecture",
+            "Module map",
+            "Design tokens",
+            "Conventions"
+          ]
         },
         "company": {
-          "title": "Company",
-          "items": ["About us", "Culture", "Work with us", "Press"]
+          "title": "Product",
+          "items": [
+            "Roadmap",
+            "Changelog",
+            "Integrations",
+            "Release notes"
+          ]
         },
         "community": {
-          "title": "Community",
-          "items": ["Events", "Help Center", "Partners", "Network Status"]
+          "title": "Support",
+          "items": [
+            "Documentation",
+            "Guides",
+            "Examples",
+            "FAQ"
+          ]
         },
         "legal": {
           "title": "Legal",
-          "items": ["Ethical Privacy", "Terms of Use", "Cookies", "Licenses"]
+          "items": [
+            "Privacy",
+            "Terms",
+            "Cookies",
+            "Licenses"
+          ]
         }
       }
     }

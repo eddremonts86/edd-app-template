@@ -1,9 +1,9 @@
 import {
   GlowyWavesHero,
+  ComparisonBlock,
   FeatureCardsBlock,
-  NewHeroSection,
   OurServicesSection,
-  TimelineBlock,
+  FiveDayPlanBlock,
   ContactBlock,
 } from '@/modules/landing'
 
@@ -11,13 +11,13 @@ export function HomePage() {
   return (
     <div id="home">
       <GlowyWavesHero />
+      <ComparisonBlock />
       <FeatureCardsBlock />
-      <NewHeroSection />
       <div id="services">
         <OurServicesSection />
       </div>
       <div id="timeline">
-        <TimelineBlock />
+        <FiveDayPlanBlock />
       </div>
       <div id="contact">
         <ContactBlock />

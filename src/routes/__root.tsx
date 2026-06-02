@@ -18,11 +18,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'TanStack Template',
+        title: 'edd App Template',
       },
       {
         name: 'description',
-        content: 'A modern full-stack template powered by TanStack',
+        content: 'Reusable starting point for edd SaaS, landing, and web applications',
       },
     ],
     links: [

@@ -1,14 +1,14 @@
 {
   "app": {
-    "name": "TanStack Template",
-    "brand": "AI Solutions",
-    "description": "Una plantilla full-stack moderna impulsada por TanStack"
+    "name": "Plantilla App edd",
+    "brand": "edd Starter",
+    "description": "Punto de inicio reutilizable para cada SaaS, landing y app web de edd"
   },
   "nav": {
     "home": "Inicio",
-    "services": "Soluciones",
-    "timeline": "Historia",
-    "contact": "Hablemos",
+    "services": "Bloques base",
+    "timeline": "Ruta",
+    "contact": "Soporte",
     "settings": "Configuración",
     "signIn": "Iniciar Sesión",
     "signOut": "Cerrar Sesión"
@@ -826,6 +826,243 @@
     "error": {
       "title": "Error",
       "description": "Ocurrió un error al cargar las categorías."
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "MODULAR • TYPED • TESTED • ENV-FIRST",
+      "title": "Lanza tu SaaS en 1 hora",
+      "titleHighlight": "con arquitectura lista para producción",
+      "description": "Evita rehacer primitivas básicas. Ve directo a la lógica de tu negocio con autenticación híbrida, rutas desacopladas, tests de Playwright preconfigurados y módulos tipados.",
+      "ctaSecondary": "Explorar stack",
+      "tabs": {
+        "architecture": "Mapa de Arquitectura",
+        "auth": "UI de Autenticación",
+        "dashboard": "Vista de Dashboard"
+      }
+    },
+    "comparison": {
+      "title": "Deja de reinventar el boilerplate",
+      "description": "Mira cómo se compara empezar con la plantilla edd frente a configurar la base de tu aplicación desde cero.",
+      "rows": {
+        "auth": {
+          "name": "Autenticación híbrida pre-cableada",
+          "starter": "Proveedores Better Auth + Clerk preconfigurados. Sesiones de base de datos listas en 5 minutos.",
+          "scratch": "1-2 días configurando endpoints, JWT, cookies de seguridad, middleware y esquemas db."
+        },
+        "routes": {
+          "name": "Arquitectura modular",
+          "starter": "Separación estricta de directorios (Landing, App Shell, Módulos) para evitar el acoplamiento.",
+          "scratch": "Estructura de carpetas espagueti que dificulta el mantenimiento y la escalabilidad."
+        },
+        "test": {
+          "name": "Pruebas unitarias y E2E",
+          "starter": "Playwright y Vitest totalmente configurados con pruebas de humo y cobertura de rutas reales.",
+          "scratch": "Horas ajustando configuraciones, runners de prueba, semillas de db y settings de CI."
+        },
+        "ai": {
+          "name": "Integración de IA por SSE",
+          "starter": "Endpoints de streaming por SSE e interfaz de chat de IA personalizable ya construidos.",
+          "scratch": "Programar endpoints de respuesta parcial, parseo de chunks y estados de chat de IA."
+        },
+        "docker": {
+          "name": "Docker Compose para producción",
+          "starter": "Configuración docker multipérfil para app, db y ChromaDB lista para desplegar en la nube.",
+          "scratch": "Escribir Dockerfiles y configuraciones compose manualmente para entornos de producción."
+        }
+      }
+    },
+    "plan": {
+      "badge": "PLAN DE DESPLIEGUE DE 5 DÍAS",
+      "title": "Plan de 5 días a producción",
+      "description": "Lanza tu producto con una lista de tareas organizada. Deja de adivinar qué paso sigue.",
+      "stepLabel": "Paso {{num}} de 5",
+      "progress": {
+        "title": "Preparación para Lanzar",
+        "stats": "{{completed}} de {{total}} tareas completadas ({{percent}}%)"
+      },
+      "day1": {
+        "title": "Día 1: Setup y Entorno",
+        "subtitle": "Clona el repositorio y configura las variables de entorno locales.",
+        "task1": "Clonar repositorio de plantilla",
+        "task2": "Crear copia local de archivo .env",
+        "task3": "Instalar paquetes y verificar servidor de desarrollo"
+      },
+      "day2": {
+        "title": "Día 2: Marca y Visuales",
+        "subtitle": "Define tu paleta de colores y configura la navegación del App Shell.",
+        "task1": "Editar colores de marca en variables OKLCH de globals.css",
+        "task2": "Reemplazar componentes de logo por defecto",
+        "task3": "Mapear enlaces de navegación del dashboard"
+      },
+      "day3": {
+        "title": "Día 3: Auth y Base de Datos",
+        "subtitle": "Configura Better Auth y ejecuta las migraciones de bases de datos.",
+        "task1": "Definir AUTH_SECRET en variables de entorno",
+        "task2": "Declarar esquemas de dominio con Drizzle",
+        "task3": "Ejecutar migraciones en el motor de base de datos"
+      },
+      "day4": {
+        "title": "Día 4: Lógica de Dominio",
+        "subtitle": "Crea las rutas del router y conecta las integraciones de IA.",
+        "task1": "Crear manejadores de ruta bajo el árbol del router",
+        "task2": "Desarrollar widgets del dashboard y módulos de UI",
+        "task3": "Conectar modelos de IA en streaming en el chat"
+      },
+      "day5": {
+        "title": "Día 5: QA y Lanzamiento",
+        "subtitle": "Ejecuta las pruebas Playwright y compila el bundle de producción.",
+        "task1": "Ejecutar suites de pruebas E2E con Playwright",
+        "task2": "Realizar build optimizado de Vite",
+        "task3": "Verificar despliegue con docker-compose.yml"
+      }
+    },
+    "features": {
+      "title": "Por qué este starter acelera el shipping",
+      "description": "Tres pilares prácticos que hacen que tu producto sea fácil de lanzar y mantener.",
+      "items": {
+        "efficiency": {
+          "title": "Estructura clara",
+          "description": "Límites claros de módulos y organización de rutas para mantener el código desacoplado.",
+          "example": "Ejemplo: los módulos de dominio son independientes, por lo que los cambios no rompen flujos existentes."
+        },
+        "ethics": {
+          "title": "Seguridad",
+          "description": "Patrones de autenticación listos y configuraciones de entorno robustas desde el primer día.",
+          "example": "Ejemplo: los parámetros de auth y db están listos antes de agregar la lógica de negocio."
+        },
+        "closeness": {
+          "title": "Extensibilidad",
+          "description": "Modifica marca, módulos y flujos sin reescribir la arquitectura base de la aplicación.",
+          "example": "Ejemplo: personaliza textos de landing y módulos preservando los cimientos compartidos."
+        }
+      }
+    },
+    "services": {
+      "badge": "STACK EN 60 SEGUNDOS",
+      "title": "Stack de 60 segundos",
+      "description": "Pasa de copias iniciales a flujos de aplicación con arquitectura pre-cableada.",
+      "cta": "Ver código",
+      "items": {
+        "software": {
+          "title": "1. Página de Landing",
+          "description": "Secciones de hero, features, plan de despliegue y contacto preparadas.",
+          "badge": "Listo para usar"
+        },
+        "design": {
+          "title": "2. Layout de App Shell",
+          "description": "Panel de control con menús responsive, barras laterales y alertas toast preconfiguradas."
+        },
+        "mobility": {
+          "title": "3. Flujo de Autenticación",
+          "description": "Better Auth integrado con persistencia de base de datos y helpers de sesión.",
+          "badge": "Seguro"
+        },
+        "clarity": {
+          "title": "4. Capa de Datos",
+          "description": "Mapeo de Drizzle para consultas Postgres y tipado estricto automático."
+        },
+        "growth": {
+          "title": "5. Configuración y Tokens",
+          "description": "Carga centralizada de variables de entorno y variables de Tailwind CSS v4."
+        },
+        "trust": {
+          "title": "6. Automatización y QA",
+          "description": "Playwright para pruebas E2E, Vitest y hooks de Git para calidad continua.",
+          "badge": "QA"
+        }
+      }
+    },
+    "contact": {
+      "title": "Construye tu próxima aplicación",
+      "description": "Cuéntanos qué quieres lanzar. Definimos el camino más rápido utilizando este starter como base.",
+      "responseTime": "Respuesta típica: en 24-48 horas.",
+      "form": {
+        "name": {
+          "label": "Tu nombre",
+          "placeholder": "Jane Doe"
+        },
+        "email": {
+          "label": "Email de trabajo",
+          "placeholder": "tu@empresa.com"
+        },
+        "subject": {
+          "label": "Tipo de proyecto",
+          "placeholder": "SaaS, landing, app web interna..."
+        },
+        "message": {
+          "label": "Qué quieres lanzar primero? (opcional)",
+          "placeholder": "Describe objetivos, timeline y funcionalidades clave."
+        },
+        "submit": "Enviar brief",
+        "projectType": {
+          "label": "Tipo de proyecto",
+          "placeholder": "Seleccionar tipo de proyecto",
+          "options": {
+            "saas": "Producto SaaS",
+            "landing": "Página de marketing",
+            "webapp": "Aplicación web interna"
+          }
+        }
+      },
+      "support": {
+        "channels": "Soporte asíncrono",
+        "channelsDesc": "Comunícate directamente a través de nuestro panel de soporte en el sandbox. Sin reuniones innecesarias.",
+        "sla": "Respuesta: 24-48h",
+        "slaDesc": "Resolvemos consultas arquitectónicas y técnicas de la plantilla típicamente en 24-48 horas.",
+        "access": "Canales compartidos",
+        "accessDesc": "Se generan accesos a Slack o Discord privados durante el onboarding para mantener una comunicación ágil."
+      }
+    },
+    "footer": {
+      "brand": "edd Starter",
+      "since": "Base para productos futuros",
+      "copyright": "© {{year}} edd. Todos los derechos reservados.",
+      "description": "Una sola base para iniciar cada SaaS, landing y proyecto web de edd con calidad consistente y entregas más rápidas.",
+      "subscribe": {
+        "title": "Recibir novedades del starter",
+        "placeholder": "tu@empresa.com",
+        "button": "Unirme",
+        "note": "Te mando release notes + best practices para shipping rápido. Máximo un email al mes."
+      },
+      "links": {
+        "essence": {
+          "title": "Starter",
+          "items": [
+            "Arquitectura",
+            "Mapa de módulos",
+            "Design tokens",
+            "Convenciones"
+          ]
+        },
+        "company": {
+          "title": "Producto",
+          "items": [
+            "Roadmap",
+            "Changelog",
+            "Integraciones",
+            "Notas de versión"
+          ]
+        },
+        "community": {
+          "title": "Soporte",
+          "items": [
+            "Documentación",
+            "Guías",
+            "Ejemplos",
+            "FAQ"
+          ]
+        },
+        "legal": {
+          "title": "Legal",
+          "items": [
+            "Privacidad",
+            "Términos",
+            "Cookies",
+            "Licencias"
+          ]
+        }
+      }
     }
   }
 }

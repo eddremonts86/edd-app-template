@@ -28,6 +28,19 @@ export const NavLink = memo(({ item, onClick, className }: NavLinkProps) => {
     )
   }
 
+  if (item.href?.startsWith('http')) {
+    return (
+      <a
+        href={item.href}
+        className={cn(baseStyles, className)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {item.label}
+      </a>
+    )
+  }
+
   return (
     <a
       href={item.href}
@@ -40,3 +53,4 @@ export const NavLink = memo(({ item, onClick, className }: NavLinkProps) => {
 })
 
 NavLink.displayName = 'NavLink'
+

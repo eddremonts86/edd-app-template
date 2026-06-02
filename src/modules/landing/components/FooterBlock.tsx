@@ -1,13 +1,17 @@
 'use client'
 
+import { Link } from '@tanstack/react-router'
 import { m } from 'framer-motion'
+import { LogIn } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Badge, Card, Input, Button } from '@/components/ui'
+import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { FooterColumn } from './FooterColumn'
 import { SocialLinks } from './SocialLinks'
 
 export function FooterBlock() {
   const { t } = useTranslation()
+  const auth = useAppAuth()
   const footerLinks = [
     {
       title: t('home.footer.links.essence.title'),
@@ -62,6 +66,23 @@ export function FooterBlock() {
                 />
                 <Button size="sm">{t('home.footer.subscribe.button')}</Button>
               </div>
+              <p className="mt-2 max-w-sm text-xs text-muted-foreground">
+                {t(
+                  'home.footer.subscribe.note',
+                  'Release notes, improvements, and implementation guides. Maximum one email per month.',
+                )}
+              </p>
+              {!auth.isAuthenticated && (
+                <div className="mt-4">
+                  <Link
+                    to="/auth"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors font-medium"
+                  >
+                    <LogIn className="h-3.5 w-3.5" />
+                    {t('nav.signIn', 'Sign In')}
+                  </Link>
+                </div>
+              )}
             </div>
           </m.div>
 

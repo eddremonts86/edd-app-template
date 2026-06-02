@@ -1,35 +1,13 @@
 'use client'
 
 import { m } from 'framer-motion'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Clock3, ShieldCheck } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui'
 import { ContactForm } from './ContactForm'
-import { ContactInfoCard } from './ContactInfoCard'
-import { WorkingHoursCard } from './WorkingHoursCard'
 
 export function ContactBlock() {
   const { t } = useTranslation()
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: t('home.contact.info.email'),
-      value: 'hello@example.com',
-      href: 'mailto:hello@example.com',
-    },
-    {
-      icon: Phone,
-      label: t('home.contact.info.phone'),
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
-    },
-    {
-      icon: MapPin,
-      label: t('home.contact.info.location'),
-      value: 'San Francisco, CA',
-      href: '#',
-    },
-  ]
 
   return (
     <section className="relative w-full overflow-hidden bg-background px-4 py-12 sm:py-16 md:py-20 lg:py-24">
@@ -49,6 +27,9 @@ export function ContactBlock() {
           <p className="mx-auto max-w-2xl px-4 text-base text-muted-foreground sm:text-lg">
             {t('home.contact.description')}
           </p>
+          <p className="mx-auto mt-4 max-w-xl text-sm font-medium text-foreground/75">
+            {t('home.contact.responseTime', 'Typical response: within 24-48 hours.')}
+          </p>
         </m.div>
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -64,14 +45,54 @@ export function ContactBlock() {
             </Card>
           </m.div>
 
-          <div className="space-y-6 lg:space-y-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-              {contactInfo.map((info, index) => (
-                <ContactInfoCard key={info.label} {...info} index={index} />
-              ))}
-            </div>
+          <div className="space-y-4 lg:space-y-6">
+            <Card className="border border-border/40 bg-background/55 p-5 backdrop-blur-sm">
+              <div className="flex items-start gap-3">
+                <Clock3 className="mt-0.5 h-5 w-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    {t('home.contact.support.channels', 'Asynchronous support')}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {t('home.contact.support.channelsDesc', 'Communicate directly through our developer sandbox ticket panel. No meetings required.')}
+                  </p>
+                </div>
+              </div>
+            </Card>
 
-            <WorkingHoursCard />
+            <Card className="border border-border/40 bg-background/55 p-5 backdrop-blur-sm">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-primary shrink-0" />
+                <div>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-semibold text-foreground">
+                      {t('home.contact.support.sla', 'Response target: 24-48h')}
+                    </p>
+                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold text-primary">Included</span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {t('home.contact.support.slaDesc', 'We answer architectural queries and template questions typically within 24-48 hours.')}
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="border border-border/40 bg-background/55 p-5 backdrop-blur-sm">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 h-5 w-5 text-primary shrink-0" />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">
+                    {t('home.contact.support.access', 'Shared channels')}
+                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {t(
+                      'home.contact.support.accessDesc',
+                      'Private Slack or Discord keys are generated during project onboarding to keep developer feedback loop fast.',
+                    )}
+                  </p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
