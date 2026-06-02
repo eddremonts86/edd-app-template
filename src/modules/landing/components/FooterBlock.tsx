@@ -12,22 +12,59 @@ import { SocialLinks } from './SocialLinks'
 export function FooterBlock() {
   const { t } = useTranslation()
   const auth = useAppAuth()
+  const essenceRoutes = [
+    '/starter/architecture',
+    '/starter/module-map',
+    '/starter/design-tokens',
+    '/starter/conventions',
+  ]
+  const companyRoutes = [
+    '/product/roadmap',
+    '/product/changelog',
+    '/product/integrations',
+    '/product/release-notes',
+  ]
+  const communityRoutes = [
+    '/support/documentation',
+    '/support/guides',
+    '/support/examples',
+    '/support/faq',
+  ]
+  const legalRoutes = ['/legal/privacy', '/legal/terms', '/legal/cookies', '/legal/licenses']
+
+  const getItems = (labels: string[] | undefined, routes: string[]) => {
+    const list = Array.isArray(labels) ? labels : []
+    return list.map((label, idx) => ({ label, to: routes[idx] || '#' }))
+  }
+
   const footerLinks = [
     {
       title: t('home.footer.links.essence.title'),
-      links: t('home.footer.links.essence.items', { returnObjects: true }) as string[],
+      items: getItems(
+        t('home.footer.links.essence.items', { returnObjects: true }) as string[],
+        essenceRoutes,
+      ),
     },
     {
       title: t('home.footer.links.company.title'),
-      links: t('home.footer.links.company.items', { returnObjects: true }) as string[],
+      items: getItems(
+        t('home.footer.links.company.items', { returnObjects: true }) as string[],
+        companyRoutes,
+      ),
     },
     {
       title: t('home.footer.links.community.title'),
-      links: t('home.footer.links.community.items', { returnObjects: true }) as string[],
+      items: getItems(
+        t('home.footer.links.community.items', { returnObjects: true }) as string[],
+        communityRoutes,
+      ),
     },
     {
       title: t('home.footer.links.legal.title'),
-      links: t('home.footer.links.legal.items', { returnObjects: true }) as string[],
+      items: getItems(
+        t('home.footer.links.legal.items', { returnObjects: true }) as string[],
+        legalRoutes,
+      ),
     },
   ]
 
@@ -87,7 +124,7 @@ export function FooterBlock() {
           </m.div>
 
           {footerLinks.map((section) => (
-            <FooterColumn key={section.title} title={section.title} links={section.links} />
+            <FooterColumn key={section.title} title={section.title} items={section.items} />
           ))}
         </div>
 

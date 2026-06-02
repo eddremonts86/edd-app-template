@@ -16,6 +16,7 @@ import { Route as LandingIndexRouteImport } from './routes/_landing/index'
 import { Route as AuthSignUpRouteImport } from './routes/auth/sign-up'
 import { Route as AuthSignInRouteImport } from './routes/auth/sign-in'
 import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as LandingDocsRouteImport } from './routes/_landing/_docs'
 import { Route as DashboardDashboardRouteRouteImport } from './routes/_dashboard/dashboard/route'
 import { Route as DashboardDashboardIndexRouteImport } from './routes/_dashboard/dashboard/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
@@ -25,12 +26,29 @@ import { Route as ApiAiSearchRouteImport } from './routes/api/ai/search'
 import { Route as ApiAiModelsRouteImport } from './routes/api/ai/models'
 import { Route as ApiAiConfigStoreRouteImport } from './routes/api/ai/config-store'
 import { Route as ApiAiAuditRouteImport } from './routes/api/ai/audit'
+import { Route as LandingDocsDocsRouteImport } from './routes/_landing/_docs/docs'
 import { Route as DashboardDashboardUsersRouteImport } from './routes/_dashboard/dashboard/users'
 import { Route as DashboardDashboardHelpRouteImport } from './routes/_dashboard/dashboard/help'
 import { Route as ApiAiChatRouteRouteImport } from './routes/api/ai/chat/route'
 import { Route as DashboardDashboardSettingsRouteRouteImport } from './routes/_dashboard/dashboard/settings/route'
 import { Route as DashboardDashboardSettingsIndexRouteImport } from './routes/_dashboard/dashboard/settings/index'
 import { Route as ApiAiChatCompletionsRouteImport } from './routes/api/ai/chat/completions'
+import { Route as LandingDocsSupportGuidesRouteImport } from './routes/_landing/_docs/support/guides'
+import { Route as LandingDocsSupportFaqRouteImport } from './routes/_landing/_docs/support/faq'
+import { Route as LandingDocsSupportExamplesRouteImport } from './routes/_landing/_docs/support/examples'
+import { Route as LandingDocsSupportDocumentationRouteImport } from './routes/_landing/_docs/support/documentation'
+import { Route as LandingDocsStarterModuleMapRouteImport } from './routes/_landing/_docs/starter/module-map'
+import { Route as LandingDocsStarterDesignTokensRouteImport } from './routes/_landing/_docs/starter/design-tokens'
+import { Route as LandingDocsStarterConventionsRouteImport } from './routes/_landing/_docs/starter/conventions'
+import { Route as LandingDocsStarterArchitectureRouteImport } from './routes/_landing/_docs/starter/architecture'
+import { Route as LandingDocsProductRoadmapRouteImport } from './routes/_landing/_docs/product/roadmap'
+import { Route as LandingDocsProductReleaseNotesRouteImport } from './routes/_landing/_docs/product/release-notes'
+import { Route as LandingDocsProductIntegrationsRouteImport } from './routes/_landing/_docs/product/integrations'
+import { Route as LandingDocsProductChangelogRouteImport } from './routes/_landing/_docs/product/changelog'
+import { Route as LandingDocsLegalTermsRouteImport } from './routes/_landing/_docs/legal/terms'
+import { Route as LandingDocsLegalPrivacyRouteImport } from './routes/_landing/_docs/legal/privacy'
+import { Route as LandingDocsLegalLicensesRouteImport } from './routes/_landing/_docs/legal/licenses'
+import { Route as LandingDocsLegalCookiesRouteImport } from './routes/_landing/_docs/legal/cookies'
 import { Route as DashboardDashboardSettingsSystemRouteImport } from './routes/_dashboard/dashboard/settings/system'
 import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
 
@@ -66,6 +84,10 @@ const ApiHealthRoute = ApiHealthRouteImport.update({
   id: '/api/health',
   path: '/api/health',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LandingDocsRoute = LandingDocsRouteImport.update({
+  id: '/_docs',
+  getParentRoute: () => LandingRouteRoute,
 } as any)
 const DashboardDashboardRouteRoute = DashboardDashboardRouteRouteImport.update({
   id: '/dashboard',
@@ -112,6 +134,11 @@ const ApiAiAuditRoute = ApiAiAuditRouteImport.update({
   path: '/api/ai/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LandingDocsDocsRoute = LandingDocsDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
 const DashboardDashboardUsersRoute = DashboardDashboardUsersRouteImport.update({
   id: '/users',
   path: '/users',
@@ -144,6 +171,98 @@ const ApiAiChatCompletionsRoute = ApiAiChatCompletionsRouteImport.update({
   path: '/completions',
   getParentRoute: () => ApiAiChatRouteRoute,
 } as any)
+const LandingDocsSupportGuidesRoute =
+  LandingDocsSupportGuidesRouteImport.update({
+    id: '/support/guides',
+    path: '/support/guides',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsSupportFaqRoute = LandingDocsSupportFaqRouteImport.update({
+  id: '/support/faq',
+  path: '/support/faq',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsSupportExamplesRoute =
+  LandingDocsSupportExamplesRouteImport.update({
+    id: '/support/examples',
+    path: '/support/examples',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsSupportDocumentationRoute =
+  LandingDocsSupportDocumentationRouteImport.update({
+    id: '/support/documentation',
+    path: '/support/documentation',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterModuleMapRoute =
+  LandingDocsStarterModuleMapRouteImport.update({
+    id: '/starter/module-map',
+    path: '/starter/module-map',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterDesignTokensRoute =
+  LandingDocsStarterDesignTokensRouteImport.update({
+    id: '/starter/design-tokens',
+    path: '/starter/design-tokens',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterConventionsRoute =
+  LandingDocsStarterConventionsRouteImport.update({
+    id: '/starter/conventions',
+    path: '/starter/conventions',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterArchitectureRoute =
+  LandingDocsStarterArchitectureRouteImport.update({
+    id: '/starter/architecture',
+    path: '/starter/architecture',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductRoadmapRoute =
+  LandingDocsProductRoadmapRouteImport.update({
+    id: '/product/roadmap',
+    path: '/product/roadmap',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductReleaseNotesRoute =
+  LandingDocsProductReleaseNotesRouteImport.update({
+    id: '/product/release-notes',
+    path: '/product/release-notes',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductIntegrationsRoute =
+  LandingDocsProductIntegrationsRouteImport.update({
+    id: '/product/integrations',
+    path: '/product/integrations',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductChangelogRoute =
+  LandingDocsProductChangelogRouteImport.update({
+    id: '/product/changelog',
+    path: '/product/changelog',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsLegalTermsRoute = LandingDocsLegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsLegalPrivacyRoute = LandingDocsLegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsLegalLicensesRoute =
+  LandingDocsLegalLicensesRouteImport.update({
+    id: '/legal/licenses',
+    path: '/legal/licenses',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsLegalCookiesRoute = LandingDocsLegalCookiesRouteImport.update({
+  id: '/legal/cookies',
+  path: '/legal/cookies',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
 const DashboardDashboardSettingsSystemRoute =
   DashboardDashboardSettingsSystemRouteImport.update({
     id: '/system',
@@ -168,6 +287,7 @@ export interface FileRoutesByFullPath {
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
   '/dashboard/help': typeof DashboardDashboardHelpRoute
   '/dashboard/users': typeof DashboardDashboardUsersRoute
+  '/docs': typeof LandingDocsDocsRoute
   '/api/ai/audit': typeof ApiAiAuditRoute
   '/api/ai/config-store': typeof ApiAiConfigStoreRoute
   '/api/ai/models': typeof ApiAiModelsRoute
@@ -178,6 +298,22 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof DashboardDashboardIndexRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
+  '/legal/cookies': typeof LandingDocsLegalCookiesRoute
+  '/legal/licenses': typeof LandingDocsLegalLicensesRoute
+  '/legal/privacy': typeof LandingDocsLegalPrivacyRoute
+  '/legal/terms': typeof LandingDocsLegalTermsRoute
+  '/product/changelog': typeof LandingDocsProductChangelogRoute
+  '/product/integrations': typeof LandingDocsProductIntegrationsRoute
+  '/product/release-notes': typeof LandingDocsProductReleaseNotesRoute
+  '/product/roadmap': typeof LandingDocsProductRoadmapRoute
+  '/starter/architecture': typeof LandingDocsStarterArchitectureRoute
+  '/starter/conventions': typeof LandingDocsStarterConventionsRoute
+  '/starter/design-tokens': typeof LandingDocsStarterDesignTokensRoute
+  '/starter/module-map': typeof LandingDocsStarterModuleMapRoute
+  '/support/documentation': typeof LandingDocsSupportDocumentationRoute
+  '/support/examples': typeof LandingDocsSupportExamplesRoute
+  '/support/faq': typeof LandingDocsSupportFaqRoute
+  '/support/guides': typeof LandingDocsSupportGuidesRoute
   '/api/ai/chat/completions': typeof ApiAiChatCompletionsRoute
   '/dashboard/settings/': typeof DashboardDashboardSettingsIndexRoute
 }
@@ -190,6 +326,7 @@ export interface FileRoutesByTo {
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
   '/dashboard/help': typeof DashboardDashboardHelpRoute
   '/dashboard/users': typeof DashboardDashboardUsersRoute
+  '/docs': typeof LandingDocsDocsRoute
   '/api/ai/audit': typeof ApiAiAuditRoute
   '/api/ai/config-store': typeof ApiAiConfigStoreRoute
   '/api/ai/models': typeof ApiAiModelsRoute
@@ -200,6 +337,22 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardDashboardIndexRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
+  '/legal/cookies': typeof LandingDocsLegalCookiesRoute
+  '/legal/licenses': typeof LandingDocsLegalLicensesRoute
+  '/legal/privacy': typeof LandingDocsLegalPrivacyRoute
+  '/legal/terms': typeof LandingDocsLegalTermsRoute
+  '/product/changelog': typeof LandingDocsProductChangelogRoute
+  '/product/integrations': typeof LandingDocsProductIntegrationsRoute
+  '/product/release-notes': typeof LandingDocsProductReleaseNotesRoute
+  '/product/roadmap': typeof LandingDocsProductRoadmapRoute
+  '/starter/architecture': typeof LandingDocsStarterArchitectureRoute
+  '/starter/conventions': typeof LandingDocsStarterConventionsRoute
+  '/starter/design-tokens': typeof LandingDocsStarterDesignTokensRoute
+  '/starter/module-map': typeof LandingDocsStarterModuleMapRoute
+  '/support/documentation': typeof LandingDocsSupportDocumentationRoute
+  '/support/examples': typeof LandingDocsSupportExamplesRoute
+  '/support/faq': typeof LandingDocsSupportFaqRoute
+  '/support/guides': typeof LandingDocsSupportGuidesRoute
   '/api/ai/chat/completions': typeof ApiAiChatCompletionsRoute
   '/dashboard/settings': typeof DashboardDashboardSettingsIndexRoute
 }
@@ -209,6 +362,7 @@ export interface FileRoutesById {
   '/_landing': typeof LandingRouteRouteWithChildren
   '/auth': typeof AuthRouteRouteWithChildren
   '/_dashboard/dashboard': typeof DashboardDashboardRouteRouteWithChildren
+  '/_landing/_docs': typeof LandingDocsRouteWithChildren
   '/api/health': typeof ApiHealthRoute
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
@@ -217,6 +371,7 @@ export interface FileRoutesById {
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
   '/_dashboard/dashboard/help': typeof DashboardDashboardHelpRoute
   '/_dashboard/dashboard/users': typeof DashboardDashboardUsersRoute
+  '/_landing/_docs/docs': typeof LandingDocsDocsRoute
   '/api/ai/audit': typeof ApiAiAuditRoute
   '/api/ai/config-store': typeof ApiAiConfigStoreRoute
   '/api/ai/models': typeof ApiAiModelsRoute
@@ -227,6 +382,22 @@ export interface FileRoutesById {
   '/_dashboard/dashboard/': typeof DashboardDashboardIndexRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/_dashboard/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
+  '/_landing/_docs/legal/cookies': typeof LandingDocsLegalCookiesRoute
+  '/_landing/_docs/legal/licenses': typeof LandingDocsLegalLicensesRoute
+  '/_landing/_docs/legal/privacy': typeof LandingDocsLegalPrivacyRoute
+  '/_landing/_docs/legal/terms': typeof LandingDocsLegalTermsRoute
+  '/_landing/_docs/product/changelog': typeof LandingDocsProductChangelogRoute
+  '/_landing/_docs/product/integrations': typeof LandingDocsProductIntegrationsRoute
+  '/_landing/_docs/product/release-notes': typeof LandingDocsProductReleaseNotesRoute
+  '/_landing/_docs/product/roadmap': typeof LandingDocsProductRoadmapRoute
+  '/_landing/_docs/starter/architecture': typeof LandingDocsStarterArchitectureRoute
+  '/_landing/_docs/starter/conventions': typeof LandingDocsStarterConventionsRoute
+  '/_landing/_docs/starter/design-tokens': typeof LandingDocsStarterDesignTokensRoute
+  '/_landing/_docs/starter/module-map': typeof LandingDocsStarterModuleMapRoute
+  '/_landing/_docs/support/documentation': typeof LandingDocsSupportDocumentationRoute
+  '/_landing/_docs/support/examples': typeof LandingDocsSupportExamplesRoute
+  '/_landing/_docs/support/faq': typeof LandingDocsSupportFaqRoute
+  '/_landing/_docs/support/guides': typeof LandingDocsSupportGuidesRoute
   '/api/ai/chat/completions': typeof ApiAiChatCompletionsRoute
   '/_dashboard/dashboard/settings/': typeof DashboardDashboardSettingsIndexRoute
 }
@@ -243,6 +414,7 @@ export interface FileRouteTypes {
     | '/api/ai/chat'
     | '/dashboard/help'
     | '/dashboard/users'
+    | '/docs'
     | '/api/ai/audit'
     | '/api/ai/config-store'
     | '/api/ai/models'
@@ -253,6 +425,22 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/system'
+    | '/legal/cookies'
+    | '/legal/licenses'
+    | '/legal/privacy'
+    | '/legal/terms'
+    | '/product/changelog'
+    | '/product/integrations'
+    | '/product/release-notes'
+    | '/product/roadmap'
+    | '/starter/architecture'
+    | '/starter/conventions'
+    | '/starter/design-tokens'
+    | '/starter/module-map'
+    | '/support/documentation'
+    | '/support/examples'
+    | '/support/faq'
+    | '/support/guides'
     | '/api/ai/chat/completions'
     | '/dashboard/settings/'
   fileRoutesByTo: FileRoutesByTo
@@ -265,6 +453,7 @@ export interface FileRouteTypes {
     | '/api/ai/chat'
     | '/dashboard/help'
     | '/dashboard/users'
+    | '/docs'
     | '/api/ai/audit'
     | '/api/ai/config-store'
     | '/api/ai/models'
@@ -275,6 +464,22 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/system'
+    | '/legal/cookies'
+    | '/legal/licenses'
+    | '/legal/privacy'
+    | '/legal/terms'
+    | '/product/changelog'
+    | '/product/integrations'
+    | '/product/release-notes'
+    | '/product/roadmap'
+    | '/starter/architecture'
+    | '/starter/conventions'
+    | '/starter/design-tokens'
+    | '/starter/module-map'
+    | '/support/documentation'
+    | '/support/examples'
+    | '/support/faq'
+    | '/support/guides'
     | '/api/ai/chat/completions'
     | '/dashboard/settings'
   id:
@@ -283,6 +488,7 @@ export interface FileRouteTypes {
     | '/_landing'
     | '/auth'
     | '/_dashboard/dashboard'
+    | '/_landing/_docs'
     | '/api/health'
     | '/auth/sign-in'
     | '/auth/sign-up'
@@ -291,6 +497,7 @@ export interface FileRouteTypes {
     | '/api/ai/chat'
     | '/_dashboard/dashboard/help'
     | '/_dashboard/dashboard/users'
+    | '/_landing/_docs/docs'
     | '/api/ai/audit'
     | '/api/ai/config-store'
     | '/api/ai/models'
@@ -301,6 +508,22 @@ export interface FileRouteTypes {
     | '/_dashboard/dashboard/'
     | '/_dashboard/dashboard/settings/ia_config'
     | '/_dashboard/dashboard/settings/system'
+    | '/_landing/_docs/legal/cookies'
+    | '/_landing/_docs/legal/licenses'
+    | '/_landing/_docs/legal/privacy'
+    | '/_landing/_docs/legal/terms'
+    | '/_landing/_docs/product/changelog'
+    | '/_landing/_docs/product/integrations'
+    | '/_landing/_docs/product/release-notes'
+    | '/_landing/_docs/product/roadmap'
+    | '/_landing/_docs/starter/architecture'
+    | '/_landing/_docs/starter/conventions'
+    | '/_landing/_docs/starter/design-tokens'
+    | '/_landing/_docs/starter/module-map'
+    | '/_landing/_docs/support/documentation'
+    | '/_landing/_docs/support/examples'
+    | '/_landing/_docs/support/faq'
+    | '/_landing/_docs/support/guides'
     | '/api/ai/chat/completions'
     | '/_dashboard/dashboard/settings/'
   fileRoutesById: FileRoutesById
@@ -371,6 +594,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiHealthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_landing/_docs': {
+      id: '/_landing/_docs'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof LandingDocsRouteImport
+      parentRoute: typeof LandingRouteRoute
+    }
     '/_dashboard/dashboard': {
       id: '/_dashboard/dashboard'
       path: '/dashboard'
@@ -434,6 +664,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAiAuditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_landing/_docs/docs': {
+      id: '/_landing/_docs/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof LandingDocsDocsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
     '/_dashboard/dashboard/users': {
       id: '/_dashboard/dashboard/users'
       path: '/users'
@@ -475,6 +712,118 @@ declare module '@tanstack/react-router' {
       fullPath: '/api/ai/chat/completions'
       preLoaderRoute: typeof ApiAiChatCompletionsRouteImport
       parentRoute: typeof ApiAiChatRouteRoute
+    }
+    '/_landing/_docs/support/guides': {
+      id: '/_landing/_docs/support/guides'
+      path: '/support/guides'
+      fullPath: '/support/guides'
+      preLoaderRoute: typeof LandingDocsSupportGuidesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/faq': {
+      id: '/_landing/_docs/support/faq'
+      path: '/support/faq'
+      fullPath: '/support/faq'
+      preLoaderRoute: typeof LandingDocsSupportFaqRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/examples': {
+      id: '/_landing/_docs/support/examples'
+      path: '/support/examples'
+      fullPath: '/support/examples'
+      preLoaderRoute: typeof LandingDocsSupportExamplesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/documentation': {
+      id: '/_landing/_docs/support/documentation'
+      path: '/support/documentation'
+      fullPath: '/support/documentation'
+      preLoaderRoute: typeof LandingDocsSupportDocumentationRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/module-map': {
+      id: '/_landing/_docs/starter/module-map'
+      path: '/starter/module-map'
+      fullPath: '/starter/module-map'
+      preLoaderRoute: typeof LandingDocsStarterModuleMapRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/design-tokens': {
+      id: '/_landing/_docs/starter/design-tokens'
+      path: '/starter/design-tokens'
+      fullPath: '/starter/design-tokens'
+      preLoaderRoute: typeof LandingDocsStarterDesignTokensRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/conventions': {
+      id: '/_landing/_docs/starter/conventions'
+      path: '/starter/conventions'
+      fullPath: '/starter/conventions'
+      preLoaderRoute: typeof LandingDocsStarterConventionsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/architecture': {
+      id: '/_landing/_docs/starter/architecture'
+      path: '/starter/architecture'
+      fullPath: '/starter/architecture'
+      preLoaderRoute: typeof LandingDocsStarterArchitectureRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/roadmap': {
+      id: '/_landing/_docs/product/roadmap'
+      path: '/product/roadmap'
+      fullPath: '/product/roadmap'
+      preLoaderRoute: typeof LandingDocsProductRoadmapRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/release-notes': {
+      id: '/_landing/_docs/product/release-notes'
+      path: '/product/release-notes'
+      fullPath: '/product/release-notes'
+      preLoaderRoute: typeof LandingDocsProductReleaseNotesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/integrations': {
+      id: '/_landing/_docs/product/integrations'
+      path: '/product/integrations'
+      fullPath: '/product/integrations'
+      preLoaderRoute: typeof LandingDocsProductIntegrationsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/changelog': {
+      id: '/_landing/_docs/product/changelog'
+      path: '/product/changelog'
+      fullPath: '/product/changelog'
+      preLoaderRoute: typeof LandingDocsProductChangelogRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/terms': {
+      id: '/_landing/_docs/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LandingDocsLegalTermsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/privacy': {
+      id: '/_landing/_docs/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LandingDocsLegalPrivacyRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/licenses': {
+      id: '/_landing/_docs/legal/licenses'
+      path: '/legal/licenses'
+      fullPath: '/legal/licenses'
+      preLoaderRoute: typeof LandingDocsLegalLicensesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/cookies': {
+      id: '/_landing/_docs/legal/cookies'
+      path: '/legal/cookies'
+      fullPath: '/legal/cookies'
+      preLoaderRoute: typeof LandingDocsLegalCookiesRouteImport
+      parentRoute: typeof LandingDocsRoute
     }
     '/_dashboard/dashboard/settings/system': {
       id: '/_dashboard/dashboard/settings/system'
@@ -546,11 +895,57 @@ const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
   DashboardRouteRouteChildren,
 )
 
+interface LandingDocsRouteChildren {
+  LandingDocsDocsRoute: typeof LandingDocsDocsRoute
+  LandingDocsLegalCookiesRoute: typeof LandingDocsLegalCookiesRoute
+  LandingDocsLegalLicensesRoute: typeof LandingDocsLegalLicensesRoute
+  LandingDocsLegalPrivacyRoute: typeof LandingDocsLegalPrivacyRoute
+  LandingDocsLegalTermsRoute: typeof LandingDocsLegalTermsRoute
+  LandingDocsProductChangelogRoute: typeof LandingDocsProductChangelogRoute
+  LandingDocsProductIntegrationsRoute: typeof LandingDocsProductIntegrationsRoute
+  LandingDocsProductReleaseNotesRoute: typeof LandingDocsProductReleaseNotesRoute
+  LandingDocsProductRoadmapRoute: typeof LandingDocsProductRoadmapRoute
+  LandingDocsStarterArchitectureRoute: typeof LandingDocsStarterArchitectureRoute
+  LandingDocsStarterConventionsRoute: typeof LandingDocsStarterConventionsRoute
+  LandingDocsStarterDesignTokensRoute: typeof LandingDocsStarterDesignTokensRoute
+  LandingDocsStarterModuleMapRoute: typeof LandingDocsStarterModuleMapRoute
+  LandingDocsSupportDocumentationRoute: typeof LandingDocsSupportDocumentationRoute
+  LandingDocsSupportExamplesRoute: typeof LandingDocsSupportExamplesRoute
+  LandingDocsSupportFaqRoute: typeof LandingDocsSupportFaqRoute
+  LandingDocsSupportGuidesRoute: typeof LandingDocsSupportGuidesRoute
+}
+
+const LandingDocsRouteChildren: LandingDocsRouteChildren = {
+  LandingDocsDocsRoute: LandingDocsDocsRoute,
+  LandingDocsLegalCookiesRoute: LandingDocsLegalCookiesRoute,
+  LandingDocsLegalLicensesRoute: LandingDocsLegalLicensesRoute,
+  LandingDocsLegalPrivacyRoute: LandingDocsLegalPrivacyRoute,
+  LandingDocsLegalTermsRoute: LandingDocsLegalTermsRoute,
+  LandingDocsProductChangelogRoute: LandingDocsProductChangelogRoute,
+  LandingDocsProductIntegrationsRoute: LandingDocsProductIntegrationsRoute,
+  LandingDocsProductReleaseNotesRoute: LandingDocsProductReleaseNotesRoute,
+  LandingDocsProductRoadmapRoute: LandingDocsProductRoadmapRoute,
+  LandingDocsStarterArchitectureRoute: LandingDocsStarterArchitectureRoute,
+  LandingDocsStarterConventionsRoute: LandingDocsStarterConventionsRoute,
+  LandingDocsStarterDesignTokensRoute: LandingDocsStarterDesignTokensRoute,
+  LandingDocsStarterModuleMapRoute: LandingDocsStarterModuleMapRoute,
+  LandingDocsSupportDocumentationRoute: LandingDocsSupportDocumentationRoute,
+  LandingDocsSupportExamplesRoute: LandingDocsSupportExamplesRoute,
+  LandingDocsSupportFaqRoute: LandingDocsSupportFaqRoute,
+  LandingDocsSupportGuidesRoute: LandingDocsSupportGuidesRoute,
+}
+
+const LandingDocsRouteWithChildren = LandingDocsRoute._addFileChildren(
+  LandingDocsRouteChildren,
+)
+
 interface LandingRouteRouteChildren {
+  LandingDocsRoute: typeof LandingDocsRouteWithChildren
   LandingIndexRoute: typeof LandingIndexRoute
 }
 
 const LandingRouteRouteChildren: LandingRouteRouteChildren = {
+  LandingDocsRoute: LandingDocsRouteWithChildren,
   LandingIndexRoute: LandingIndexRoute,
 }
 
