@@ -29,6 +29,7 @@ import { Route as ApiAiAuditRouteImport } from './routes/api/ai/audit'
 import { Route as LandingDocsDocsRouteImport } from './routes/_landing/_docs/docs'
 import { Route as DashboardDashboardUsersRouteImport } from './routes/_dashboard/dashboard/users'
 import { Route as DashboardDashboardHelpRouteImport } from './routes/_dashboard/dashboard/help'
+import { Route as DashboardDashboardContactMessagesRouteImport } from './routes/_dashboard/dashboard/contact-messages'
 import { Route as ApiAiChatRouteRouteImport } from './routes/api/ai/chat/route'
 import { Route as DashboardDashboardSettingsRouteRouteImport } from './routes/_dashboard/dashboard/settings/route'
 import { Route as DashboardDashboardSettingsIndexRouteImport } from './routes/_dashboard/dashboard/settings/index'
@@ -149,6 +150,12 @@ const DashboardDashboardHelpRoute = DashboardDashboardHelpRouteImport.update({
   path: '/help',
   getParentRoute: () => DashboardDashboardRouteRoute,
 } as any)
+const DashboardDashboardContactMessagesRoute =
+  DashboardDashboardContactMessagesRouteImport.update({
+    id: '/contact-messages',
+    path: '/contact-messages',
+    getParentRoute: () => DashboardDashboardRouteRoute,
+  } as any)
 const ApiAiChatRouteRoute = ApiAiChatRouteRouteImport.update({
   id: '/api/ai/chat',
   path: '/api/ai/chat',
@@ -285,6 +292,7 @@ export interface FileRoutesByFullPath {
   '/auth/sign-up': typeof AuthSignUpRoute
   '/dashboard/settings': typeof DashboardDashboardSettingsRouteRouteWithChildren
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
+  '/dashboard/contact-messages': typeof DashboardDashboardContactMessagesRoute
   '/dashboard/help': typeof DashboardDashboardHelpRoute
   '/dashboard/users': typeof DashboardDashboardUsersRoute
   '/docs': typeof LandingDocsDocsRoute
@@ -324,6 +332,7 @@ export interface FileRoutesByTo {
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
+  '/dashboard/contact-messages': typeof DashboardDashboardContactMessagesRoute
   '/dashboard/help': typeof DashboardDashboardHelpRoute
   '/dashboard/users': typeof DashboardDashboardUsersRoute
   '/docs': typeof LandingDocsDocsRoute
@@ -369,6 +378,7 @@ export interface FileRoutesById {
   '/_landing/': typeof LandingIndexRoute
   '/_dashboard/dashboard/settings': typeof DashboardDashboardSettingsRouteRouteWithChildren
   '/api/ai/chat': typeof ApiAiChatRouteRouteWithChildren
+  '/_dashboard/dashboard/contact-messages': typeof DashboardDashboardContactMessagesRoute
   '/_dashboard/dashboard/help': typeof DashboardDashboardHelpRoute
   '/_dashboard/dashboard/users': typeof DashboardDashboardUsersRoute
   '/_landing/_docs/docs': typeof LandingDocsDocsRoute
@@ -412,6 +422,7 @@ export interface FileRouteTypes {
     | '/auth/sign-up'
     | '/dashboard/settings'
     | '/api/ai/chat'
+    | '/dashboard/contact-messages'
     | '/dashboard/help'
     | '/dashboard/users'
     | '/docs'
@@ -451,6 +462,7 @@ export interface FileRouteTypes {
     | '/auth/sign-in'
     | '/auth/sign-up'
     | '/api/ai/chat'
+    | '/dashboard/contact-messages'
     | '/dashboard/help'
     | '/dashboard/users'
     | '/docs'
@@ -495,6 +507,7 @@ export interface FileRouteTypes {
     | '/_landing/'
     | '/_dashboard/dashboard/settings'
     | '/api/ai/chat'
+    | '/_dashboard/dashboard/contact-messages'
     | '/_dashboard/dashboard/help'
     | '/_dashboard/dashboard/users'
     | '/_landing/_docs/docs'
@@ -685,6 +698,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardHelpRouteImport
       parentRoute: typeof DashboardDashboardRouteRoute
     }
+    '/_dashboard/dashboard/contact-messages': {
+      id: '/_dashboard/dashboard/contact-messages'
+      path: '/contact-messages'
+      fullPath: '/dashboard/contact-messages'
+      preLoaderRoute: typeof DashboardDashboardContactMessagesRouteImport
+      parentRoute: typeof DashboardDashboardRouteRoute
+    }
     '/api/ai/chat': {
       id: '/api/ai/chat'
       path: '/api/ai/chat'
@@ -864,6 +884,7 @@ const DashboardDashboardSettingsRouteRouteWithChildren =
 
 interface DashboardDashboardRouteRouteChildren {
   DashboardDashboardSettingsRouteRoute: typeof DashboardDashboardSettingsRouteRouteWithChildren
+  DashboardDashboardContactMessagesRoute: typeof DashboardDashboardContactMessagesRoute
   DashboardDashboardHelpRoute: typeof DashboardDashboardHelpRoute
   DashboardDashboardUsersRoute: typeof DashboardDashboardUsersRoute
   DashboardDashboardIndexRoute: typeof DashboardDashboardIndexRoute
@@ -873,6 +894,8 @@ const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren
   {
     DashboardDashboardSettingsRouteRoute:
       DashboardDashboardSettingsRouteRouteWithChildren,
+    DashboardDashboardContactMessagesRoute:
+      DashboardDashboardContactMessagesRoute,
     DashboardDashboardHelpRoute: DashboardDashboardHelpRoute,
     DashboardDashboardUsersRoute: DashboardDashboardUsersRoute,
     DashboardDashboardIndexRoute: DashboardDashboardIndexRoute,

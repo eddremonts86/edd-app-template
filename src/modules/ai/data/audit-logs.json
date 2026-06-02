@@ -2518,5 +2518,21 @@
     "providerId": "llama-cpp",
     "model": "qwen3.5-2b-instruct-q4_k_m.gguf",
     "contextLength": 0
+  },
+  {
+    "timestamp": "2026-06-02T18:54:50.420Z",
+    "locale": "en",
+    "query": "dime que tal?...",
+    "providerId": "llama-cpp",
+    "model": "DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf",
+    "contextLength": 0
+  },
+  {
+    "timestamp": "2026-06-02T18:55:02.513Z",
+    "locale": "en",
+    "query": "hello?...",
+    "providerId": "llama-cpp",
+    "model": "DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf",
+    "contextLength": 0
   }
 ]

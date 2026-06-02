@@ -9,6 +9,7 @@ interface TableSearchBarProps {
   loadedCount: number
   totalCount: number
   showSpinner: boolean
+  showCount?: boolean
   /** i18n key for placeholder (default: 'common.search') */
   placeholderKey?: string
 }
@@ -20,6 +21,7 @@ export function TableSearchBar({
   loadedCount,
   totalCount,
   showSpinner,
+  showCount = true,
   placeholderKey = 'common.search',
 }: TableSearchBarProps) {
   const { t } = useTranslation()
@@ -38,22 +40,26 @@ export function TableSearchBar({
           <button
             type="button"
             onClick={onClear}
+            title={t('common.clearSearch')}
+            aria-label={t('common.clearSearch')}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         )}
       </div>
-      <div className="text-sm text-muted-foreground tabular-nums shrink-0">
-        {showSpinner ? (
-          <Loader2 className="w-4 h-4 animate-spin text-primary" />
-        ) : (
-          <span>
-            {loadedCount}
-            {totalCount > loadedCount && ` / ${totalCount}`}
-          </span>
-        )}
-      </div>
+      {showCount && (
+        <div className="text-sm text-muted-foreground tabular-nums shrink-0">
+          {showSpinner ? (
+            <Loader2 className="w-4 h-4 animate-spin text-primary" />
+          ) : (
+            <span>
+              {loadedCount}
+              {totalCount > loadedCount && ` / ${totalCount}`}
+            </span>
+          )}
+        </div>
+      )}
     </div>
   )
 }

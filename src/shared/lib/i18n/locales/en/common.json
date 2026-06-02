@@ -129,6 +129,7 @@
       "analytics": "Analytics",
       "todos": "Todos",
       "users": "Users",
+      "contactMessages": "Contact Messages",
       "transactions": "Transactions",
       "categories": "Categories",
       "projects": "Projects",
@@ -808,6 +809,60 @@
       "deleted": "User deleted successfully"
     }
   },
+  "contactMessages": {
+    "title": "Contact Messages",
+    "subtitle": "Review briefs submitted from the landing page and keep the follow-up queue clean.",
+    "unreadBadge": "{{count}} unread",
+    "filters": {
+      "search": "Search by email or content",
+      "status": "Status",
+      "statusAll": "All",
+      "statusNew": "New",
+      "statusRead": "Read"
+    },
+    "table": {
+      "email": "Email",
+      "projectType": "Project Type",
+      "message": "Message",
+      "view": "Read",
+      "createdAt": "Received at",
+      "fullMessage": "Full message",
+      "status": "Status",
+      "actions": "Actions",
+      "emptyMessage": "No details provided"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "readFull": "Read full message",
+      "markRead": "Mark as read",
+      "markNew": "Mark as new"
+    },
+    "sheet": {
+      "title": "Message details",
+      "description": "Review the complete content and context of this brief."
+    },
+    "messages": {
+      "markReadSuccess": "Message marked as read",
+      "markNewSuccess": "Message marked as new",
+      "markError": "We couldn't update this message"
+    },
+    "empty": {
+      "noData": "No contact briefs yet.",
+      "noResults": "No briefs match your filters."
+    },
+    "error": {
+      "title": "Failed to load contact messages",
+      "description": "Try again in a few seconds.",
+      "retry": "Retry"
+    },
+    "widget": {
+      "title": "Unread contact messages",
+      "description": "Track new inbound briefs waiting for follow-up.",
+      "refresh": "Refresh unread contact messages",
+      "empty": "No unread briefs right now.",
+      "viewAll": "Open contact inbox"
+    }
+  },
   "transactions": {
     "title": "Transactions",
     "summary": "Showing {{shown}} of {{total}} transactions",
@@ -1050,6 +1105,12 @@
           "placeholder": "Main goal, must-have features, and timeline."
         },
         "submit": "Send brief",
+        "messages": {
+          "successTitle": "Brief sent",
+          "successDescription": "Thanks. We saved your brief and notified the admin team.",
+          "errorTitle": "Unable to send brief",
+          "errorDescription": "Please try again in a moment."
+        },
         "projectType": {
           "label": "Project type",
           "placeholder": "Select project type",

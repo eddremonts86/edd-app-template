@@ -291,6 +291,60 @@
       "deleted": "Usuario eliminado correctamente"
     }
   },
+  "contactMessages": {
+    "title": "Mensajes de contacto",
+    "subtitle": "Revisa los briefs enviados desde la landing y mantén limpia la cola de seguimiento.",
+    "unreadBadge": "{{count}} sin leer",
+    "filters": {
+      "search": "Buscar por email o contenido",
+      "status": "Estado",
+      "statusAll": "Todos",
+      "statusNew": "Nuevo",
+      "statusRead": "Leído"
+    },
+    "table": {
+      "email": "Email",
+      "projectType": "Tipo de proyecto",
+      "message": "Mensaje",
+      "view": "Leer",
+      "createdAt": "Recibido el",
+      "fullMessage": "Mensaje completo",
+      "status": "Estado",
+      "actions": "Acciones",
+      "emptyMessage": "Sin detalles"
+    },
+    "actions": {
+      "refresh": "Actualizar",
+      "readFull": "Leer mensaje completo",
+      "markRead": "Marcar leído",
+      "markNew": "Marcar nuevo"
+    },
+    "sheet": {
+      "title": "Detalle del mensaje",
+      "description": "Revisa el contenido completo y el contexto de este brief."
+    },
+    "messages": {
+      "markReadSuccess": "Mensaje marcado como leído",
+      "markNewSuccess": "Mensaje marcado como nuevo",
+      "markError": "No pudimos actualizar este mensaje"
+    },
+    "empty": {
+      "noData": "Aún no hay briefs de contacto.",
+      "noResults": "No hay briefs que coincidan con tus filtros."
+    },
+    "error": {
+      "title": "No se pudieron cargar los mensajes de contacto",
+      "description": "Vuelve a intentarlo en unos segundos.",
+      "retry": "Reintentar"
+    },
+    "widget": {
+      "title": "Mensajes de contacto sin leer",
+      "description": "Sigue los briefs entrantes que esperan seguimiento.",
+      "refresh": "Actualizar mensajes de contacto sin leer",
+      "empty": "No hay briefs sin leer por ahora.",
+      "viewAll": "Abrir bandeja de contacto"
+    }
+  },
   "team": {
     "title": "Equipo",
     "actions": {
@@ -316,6 +370,7 @@
       "analytics": "Analíticas",
       "todos": "Tareas",
       "users": "Usuarios",
+      "contactMessages": "Mensajes de contacto",
       "transactions": "Transacciones",
       "categories": "Categorías",
       "projects": "Proyectos",
@@ -1013,6 +1068,12 @@
           "placeholder": "Describe objetivos, timeline y funcionalidades clave."
         },
         "submit": "Enviar brief",
+        "messages": {
+          "successTitle": "Brief enviado",
+          "successDescription": "Guardamos tu mensaje y avisamos al equipo admin.",
+          "errorTitle": "No se pudo enviar el brief",
+          "errorDescription": "Inténtalo de nuevo en unos segundos."
+        },
         "projectType": {
           "label": "Tipo de proyecto",
           "placeholder": "Seleccionar tipo de proyecto",

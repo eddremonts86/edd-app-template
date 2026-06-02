@@ -124,6 +124,7 @@
       "analytics": "Analyse",
       "todos": "Opgaver",
       "users": "Brugere",
+      "contactMessages": "Kontaktbeskeder",
       "transactions": "Transaktioner",
       "categories": "Kategorier",
       "projects": "Projekter",
@@ -704,6 +705,60 @@
       "deleted": "Bruger slettet"
     }
   },
+  "contactMessages": {
+    "title": "Kontaktbeskeder",
+    "subtitle": "Gennemgå briefs sendt fra landingssiden og hold opfølgningskøen ryddelig.",
+    "unreadBadge": "{{count}} ulæste",
+    "filters": {
+      "search": "Søg efter e-mail eller indhold",
+      "status": "Status",
+      "statusAll": "Alle",
+      "statusNew": "Ny",
+      "statusRead": "Læst"
+    },
+    "table": {
+      "email": "E-mail",
+      "projectType": "Projekttype",
+      "message": "Besked",
+      "view": "Laes",
+      "createdAt": "Modtaget",
+      "fullMessage": "Hele beskeden",
+      "status": "Status",
+      "actions": "Handlinger",
+      "emptyMessage": "Ingen detaljer angivet"
+    },
+    "actions": {
+      "refresh": "Opdater",
+      "readFull": "Læs hele beskeden",
+      "markRead": "Markér som læst",
+      "markNew": "Markér som ny"
+    },
+    "sheet": {
+      "title": "Beskeddetaljer",
+      "description": "Gennemgå det fulde indhold og konteksten for denne henvendelse."
+    },
+    "messages": {
+      "markReadSuccess": "Besked markeret som læst",
+      "markNewSuccess": "Besked markeret som ny",
+      "markError": "Vi kunne ikke opdatere denne besked"
+    },
+    "empty": {
+      "noData": "Ingen kontakt-briefs endnu.",
+      "noResults": "Ingen briefs matcher dine filtre."
+    },
+    "error": {
+      "title": "Kunne ikke indlæse kontaktbeskeder",
+      "description": "Prøv igen om få sekunder.",
+      "retry": "Prøv igen"
+    },
+    "widget": {
+      "title": "Ulæste kontaktbeskeder",
+      "description": "Hold styr på nye henvendelser, der venter på opfølgning.",
+      "refresh": "Opdater ulæste kontaktbeskeder",
+      "empty": "Ingen ulæste henvendelser lige nu.",
+      "viewAll": "Åbn kontaktindbakke"
+    }
+  },
   "transactions": {
     "title": "Transaktioner",
     "summary": "Viser {{shown}} af {{total}} transaktioner",
@@ -946,6 +1001,12 @@
           "placeholder": "Overordnet mål, must-have features og tidslinje."
         },
         "submit": "Send brief",
+        "messages": {
+          "successTitle": "Brief sendt",
+          "successDescription": "Tak. Vi har gemt din brief og notificeret admin-teamet.",
+          "errorTitle": "Kunne ikke sende brief",
+          "errorDescription": "Prøv igen om et øjeblik."
+        },
         "projectType": {
           "label": "Projekttype",
           "placeholder": "Vælg projekttype",

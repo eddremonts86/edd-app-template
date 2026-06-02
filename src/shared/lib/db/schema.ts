@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, boolean, unique } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, boolean, unique, index } from 'drizzle-orm/pg-core'
 
 // ---------------------------------------------------------------------------
 // Authentication Tables (Better Auth)
@@ -87,3 +87,54 @@ export const users = pgTable('users', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })
+
+// ---------------------------------------------------------------------------
+// Contact Messages
+// Public landing contact briefs submitted by visitors.
+// ---------------------------------------------------------------------------
+
+export const contactMessages = pgTable(
+  'contact_messages',
+  {
+    id: text('id').primaryKey(),
+    email: text('email').notNull(),
+    projectType: text('project_type').notNull(),
+    message: text('message'),
+    status: text('status').default('new').notNull(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  },
+  (t) => [
+    index('contact_messages_created_at_idx').on(t.createdAt),
+    index('contact_messages_status_idx').on(t.status),
+  ],
+)
+
+// ---------------------------------------------------------------------------
+// Notifications
+// Dashboard notifications. Can target a specific user.
+// ---------------------------------------------------------------------------
+
+export const notifications = pgTable(
+  'notifications',
+  {
+    id: text('id').primaryKey(),
+    recipientUserId: text('recipient_user_id').references(() => users.id, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+    }),
+    kind: text('kind').notNull(),
+    title: text('title').notNull(),
+    body: text('body').notNull(),
+    entityType: text('entity_type'),
+    entityId: text('entity_id'),
+    link: text('link'),
+    isRead: boolean('is_read').default(false).notNull(),
+    readAt: timestamp('read_at'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (t) => [
+    index('notifications_recipient_read_idx').on(t.recipientUserId, t.isRead),
+    index('notifications_created_at_idx').on(t.createdAt),
+  ],
+)
