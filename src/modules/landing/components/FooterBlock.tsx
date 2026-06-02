@@ -4,7 +4,8 @@ import { Link } from '@tanstack/react-router'
 import { m } from 'framer-motion'
 import { LogIn } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { Badge, Card, Input, Button } from '@/components/ui'
+import { Badge, Card } from '@/components/ui'
+import { StarterUpdatesSignup } from '@/modules/updates'
 import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { FooterColumn } from './FooterColumn'
 import { SocialLinks } from './SocialLinks'
@@ -95,20 +96,7 @@ export function FooterBlock() {
               <p className="mb-2 text-sm font-medium text-foreground">
                 {t('home.footer.subscribe.title')}
               </p>
-              <div className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder={t('home.footer.subscribe.placeholder')}
-                  className="max-w-[240px]"
-                />
-                <Button size="sm">{t('home.footer.subscribe.button')}</Button>
-              </div>
-              <p className="mt-2 max-w-sm text-xs text-muted-foreground">
-                {t(
-                  'home.footer.subscribe.note',
-                  'Release notes, improvements, and implementation guides. Maximum one email per month.',
-                )}
-              </p>
+              <StarterUpdatesSignup />
               {!auth.isAuthenticated && (
                 <div className="mt-4">
                   <Link

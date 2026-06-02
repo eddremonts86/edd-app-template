@@ -1100,6 +1100,24 @@
       }
     }
   },
+  "updates": {
+    "subscribe": {
+      "emailLabel": "Work email",
+      "actions": {
+        "subscribing": "Joining..."
+      },
+      "errors": {
+        "required": "Email is required.",
+        "invalidEmail": "Please enter a valid email address."
+      },
+      "messages": {
+        "subscribedTitle": "You're on the list",
+        "subscribedDescription": "We'll only send release notes and practical guidance once a month.",
+        "alreadyTitle": "Already subscribed",
+        "alreadyDescription": "This email is already receiving starter updates."
+      }
+    }
+  },
   "budgets": {
     "title": "Budgets",
     "description": "Manage and track your financial budgets.",

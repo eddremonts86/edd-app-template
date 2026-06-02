@@ -538,6 +538,24 @@
       "refreshWorkload": "Actualizar carga de trabajo"
     }
   },
+  "updates": {
+    "subscribe": {
+      "emailLabel": "Email de trabajo",
+      "actions": {
+        "subscribing": "Uniéndome..."
+      },
+      "errors": {
+        "required": "El email es obligatorio.",
+        "invalidEmail": "Escribe un email válido."
+      },
+      "messages": {
+        "subscribedTitle": "Ya estás en la lista",
+        "subscribedDescription": "Solo enviamos release notes y guías prácticas una vez al mes.",
+        "alreadyTitle": "Ya estabas suscrito",
+        "alreadyDescription": "Este correo ya recibe las novedades del starter."
+      }
+    }
+  },
   "budgets": {
     "title": "Presupuestos",
     "description": "Administra y rastrea tus presupuestos financieros.",

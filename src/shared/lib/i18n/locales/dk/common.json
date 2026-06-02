@@ -996,6 +996,24 @@
       }
     }
   },
+  "updates": {
+    "subscribe": {
+      "emailLabel": "Arbejds-e-mail",
+      "actions": {
+        "subscribing": "Tilmelder..."
+      },
+      "errors": {
+        "required": "E-mail er påkrævet.",
+        "invalidEmail": "Indtast en gyldig e-mailadresse."
+      },
+      "messages": {
+        "subscribedTitle": "Du er nu tilmeldt",
+        "subscribedDescription": "Vi sender kun release notes og praktiske guides én gang om måneden.",
+        "alreadyTitle": "Allerede tilmeldt",
+        "alreadyDescription": "Denne e-mail modtager allerede starter-opdateringer."
+      }
+    }
+  },
   "budgets": {
     "title": "Budgetter",
     "description": "Administrer og følg dine finansielle budgetter.",

@@ -1,0 +1,5 @@
+export { updatesModule } from './manifest'
+export * from './components'
+export * from './api/updates.fn'
+export * from './api/updates.queries'
+export * from './model'

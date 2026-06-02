@@ -4,5 +4,6 @@ export const landingModule: AppModuleManifest = {
   id: 'landing',
   title: 'Landing',
   description: 'Public marketing and entry routes for the template.',
+  dependencies: ['updates'],
   routes: [{ path: '/', kind: 'page' }],
 }

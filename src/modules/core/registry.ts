@@ -4,12 +4,14 @@ import { dashboardModule } from '@/modules/dashboard/manifest'
 import { helpModule } from '@/modules/help/manifest'
 import { landingModule } from '@/modules/landing/manifest'
 import { settingsModule } from '@/modules/settings/manifest'
+import { updatesModule } from '@/modules/updates/manifest'
 import { usersModule } from '@/modules/users/manifest'
 import { getExplicitlyDisabledModuleIds, getExplicitlyEnabledModuleIds } from './config'
 import type { AppModuleManifest } from './types'
 
 export const moduleRegistry: AppModuleManifest[] = [
   landingModule,
+  updatesModule,
   authModule,
   dashboardModule,
   aiModule,
