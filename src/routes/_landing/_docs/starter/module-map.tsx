@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocPage } from '../_DocPage'
+import { DocPage } from '../-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/starter/module-map')({
   component: ModuleMapPage,
@@ -26,36 +26,49 @@ function ModuleMapPage() {
       relatedLinks={relatedLinks}
     >
       <p>
-        The codebase is organized into self-contained modules located under <code>src/modules/*</code>. This modular setup makes it easy to add new features or remove unused modules.
+        The codebase is organized into self-contained modules located under{' '}
+        <code>src/modules/*</code>. This modular setup makes it easy to add new features or remove
+        unused modules.
       </p>
 
       <h2 id="registry">Registry Mechanism</h2>
       <p>
-        Modules register with the application by exposing an <code>AppModuleManifest</code> object. This manifest defines their routes, navigation structure, dependencies, and widget components. The core kernel (<code>src/modules/core</code>) reads these manifests to dynamically configure layouts, sidebars, and widgets.
+        Modules register with the application by exposing an <code>AppModuleManifest</code> object.
+        This manifest defines their routes, navigation structure, dependencies, and widget
+        components. The core kernel (<code>src/modules/core</code>) reads these manifests to
+        dynamically configure layouts, sidebars, and widgets.
       </p>
 
       <h2 id="module-catalog">Codebase Modules Catalog</h2>
-      <p>
-        The following modules are built into the template:
-      </p>
+      <p>The following modules are built into the template:</p>
       <table className="min-w-full divide-y divide-border/40">
         <thead>
           <tr>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Module ID</th>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Purpose</th>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Features Included</th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Module ID
+            </th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Purpose
+            </th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Features Included
+            </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-border/30">
           <tr>
             <td className="py-2 font-mono text-xs">landing</td>
             <td className="py-2">Marketing & Conversion</td>
-            <td className="py-2">Glowy wave hero, comparison tables, interactive rollout checklists</td>
+            <td className="py-2">
+              Glowy wave hero, comparison tables, interactive rollout checklists
+            </td>
           </tr>
           <tr>
             <td className="py-2 font-mono text-xs">auth</td>
             <td className="py-2">Access Control</td>
-            <td className="py-2">Multi-tenant session validation, Clerk SSO integrations, route middleware</td>
+            <td className="py-2">
+              Multi-tenant session validation, Clerk SSO integrations, route middleware
+            </td>
           </tr>
           <tr>
             <td className="py-2 font-mono text-xs">dashboard</td>
@@ -65,7 +78,9 @@ function ModuleMapPage() {
           <tr>
             <td className="py-2 font-mono text-xs">ai</td>
             <td className="py-2">Cognitive Operations</td>
-            <td className="py-2">Local models (Ollama, LM Studio), cloud models (OpenAI, Anthropic), audit logs</td>
+            <td className="py-2">
+              Local models (Ollama, LM Studio), cloud models (OpenAI, Anthropic), audit logs
+            </td>
           </tr>
           <tr>
             <td className="py-2 font-mono text-xs">users</td>
@@ -123,9 +138,10 @@ export const aiModule: AppModuleManifest = {
 
       <h2 id="resolution">Module Resolution Flow</h2>
       <p>
-        The diagram below shows how the application resolves dependencies and loads modules dynamically:
+        The diagram below shows how the application resolves dependencies and loads modules
+        dynamically:
       </p>
-      
+
       {/* Mermaid diagram */}
       <pre className="mermaid p-4 rounded-xl bg-muted/40 border border-border/30 overflow-x-auto text-xs">
         {`graph TD

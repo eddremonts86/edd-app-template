@@ -215,8 +215,9 @@ async function main() {
   }
 
   console.log('  cp .env.example .env')
-  console.log('  pnpm db:up && pnpm db:migrate')
-  console.log('  pnpm dev\n')
+  console.log(
+    '  pnpm dev    # bootstraps DB, runs migrations, seeds admin from .env, starts dev server\n',
+  )
 }
 
 try {

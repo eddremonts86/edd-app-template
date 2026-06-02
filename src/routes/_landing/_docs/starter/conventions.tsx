@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocPage } from '../_DocPage'
+import { DocPage } from '../-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/starter/conventions')({
   component: ConventionsPage,
@@ -26,22 +26,25 @@ function ConventionsPage() {
       relatedLinks={relatedLinks}
     >
       <p>
-        Consistency helps teams ship code faster and keep maintenance costs low. By following strict code conventions, we keep code simple and make onboarding easy for new developers.
+        Consistency helps teams ship code faster and keep maintenance costs low. By following strict
+        code conventions, we keep code simple and make onboarding easy for new developers.
       </p>
 
       <h2 id="module-boundaries">Vertical Module Boundaries</h2>
-      <p>
-        The most important rule in this template is the separation of business modules:
-      </p>
+      <p>The most important rule in this template is the separation of business modules:</p>
       <ul>
         <li>
-          <strong>Domain Colocation:</strong> Store UI components, server actions, settings, and business logic inside the module directory (e.g. <code>src/modules/ai/</code>).
+          <strong>Domain Colocation:</strong> Store UI components, server actions, settings, and
+          business logic inside the module directory (e.g. <code>src/modules/ai/</code>).
         </li>
         <li>
-          <strong>No Cross-Module Imports:</strong> Code inside <code>src/modules/ai/</code> must not import directly from <code>src/modules/auth/</code>.
+          <strong>No Cross-Module Imports:</strong> Code inside <code>src/modules/ai/</code> must
+          not import directly from <code>src/modules/auth/</code>.
         </li>
         <li>
-          <strong>Shared Promotion:</strong> If code is needed by multiple modules, move it to <code>src/modules/shared/</code> or promote it to a generic utility inside the <code>src/shared/</code> layer.
+          <strong>Shared Promotion:</strong> If code is needed by multiple modules, move it to{' '}
+          <code>src/modules/shared/</code> or promote it to a generic utility inside the{' '}
+          <code>src/shared/</code> layer.
         </li>
       </ul>
 
@@ -65,7 +68,9 @@ function ConventionsPage() {
 
       <h2 id="env-validation">Environment Config & Safety</h2>
       <p>
-        To prevent runtime errors, never call <code>process.env</code> or <code>import.meta.env</code> directly in your components. Instead, validate all environment configurations at startup:
+        To prevent runtime errors, never call <code>process.env</code> or{' '}
+        <code>import.meta.env</code> directly in your components. Instead, validate all environment
+        configurations at startup:
       </p>
       <pre className="p-4 rounded-xl bg-muted/80 border border-border/40 overflow-x-auto text-xs md:text-sm font-mono">
         <code>{`import { z } from 'zod'
@@ -81,30 +86,29 @@ export const env = envSchema.parse(import.meta.env)`}</code>
 
       <h2 id="routing">Route Colocation Rules</h2>
       <p>
-        We use TanStack Router for file-based routing. Keep route files thin and delegate layout rendering to components inside your module directories:
+        We use TanStack Router for file-based routing. Keep route files thin and delegate layout
+        rendering to components inside your module directories:
       </p>
       <ol>
         <li>
           Define routes under <code>src/routes/</code>.
         </li>
-        <li>
-          Import the page view or layout component from your module directory.
-        </li>
-        <li>
-          Avoid writing complex UI code directly inside the route files.
-        </li>
+        <li>Import the page view or layout component from your module directory.</li>
+        <li>Avoid writing complex UI code directly inside the route files.</li>
       </ol>
 
       <h2 id="testing">Testing Conventions</h2>
-      <p>
-        We run automated tests to maintain type safety and application reliability:
-      </p>
+      <p>We run automated tests to maintain type safety and application reliability:</p>
       <ul>
         <li>
-          <strong>Unit & Component Tests:</strong> Run with <strong>Vitest</strong> (<code>pnpm test:unit</code>). Keep test files colocated with their target component using the <code>.spec.ts</code> suffix.
+          <strong>Unit & Component Tests:</strong> Run with <strong>Vitest</strong> (
+          <code>pnpm test:unit</code>). Keep test files colocated with their target component using
+          the <code>.spec.ts</code> suffix.
         </li>
         <li>
-          <strong>E2E Browser Tests:</strong> Run with <strong>Playwright</strong> (<code>pnpm test:e2e</code>). Store these tests under <code>tests/e2e/</code> to test user authentication and AI generation flows.
+          <strong>E2E Browser Tests:</strong> Run with <strong>Playwright</strong> (
+          <code>pnpm test:e2e</code>). Store these tests under <code>tests/e2e/</code> to test user
+          authentication and AI generation flows.
         </li>
       </ul>
     </DocPage>

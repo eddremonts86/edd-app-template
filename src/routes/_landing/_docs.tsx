@@ -26,10 +26,19 @@ function DocsLayout() {
     {
       title: t('home.footer.links.essence.title', 'Starter'),
       items: [
-        { label: t('home.footer.links.essence.items.0', 'Architecture'), to: '/starter/architecture' },
+        {
+          label: t('home.footer.links.essence.items.0', 'Architecture'),
+          to: '/starter/architecture',
+        },
         { label: t('home.footer.links.essence.items.1', 'Module map'), to: '/starter/module-map' },
-        { label: t('home.footer.links.essence.items.2', 'Design tokens'), to: '/starter/design-tokens' },
-        { label: t('home.footer.links.essence.items.3', 'Conventions'), to: '/starter/conventions' },
+        {
+          label: t('home.footer.links.essence.items.2', 'Design tokens'),
+          to: '/starter/design-tokens',
+        },
+        {
+          label: t('home.footer.links.essence.items.3', 'Conventions'),
+          to: '/starter/conventions',
+        },
       ],
     },
     {
@@ -37,14 +46,23 @@ function DocsLayout() {
       items: [
         { label: t('home.footer.links.company.items.0', 'Roadmap'), to: '/product/roadmap' },
         { label: t('home.footer.links.company.items.1', 'Changelog'), to: '/product/changelog' },
-        { label: t('home.footer.links.company.items.2', 'Integrations'), to: '/product/integrations' },
-        { label: t('home.footer.links.company.items.3', 'Release notes'), to: '/product/release-notes' },
+        {
+          label: t('home.footer.links.company.items.2', 'Integrations'),
+          to: '/product/integrations',
+        },
+        {
+          label: t('home.footer.links.company.items.3', 'Release notes'),
+          to: '/product/release-notes',
+        },
       ],
     },
     {
       title: t('home.footer.links.community.title', 'Support'),
       items: [
-        { label: t('home.footer.links.community.items.0', 'Documentation'), to: '/support/documentation' },
+        {
+          label: t('home.footer.links.community.items.0', 'Documentation'),
+          to: '/support/documentation',
+        },
         { label: t('home.footer.links.community.items.1', 'Guides'), to: '/support/guides' },
         { label: t('home.footer.links.community.items.2', 'Examples'), to: '/support/examples' },
         { label: t('home.footer.links.community.items.3', 'FAQ'), to: '/support/faq' },
@@ -123,7 +141,10 @@ function DocsLayout() {
                       to={item.to as any}
                       onClick={handleLinkClick}
                       className="group flex items-center justify-between px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/35 transition-colors"
-                      activeProps={{ className: 'font-semibold text-primary bg-primary/[0.04] border-l-2 border-primary -ml-[9px] rounded-l-none' }}
+                      activeProps={{
+                        className:
+                          'font-semibold text-primary bg-primary/[0.04] border-l-2 border-primary -ml-[9px] rounded-l-none',
+                      }}
                     >
                       <span>{item.label}</span>
                       <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground/50" />

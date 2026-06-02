@@ -116,7 +116,6 @@ export const Topbar = memo(function Topbar() {
           </div>
 
           <div className="flex items-center gap-3">
-
             {auth.isAuthenticated && auth.user && (
               <div className="flex items-center gap-2">
                 <Button variant="ghost" size="sm" className="gap-3 px-2" asChild>

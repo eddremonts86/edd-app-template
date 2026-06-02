@@ -10,15 +10,15 @@ set -eu
 
 WORKSPACE_ROOT="${WORKSPACE_ROOT:-$(cd "$(dirname "$0")/../../../.." && pwd)}"
 MODEL_DIR="${LLAMA_CPP_MODEL_DIR:-$WORKSPACE_ROOT/docker/models/llama}"
-MAIN_MODEL_FILE="${LLAMA_CPP_MAIN_FILE:-qwen3.5-9b-instruct-q4_k_m.gguf}"
-DRAFT_MODEL_FILE="${LLAMA_CPP_DRAFT_FILE:-qwen3.5-0.8b-instruct-q8_0.gguf}"
+MAIN_MODEL_FILE="${LLAMA_CPP_MAIN_FILE:-qwen2.5-7b-instruct-q4_k_m.gguf}"
+DRAFT_MODEL_FILE="${LLAMA_CPP_DRAFT_FILE:-qwen2.5-0.5b-instruct-q8_0.gguf}"
 MAIN_MODEL_PATH="$MODEL_DIR/$MAIN_MODEL_FILE"
 DRAFT_MODEL_PATH="$MODEL_DIR/$DRAFT_MODEL_FILE"
 
-MAIN_MODEL_URL="${LLAMA_CPP_MAIN_URL:-https://huggingface.co/bartowski/Qwen3.5-9B-Instruct-GGUF/resolve/main/Qwen3.5-9B-Instruct-Q4_K_M.gguf}"
-DRAFT_MODEL_URL="${LLAMA_CPP_DRAFT_URL:-https://huggingface.co/bartowski/Qwen3.5-0.8B-Instruct-GGUF/resolve/main/Qwen3.5-0.8B-Instruct-Q8_0.gguf}"
-MAIN_MODEL_URL_FALLBACK="${LLAMA_CPP_MAIN_URL_FALLBACK:-https://huggingface.co/Qwen/Qwen3.5-9B-Instruct-GGUF/resolve/main/Qwen3.5-9B-Instruct-Q4_K_M.gguf}"
-DRAFT_MODEL_URL_FALLBACK="${LLAMA_CPP_DRAFT_URL_FALLBACK:-https://huggingface.co/Qwen/Qwen3.5-0.8B-Instruct-GGUF/resolve/main/Qwen3.5-0.8B-Instruct-Q8_0.gguf}"
+MAIN_MODEL_URL="${LLAMA_CPP_MAIN_URL:-https://huggingface.co/bartowski/Qwen2.5-7B-Instruct-GGUF/resolve/main/Qwen2.5-7B-Instruct-Q4_K_M.gguf}"
+DRAFT_MODEL_URL="${LLAMA_CPP_DRAFT_URL:-https://huggingface.co/bartowski/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/Qwen2.5-0.5B-Instruct-Q8_0.gguf}"
+MAIN_MODEL_URL_FALLBACK="${LLAMA_CPP_MAIN_URL_FALLBACK:-https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/main/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf}"
+DRAFT_MODEL_URL_FALLBACK="${LLAMA_CPP_DRAFT_URL_FALLBACK:-https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q8_0.gguf}"
 HF_TOKEN="${HUGGINGFACE_TOKEN:-${HF_TOKEN:-}}"
 
 LEGACY_MODEL_FILE="$WORKSPACE_ROOT/apps/edd-app-template/.docker_data/models/llama-3.2-1b-instruct-q4_k_m.gguf"

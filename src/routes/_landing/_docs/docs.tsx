@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Layers, Rocket, HelpCircle, Shield, ArrowRight } from 'lucide-react'
-import { DocPage } from './_DocPage'
+import { DocPage } from './-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/docs')({
   component: DocsIndexPage,
@@ -10,7 +10,8 @@ function DocsIndexPage() {
   const categories = [
     {
       title: 'Starter',
-      description: 'Understand the architecture, module map, design system tokens, and development conventions.',
+      description:
+        'Understand the architecture, module map, design system tokens, and development conventions.',
       icon: Layers,
       links: [
         { label: 'Architecture & Layers', to: '/starter/architecture' },
@@ -21,7 +22,8 @@ function DocsIndexPage() {
     },
     {
       title: 'Product',
-      description: 'Follow the feature roadmap, view updates in the changelog, learn about integrations, and browse release notes.',
+      description:
+        'Follow the feature roadmap, view updates in the changelog, learn about integrations, and browse release notes.',
       icon: Rocket,
       links: [
         { label: 'Roadmap & Future Modules', to: '/product/roadmap' },
@@ -32,7 +34,8 @@ function DocsIndexPage() {
     },
     {
       title: 'Support',
-      description: 'Find guides, templates, real examples, and quick answers to frequently asked questions.',
+      description:
+        'Find guides, templates, real examples, and quick answers to frequently asked questions.',
       icon: HelpCircle,
       links: [
         { label: 'Documentation Index', to: '/support/documentation' },
@@ -43,7 +46,8 @@ function DocsIndexPage() {
     },
     {
       title: 'Legal',
-      description: 'Review our open-source privacy policy, service terms, cookies statement, and package licenses.',
+      description:
+        'Review our open-source privacy policy, service terms, cookies statement, and package licenses.',
       icon: Shield,
       links: [
         { label: 'Privacy Policy', to: '/legal/privacy' },
@@ -72,9 +76,7 @@ function DocsIndexPage() {
                   <div className="inline-flex p-3 rounded-xl bg-primary/10 text-primary mb-4">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {cat.title}
-                  </h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{cat.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     {cat.description}
                   </p>
@@ -102,15 +104,20 @@ function DocsIndexPage() {
             Getting Started Instantly
           </h2>
           <p>
-            To begin developing your SaaS application, we recommend walking through the core components in order.
-            Clone the template repository, set up your credentials, configure your database, and run the developer server.
+            To begin developing your SaaS application, we recommend walking through the core
+            components in order. Clone the template repository, set up your credentials, configure
+            your database, and run the developer server.
           </p>
           <pre className="p-4 rounded-xl bg-muted/80 border border-border/40 overflow-x-auto text-xs md:text-sm font-mono mt-4">
             <code>
-              git clone https://github.com/eddremonts86/edd-app-template.git your-saas-app<br />
-              cd your-saas-app<br />
-              pnpm install<br />
-              pnpm db:up<br />
+              git clone https://github.com/eddremonts86/edd-app-template.git your-saas-app
+              <br />
+              cd your-saas-app
+              <br />
+              pnpm install
+              <br />
+              pnpm db:up
+              <br />
               pnpm dev
             </code>
           </pre>

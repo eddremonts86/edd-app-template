@@ -1,6 +1,6 @@
 'use client'
 
-import type { FormEvent} from 'react';
+import type { FormEvent } from 'react'
 import { useCallback, useId, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
@@ -23,18 +23,21 @@ export function StarterUpdatesSignup() {
 
   const showValidation = wasBlurred || attemptedSubmit
 
-  const getValidationMessage = useCallback((value: string, shouldValidate: boolean) => {
-    const trimmed = value.trim()
-    if (!shouldValidate) return ''
-    if (trimmed.length === 0) {
-      return t('updates.subscribe.errors.required')
-    }
-    const parsed = starterUpdatesSubscriptionSchema.safeParse({ email: trimmed })
-    if (!parsed.success) {
-      return t('updates.subscribe.errors.invalidEmail')
-    }
-    return ''
-  }, [t])
+  const getValidationMessage = useCallback(
+    (value: string, shouldValidate: boolean) => {
+      const trimmed = value.trim()
+      if (!shouldValidate) return ''
+      if (trimmed.length === 0) {
+        return t('updates.subscribe.errors.required')
+      }
+      const parsed = starterUpdatesSubscriptionSchema.safeParse({ email: trimmed })
+      if (!parsed.success) {
+        return t('updates.subscribe.errors.invalidEmail')
+      }
+      return ''
+    },
+    [t],
+  )
 
   const validationMessage = useMemo(() => {
     return getValidationMessage(email, showValidation)

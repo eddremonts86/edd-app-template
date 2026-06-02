@@ -21,13 +21,7 @@ interface DocPageProps {
   sections?: DocSection[]
 }
 
-export function DocPage({
-  title,
-  summary,
-  children,
-  relatedLinks,
-  sections,
-}: DocPageProps) {
+export function DocPage({ title, summary, children, relatedLinks, sections }: DocPageProps) {
   return (
     <div className="doc-page space-y-8">
       {/* Header section */}
@@ -70,7 +64,7 @@ export function DocPage({
       </div>
 
       {/* Footer / Related links section */}
-      {(relatedLinks && relatedLinks.length > 0) && (
+      {relatedLinks && relatedLinks.length > 0 && (
         <footer className="mt-12 pt-6 border-t border-border/40">
           <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
             Next steps & related links

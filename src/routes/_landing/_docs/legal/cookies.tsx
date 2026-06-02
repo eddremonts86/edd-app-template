@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocPage } from '../_DocPage'
+import { DocPage } from '../-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/legal/cookies')({
   component: CookiesPage,
@@ -24,28 +24,31 @@ function CookiesPage() {
       relatedLinks={relatedLinks}
     >
       <p>
-        This cookies policy explains how our application uses cookies and similar tracking technologies to improve your browsing experience.
+        This cookies policy explains how our application uses cookies and similar tracking
+        technologies to improve your browsing experience.
       </p>
 
       <h2 id="cookie-usage">Cookie Usage</h2>
-      <p>
-        We use cookies for the following purposes:
-      </p>
+      <p>We use cookies for the following purposes:</p>
       <ul>
         <li>
-          <strong>Essential Cookies:</strong> Required to keep you signed in, secure your session, and store basic site configuration preferences.
+          <strong>Essential Cookies:</strong> Required to keep you signed in, secure your session,
+          and store basic site configuration preferences.
         </li>
         <li>
-          <strong>Analytics Cookies:</strong> Help us understand how visitors interact with the site by gathering anonymous usage statistics.
+          <strong>Analytics Cookies:</strong> Help us understand how visitors interact with the site
+          by gathering anonymous usage statistics.
         </li>
       </ul>
 
       <h2 id="cookie-settings">Managing Cookies</h2>
       <p>
-        You can control and manage cookies using your browser settings. If you block all cookies, some features of the application (such as user authentication) may not function correctly.
+        You can control and manage cookies using your browser settings. If you block all cookies,
+        some features of the application (such as user authentication) may not function correctly.
       </p>
       <p>
-        To update your preferences, consult your browser's help documentation for managing cookie settings.
+        To update your preferences, consult your browser's help documentation for managing cookie
+        settings.
       </p>
     </DocPage>
   )

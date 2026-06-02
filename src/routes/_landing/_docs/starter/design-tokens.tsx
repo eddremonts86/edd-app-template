@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocPage } from '../_DocPage'
+import { DocPage } from '../-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/starter/design-tokens')({
   component: DesignTokensPage,
@@ -26,21 +26,33 @@ function DesignTokensPage() {
       relatedLinks={relatedLinks}
     >
       <p>
-        Design tokens are the foundational visual values of our design system. We define them as CSS variables inside <code>src/shared/styles/globals.css</code>, allowing you to update your brand's colors, fonts, margins, and borders from a single file.
+        Design tokens are the foundational visual values of our design system. We define them as CSS
+        variables inside <code>src/shared/styles/globals.css</code>, allowing you to update your
+        brand's colors, fonts, margins, and borders from a single file.
       </p>
 
       <h2 id="oklch-colors">OKLCH Color Variables</h2>
       <p>
-        The template uses the <strong>OKLCH</strong> color model. OKLCH is a modern color space that provides consistent perceived brightness across different hues. This makes it easier to maintain accessibility and contrast ratios when switching between light and dark modes.
+        The template uses the <strong>OKLCH</strong> color model. OKLCH is a modern color space that
+        provides consistent perceived brightness across different hues. This makes it easier to
+        maintain accessibility and contrast ratios when switching between light and dark modes.
       </p>
-      
+
       <table className="min-w-full divide-y divide-border/40">
         <thead>
           <tr>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Variable</th>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Light Theme Value</th>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Dark Theme Value</th>
-            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">Usage Context</th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Variable
+            </th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Light Theme Value
+            </th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Dark Theme Value
+            </th>
+            <th className="text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground py-2">
+              Usage Context
+            </th>
           </tr>
         </thead>
         <tbody className="divide-y divide-border/30">
@@ -79,40 +91,48 @@ function DesignTokensPage() {
 
       <h2 id="fonts">Font Stack Configuration</h2>
       <p>
-        We use system font stacks to ensure fast loading times and a consistent native feel across operating systems:
+        We use system font stacks to ensure fast loading times and a consistent native feel across
+        operating systems:
       </p>
       <ul>
         <li>
-          <strong>Sans (Interface Text):</strong> Mapped to <code>Geist</code>, with Apple and Segoe UI system fonts as fallbacks.
+          <strong>Sans (Interface Text):</strong> Mapped to <code>Geist</code>, with Apple and Segoe
+          UI system fonts as fallbacks.
         </li>
         <li>
-          <strong>Mono (Data & Code):</strong> Standardized on <code>Geist Mono</code> for code blocks, telemetry logs, and financial tables.
+          <strong>Mono (Data & Code):</strong> Standardized on <code>Geist Mono</code> for code
+          blocks, telemetry logs, and financial tables.
         </li>
       </ul>
 
       <h2 id="radii-shadows">Radii & Custom Shadows</h2>
-      <p>
-        The border radius scales dynamically to keep layout elements consistent:
-      </p>
+      <p>The border radius scales dynamically to keep layout elements consistent:</p>
       <ul>
         <li>
-          <strong>Border Radius (<code>--radius</code>):</strong> Set to a default of <code>0.625rem</code> (10px). Inner elements adjust automatically (e.g. <code>--radius-sm</code> resolves to <code>var(--radius) - 4px</code>).
+          <strong>
+            Border Radius (<code>--radius</code>):
+          </strong>{' '}
+          Set to a default of <code>0.625rem</code> (10px). Inner elements adjust automatically
+          (e.g. <code>--radius-sm</code> resolves to <code>var(--radius) - 4px</code>).
         </li>
         <li>
-          <strong>Box Shadows:</strong> Preconfigured with elevation scales from <code>shadow-xs</code> (1px offset) up to <code>shadow-2xl</code> (for dialog containers).
+          <strong>Box Shadows:</strong> Preconfigured with elevation scales from{' '}
+          <code>shadow-xs</code> (1px offset) up to <code>shadow-2xl</code> (for dialog containers).
         </li>
       </ul>
 
       <h2 id="theme-customization">Theme Switcher Logic</h2>
       <p>
-        We support system preference detection and manual theme overrides using <code>next-themes</code>. To customize your brand's appearance:
+        We support system preference detection and manual theme overrides using{' '}
+        <code>next-themes</code>. To customize your brand's appearance:
       </p>
       <ol>
         <li>
           Update the color coordinates in <code>src/shared/styles/globals.css</code>.
         </li>
         <li>
-          Avoid using hardcoded hex values in your components. Instead, rely on tailwind classes that consume these tokens (e.g. <code>bg-primary</code> or <code>border-border</code>).
+          Avoid using hardcoded hex values in your components. Instead, rely on tailwind classes
+          that consume these tokens (e.g. <code>bg-primary</code> or <code>border-border</code>).
         </li>
       </ol>
     </DocPage>

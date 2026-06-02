@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocPage } from '../_DocPage'
+import { DocPage } from '../-_DocPage'
 
 export const Route = createFileRoute('/_landing/_docs/legal/licenses')({
   component: LicensesPage,
@@ -24,13 +24,12 @@ function LicensesPage() {
       relatedLinks={relatedLinks}
     >
       <p>
-        edd Starter is built using open-source software. This page provides details on the licenses governing this template and its primary dependencies.
+        edd Starter is built using open-source software. This page provides details on the licenses
+        governing this template and its primary dependencies.
       </p>
 
       <h2 id="project-license">Project License</h2>
-      <p>
-        The edd Starter template is released under the MIT License:
-      </p>
+      <p>The edd Starter template is released under the MIT License:</p>
       <pre className="p-4 rounded-xl bg-muted/80 border border-border/40 overflow-x-auto text-xs md:text-sm font-mono mt-4 leading-relaxed">
         {`Copyright (c) 2026 eddremonts
 
@@ -54,18 +53,27 @@ SOFTWARE.`}
       </pre>
 
       <h2 id="dependencies">Dependency Overview</h2>
-      <p>
-        Our core dependencies are licensed under open-source terms:
-      </p>
+      <p>Our core dependencies are licensed under open-source terms:</p>
       <ul>
-        <li><strong>React & React DOM:</strong> MIT License</li>
-        <li><strong>TanStack Router, Start, Form, and Query:</strong> MIT License</li>
-        <li><strong>Tailwind CSS:</strong> MIT License</li>
-        <li><strong>Lucide Icons:</strong> ISC License</li>
-        <li><strong>Drizzle ORM:</strong> Apache 2.0 License</li>
+        <li>
+          <strong>React & React DOM:</strong> MIT License
+        </li>
+        <li>
+          <strong>TanStack Router, Start, Form, and Query:</strong> MIT License
+        </li>
+        <li>
+          <strong>Tailwind CSS:</strong> MIT License
+        </li>
+        <li>
+          <strong>Lucide Icons:</strong> ISC License
+        </li>
+        <li>
+          <strong>Drizzle ORM:</strong> Apache 2.0 License
+        </li>
       </ul>
       <p>
-        Before distributing your application, make sure to review the licenses of any additional packages you install.
+        Before distributing your application, make sure to review the licenses of any additional
+        packages you install.
       </p>
     </DocPage>
   )
