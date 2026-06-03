@@ -236,7 +236,7 @@ export function AuthPage(): React.JSX.Element {
                       aria-label="Access modes selector"
                       className="grid w-full grid-cols-2 rounded-2xl border border-border/40 bg-muted/40 p-1"
                     >
-                      <button
+                      <Button
                         onClick={() => setActiveTab('sign-in')}
                         role="tab"
                         aria-selected={activeTab === 'sign-in'}
@@ -248,8 +248,8 @@ export function AuthPage(): React.JSX.Element {
                       >
                         <LogIn className="h-3.5 w-3.5" />
                         Sign in
-                      </button>
-                      <button
+                      </Button>
+                      <Button
                         onClick={() => setActiveTab('sign-up')}
                         role="tab"
                         aria-selected={activeTab === 'sign-up'}
@@ -261,7 +261,7 @@ export function AuthPage(): React.JSX.Element {
                       >
                         <UserPlus className="h-3.5 w-3.5" />
                         Create account
-                      </button>
+                      </Button>
                     </div>
                   )}
 

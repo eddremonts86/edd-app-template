@@ -58,14 +58,6 @@ export function DashboardLayout() {
                   </BreadcrumbItem>
                 </>
               )}
-              {segments.length === 1 && segments[0] === 'dashboard' && (
-                <>
-                  <BreadcrumbSeparator className="hidden md:block" />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>{t('sidebar.main.dashboard')}</BreadcrumbPage>
-                  </BreadcrumbItem>
-                </>
-              )}
             </BreadcrumbList>
           </DashboardContent>
         </SidebarProvider>
