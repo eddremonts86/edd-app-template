@@ -495,7 +495,8 @@ export function AuthPage(): React.JSX.Element {
                 {/* SSO options area */}
                 <div className="mt-8 pt-6 border-t border-border/30 space-y-4">
                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                    Another way to sign in                  </span>
+                    Another way to sign in{' '}
+                  </span>
 
                   {clerkAuthEnabled ? (
                     <SignInButton mode="modal" forceRedirectUrl="/dashboard">
