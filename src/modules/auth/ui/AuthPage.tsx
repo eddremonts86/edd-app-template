@@ -297,7 +297,10 @@ export function AuthPage(): React.JSX.Element {
                   </div>
                   {/* Display validation warning callouts */}
                   {formError && activeTab !== 'forgot-password' && (
-                    <div className="rounded-xl border border-destructive/20 bg-destructive/5 px-4 py-3 text-xs text-destructive">
+                    <div
+                      data-testid="auth-form-error"
+                      className="rounded-xl border border-destructive/20 bg-destructive/5 px-4 py-3 text-xs text-destructive"
+                    >
                       {formError}
                     </div>
                   )}

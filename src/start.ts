@@ -1,5 +1,5 @@
 import { clerkMiddleware } from '@clerk/tanstack-react-start/server'
-import { createStart } from '@tanstack/react-start'
+import { createCsrfMiddleware, createStart } from '@tanstack/react-start'
 import type { AnyRequestMiddleware } from '@tanstack/react-start'
 import { isClerkServerEnabled } from '@/shared/lib/auth/config'
 import { requestLoggerMiddleware } from '@/shared/lib/observability'
@@ -12,8 +12,12 @@ function isAuthBypassEnabled(): boolean {
   return env.NODE_ENV !== 'production' && skipAuth
 }
 
+const csrfMiddleware = createCsrfMiddleware({
+  filter: (ctx) => ctx.handlerType === 'serverFn',
+})
+
 export const startInstance = createStart(() => {
-  const middleware: AnyRequestMiddleware[] = [requestLoggerMiddleware]
+  const middleware: AnyRequestMiddleware[] = [csrfMiddleware, requestLoggerMiddleware]
 
   if (isClerkServerEnabled() && !isAuthBypassEnabled()) {
     middleware.push(clerkMiddleware())
