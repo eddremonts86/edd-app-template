@@ -72,7 +72,7 @@ const extractSearchText = (result: unknown) => {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { t } = useTranslation()
-  const { syncedUserId: currentUserId } = useCurrentUser()
+  const { syncedUserId: currentUserId, roleKey } = useCurrentUser()
   void currentUserId
 
   const { isOpen: isSearchOpen, setIsOpen: setIsSearchOpen, isPinned, setIsPinned } = useAiSearch()
@@ -184,6 +184,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const { main: navMain, secondary: navSecondary } = getSidebarNavigation({
     t,
+    roleKey: roleKey ?? 'user',
     actions: {
       'open-ai-search': () => setIsSearchOpen(true),
     },
@@ -245,9 +246,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <Search className="size-5 text-primary" />
               {t('ai.search.title')}
             </SheetTitle>
-            <SheetDescription className="text-sm">
-              {t('ai.search.description')}
-            </SheetDescription>
+            <SheetDescription className="text-sm">{t('ai.search.description')}</SheetDescription>
             <div className="absolute right-4 top-4 flex items-center gap-1">
               <Button
                 variant="ghost"
@@ -427,7 +426,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     {(filteredLinks.length ? filteredLinks : searchableLinks)
                       .slice(0, 4)
                       .map((item) => (
-                        <CommandItem key={item.title} asChild className="p-0 border hover:border-primary/50 bg-background hover:bg-primary/5">
+                        <CommandItem
+                          key={item.title}
+                          asChild
+                          className="p-0 border hover:border-primary/50 bg-background hover:bg-primary/5"
+                        >
                           <Link
                             to={item.url as '/dashboard'}
                             onClick={() => setIsSearchOpen(false)}

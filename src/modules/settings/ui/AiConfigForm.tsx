@@ -42,14 +42,7 @@ import {
   useTestAiConnection,
   useUpdateAiConfig,
 } from '../api/ai-config.queries'
-import {
-  AnthropicIcon,
-  LlamaCppIcon,
-  LMStudioIcon,
-  MinimaxIcon,
-  OllamaIcon,
-  OpenAIIcon,
-} from './AiIcons'
+
 import { AiLanguageAudit } from './AiLanguageAudit'
 
 const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
@@ -182,7 +175,6 @@ interface ProviderStatusCardProps {
     id: string
     title: string
     description: string
-    Icon: React.ComponentType<{ className?: string }>
   }
   index: number
   isActive: boolean
@@ -250,20 +242,6 @@ function ProviderStatusCard({
           />
           {status?.latencyMs ? `${status.latencyMs}ms` : 'N/A'}
         </Badge>
-      </div>
-
-      {/* Icon */}
-      <div
-        className={`mb-4 mt-2 p-4 rounded-2xl transition-colors duration-300 ${
-          isActive ? 'bg-background shadow-sm' : 'bg-muted/10 group-hover:bg-primary/5'
-        }`}
-      >
-        <provider.Icon
-          className={`size-12 transition-colors duration-300 ${
-            isActive ? 'text-primary' : 'text-foreground/80 group-hover:text-primary'
-          }`}
-          aria-label={`${provider.title} logo`}
-        />
       </div>
 
       {/* Title & Active Badge */}
@@ -878,42 +856,36 @@ export function AiConfigForm() {
                     title: 'Llama.cpp',
                     description:
                       'High-performance inference engine for running LLMs locally on standard hardware.',
-                    Icon: LlamaCppIcon,
                   },
                   {
                     id: 'ollama',
                     title: 'Ollama',
                     description:
                       'Streamlined local LLM runner supporting Llama 3, Mistral, and other open-source models.',
-                    Icon: OllamaIcon,
                   },
                   {
                     id: 'lm-studio',
                     title: 'LM Studio',
                     description:
                       'User-friendly desktop application for discovering, downloading, and running local LLMs.',
-                    Icon: LMStudioIcon,
                   },
                   {
                     id: 'openai',
                     title: 'OpenAI',
                     description:
                       'Industry-leading GPT-4 models providing state-of-the-art reasoning and generation.',
-                    Icon: OpenAIIcon,
                   },
                   {
                     id: 'anthropic',
                     title: 'Anthropic',
                     description:
                       'Enterprise-grade Claude models focused on safety, reliability, and large context windows.',
-                    Icon: AnthropicIcon,
                   },
                   {
                     id: 'minimax',
                     title: 'MiniMax',
                     description:
                       'Hosted multimodal models from MiniMax with OpenAI-compatible API and large context windows.',
-                    Icon: MinimaxIcon,
                   },
                 ].map((provider, index) => {
                   const providerId = provider.id as AiProvider

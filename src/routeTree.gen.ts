@@ -52,6 +52,8 @@ import { Route as LandingDocsLegalLicensesRouteImport } from './routes/_landing/
 import { Route as LandingDocsLegalCookiesRouteImport } from './routes/_landing/_docs/legal/cookies'
 import { Route as DashboardDashboardSettingsSystemRouteImport } from './routes/_dashboard/dashboard/settings/system'
 import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
+import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
+import { Route as DashboardDashboardSettingsAi_logsRouteImport } from './routes/_dashboard/dashboard/settings/ai_logs'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/auth',
@@ -282,6 +284,18 @@ const DashboardDashboardSettingsIa_configRoute =
     path: '/ia_config',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
+const DashboardDashboardSettingsDev_toolsRoute =
+  DashboardDashboardSettingsDev_toolsRouteImport.update({
+    id: '/dev_tools',
+    path: '/dev_tools',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsAi_logsRoute =
+  DashboardDashboardSettingsAi_logsRouteImport.update({
+    id: '/ai_logs',
+    path: '/ai_logs',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LandingIndexRoute
@@ -304,6 +318,8 @@ export interface FileRoutesByFullPath {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/': typeof DashboardDashboardIndexRoute
+  '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/legal/cookies': typeof LandingDocsLegalCookiesRoute
@@ -344,6 +360,8 @@ export interface FileRoutesByTo {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard': typeof DashboardDashboardIndexRoute
+  '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/legal/cookies': typeof LandingDocsLegalCookiesRoute
@@ -390,6 +408,8 @@ export interface FileRoutesById {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_dashboard/dashboard/': typeof DashboardDashboardIndexRoute
+  '/_dashboard/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/_dashboard/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/_dashboard/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/_landing/_docs/legal/cookies': typeof LandingDocsLegalCookiesRoute
@@ -434,6 +454,8 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/dashboard/'
+    | '/dashboard/settings/ai_logs'
+    | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/system'
     | '/legal/cookies'
@@ -474,6 +496,8 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/dashboard'
+    | '/dashboard/settings/ai_logs'
+    | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/system'
     | '/legal/cookies'
@@ -519,6 +543,8 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/_dashboard/dashboard/'
+    | '/_dashboard/dashboard/settings/ai_logs'
+    | '/_dashboard/dashboard/settings/dev_tools'
     | '/_dashboard/dashboard/settings/ia_config'
     | '/_dashboard/dashboard/settings/system'
     | '/_landing/_docs/legal/cookies'
@@ -859,10 +885,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardSettingsIa_configRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
+    '/_dashboard/dashboard/settings/dev_tools': {
+      id: '/_dashboard/dashboard/settings/dev_tools'
+      path: '/dev_tools'
+      fullPath: '/dashboard/settings/dev_tools'
+      preLoaderRoute: typeof DashboardDashboardSettingsDev_toolsRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/ai_logs': {
+      id: '/_dashboard/dashboard/settings/ai_logs'
+      path: '/ai_logs'
+      fullPath: '/dashboard/settings/ai_logs'
+      preLoaderRoute: typeof DashboardDashboardSettingsAi_logsRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
   }
 }
 
 interface DashboardDashboardSettingsRouteRouteChildren {
+  DashboardDashboardSettingsAi_logsRoute: typeof DashboardDashboardSettingsAi_logsRoute
+  DashboardDashboardSettingsDev_toolsRoute: typeof DashboardDashboardSettingsDev_toolsRoute
   DashboardDashboardSettingsIa_configRoute: typeof DashboardDashboardSettingsIa_configRoute
   DashboardDashboardSettingsSystemRoute: typeof DashboardDashboardSettingsSystemRoute
   DashboardDashboardSettingsIndexRoute: typeof DashboardDashboardSettingsIndexRoute
@@ -870,6 +912,10 @@ interface DashboardDashboardSettingsRouteRouteChildren {
 
 const DashboardDashboardSettingsRouteRouteChildren: DashboardDashboardSettingsRouteRouteChildren =
   {
+    DashboardDashboardSettingsAi_logsRoute:
+      DashboardDashboardSettingsAi_logsRoute,
+    DashboardDashboardSettingsDev_toolsRoute:
+      DashboardDashboardSettingsDev_toolsRoute,
     DashboardDashboardSettingsIa_configRoute:
       DashboardDashboardSettingsIa_configRoute,
     DashboardDashboardSettingsSystemRoute:

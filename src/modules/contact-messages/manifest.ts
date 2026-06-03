@@ -21,6 +21,7 @@ export const contactMessagesModule: AppModuleManifest = {
           to: '/dashboard/contact-messages',
           icon: IconMail,
           order: 20,
+          requiredRole: 'admin',
         },
       ],
     },

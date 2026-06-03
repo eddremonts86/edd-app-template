@@ -201,6 +201,18 @@
       "interface": "Interface Settings",
       "development": "Development Tools"
     },
+    "nav": {
+      "config": "Config",
+      "configDesc": "Language, theme",
+      "developer": "Developer",
+      "developerDesc": "AI, dev tools",
+      "system": "Advanced",
+      "systemDesc": "DB, logs, tokens",
+      "languageTheme": "Language & Theme",
+      "aiConfig": "AI Configuration",
+      "devTools": "Dev Tools",
+      "aiLogs": "AI Logs"
+    },
     "language": {
       "title": "Language",
       "description": "Select your preferred display language. Changes apply immediately."

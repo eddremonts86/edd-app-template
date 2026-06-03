@@ -1204,5 +1204,19 @@
         }
       }
     }
+  },
+  "settings": {
+    "nav": {
+      "config": "Configuración",
+      "configDesc": "Idioma, tema",
+      "developer": "Desarrollador",
+      "developerDesc": "IA, herramientas dev",
+      "system": "Avanzado",
+      "systemDesc": "DB, logs, tokens",
+      "languageTheme": "Idioma y Tema",
+      "aiConfig": "Configuración IA",
+      "devTools": "Herramientas Dev",
+      "aiLogs": "Registros IA"
+    }
   }
 }

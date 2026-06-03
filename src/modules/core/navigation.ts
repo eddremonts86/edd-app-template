@@ -1,5 +1,6 @@
 import type { TFunction } from 'i18next'
 import type { ReactNode } from 'react'
+import type { AppRoleKey } from '@/modules/users/model/permissions'
 import { getEnabledModules } from './registry'
 import type {
   AppModuleNavigationItem,
@@ -9,8 +10,20 @@ import type {
   ModuleBadgeId,
 } from './types'
 
+const ROLE_RANK: Record<AppRoleKey, number> = {
+  user: 0,
+  admin: 1,
+  super_admin: 2,
+}
+
+function hasRequiredRole(requiredRole: AppRoleKey | undefined, userRole: AppRoleKey): boolean {
+  if (!requiredRole) return true
+  return ROLE_RANK[userRole] >= ROLE_RANK[requiredRole]
+}
+
 interface SidebarNavigationOptions {
   t: TFunction
+  roleKey?: AppRoleKey
   actions?: Partial<Record<ModuleActionId, () => void>>
   badges?: Partial<Record<ModuleBadgeId, ReactNode>>
 }
@@ -30,7 +43,12 @@ function toSidebarItem(
   }
 }
 
-export function getSidebarNavigation({ t, actions, badges }: SidebarNavigationOptions): {
+export function getSidebarNavigation({
+  t,
+  roleKey = 'user',
+  actions,
+  badges,
+}: SidebarNavigationOptions): {
   main: SidebarRuntimeSection[]
   secondary: SidebarRuntimeItem[]
 } {
@@ -39,9 +57,9 @@ export function getSidebarNavigation({ t, actions, badges }: SidebarNavigationOp
 
   for (const module of getEnabledModules()) {
     for (const section of module.navigation ?? []) {
-      const sortedItems = [...section.items].sort(
-        (left, right) => (left.order ?? 0) - (right.order ?? 0),
-      )
+      const sortedItems = [...section.items]
+        .filter((item) => hasRequiredRole(item.requiredRole, roleKey))
+        .sort((left, right) => (left.order ?? 0) - (right.order ?? 0))
       const runtimeItems = sortedItems.map((item) => toSidebarItem(item, t, actions, badges))
 
       if (section.kind === 'secondary') {

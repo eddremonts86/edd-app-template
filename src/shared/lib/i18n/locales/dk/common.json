@@ -192,6 +192,18 @@
       "interface": "Brugerfladeindstillinger",
       "development": "Udviklingsværktøjer"
     },
+    "nav": {
+      "config": "Konfiguration",
+      "configDesc": "Sprog, tema",
+      "developer": "Udvikler",
+      "developerDesc": "AI, dev-værktøjer",
+      "system": "Avanceret",
+      "systemDesc": "DB, logs, tokens",
+      "languageTheme": "Sprog og Tema",
+      "aiConfig": "AI-konfiguration",
+      "devTools": "Udviklerværktøjer",
+      "aiLogs": "AI-logs"
+    },
     "language": {
       "title": "Sprog",
       "description": "Vælg dit foretrukne visningssprog. Ændringer træder i kraft med det samme."

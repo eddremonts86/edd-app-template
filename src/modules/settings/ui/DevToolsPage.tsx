@@ -1,4 +1,4 @@
-import { IconLoader2, IconSettings } from '@tabler/icons-react'
+import { IconAdjustmentsHorizontal, IconLoader2 } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
 import {
   AlertDialog,
@@ -15,17 +15,15 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { toast } from '@/shared/lib/toast'
 import { useSettings } from '../hooks/useSettings'
-import { LanguageSelector } from './LanguageSelector'
-import { ThemeSelector } from './ThemeSelector'
+import { DevtoolsToggle } from './DevtoolsToggle'
 
-export function SystemSettings() {
+export function DevToolsPage() {
   const { t } = useTranslation()
   const {
     pendingSettings,
     hasChanges,
     isSaving,
-    setPendingLanguage,
-    setPendingTheme,
+    setPendingDevtools,
     saveSettings,
     resetToDefaults,
   } = useSettings()
@@ -48,24 +46,25 @@ export function SystemSettings() {
     <div className="space-y-6 outline-none animate-in fade-in slide-in-from-right-4 duration-500">
       <div className="grid grid-cols-1 gap-6">
         <section className="space-y-6">
-          <Card className="overflow-hidden border-border/60 bg-linear-to-br from-card via-card to-primary/5">
+          <Card className="overflow-hidden border-border/60 bg-linear-to-br from-card via-card to-amber-500/5">
             <CardHeader className="pb-4 flex flex-row items-start gap-4">
-              <div className="rounded-xl bg-primary/10 p-2.5 shrink-0 ring-1 ring-primary/20">
-                <IconSettings className="size-5 text-primary" />
+              <div className="rounded-xl bg-amber-500/10 p-2.5 shrink-0 ring-1 ring-amber-500/20">
+                <IconAdjustmentsHorizontal className="size-5 text-amber-600 dark:text-amber-400" />
               </div>
               <div className="space-y-1">
                 <CardTitle className="text-lg font-semibold tracking-tight">
-                  {t('settings.sections.interface')}
+                  {t('settings.sections.development')}
                 </CardTitle>
                 <CardDescription className="text-xs text-muted-foreground">
-                  Adjust global display properties, application language, and user interfaces
-                  themes.
+                  Control developer tools and debugging utilities inside the environment.
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent className="grid grid-cols-1 gap-8 pt-2 lg:grid-cols-2">
-              <LanguageSelector value={pendingSettings.language} onChange={setPendingLanguage} />
-              <ThemeSelector value={pendingSettings.theme} onChange={setPendingTheme} />
+            <CardContent className="space-y-6 pt-2">
+              <DevtoolsToggle
+                value={pendingSettings.devtoolsVisible}
+                onChange={setPendingDevtools}
+              />
             </CardContent>
           </Card>
         </section>

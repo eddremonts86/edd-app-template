@@ -1,5 +1,6 @@
 import type { Icon } from '@tabler/icons-react'
 import type { ComponentType, ReactNode } from 'react'
+import type { AppRoleKey } from '@/modules/users/model/permissions'
 
 export type AppModuleRouteKind = 'page' | 'layout' | 'api'
 export type ModuleNavigationKind = 'main' | 'secondary'
@@ -43,6 +44,8 @@ export interface AppModuleNavigationItem {
   action?: ModuleActionId
   badgeId?: ModuleBadgeId
   order?: number
+  /** Minimum role required to see this item. Omit to show to everyone. */
+  requiredRole?: AppRoleKey
 }
 
 export interface AppModuleNavigationSection {
