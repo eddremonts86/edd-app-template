@@ -116,6 +116,13 @@ export const Topbar = memo(function Topbar() {
           </div>
 
           <div className="flex items-center gap-3">
+            {!auth.isAuthenticated && (
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/auth" data-testid="topbar-auth-link">
+                  {t('nav.signIn', 'Sign in')}
+                </Link>
+              </Button>
+            )}
             {auth.isAuthenticated && auth.user && (
               <div className="flex items-center gap-2">
                 <Button variant="ghost" size="sm" className="gap-3 px-2" asChild>

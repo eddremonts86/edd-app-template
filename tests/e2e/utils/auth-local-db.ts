@@ -56,14 +56,14 @@ export async function seedAppUser(input: SeedAppUserInput): Promise<AppUserRow> 
 
   try {
     const rows = await sql<AppUserRow[]>`
-      INSERT INTO users (id, name, email, role_id)
+      INSERT INTO users (id, name, email, role)
       VALUES (${userId}, ${input.name}, ${input.email}, ${input.roleId})
       ON CONFLICT (email) DO UPDATE
       SET
         name = EXCLUDED.name,
-        role_id = EXCLUDED.role_id,
+        role = EXCLUDED.role,
         updated_at = NOW()
-      RETURNING id, email, name, role_id as "roleId", auth_user_id as "authUserId"
+      RETURNING id, email, name, role as "roleId", auth_user_id as "authUserId"
     `
 
     return rows[0]!
@@ -170,7 +170,7 @@ export async function getAppUserByEmail(email: string): Promise<AppUserRow | nul
 
   try {
     const rows = await sql<AppUserRow[]>`
-      SELECT id, email, name, role_id as "roleId", auth_user_id as "authUserId"
+      SELECT id, email, name, role as "roleId", auth_user_id as "authUserId"
       FROM users
       WHERE email = ${email}
       LIMIT 1

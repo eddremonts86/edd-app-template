@@ -239,6 +239,7 @@ export function AuthPage(): React.JSX.Element {
                       <Button
                         onClick={() => setActiveTab('sign-in')}
                         role="tab"
+                        data-testid="auth-tab-sign-in"
                         aria-selected={activeTab === 'sign-in'}
                         className={`inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
                           activeTab === 'sign-in'
@@ -252,6 +253,7 @@ export function AuthPage(): React.JSX.Element {
                       <Button
                         onClick={() => setActiveTab('sign-up')}
                         role="tab"
+                        data-testid="auth-tab-sign-up"
                         aria-selected={activeTab === 'sign-up'}
                         className={`inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 text-xs font-semibold uppercase tracking-wider transition-all ${
                           activeTab === 'sign-up'
