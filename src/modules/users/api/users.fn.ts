@@ -5,8 +5,6 @@ import { z } from 'zod'
 import { requireAuthUser } from '@/shared/lib/auth/server'
 import { loadDb } from '@/shared/lib/db/load'
 import { authAccounts, authUsers, users } from '@/shared/lib/db/schema'
-import { getCurrentAppUser } from './current-user.server'
-import type { User as UserType } from '../model/types'
 import {
   canAssignRole,
   canDeleteUser,
@@ -14,6 +12,8 @@ import {
   normalizeRoleKey,
   type AppRoleKey,
 } from '../model/permissions'
+import type { User as UserType } from '../model/types'
+import { getCurrentAppUser } from './current-user.server'
 
 const ADMIN_FALLBACK_IDENTIFIERS = ['edd_admin', 'edd_remonts']
 

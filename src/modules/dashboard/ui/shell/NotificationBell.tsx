@@ -1,7 +1,6 @@
+import { Link } from '@tanstack/react-router'
 import { Bell } from 'lucide-react'
 import * as React from 'react'
-import { Link } from '@tanstack/react-router'
-import { useInboxNotifications, useMarkNotificationsRead } from '@/modules/contact-messages'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,6 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { useInboxNotifications, useMarkNotificationsRead } from '@/modules/contact-messages'
 
 /**
  * NotificationBell — template placeholder.

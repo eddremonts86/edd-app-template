@@ -99,7 +99,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
       </header>
       <div
         className={cn(
-          'flex-1 flex flex-col min-h-0 overflow-y-auto p-4 transition-all duration-300 ease-in-out',
+          'flex-1 flex flex-col min-h-0 overflow-y-auto p-4 md:p-6 transition-all duration-300 ease-in-out',
           isPinned && isOpen && 'mr-140',
         )}
       >

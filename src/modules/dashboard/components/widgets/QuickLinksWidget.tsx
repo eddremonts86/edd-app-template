@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next'
-import { Link } from '@tanstack/react-router'
 import {
   IconArrowRight,
   IconHelpCircle,
@@ -8,6 +6,8 @@ import {
   IconSettings,
   IconUsers,
 } from '@tabler/icons-react'
+import { Link } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { cn } from '@/shared/lib/utils'
 

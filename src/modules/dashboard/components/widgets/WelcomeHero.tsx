@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next'
 import { IconShieldCheck, IconSparkles } from '@tabler/icons-react'
-import { Card } from '@/components/ui/card'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
+import { Card } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useCurrentUser } from '@/modules/users'
 

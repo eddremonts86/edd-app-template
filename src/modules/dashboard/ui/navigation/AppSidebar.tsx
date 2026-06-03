@@ -28,6 +28,11 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
+  Command,
+  CommandList,
+  CommandGroup,
+  CommandItem,
+  ScrollArea,
 } from '@/components/ui'
 import {
   Sidebar,
@@ -235,17 +240,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             if (isPinned) e.preventDefault()
           }}
         >
-          <SheetHeader className="border-b px-6 h-16 flex flex-row items-center justify-between space-y-0">
-            <div className="flex items-center gap-2">
-              <SheetTitle className="flex items-center gap-2">
-                <Search className="size-5 text-primary" />
-                {t('ai.search.title')}
-              </SheetTitle>
-              <SheetDescription className="hidden sm:inline-block ml-2">
-                {t('ai.search.description')}
-              </SheetDescription>
-            </div>
-            <div className="flex items-center gap-1">
+          <SheetHeader className="border-b px-6 py-5 flex flex-col gap-1 text-left relative shrink-0">
+            <SheetTitle className="flex items-center gap-2 text-xl font-semibold">
+              <Search className="size-5 text-primary" />
+              {t('ai.search.title')}
+            </SheetTitle>
+            <SheetDescription className="text-sm">
+              {t('ai.search.description')}
+            </SheetDescription>
+            <div className="absolute right-4 top-4 flex items-center gap-1">
               <Button
                 variant="ghost"
                 size="icon"
@@ -320,7 +323,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               </div>
             </form>
 
-            <div className="flex-1 overflow-y-auto">
+            <ScrollArea className="flex-1 min-h-0">
               <div className="p-6 space-y-8">
                 {/* AI Summary Section */}
                 <section>
@@ -406,40 +409,49 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   </div>
                 </section>
               </div>
-            </div>
+            </ScrollArea>
 
-            {/* Suggestions Section */}
-            <section className="border-t bg-muted/20 p-6">
-              <h3 className="mb-4 text-sm font-semibold flex items-center gap-2">
-                <Navigation className="size-4 text-primary" />
-                {t('ai.search.suggestions')}
-              </h3>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {(filteredLinks.length ? filteredLinks : searchableLinks)
-                  .slice(0, 4)
-                  .map((item) => (
-                    <Link
-                      key={item.title}
-                      to={item.url as '/dashboard'}
-                      onClick={() => setIsSearchOpen(false)}
-                      className="group flex items-center gap-3 rounded-lg border bg-background p-3 transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-sm"
-                    >
-                      <div className="flex size-8 items-center justify-center rounded-md bg-muted transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                        <item.icon className="size-4" />
-                      </div>
-                      <div className="flex flex-col overflow-hidden">
-                        <span className="truncate text-sm font-medium group-hover:text-primary">
-                          {item.title}
-                        </span>
-                        <span className="truncate text-[10px] text-muted-foreground">
-                          {item.url}
-                        </span>
-                      </div>
-                      <ChevronRight className="ml-auto size-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
-                    </Link>
-                  ))}
-              </div>
-            </section>
+            {/* Suggestions Section inside Command */}
+            <Command className="border-t rounded-none bg-muted/10 shrink-0">
+              <CommandList className="p-6">
+                <CommandGroup
+                  heading={
+                    <div className="text-xs font-semibold flex items-center gap-2 text-foreground tracking-wider uppercase">
+                      <Navigation className="size-4 text-primary" />
+                      {t('ai.search.suggestions')}
+                    </div>
+                  }
+                  className="space-y-3"
+                >
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 mt-2">
+                    {(filteredLinks.length ? filteredLinks : searchableLinks)
+                      .slice(0, 4)
+                      .map((item) => (
+                        <CommandItem key={item.title} asChild className="p-0 border hover:border-primary/50 bg-background hover:bg-primary/5">
+                          <Link
+                            to={item.url as '/dashboard'}
+                            onClick={() => setIsSearchOpen(false)}
+                            className="group flex w-full items-center gap-3 rounded-lg p-3 transition-all"
+                          >
+                            <div className="flex size-8 items-center justify-center rounded-md bg-muted transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                              <item.icon className="size-4" />
+                            </div>
+                            <div className="flex flex-col overflow-hidden">
+                              <span className="truncate text-sm font-medium group-hover:text-primary">
+                                {item.title}
+                              </span>
+                              <span className="truncate text-[10px] text-muted-foreground">
+                                {item.url}
+                              </span>
+                            </div>
+                            <ChevronRight className="ml-auto size-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
+                          </Link>
+                        </CommandItem>
+                      ))}
+                  </div>
+                </CommandGroup>
+              </CommandList>
+            </Command>
           </div>
         </SheetContent>
       </Sheet>

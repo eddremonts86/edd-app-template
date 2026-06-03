@@ -3,8 +3,6 @@
 import { Send } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useCreateContactMessage } from '@/modules/contact-messages'
-import { toast } from '@/shared/lib/toast'
 import {
   Button,
   Input,
@@ -16,6 +14,8 @@ import {
   SelectValue,
   Textarea,
 } from '@/components/ui'
+import { useCreateContactMessage } from '@/modules/contact-messages'
+import { toast } from '@/shared/lib/toast'
 
 type ContactProjectType = 'saas' | 'landing' | 'webapp'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { cn } from '@/shared/lib/utils'
 import { Card } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
+import { cn } from '@/shared/lib/utils'
 
 interface StatCardProps {
   label: string

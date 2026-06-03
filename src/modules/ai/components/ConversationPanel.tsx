@@ -27,7 +27,7 @@ interface ConversationPanelProps {
   onDeleteAll: () => void
   isOpen: boolean
   onToggle: () => void
-  userRole?: 'admin' | 'user'
+  userRole?: string
   currentUserId?: string | null
 }
 
@@ -80,12 +80,14 @@ export function ConversationPanel({
   const [searchQuery, setSearchQuery] = React.useState('')
   const [activeTab, setActiveTab] = React.useState<'my-chats' | 'all-chats'>('my-chats')
 
+  const isAdmin = userRole === 'admin' || userRole === 'super_admin'
+
   // Filter conversations based on role, tab, and search
   const filteredConversations = React.useMemo(() => {
     let filtered = conversations
 
     // RBAC Filter
-    if (userRole === 'admin') {
+    if (isAdmin) {
       if (activeTab === 'my-chats' && currentUserId) {
         filtered = filtered.filter((c) => c.userId === currentUserId)
       }
@@ -104,7 +106,7 @@ export function ConversationPanel({
     }
 
     return filtered
-  }, [conversations, userRole, activeTab, currentUserId, searchQuery])
+  }, [conversations, isAdmin, activeTab, currentUserId, searchQuery])
 
   const groups = React.useMemo(
     () => groupConversations(filteredConversations),
@@ -147,7 +149,7 @@ export function ConversationPanel({
           title={t('ai.chat.conversations')}
         >
           <MessagesSquare size={18} className="text-indigo-600 dark:text-indigo-400" />
-          {userRole === 'admin' && (
+          {isAdmin && (
             <span className="absolute -right-1 -top-1 flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex h-3 w-3 rounded-full bg-red-500"></span>
@@ -183,7 +185,7 @@ export function ConversationPanel({
                   <h2 className="text-lg font-semibold tracking-tight">
                     {t('ai.chat.conversations', 'Chats')}
                   </h2>
-                  {userRole === 'admin' && (
+                  {isAdmin && (
                     <Badge
                       variant="outline"
                       className="gap-1 border-red-200 bg-red-50 text-red-700 dark:border-red-900/30 dark:bg-red-900/20 dark:text-red-400"
@@ -204,7 +206,7 @@ export function ConversationPanel({
               </div>
 
               {/* Admin Tabs */}
-              {userRole === 'admin' && (
+              {isAdmin && (
                 <div className="px-4 pt-4">
                   <Tabs
                     value={activeTab}
@@ -277,7 +279,7 @@ export function ConversationPanel({
                                 }}
                               >
                                 {/* Chat Icon / Avatar */}
-                                {userRole === 'admin' && activeTab === 'all-chats' ? (
+                                {isAdmin && activeTab === 'all-chats' ? (
                                   <Avatar className="h-8 w-8 shrink-0 border border-black/5">
                                     <AvatarFallback className="text-[10px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300">
                                       {conv.userId?.toString()?.slice(0, 2)?.toUpperCase() || '??'}
@@ -310,7 +312,7 @@ export function ConversationPanel({
                                       hour: '2-digit',
                                       minute: '2-digit',
                                     })}
-                                    {userRole === 'admin' && activeTab === 'all-chats' && (
+                                    {isAdmin && activeTab === 'all-chats' && (
                                       <span className="ml-1 opacity-70">
                                         • User: {conv.userId?.toString()?.slice(0, 6)}...
                                       </span>

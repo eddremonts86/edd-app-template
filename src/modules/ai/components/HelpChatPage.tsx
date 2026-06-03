@@ -34,6 +34,8 @@ import {
   InputGroupTextarea,
 } from '@/components/ui'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Card } from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   Select,
   SelectContent,
@@ -117,7 +119,7 @@ function messagesToStored(messages: UIMessage[]): StoredMessage[] {
 
 // --- Conversation Manager Hook ---
 
-function useConversationManager(userId: string | null, userRole: 'admin' | 'user' = 'user') {
+function useConversationManager(userId: string | null, userRole?: string) {
   const [conversations, setConversations] = React.useState<Conversation[]>([])
   const [activeId, setActiveId] = React.useState<string | null>(null)
   const [activeConv, setActiveConv] = React.useState<Conversation | null>(null)
@@ -141,7 +143,8 @@ function useConversationManager(userId: string | null, userRole: 'admin' | 'user
     ;(async () => {
       const migratedId = userId ? await migrateFromLocalStorage(userId) : null
       // Admins fetch all, users fetch theirs
-      const convs = await getConversations(userRole === 'admin' ? undefined : (userId ?? ''))
+      const isAdmin = userRole === 'admin' || userRole === 'super_admin'
+      const convs = await getConversations(isAdmin ? undefined : (userId ?? ''))
       if (cancelled) return
       setConversations(convs)
       if (migratedId) {
@@ -600,10 +603,30 @@ function MessageBubble({
 function EmptyState({ onSuggestionClick }: { onSuggestionClick: (text: string) => void }) {
   const { t } = useTranslation()
   const suggestions = [
-    { label: 'Create a new project plan', icon: '🚀', desc: 'Step-by-step guide' },
-    { label: 'Analyze this code snippet', icon: '💻', desc: 'Debug & optimize' },
-    { label: 'Write an email draft', icon: '✉️', desc: 'Professional tone' },
-    { label: 'Explain a complex concept', icon: '🧠', desc: 'Simple terms' },
+    {
+      label: 'Create a new project plan',
+      icon: '🚀',
+      action: 'Generates a detailed, step-by-step roadmap for implementing a new feature.',
+      data: 'Uses codebase architectural rules, naming conventions, and file path mappings.',
+    },
+    {
+      label: 'Analyze this code snippet',
+      icon: '💻',
+      action: 'Examines code for performance issues, linting errors, and logic bugs.',
+      data: 'Uses custom source files, TypeScript types, and standard library API patterns.',
+    },
+    {
+      label: 'Write an email draft',
+      icon: '✉️',
+      action: 'Composes professional notifications, release updates, or project summaries.',
+      data: 'Uses localized text strings, active session contexts, and user profiles.',
+    },
+    {
+      label: 'Explain complex architecture',
+      icon: '🧠',
+      action: 'Deconstructs workspace code modules, Drizzle database schemas, and routes.',
+      data: 'Uses DB schema configurations, TanStack router structures, and file system layouts.',
+    },
   ]
 
   return (
@@ -624,24 +647,32 @@ function EmptyState({ onSuggestionClick }: { onSuggestionClick: (text: string) =
 
       <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
         {suggestions.map((s) => (
-          <button
+          <Button
             key={s.label}
+            variant="outline"
             onClick={() => onSuggestionClick(s.label)}
-            className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card p-4 text-left shadow-sm transition-all duration-300 hover:border-indigo-500/30 hover:bg-indigo-500/5 hover:shadow-indigo-500/10 hover:-translate-y-1"
+            className="h-auto w-full flex items-start gap-4 p-4 text-left border-border/50 hover:bg-indigo-500/5 hover:border-indigo-500/30 transition-all duration-300 group rounded-2xl relative"
           >
-            <div className="flex items-start gap-4">
-              <span className="text-2xl">{s.icon}</span>
-              <div>
-                <span className="block font-semibold text-foreground group-hover:text-indigo-600 transition-colors">
-                  {s.label}
-                </span>
-                <span className="text-xs text-muted-foreground">{s.desc}</span>
+            <span className="text-3xl mt-0.5 shrink-0 select-none">{s.icon}</span>
+            <div className="space-y-1.5 min-w-0 flex-1">
+              <span className="block font-semibold text-sm text-foreground group-hover:text-indigo-600 transition-colors">
+                {s.label}
+              </span>
+              <div className="text-[11px] leading-normal text-muted-foreground space-y-1">
+                <p>
+                  <strong className="text-foreground/70 font-semibold">Flow: </strong>
+                  {s.action}
+                </p>
+                <p>
+                  <strong className="text-foreground/70 font-semibold">Data: </strong>
+                  {s.data}
+                </p>
               </div>
             </div>
-            <div className="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100">
-              <ArrowUp size={16} className="text-indigo-500 rotate-45" />
+            <div className="absolute right-3 top-3 opacity-0 transition-opacity group-hover:opacity-100 shrink-0">
+              <ArrowUp size={14} className="text-indigo-500 rotate-45" />
             </div>
-          </button>
+          </Button>
         ))}
       </div>
     </div>
@@ -662,7 +693,6 @@ export function HelpChatPage() {
   const [isPanelOpen, setIsPanelOpen] = React.useState(false)
   const fileInputRef = React.useRef<HTMLInputElement>(null)
   const bottomRef = React.useRef<HTMLDivElement | null>(null)
-  const scrollContainerRef = React.useRef<HTMLDivElement>(null)
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -951,7 +981,7 @@ export function HelpChatPage() {
           />
 
           {/* --- Header --- */}
-          <header className="flex h-20 items-center justify-between border-b border-white/10 bg-white/40 px-8 backdrop-blur-md dark:bg-black/20">
+          <Card className="flex h-20 items-center justify-between rounded-none border-t-0 border-x-0 border-b border-white/10 bg-white/40 px-8 backdrop-blur-md dark:bg-black/20">
             <div className="flex items-center gap-4">
               <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25">
                 <Bot size={24} />
@@ -1045,87 +1075,86 @@ export function HelpChatPage() {
                 <Settings size={18} />
               </Button>
             </div>
-          </header>
+          </Card>
 
           {/* --- Messages --- */}
-          <div
-            ref={scrollContainerRef}
-            className="flex-1 overflow-y-auto scroll-smooth p-6 md:p-8 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-indigo-500/10 hover:scrollbar-thumb-indigo-500/20"
-          >
-            {visibleMessages.length === 0 && !error ? (
-              <EmptyState onSuggestionClick={handleSend} />
-            ) : (
-              <div className="flex flex-col gap-8 mx-auto max-w-4xl">
-                {visibleMessages.map((message, index) => (
-                  <MessageBubble
-                    key={message.id}
-                    message={message}
-                    onImageClick={setIsPreviewOpen}
-                    userAvatar={auth.user?.image ?? undefined}
-                    isTyping={
-                      isLoading &&
-                      index === visibleMessages.length - 1 &&
-                      message.role === 'assistant'
-                    }
-                  />
-                ))}
+          <ScrollArea className="flex-1 scroll-smooth">
+            <div className="p-6 md:p-8">
+              {visibleMessages.length === 0 && !error ? (
+                <EmptyState onSuggestionClick={handleSend} />
+              ) : (
+                <div className="flex flex-col gap-8 mx-auto max-w-4xl">
+                  {visibleMessages.map((message, index) => (
+                    <MessageBubble
+                      key={message.id}
+                      message={message}
+                      onImageClick={setIsPreviewOpen}
+                      userAvatar={auth.user?.image ?? undefined}
+                      isTyping={
+                        isLoading &&
+                        index === visibleMessages.length - 1 &&
+                        message.role === 'assistant'
+                      }
+                    />
+                  ))}
 
-                {/* Inline error message */}
-                {error && !isLoading && (
-                  <m.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-red-500 to-rose-600 shadow-lg shadow-red-500/20 ring-2 ring-background">
-                      <Bot size={20} className="text-white" />
-                    </div>
-                    <div className="flex max-w-[85%] flex-col gap-2 rounded-2xl rounded-tl-sm border border-red-200 bg-red-50 px-5 py-4 text-sm shadow-sm dark:border-red-900/50 dark:bg-red-950/30">
-                      <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
-                        <span className="text-base">⚠️</span>
-                        <span className="font-semibold">{t('ai.chat.error')}</span>
+                  {/* Inline error message */}
+                  {error && !isLoading && (
+                    <m.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-red-500 to-rose-600 shadow-lg shadow-red-500/20 ring-2 ring-background">
+                        <Bot size={20} className="text-white" />
                       </div>
-                      <p className="text-red-600/80 dark:text-red-300/80 text-xs">
-                        {error instanceof Error ? error.message : t('ai.chat.connectionError')}
-                      </p>
-                      <button
-                        onClick={() => {
-                          const lastUserMessage = [...messages]
-                            .reverse()
-                            .find((m) => m.role === 'user')
-                          if (lastUserMessage) {
-                            // @ts-expect-error - sendMessage supports string or payload
-                            sendMessage(lastUserMessage.content)
-                          }
-                        }}
-                        className="mt-1 self-start rounded-lg bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700 transition-colors hover:bg-red-200 dark:bg-red-900/40 dark:text-red-300 dark:hover:bg-red-900/60"
-                      >
-                        {t('ai.chat.retry')}
-                      </button>
-                    </div>
-                  </m.div>
-                )}
+                      <div className="flex max-w-[85%] flex-col gap-2 rounded-2xl rounded-tl-sm border border-red-200 bg-red-50 px-5 py-4 text-sm shadow-sm dark:border-red-900/50 dark:bg-red-950/30">
+                        <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
+                          <span className="text-base">⚠️</span>
+                          <span className="font-semibold">{t('ai.chat.error')}</span>
+                        </div>
+                        <p className="text-red-600/80 dark:text-red-300/80 text-xs">
+                          {error instanceof Error ? error.message : t('ai.chat.connectionError')}
+                        </p>
+                        <button
+                          onClick={() => {
+                            const lastUserMessage = [...messages]
+                              .reverse()
+                              .find((m) => m.role === 'user')
+                            if (lastUserMessage) {
+                              // @ts-expect-error - sendMessage supports string or payload
+                              sendMessage(lastUserMessage.content)
+                            }
+                          }}
+                          className="mt-1 self-start rounded-lg bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700 transition-colors hover:bg-red-200 dark:bg-red-900/40 dark:text-red-300 dark:hover:bg-red-900/60"
+                        >
+                          {t('ai.chat.retry')}
+                        </button>
+                      </div>
+                    </m.div>
+                  )}
 
-                {isLoading && visibleMessages.at(-1)?.role !== 'assistant' && (
-                  <m.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20 ring-2 ring-background">
-                      <Bot size={20} className="text-white" />
-                    </div>
-                    <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-sm border border-border/40 bg-card/50 px-5 py-4 shadow-sm backdrop-blur-sm">
-                      <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-0" />
-                      <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-150" />
-                      <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-300" />
-                    </div>
-                  </m.div>
-                )}
-                <div ref={bottomRef} className="h-4" />
-              </div>
-            )}
-          </div>
+                  {isLoading && visibleMessages.at(-1)?.role !== 'assistant' && (
+                    <m.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20 ring-2 ring-background">
+                        <Bot size={20} className="text-white" />
+                      </div>
+                      <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-sm border border-border/40 bg-card/50 px-5 py-4 shadow-sm backdrop-blur-sm">
+                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-0" />
+                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-150" />
+                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-300" />
+                      </div>
+                    </m.div>
+                  )}
+                  <div ref={bottomRef} className="h-4" />
+                </div>
+              )}
+            </div>
+          </ScrollArea>
 
           {/* --- Input Area --- */}
           <section

@@ -120,3 +120,31 @@ export {
 export { ToggleGroup, ToggleGroupItem } from './toggle-group'
 export { Switch } from './switch'
 export { ScrollArea, ScrollBar } from './scroll-area'
+export { Alert, AlertTitle, AlertDescription } from './alert'
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogClose,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from './dialog'
+export {
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from './alert-dialog'
+export { Command, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from './command'
+

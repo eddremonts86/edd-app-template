@@ -1,4 +1,5 @@
-import { Mail, RefreshCcw } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { Mail, RefreshCcw, AlertTriangle } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import {
@@ -20,9 +21,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
+  Alert,
+  AlertTitle,
+  AlertDescription,
+  Separator,
 } from '@/components/ui'
 import { toast } from '@/shared/lib/toast'
-import { TableEmptyState, TableErrorState, TableSearchBar, TableSkeleton } from '@/shared/ui/tables'
+import { TableEmptyState, TableSearchBar, TableSkeleton } from '@/shared/ui/tables'
 import { useContactMessages, useMarkContactMessageRead } from '../api/contact-messages.queries'
 
 export function ContactMessagesPage() {
@@ -48,7 +53,7 @@ export function ContactMessagesPage() {
   const hasActiveFilters = Boolean(search.trim()) || status !== 'all'
   const isForbiddenError = React.useMemo(() => {
     if (!error) return false
-    let message = ''
+    let message: string
     if (error instanceof Error) {
       message = error.message
     } else if (typeof error === 'string') {
@@ -76,13 +81,41 @@ export function ContactMessagesPage() {
 
   if (isError) {
     return (
-      <TableErrorState
-        titleKey={isForbiddenError ? 'common.error.title' : 'contactMessages.error.title'}
-        descriptionKey={
-          isForbiddenError ? 'common.noPermission' : 'contactMessages.error.description'
-        }
-        retryKey="contactMessages.error.retry"
-      />
+      <div className="mx-auto max-w-2xl pt-10 px-4">
+        <Alert variant="destructive" className="p-6 rounded-2xl flex flex-col gap-4 relative">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="h-5 w-5 text-destructive shrink-0 mt-0.5" />
+            <div className="space-y-1.5">
+              <AlertTitle className="text-base font-semibold">
+                {isForbiddenError ? t('common.error.title') : t('contactMessages.error.title')}
+              </AlertTitle>
+              <AlertDescription className="text-sm">
+                {isForbiddenError ? t('common.noPermission') : t('contactMessages.error.description')}
+              </AlertDescription>
+            </div>
+          </div>
+
+          <Separator className="bg-destructive/20 my-2" />
+
+          <div className="space-y-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-destructive/80">Qué puedes hacer</h4>
+            <ul className="list-disc pl-5 text-xs space-y-1 opacity-90 leading-relaxed text-destructive/95">
+              <li>Verifica que tienes los permisos correctos (se requiere rol de administrador).</li>
+              <li>Asegúrate de que estás autenticado en el workspace.</li>
+              <li>Consulta la guía técnica sobre la gestión de roles.</li>
+            </ul>
+          </div>
+
+          <div className="flex items-center gap-3 pt-2">
+            <Button variant="outline" asChild className="border-destructive/30 text-destructive hover:bg-destructive/10">
+              <Link to="/dashboard">Volver al Dashboard</Link>
+            </Button>
+            <Button variant="link" asChild className="text-destructive font-medium text-xs">
+              <Link to="/starter/architecture">Manual de Arquitectura & Roles →</Link>
+            </Button>
+          </div>
+        </Alert>
+      </div>
     )
   }
 

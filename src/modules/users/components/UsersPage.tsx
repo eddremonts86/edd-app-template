@@ -5,14 +5,8 @@ import { Button } from '@/components/ui/button'
 import { CrudSheetBody, CrudSheetContent, CrudSheetHeader } from '@/components/ui/crud-sheet'
 import { Sheet } from '@/components/ui/sheet'
 import { toast } from '@/shared/lib/toast'
-import {
-  flattenInfinitePages,
-  TableEmptyState,
-  TableErrorState,
-  TableSearchBar,
-  TableSkeleton,
-} from '@/shared/ui/tables'
-import { useCreateUser, useDeleteUser, useInfiniteUsers, useUpdateUser } from '../api/users.queries'
+import { TableEmptyState, TableErrorState, TableSkeleton } from '@/shared/ui/tables'
+import { useCreateUser, useDeleteUser, useUsers, useUpdateUser } from '../api/users.queries'
 import type { User } from '../model/types'
 import { UserForm } from './UserForm'
 import { UserTable } from './UserTable'
@@ -21,13 +15,8 @@ export function UsersPage() {
   const { t } = useTranslation()
   const [isCreateOpen, setIsCreateOpen] = React.useState(false)
   const [editingUser, setEditingUser] = React.useState<User | null>(null)
-  const [search, setSearch] = React.useState('')
-  const deferredSearch = React.useDeferredValue(search)
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isFetching, isError } =
-    useInfiniteUsers(10, deferredSearch)
-
-  const hasActiveFilters = Boolean(search.trim())
+  const { data: allUsers, isLoading, isError } = useUsers(1000)
 
   const createMutation = useCreateUser()
   const updateMutation = useUpdateUser()
@@ -54,14 +43,7 @@ export function UsersPage() {
     )
   }
 
-  const allUsers = flattenInfinitePages<User>(data?.pages as Array<{ data: unknown[] }> | undefined)
-  const totalCount = (data?.pages[0] as { totalCount?: number } | undefined)?.totalCount ?? 0
-
-  const clearFilters = () => {
-    React.startTransition(() => {
-      setSearch('')
-    })
-  }
+  const totalCount = allUsers?.length ?? 0
 
   return (
     <div className="flex flex-col h-full gap-5 animate-in fade-in duration-500">
@@ -83,30 +65,15 @@ export function UsersPage() {
         </Button>
       </div>
 
-      <TableSearchBar
-        searchInput={search}
-        onSearchChange={(value) => React.startTransition(() => setSearch(value))}
-        onClear={() => React.startTransition(() => setSearch(''))}
-        loadedCount={allUsers.length}
-        totalCount={totalCount}
-        showSpinner={isFetching && !isFetchingNextPage}
-        showCount={false}
-        placeholderKey="users.filters.search"
-      />
-
       {isLoading ? (
         <TableSkeleton rows={5} />
-      ) : allUsers.length === 0 ? (
-        <TableEmptyState isSearchActive={hasActiveFilters} onClearSearch={clearFilters} />
+      ) : totalCount === 0 ? (
+        <TableEmptyState isSearchActive={false} onClearSearch={() => {}} />
       ) : (
         <UserTable
-          users={allUsers}
+          users={allUsers || []}
           onEdit={setEditingUser}
           onDelete={handleDelete}
-          hasNextPage={hasNextPage ?? false}
-          isFetchingNextPage={isFetchingNextPage}
-          onFetchNextPage={fetchNextPage}
-          scrollResetKey={deferredSearch}
         />
       )}
 

@@ -237,6 +237,7 @@ export function AuthPage(): React.JSX.Element {
                       className="grid w-full grid-cols-2 rounded-2xl border border-border/40 bg-muted/40 p-1"
                     >
                       <Button
+                        type="button"
                         onClick={() => setActiveTab('sign-in')}
                         role="tab"
                         data-testid="auth-tab-sign-in"
@@ -251,6 +252,7 @@ export function AuthPage(): React.JSX.Element {
                         Sign in
                       </Button>
                       <Button
+                        type="button"
                         onClick={() => setActiveTab('sign-up')}
                         role="tab"
                         data-testid="auth-tab-sign-up"
@@ -304,6 +306,7 @@ export function AuthPage(): React.JSX.Element {
                         <Label htmlFor="sign-in-email">Email address</Label>
                         <Input
                           id="sign-in-email"
+                          data-testid="auth-input-sign-in-email"
                           name="email"
                           type="email"
                           autoComplete="email"
@@ -333,6 +336,7 @@ export function AuthPage(): React.JSX.Element {
                         </div>
                         <Input
                           id="sign-in-password"
+                          data-testid="auth-input-sign-in-password"
                           name="password"
                           type="password"
                           autoComplete="current-password"
@@ -348,6 +352,7 @@ export function AuthPage(): React.JSX.Element {
 
                       <Button
                         type="submit"
+                        data-testid="auth-submit-sign-in"
                         className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 transition-all flex items-center justify-center gap-2 mt-2 font-semibold"
                       >
                         <LogIn className="h-4 w-4" />

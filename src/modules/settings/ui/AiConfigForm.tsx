@@ -8,13 +8,17 @@ import {
   IconSettings,
   IconWorldCheck,
   IconPlayerPlay,
+  IconChevronDown,
+  IconChevronUp,
 } from '@tabler/icons-react'
 import { useForm } from '@tanstack/react-form'
 import { useStore } from '@tanstack/react-store'
 import { useQueryState, parseAsStringLiteral } from 'nuqs'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Field, FieldError, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import {
@@ -28,6 +32,7 @@ import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import type { AiConfigFormData, AiProvider } from '@/modules/ai/config'
 import { toast } from '@/shared/lib/toast'
+import { cn } from '@/shared/lib/utils'
 import {
   useAiConfig,
   useAiConfigStore,
@@ -148,11 +153,370 @@ const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
   },
 }
 
+interface ProviderStatus {
+  id: string
+  available: boolean
+  status: string
+  latencyMs?: number
+  modelCount?: number
+  message?: string
+  resolvedModelId?: string | null
+  activeModelId?: string | null
+}
+
+interface TestResult {
+  ok: boolean
+  message: string
+  testedAt: number
+}
+
+interface ProviderStatusCardProps {
+  provider: {
+    id: string
+    title: string
+    description: string
+    Icon: React.ComponentType<{ className?: string }>
+  }
+  index: number
+  isActive: boolean
+  isAvailable: boolean
+  isError: boolean
+  apiBaseUrl: string
+  resolvedModel: string
+  status: ProviderStatus | undefined
+  testResult: TestResult | undefined
+  isTesting: boolean
+  onSelect: () => void
+  onTest: () => void
+}
+
+function ProviderStatusCard({
+  provider,
+  index,
+  isActive,
+  isAvailable,
+  isError,
+  apiBaseUrl,
+  resolvedModel,
+  status,
+  testResult,
+  isTesting,
+  onSelect,
+  onTest,
+}: ProviderStatusCardProps) {
+  const [showDetails, setShowDetails] = React.useState(false)
+  const hasDetails = !!(apiBaseUrl || resolvedModel || status?.modelCount || testResult)
+
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onSelect()
+        }
+      }}
+      className={`group relative flex flex-col items-center text-center p-6 rounded-xl border transition-all duration-300 cursor-pointer hover:-translate-y-1 ${
+        isActive
+          ? 'bg-black/80 border-primary shadow-md ring-1 ring-primary/20'
+          : 'bg-black/40 hover:bg-black/60 hover:border-primary/50 hover:shadow-md'
+      }`}
+    >
+      {/* Priority Index */}
+      <div className="absolute top-3 left-4 text-lg font-bold text-muted-foreground/20 font-mono">
+        {String(index + 1).padStart(2, '0')}
+      </div>
+
+      {/* Status Indicator */}
+      <div className="absolute top-3 right-4">
+        <Badge
+          variant={isAvailable ? 'success' : isError ? 'destructive' : 'warning'}
+          className="flex items-center gap-1 px-2 py-0.5 text-[10px] font-medium"
+        >
+          <span
+            className={cn(
+              'size-1.5 rounded-full',
+              isAvailable ? 'bg-green-500 animate-pulse' : isError ? 'bg-red-500' : 'bg-yellow-500',
+            )}
+          />
+          {status?.latencyMs ? `${status.latencyMs}ms` : 'N/A'}
+        </Badge>
+      </div>
+
+      {/* Icon */}
+      <div
+        className={`mb-4 mt-2 p-4 rounded-2xl transition-colors duration-300 ${
+          isActive ? 'bg-background shadow-sm' : 'bg-muted/10 group-hover:bg-primary/5'
+        }`}
+      >
+        <provider.Icon
+          className={`size-12 transition-colors duration-300 ${
+            isActive ? 'text-primary' : 'text-foreground/80 group-hover:text-primary'
+          }`}
+          aria-label={`${provider.title} logo`}
+        />
+      </div>
+
+      {/* Title & Active Badge */}
+      <div className="mb-2 flex flex-col items-center gap-2">
+        <h4
+          className={`text-lg font-semibold font-sans tracking-tight ${
+            isActive ? 'text-primary' : 'text-foreground'
+          }`}
+        >
+          {provider.title}
+        </h4>
+        {isActive && (
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-primary text-primary-foreground">
+            ACTIVE
+          </span>
+        )}
+      </div>
+
+      {/* Description */}
+      <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+        {provider.description}
+      </p>
+
+      <div className="mt-auto w-full pt-3 border-t border-border/50 space-y-2">
+        <div className="flex items-center justify-between text-[10px] text-muted-foreground font-medium">
+          <span>{status?.modelCount ? `${status.modelCount} models` : 'No models'}</span>
+          {status?.message && !isAvailable && (
+            <span className="text-red-500 max-w-28 truncate" title={status.message}>
+              {status.message}
+            </span>
+          )}
+        </div>
+
+        <Button
+          size="sm"
+          variant={isActive ? 'default' : 'secondary'}
+          className="h-8 w-full text-xs shadow-sm"
+          onClick={(e) => {
+            e.stopPropagation()
+            onTest()
+          }}
+          disabled={isTesting}
+        >
+          {isTesting ? (
+            <IconLoader2 className="mr-1.5 size-3.5 animate-spin" />
+          ) : (
+            <IconPlayerPlay className="mr-1.5 size-3.5 fill-current" />
+          )}
+          Probar ahora
+        </Button>
+
+        {hasDetails && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setShowDetails(!showDetails)
+            }}
+            className="flex items-center justify-center gap-1 text-[10px] font-medium text-muted-foreground hover:text-foreground transition-colors w-full pt-1"
+          >
+            {showDetails ? (
+              <>
+                Ocultar detalles
+                <IconChevronUp className="size-3" />
+              </>
+            ) : (
+              <>
+                Mostrar detalles
+                <IconChevronDown className="size-3" />
+              </>
+            )}
+          </button>
+        )}
+
+        {showDetails && hasDetails && (
+          <div className="rounded-md border border-border/40 bg-background/50 px-2 py-1.5 text-left space-y-1.5 text-[10px] animate-in fade-in slide-in-from-top-1 duration-200">
+            {apiBaseUrl && (
+              <div>
+                <span className="text-muted-foreground block">API URL</span>
+                <span className="block truncate font-mono text-foreground/90">{apiBaseUrl}</span>
+              </div>
+            )}
+            {resolvedModel && (
+              <div>
+                <span className="text-muted-foreground block">Modelo activo</span>
+                <span className="block truncate font-mono text-foreground/90">{resolvedModel}</span>
+              </div>
+            )}
+            {testResult && (
+              <div className="pt-1 border-t border-border/30">
+                <span className="text-muted-foreground block">Resultado del test</span>
+                <span className={cn('block font-mono font-medium', testResult.ok ? 'text-emerald-500' : 'text-red-500')}>
+                  {testResult.message}
+                </span>
+                <span className="text-[8px] text-muted-foreground/60 block">
+                  {new Date(testResult.testedAt).toLocaleTimeString()}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+
+
 const AI_CONFIG_TABS = ['status', 'configurations', 'logs'] as const
 type AiConfigTab = (typeof AI_CONFIG_TABS)[number]
 
 export function AiConfigForm() {
   const { t } = useTranslation()
+
+  // Nested helper collapsible to capture form and t from closure without using any types
+  const AdvancedEndpointsCollapsible = () => {
+    const [showAdvanced, setShowAdvanced] = React.useState(false)
+
+    return (
+      <div className="space-y-3 pt-2">
+        <button
+          type="button"
+          onClick={() => setShowAdvanced(!showAdvanced)}
+          className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {showAdvanced ? (
+            <>
+              <IconChevronUp className="size-4" />
+              Ocultar Endpoints Avanzados
+            </>
+          ) : (
+            <>
+              <IconChevronDown className="size-4" />
+              Mostrar Endpoints Avanzados
+            </>
+          )}
+        </button>
+
+        {showAdvanced && (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 pt-1 animate-in fade-in slide-in-from-top-2 duration-200">
+            <form.Field name="endpoints.chat">
+              {(field) => (
+                <Field>
+                  <FieldLabel htmlFor={field.name}>
+                    {t('settings.ai.fields.chatEndpoint')}
+                  </FieldLabel>
+                  <Input
+                    id={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="bg-muted/20"
+                  />
+                  <FieldError
+                    errors={field.state.meta.errors.map((e) =>
+                      typeof e === 'string' ? e : String(e),
+                    )}
+                  />
+                </Field>
+              )}
+            </form.Field>
+
+            <form.Field name="endpoints.models">
+              {(field) => (
+                <Field>
+                  <FieldLabel htmlFor={field.name}>
+                    {t('settings.ai.fields.modelsEndpoint')}
+                  </FieldLabel>
+                  <Input
+                    id={field.name}
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    onChange={(e) => field.handleChange(e.target.value)}
+                    className="bg-muted/20"
+                  />
+                  <FieldError
+                    errors={field.state.meta.errors.map((e) =>
+                      typeof e === 'string' ? e : String(e),
+                    )}
+                  />
+                </Field>
+              )}
+            </form.Field>
+
+            <form.Subscribe selector={(state) => state.values.provider}>
+              {(provider) =>
+                ['lm-studio', 'ollama', 'llama-cpp'].includes(provider) ? (
+                  <>
+                    <form.Field name="endpoints.load">
+                      {(field) => (
+                        <Field>
+                          <FieldLabel htmlFor={field.name}>
+                            {t('settings.ai.fields.loadEndpoint')}
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            className="bg-muted/20"
+                          />
+                          <FieldError
+                            errors={field.state.meta.errors.map((e) =>
+                              typeof e === 'string' ? e : String(e),
+                            )}
+                          />
+                        </Field>
+                      )}
+                    </form.Field>
+                    <form.Field name="endpoints.download">
+                      {(field) => (
+                        <Field>
+                          <FieldLabel htmlFor={field.name}>
+                            {t('settings.ai.fields.downloadEndpoint')}
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            className="bg-muted/20"
+                          />
+                          <FieldError
+                            errors={field.state.meta.errors.map((e) =>
+                              typeof e === 'string' ? e : String(e),
+                            )}
+                          />
+                        </Field>
+                      )}
+                    </form.Field>
+                    <form.Field name="endpoints.status">
+                      {(field) => (
+                        <Field className="sm:col-span-2">
+                          <FieldLabel htmlFor={field.name}>
+                            {t('settings.ai.fields.statusEndpoint')}
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
+                            className="bg-muted/20"
+                          />
+                          <FieldError
+                            errors={field.state.meta.errors.map((e) =>
+                              typeof e === 'string' ? e : String(e),
+                            )}
+                          />
+                        </Field>
+                      )}
+                    </form.Field>
+                  </>
+                ) : null
+              }
+            </form.Subscribe>
+          </div>
+        )}
+      </div>
+    )
+  }
   const [tab, setTab] = useQueryState<AiConfigTab>(
     'tab',
     parseAsStringLiteral(AI_CONFIG_TABS).withDefault('status'),
@@ -505,7 +869,7 @@ export function AiConfigForm() {
                   const providerId = provider.id as AiProvider
                   const status = providerStatuses?.find((s) => s?.id === provider.id)
                   const isActive = config?.provider === provider.id
-                  const isAvailable = status?.available
+                  const isAvailable = status?.available ?? false
                   const isError = status?.status === 'error' || status?.status === 'unreachable'
                   const providerConfig = configStore?.providers?.[providerId]
                   const providerDefault = PROVIDER_DEFAULTS[providerId]
@@ -519,145 +883,21 @@ export function AiConfigForm() {
                   const isTesting = testingProviderId === providerId
 
                   return (
-                    <div
+                    <ProviderStatusCard
                       key={provider.id}
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => handleProviderChange(providerId)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault()
-                          handleProviderChange(providerId)
-                        }
-                      }}
-                      className={`group relative flex flex-col items-center text-center p-6 rounded-xl border transition-all duration-300 cursor-pointer hover:-translate-y-1 ${
-                        isActive
-                          ? 'bg-black/80 border-primary shadow-md ring-1 ring-primary/20'
-                          : 'bg-black/40 hover:bg-black/60 hover:border-primary/50 hover:shadow-md'
-                      }`}
-                    >
-                      {/* Priority Index */}
-                      <div className="absolute top-3 left-4 text-lg font-bold text-muted-foreground/20 font-mono">
-                        {String(index + 1).padStart(2, '0')}
-                      </div>
-
-                      {/* Status Indicator */}
-                      <div className="absolute top-3 right-4 flex flex-col items-end gap-1">
-                        <div
-                          className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium border ${
-                            isAvailable
-                              ? 'bg-green-500/10 text-green-600 border-green-500/20'
-                              : isError
-                                ? 'bg-red-500/10 text-red-600 border-red-500/20'
-                                : 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20'
-                          }`}
-                        >
-                          <div
-                            className={`size-1.5 rounded-full ${
-                              isAvailable
-                                ? 'bg-green-500'
-                                : isError
-                                  ? 'bg-red-500'
-                                  : 'bg-yellow-500'
-                            }`}
-                          />
-                          {status?.latencyMs ? `${status.latencyMs}ms` : 'N/A'}
-                        </div>
-                      </div>
-
-                      {/* Icon */}
-                      <div
-                        className={`mb-4 mt-2 p-4 rounded-2xl transition-colors duration-300 ${
-                          isActive
-                            ? 'bg-background shadow-sm'
-                            : 'bg-muted/10 group-hover:bg-primary/5'
-                        }`}
-                      >
-                        <provider.Icon
-                          className={`size-12 transition-colors duration-300 ${
-                            isActive
-                              ? 'text-primary'
-                              : 'text-foreground/80 group-hover:text-primary'
-                          }`}
-                          aria-label={`${provider.title} logo`}
-                        />
-                      </div>
-
-                      {/* Title & Active Badge */}
-                      <div className="mb-2 flex flex-col items-center gap-2">
-                        <h4
-                          className={`text-lg font-semibold font-sans tracking-tight ${
-                            isActive ? 'text-primary' : 'text-foreground'
-                          }`}
-                        >
-                          {provider.title}
-                        </h4>
-                        {isActive && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-primary text-primary-foreground">
-                            ACTIVE
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Description */}
-                      <p className="text-xs text-muted-foreground leading-relaxed mb-4 line-clamp-3">
-                        {provider.description}
-                      </p>
-
-                      <div className="mt-auto w-full pt-3 border-t border-border/50 space-y-2">
-                        <div className="flex items-center justify-between text-[10px] text-muted-foreground font-medium">
-                          <span>
-                            {status?.modelCount ? `${status.modelCount} models` : 'No models'}
-                          </span>
-                          {status?.message && !isAvailable && (
-                            <span className="text-red-500 max-w-28 truncate" title={status.message}>
-                              {status.message}
-                            </span>
-                          )}
-                        </div>
-                        <div className="rounded-md border border-border/40 bg-background/50 px-2 py-1.5 text-left space-y-1">
-                          <p className="text-[10px] text-muted-foreground">
-                            API URL
-                            <span className="ml-1 block truncate font-mono text-foreground/90">
-                              {apiBaseUrl}
-                            </span>
-                          </p>
-                          <p className="text-[10px] text-muted-foreground">
-                            Modelo activo
-                            <span className="ml-1 block truncate font-mono text-foreground/90">
-                              {resolvedModel}
-                            </span>
-                          </p>
-                        </div>
-                        <Button
-                          size="sm"
-                          variant={isActive ? 'default' : 'secondary'}
-                          className="h-8 w-full text-xs shadow-sm"
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            handleTestProvider(providerId)
-                          }}
-                          disabled={isTesting}
-                        >
-                          {isTesting ? (
-                            <IconLoader2 className="mr-1.5 size-3.5 animate-spin" />
-                          ) : (
-                            <IconPlayerPlay className="mr-1.5 size-3.5 fill-current" />
-                          )}
-                          Probar ahora
-                        </Button>
-                        {testResult && (
-                          <p
-                            className={`text-[10px] text-left ${
-                              testResult.ok ? 'text-emerald-500' : 'text-red-500'
-                            }`}
-                          >
-                            {testResult.message} ·{' '}
-                            {new Date(testResult.testedAt).toLocaleTimeString()}
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                      provider={provider}
+                      index={index}
+                      isActive={isActive}
+                      isAvailable={isAvailable}
+                      isError={isError}
+                      apiBaseUrl={apiBaseUrl}
+                      resolvedModel={resolvedModel}
+                      status={status}
+                      testResult={testResult}
+                      isTesting={isTesting}
+                      onSelect={() => handleProviderChange(providerId)}
+                      onTest={() => handleTestProvider(providerId)}
+                    />
                   )
                 })}
               </div>
@@ -669,17 +909,20 @@ export function AiConfigForm() {
           <div className="grid gap-6 md:grid-cols-2">
             {/* Left Column: Provider & Connection */}
             <div className="space-y-6">
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
-                <div className="flex flex-col space-y-1.5 p-6 pb-4">
+              {/* Block 1: Provider Card */}
+              <Card className="border-border/60 shadow-sm">
+                <CardHeader className="pb-4">
                   <div className="flex items-center gap-2">
                     <IconSettings className="size-5 text-primary" />
-                    <h3 className="text-xl font-semibold leading-none tracking-tight">
-                      {t('settings.ai.fields.provider')}
-                    </h3>
+                    <CardTitle className="text-lg font-semibold tracking-tight">
+                      {t('settings.ai.fields.provider') || 'Provider'}
+                    </CardTitle>
                   </div>
-                  <p className="text-sm text-muted-foreground">{t('settings.ai.description')}</p>
-                </div>
-                <div className="p-6 pt-0 space-y-6">
+                  <CardDescription className="text-sm text-muted-foreground">
+                    {t('settings.ai.description')}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-0">
                   <form.Field name="provider">
                     {(field) => (
                       <Field>
@@ -705,143 +948,29 @@ export function AiConfigForm() {
                       </Field>
                     )}
                   </form.Field>
+                </CardContent>
+              </Card>
 
-                  <Separator className="opacity-50" />
-
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2 font-medium text-sm text-muted-foreground uppercase tracking-wider">
-                      <IconPlugConnected className="size-4" />
-                      {t('settings.ai.sections.connection')}
-                    </div>
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
-                      <form.Field name="baseUrl">
-                        {(field) => (
-                          <Field className="sm:col-span-3">
-                            <FieldLabel htmlFor={field.name}>
-                              {t('settings.ai.fields.baseUrl')}
-                            </FieldLabel>
-                            <Input
-                              id={field.name}
-                              value={field.state.value}
-                              onBlur={field.handleBlur}
-                              onChange={(e) => field.handleChange(e.target.value)}
-                              className="bg-muted/20"
-                            />
-                            <FieldError
-                              errors={field.state.meta.errors.map((e) =>
-                                typeof e === 'string' ? e : String(e),
-                              )}
-                            />
-                          </Field>
-                        )}
-                      </form.Field>
-
-                      <form.Field name="port">
-                        {(field) => (
-                          <Field>
-                            <FieldLabel htmlFor={field.name}>
-                              {t('settings.ai.fields.port')}
-                            </FieldLabel>
-                            <Input
-                              id={field.name}
-                              type="number"
-                              value={field.state.value}
-                              onBlur={field.handleBlur}
-                              onChange={(e) => field.handleChange(Number(e.target.value))}
-                              className="bg-muted/20"
-                            />
-                            <FieldError
-                              errors={field.state.meta.errors.map((e) =>
-                                typeof e === 'string' ? e : String(e),
-                              )}
-                            />
-                          </Field>
-                        )}
-                      </form.Field>
-
-                      <form.Field name="timeout">
-                        {(field) => (
-                          <Field>
-                            <FieldLabel htmlFor={field.name}>
-                              {t('settings.ai.fields.timeout')}
-                            </FieldLabel>
-                            <Input
-                              id={field.name}
-                              type="number"
-                              value={field.state.value}
-                              onBlur={field.handleBlur}
-                              onChange={(e) => field.handleChange(Number(e.target.value))}
-                              className="bg-muted/20"
-                            />
-                            <FieldError
-                              errors={field.state.meta.errors.map((e) =>
-                                typeof e === 'string' ? e : String(e),
-                              )}
-                            />
-                          </Field>
-                        )}
-                      </form.Field>
-
-                      <form.Subscribe selector={(state) => state.values.provider}>
-                        {(provider) =>
-                          ['lm-studio', 'ollama', 'llama-cpp'].includes(provider) ? null : (
-                            <form.Field name="token">
-                              {(field) => {
-                                const tokenPlaceholder =
-                                  {
-                                    openai: 'sk-proj-...',
-                                    anthropic: 'sk-ant-...',
-                                  }[provider as 'openai' | 'anthropic'] ?? 'token-...'
-
-                                return (
-                                  <Field className="sm:col-span-4">
-                                    <FieldLabel htmlFor={field.name}>
-                                      {['openai', 'anthropic'].includes(provider)
-                                        ? t('settings.ai.fields.apiKey')
-                                        : t('settings.ai.fields.token')}
-                                    </FieldLabel>
-                                    <Input
-                                      id={field.name}
-                                      type="password"
-                                      value={field.state.value}
-                                      onBlur={field.handleBlur}
-                                      onChange={(e) => field.handleChange(e.target.value)}
-                                      placeholder={tokenPlaceholder}
-                                      className="bg-muted/20"
-                                    />
-                                    <FieldError
-                                      errors={field.state.meta.errors.map((e) =>
-                                        typeof e === 'string' ? e : String(e),
-                                      )}
-                                    />
-                                  </Field>
-                                )
-                              }}
-                            </form.Field>
-                          )
-                        }
-                      </form.Subscribe>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
-                <div className="flex flex-col space-y-1.5 p-6 pb-4">
+              {/* Block 2: Connection Card */}
+              <Card className="border-border/60 shadow-sm">
+                <CardHeader className="pb-4">
                   <div className="flex items-center gap-2">
                     <IconPlugConnected className="size-5 text-primary" />
-                    <h3 className="text-xl font-semibold leading-none tracking-tight">
-                      {t('settings.ai.sections.endpoints')}
-                    </h3>
+                    <CardTitle className="text-lg font-semibold tracking-tight">
+                      {t('settings.ai.sections.connection') || 'Connection'}
+                    </CardTitle>
                   </div>
-                </div>
-                <div className="p-6 pt-0">
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <form.Field name="endpoints.chat">
+                  <CardDescription className="text-sm text-muted-foreground">
+                    Configure base endpoints, ports, time limit, and authentication keys.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-0 space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
+                    <form.Field name="baseUrl">
                       {(field) => (
-                        <Field>
+                        <Field className="sm:col-span-3">
                           <FieldLabel htmlFor={field.name}>
-                            {t('settings.ai.fields.chatEndpoint')}
+                            {t('settings.ai.fields.baseUrl')}
                           </FieldLabel>
                           <Input
                             id={field.name}
@@ -859,17 +988,41 @@ export function AiConfigForm() {
                       )}
                     </form.Field>
 
-                    <form.Field name="endpoints.models">
+                    <form.Field name="port">
                       {(field) => (
                         <Field>
                           <FieldLabel htmlFor={field.name}>
-                            {t('settings.ai.fields.modelsEndpoint')}
+                            {t('settings.ai.fields.port')}
                           </FieldLabel>
                           <Input
                             id={field.name}
+                            type="number"
                             value={field.state.value}
                             onBlur={field.handleBlur}
-                            onChange={(e) => field.handleChange(e.target.value)}
+                            onChange={(e) => field.handleChange(Number(e.target.value))}
+                            className="bg-muted/20"
+                          />
+                          <FieldError
+                            errors={field.state.meta.errors.map((e) =>
+                              typeof e === 'string' ? e : String(e),
+                            )}
+                          />
+                        </Field>
+                      )}
+                    </form.Field>
+
+                    <form.Field name="timeout">
+                      {(field) => (
+                        <Field className="sm:col-span-4">
+                          <FieldLabel htmlFor={field.name}>
+                            {t('settings.ai.fields.timeout')}
+                          </FieldLabel>
+                          <Input
+                            id={field.name}
+                            type="number"
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(Number(e.target.value))}
                             className="bg-muted/20"
                           />
                           <FieldError
@@ -883,19 +1036,29 @@ export function AiConfigForm() {
 
                     <form.Subscribe selector={(state) => state.values.provider}>
                       {(provider) =>
-                        ['lm-studio', 'ollama', 'llama-cpp'].includes(provider) ? (
-                          <>
-                            <form.Field name="endpoints.load">
-                              {(field) => (
-                                <Field>
+                        ['lm-studio', 'ollama', 'llama-cpp'].includes(provider) ? null : (
+                          <form.Field name="token">
+                            {(field) => {
+                              const tokenPlaceholder =
+                                {
+                                  openai: 'sk-proj-...',
+                                  anthropic: 'sk-ant-...',
+                                }[provider as 'openai' | 'anthropic'] ?? 'token-...'
+
+                              return (
+                                <Field className="sm:col-span-4">
                                   <FieldLabel htmlFor={field.name}>
-                                    {t('settings.ai.fields.loadEndpoint')}
+                                    {['openai', 'anthropic'].includes(provider)
+                                      ? t('settings.ai.fields.apiKey')
+                                      : t('settings.ai.fields.token')}
                                   </FieldLabel>
                                   <Input
                                     id={field.name}
+                                    type="password"
                                     value={field.state.value}
                                     onBlur={field.handleBlur}
                                     onChange={(e) => field.handleChange(e.target.value)}
+                                    placeholder={tokenPlaceholder}
                                     className="bg-muted/20"
                                   />
                                   <FieldError
@@ -904,71 +1067,36 @@ export function AiConfigForm() {
                                     )}
                                   />
                                 </Field>
-                              )}
-                            </form.Field>
-                            <form.Field name="endpoints.download">
-                              {(field) => (
-                                <Field>
-                                  <FieldLabel htmlFor={field.name}>
-                                    {t('settings.ai.fields.downloadEndpoint')}
-                                  </FieldLabel>
-                                  <Input
-                                    id={field.name}
-                                    value={field.state.value}
-                                    onBlur={field.handleBlur}
-                                    onChange={(e) => field.handleChange(e.target.value)}
-                                    className="bg-muted/20"
-                                  />
-                                  <FieldError
-                                    errors={field.state.meta.errors.map((e) =>
-                                      typeof e === 'string' ? e : String(e),
-                                    )}
-                                  />
-                                </Field>
-                              )}
-                            </form.Field>
-                            <form.Field name="endpoints.status">
-                              {(field) => (
-                                <Field className="sm:col-span-2">
-                                  <FieldLabel htmlFor={field.name}>
-                                    {t('settings.ai.fields.statusEndpoint')}
-                                  </FieldLabel>
-                                  <Input
-                                    id={field.name}
-                                    value={field.state.value}
-                                    onBlur={field.handleBlur}
-                                    onChange={(e) => field.handleChange(e.target.value)}
-                                    className="bg-muted/20"
-                                  />
-                                  <FieldError
-                                    errors={field.state.meta.errors.map((e) =>
-                                      typeof e === 'string' ? e : String(e),
-                                    )}
-                                  />
-                                </Field>
-                              )}
-                            </form.Field>
-                          </>
-                        ) : null
+                              )
+                            }}
+                          </form.Field>
+                        )
                       }
                     </form.Subscribe>
                   </div>
-                </div>
-              </div>
+
+                  <Separator className="my-2 opacity-50" />
+                  <AdvancedEndpointsCollapsible />
+                </CardContent>
+              </Card>
             </div>
 
             {/* Right Column: Parameters & Actions */}
             <div className="space-y-6">
-              <div className="rounded-lg border bg-card text-card-foreground shadow-sm h-full">
-                <div className="flex flex-col space-y-1.5 p-6 pb-4">
+              {/* Block 3: Parameters Card */}
+              <Card className="border-border/60 shadow-sm h-full">
+                <CardHeader className="pb-4">
                   <div className="flex items-center gap-2">
                     <IconAdjustments className="size-5 text-primary" />
-                    <h3 className="text-xl font-semibold leading-none tracking-tight">
-                      {t('settings.ai.sections.parameters')}
-                    </h3>
+                    <CardTitle className="text-lg font-semibold tracking-tight">
+                      {t('settings.ai.sections.parameters') || 'Parameters'}
+                    </CardTitle>
                   </div>
-                </div>
-                <div className="p-6 pt-0 space-y-4">
+                  <CardDescription className="text-sm text-muted-foreground">
+                    Fine-tune LLM response generation temperatures, tokens, and custom properties.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pt-0 space-y-4">
                   <form.Field name="parameters.model">
                     {(field) => (
                       <Field>
@@ -1208,8 +1336,8 @@ export function AiConfigForm() {
                       </Button>
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </TabsContent>

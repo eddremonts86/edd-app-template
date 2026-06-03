@@ -49,7 +49,7 @@ test.describe.serial('local auth sign up', () => {
     expect(appUser).toMatchObject({
       email: credentials.email,
       name: credentials.name,
-      roleId: 'role_user',
+      roleId: 'user',
     })
   })
 
