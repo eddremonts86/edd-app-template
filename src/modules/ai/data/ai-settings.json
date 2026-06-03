@@ -1,13 +1,13 @@
 {
   "forceLocale": "",
   "source": "playwright",
-  "id": "b3dcba48-ca16-4c71-82e1-153d408247a7",
-  "timestamp": "2026-03-05T14:39:19.214Z",
+  "id": "62ddc612-1fdd-4e4f-8465-bfcce9892f25",
+  "timestamp": "2026-06-03T13:03:58.509Z",
   "action": "update",
   "changes": {
-    "provider": "lm-studio",
-    "baseUrl": "http://lmstudio:1234/v1",
-    "port": 1234,
+    "provider": "llama-cpp",
+    "baseUrl": "http://localhost:8080/v1",
+    "port": 8080,
     "token": "",
     "apiKey": "",
     "parameters": {
@@ -21,9 +21,9 @@
     "endpoints": {
       "chat": "/chat/completions",
       "models": "/models",
-      "load": "/models/load",
-      "download": "/models/download",
-      "status": "/models/download/status/:job_id"
+      "load": "",
+      "download": "",
+      "status": ""
     },
     "timeout": 60000,
     "additionalParams": ""

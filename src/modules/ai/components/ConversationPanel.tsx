@@ -145,10 +145,10 @@ export function ConversationPanel({
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           onClick={onToggle}
-          className="absolute left-4 top-24 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/60 shadow-lg backdrop-blur-md transition-all hover:bg-white/80 hover:shadow-xl dark:bg-black/40 dark:hover:bg-black/60"
+          className="absolute left-4 top-24 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/60 shadow-lg backdrop-blur-md transition-all hover:bg-card/90 hover:shadow-xl dark:bg-card/40 dark:hover:bg-card/60"
           title={t('ai.chat.conversations')}
         >
-          <MessagesSquare size={18} className="text-indigo-600 dark:text-indigo-400" />
+          <MessagesSquare size={18} className="text-primary" />
           {isAdmin && (
             <span className="absolute -right-1 -top-1 flex h-3 w-3">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
@@ -177,10 +177,10 @@ export function ConversationPanel({
               animate={{ x: 0 }}
               exit={{ x: -320 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 left-0 top-0 z-40 flex w-80 flex-col border-r border-white/20 bg-white/80 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-black/80"
+              className="fixed bottom-0 left-0 top-0 z-40 flex w-80 flex-col border-r border-border bg-card/85 shadow-2xl backdrop-blur-xl dark:border-border/30 dark:bg-card/85"
             >
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-black/5 p-4 dark:border-white/5">
+              <div className="flex items-center justify-between border-b border-border p-4">
                 <div className="flex items-center gap-2">
                   <h2 className="text-lg font-semibold tracking-tight">
                     {t('ai.chat.conversations', 'Chats')}
@@ -267,8 +267,8 @@ export function ConversationPanel({
                                 className={cn(
                                   'group relative flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 transition-all',
                                   activeId === conv.id
-                                    ? 'bg-indigo-50 text-indigo-900 shadow-sm ring-1 ring-indigo-200 dark:bg-indigo-900/20 dark:text-indigo-100 dark:ring-indigo-500/30'
-                                    : 'hover:bg-black/5 dark:hover:bg-white/5',
+                                    ? 'bg-primary/10 text-primary shadow-sm ring-1 ring-primary/20'
+                                    : 'hover:bg-muted/80 text-muted-foreground hover:text-foreground',
                                 )}
                                 onClick={() => onSelect(conv.id)}
                                 onKeyDown={(e) => {
@@ -280,8 +280,8 @@ export function ConversationPanel({
                               >
                                 {/* Chat Icon / Avatar */}
                                 {isAdmin && activeTab === 'all-chats' ? (
-                                  <Avatar className="h-8 w-8 shrink-0 border border-black/5">
-                                    <AvatarFallback className="text-[10px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300">
+                                  <Avatar className="h-8 w-8 shrink-0 border border-border/30">
+                                    <AvatarFallback className="text-[10px] bg-primary/10 text-primary">
                                       {conv.userId?.toString()?.slice(0, 2)?.toUpperCase() || '??'}
                                     </AvatarFallback>
                                   </Avatar>
@@ -290,8 +290,8 @@ export function ConversationPanel({
                                     className={cn(
                                       'flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors',
                                       activeId === conv.id
-                                        ? 'bg-white text-indigo-600 shadow-sm dark:bg-indigo-500/20 dark:text-indigo-300'
-                                        : 'bg-black/5 text-muted-foreground dark:bg-white/10',
+                                        ? 'bg-card text-primary shadow-sm dark:bg-primary/20 dark:text-primary-foreground'
+                                        : 'bg-muted text-muted-foreground',
                                     )}
                                   >
                                     <MessagesSquare size={14} />
@@ -323,7 +323,7 @@ export function ConversationPanel({
                                 {/* Actions */}
                                 <div className="absolute right-2 flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
                                   {confirmDeleteId === conv.id ? (
-                                    <div className="flex items-center gap-1 rounded-md bg-white p-0.5 shadow-lg dark:bg-black">
+                                    <div className="flex items-center gap-1 rounded-md bg-popover border border-border p-0.5 shadow-lg">
                                       <Button
                                         variant="ghost"
                                         size="icon"
@@ -372,7 +372,7 @@ export function ConversationPanel({
               </ScrollArea>
 
               {/* Footer Actions */}
-              <div className="border-t border-black/5 p-4 dark:border-white/5">
+              <div className="border-t border-border p-4">
                 {confirmDeleteAll ? (
                   <div className="flex flex-col gap-2 rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-900/30 dark:bg-red-900/10">
                     <p className="text-center text-xs font-medium text-red-800 dark:text-red-200">

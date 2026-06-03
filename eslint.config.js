@@ -87,7 +87,6 @@ export default tseslint.config(
   {
     files: [
       'scripts/**/*.{ts,js,mjs,cjs}',
-      'ia-config/**/*.js',
       'tools/**/*.{ts,js,mjs,cjs}',
       'server.prod.mjs',
       '**/*.cjs',

@@ -19,8 +19,9 @@ export function NotificationBell() {
   const { data, refetch } = useInboxNotifications(8)
   const markReadMutation = useMarkNotificationsRead()
   const items = data?.items ?? []
-  const unreadCount = data?.unreadCount ?? 0
-  const displayCount = unreadCount > 0 ? unreadCount : items.filter((item) => !item.isRead).length
+  const unreadItems = React.useMemo(() => items.filter((item) => !item.isRead), [items])
+  const unreadCount = data?.unreadCount ?? unreadItems.length
+  const displayCount = unreadCount > 0 ? unreadCount : unreadItems.length
 
   const markAsRead = React.useCallback(
     (id: string) => {
@@ -66,13 +67,13 @@ export function NotificationBell() {
           </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {items.length === 0 ? (
+        {unreadItems.length === 0 ? (
           <div className="px-4 py-8 text-center text-sm text-muted-foreground">
             No notifications
           </div>
         ) : (
           <div className="max-h-112 space-y-1 overflow-auto p-2">
-            {items.map((item) => (
+            {unreadItems.map((item) => (
               <Link
                 key={item.id}
                 to={item.link ?? '/dashboard/contact-messages'}

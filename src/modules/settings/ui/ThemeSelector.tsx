@@ -17,32 +17,100 @@ interface ThemeOption {
 
 function LightPreview() {
   return (
-    <div className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-border/60">
-      <div className="w-1/3 bg-slate-200" />
-      <div className="flex-1 bg-white" />
+    <div
+      className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-border/40"
+      style={{ backgroundColor: 'oklch(0.96 0.005 240)' }}
+    >
+      {/* Sidebar */}
+      <div
+        className="w-1/4 border-r border-border/40"
+        style={{ backgroundColor: 'oklch(1 0 0)' }}
+      />
+      {/* Content Area */}
+      <div className="flex-1 p-1 flex flex-col gap-1">
+        {/* Orange Accent indicator */}
+        <div
+          className="h-1.5 w-2/3 rounded-xs"
+          style={{ backgroundColor: 'oklch(0.60 0.20 35)' }}
+        />
+        <div
+          className="flex-1 rounded-xs border border-border/40 shadow-2xs"
+          style={{ backgroundColor: 'oklch(1 0 0)' }}
+        />
+      </div>
     </div>
   )
 }
 
 function DarkPreview() {
   return (
-    <div className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-border/60">
-      <div className="w-1/3 bg-slate-900" />
-      <div className="flex-1 bg-slate-800" />
+    <div
+      className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-white/10"
+      style={{ backgroundColor: 'oklch(0.12 0.008 30)' }}
+    >
+      {/* Sidebar */}
+      <div
+        className="w-1/4 border-r"
+        style={{ backgroundColor: 'oklch(0.20 0.01 30)', borderColor: 'oklch(0.26 0.01 30)' }}
+      />
+      {/* Content Area */}
+      <div className="flex-1 p-1 flex flex-col gap-1">
+        {/* Orange Accent indicator */}
+        <div
+          className="h-1.5 w-2/3 rounded-xs"
+          style={{ backgroundColor: 'oklch(0.68 0.22 35)' }}
+        />
+        <div
+          className="flex-1 rounded-xs border shadow-2xs"
+          style={{ backgroundColor: 'oklch(0.15 0.01 30)', borderColor: 'oklch(0.21 0.01 30)' }}
+        />
+      </div>
     </div>
   )
 }
 
 function SystemPreview() {
   return (
-    <div className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-border/60">
-      <div className="flex w-1/2">
-        <div className="w-1/2 bg-slate-200" />
-        <div className="flex-1 bg-white" />
+    <div className="flex h-10 w-full overflow-hidden rounded-md ring-1 ring-border/40">
+      {/* Light Side */}
+      <div
+        className="flex w-1/2 overflow-hidden"
+        style={{ backgroundColor: 'oklch(0.96 0.005 240)' }}
+      >
+        <div
+          className="w-1/3 border-r border-border/40"
+          style={{ backgroundColor: 'oklch(1 0 0)' }}
+        />
+        <div className="flex-1 p-1 flex flex-col gap-1">
+          <div
+            className="h-1.5 w-full rounded-xs"
+            style={{ backgroundColor: 'oklch(0.60 0.20 35)' }}
+          />
+          <div
+            className="flex-1 rounded-xs border border-border/40"
+            style={{ backgroundColor: 'oklch(1 0 0)' }}
+          />
+        </div>
       </div>
-      <div className="flex w-1/2">
-        <div className="w-1/2 bg-slate-900" />
-        <div className="flex-1 bg-slate-800" />
+      {/* Dark Side */}
+      <div
+        className="flex w-1/2 overflow-hidden"
+        style={{ backgroundColor: 'oklch(0.12 0.008 30)' }}
+      >
+        <div
+          className="w-1/3 border-r"
+          style={{ backgroundColor: 'oklch(0.20 0.01 30)', borderColor: 'oklch(0.26 0.01 30)' }}
+        />
+        <div className="flex-1 p-1 flex flex-col gap-1">
+          <div
+            className="h-1.5 w-full rounded-xs"
+            style={{ backgroundColor: 'oklch(0.68 0.22 35)' }}
+          />
+          <div
+            className="flex-1 rounded-xs border"
+            style={{ backgroundColor: 'oklch(0.15 0.01 30)', borderColor: 'oklch(0.21 0.01 30)' }}
+          />
+        </div>
       </div>
     </div>
   )

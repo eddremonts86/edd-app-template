@@ -42,7 +42,14 @@ import {
   useTestAiConnection,
   useUpdateAiConfig,
 } from '../api/ai-config.queries'
-import { AnthropicIcon, LlamaCppIcon, LMStudioIcon, OllamaIcon, OpenAIIcon } from './AiIcons'
+import {
+  AnthropicIcon,
+  LlamaCppIcon,
+  LMStudioIcon,
+  MinimaxIcon,
+  OllamaIcon,
+  OpenAIIcon,
+} from './AiIcons'
 import { AiLanguageAudit } from './AiLanguageAudit'
 
 const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
@@ -136,14 +143,14 @@ const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
     },
   },
   minimax: {
-    baseUrl: 'https://api.minimax.chat/v1',
+    baseUrl: 'https://api.minimax.io/v1',
     port: 443,
     endpoints: {
-      chat: '/text/chatcompletion_v2',
-      models: '/text/chatcompletion_v2',
+      chat: '/chat/completions',
+      models: '/models',
     },
     parameters: {
-      model: 'auto',
+      model: 'MiniMax-Text-01',
       temperature: 0.7,
       max_tokens: 2048,
       top_p: 1,
@@ -220,8 +227,8 @@ function ProviderStatusCard({
       }}
       className={`group relative flex flex-col items-center text-center p-6 rounded-xl border transition-all duration-300 cursor-pointer hover:-translate-y-1 ${
         isActive
-          ? 'bg-black/80 border-primary shadow-md ring-1 ring-primary/20'
-          : 'bg-black/40 hover:bg-black/60 hover:border-primary/50 hover:shadow-md'
+          ? 'bg-card border-primary shadow-md ring-1 ring-primary/20'
+          : 'bg-card/45 hover:bg-card border-border hover:border-primary/50 hover:shadow-md dark:bg-card/25'
       }`}
     >
       {/* Priority Index */}
@@ -348,7 +355,12 @@ function ProviderStatusCard({
             {testResult && (
               <div className="pt-1 border-t border-border/30">
                 <span className="text-muted-foreground block">Resultado del test</span>
-                <span className={cn('block font-mono font-medium', testResult.ok ? 'text-emerald-500' : 'text-red-500')}>
+                <span
+                  className={cn(
+                    'block font-mono font-medium',
+                    testResult.ok ? 'text-emerald-500' : 'text-red-500',
+                  )}
+                >
                   {testResult.message}
                 </span>
                 <span className="text-[8px] text-muted-foreground/60 block">
@@ -362,8 +374,6 @@ function ProviderStatusCard({
     </div>
   )
 }
-
-
 
 const AI_CONFIG_TABS = ['status', 'configurations', 'logs'] as const
 type AiConfigTab = (typeof AI_CONFIG_TABS)[number]
@@ -572,12 +582,41 @@ export function AiConfigForm() {
     },
   })
 
-  // Reset form when config data arrives
+  // Sync form ONLY when the saved config's provider changes (e.g. external
+  // change or first arrival). We deliberately don't sync on every refetch,
+  // otherwise periodic background refetches (focus / poll / mutation
+  // invalidations) would wipe out the user's in-progress edits.
+  const lastSyncedProviderRef = React.useRef<string | null>(null)
   React.useEffect(() => {
-    if (config) {
-      form.reset(defaultValues)
-    }
-  }, [config, defaultValues, form])
+    if (!config?.provider) return
+    if (lastSyncedProviderRef.current === config.provider) return
+    lastSyncedProviderRef.current = config.provider
+
+    form.reset({
+      provider: config.provider,
+      baseUrl: config.baseUrl,
+      port: config.port,
+      token: config.token ?? '',
+      apiKey: config.apiKey ?? '',
+      timeout: config.timeout ?? 30000,
+      additionalParams: config.additionalParams ?? '',
+      parameters: {
+        model: config.parameters.model,
+        temperature: config.parameters.temperature,
+        max_tokens: config.parameters.max_tokens,
+        top_p: config.parameters.top_p,
+        frequency_penalty: config.parameters.frequency_penalty,
+        presence_penalty: config.parameters.presence_penalty,
+      },
+      endpoints: {
+        chat: config.endpoints.chat,
+        models: config.endpoints.models,
+        load: config.endpoints.load ?? '',
+        download: config.endpoints.download ?? '',
+        status: config.endpoints.status ?? '',
+      },
+    })
+  }, [config, form])
 
   const currentProvider = useStore(form.store, (state) => state.values.provider)
   const currentBaseUrl = useStore(form.store, (state) => state.values.baseUrl)
@@ -640,7 +679,7 @@ export function AiConfigForm() {
 
   const resolveProviderConfig = React.useCallback(
     (provider: AiProvider): AiConfigFormData => {
-      const defaults = PROVIDER_DEFAULTS[provider]
+      const defaults = PROVIDER_DEFAULTS[provider] ?? PROVIDER_DEFAULTS['lm-studio']
       const saved = configStore?.providers?.[provider]
 
       return {
@@ -705,6 +744,10 @@ export function AiConfigForm() {
   }
 
   const handleProviderChange = (provider: AiProvider) => {
+    // Radix Select can fire onValueChange('') when the controlled value
+    // changes to a value whose SelectItem is not yet registered (closed
+    // dropdown). Ignore the spurious empty event so it doesn't wipe the form.
+    if (!provider) return
     const nextConfig = resolveProviderConfig(provider)
 
     form.setFieldValue('provider', nextConfig.provider)
@@ -865,6 +908,13 @@ export function AiConfigForm() {
                       'Enterprise-grade Claude models focused on safety, reliability, and large context windows.',
                     Icon: AnthropicIcon,
                   },
+                  {
+                    id: 'minimax',
+                    title: 'MiniMax',
+                    description:
+                      'Hosted multimodal models from MiniMax with OpenAI-compatible API and large context windows.',
+                    Icon: MinimaxIcon,
+                  },
                 ].map((provider, index) => {
                   const providerId = provider.id as AiProvider
                   const status = providerStatuses?.find((s) => s?.id === provider.id)
@@ -872,7 +922,8 @@ export function AiConfigForm() {
                   const isAvailable = status?.available ?? false
                   const isError = status?.status === 'error' || status?.status === 'unreachable'
                   const providerConfig = configStore?.providers?.[providerId]
-                  const providerDefault = PROVIDER_DEFAULTS[providerId]
+                  const providerDefault =
+                    PROVIDER_DEFAULTS[providerId] ?? PROVIDER_DEFAULTS['lm-studio']
                   const apiBaseUrl = providerConfig?.baseUrl ?? providerDefault.baseUrl ?? ''
                   const resolvedModel =
                     status?.resolvedModelId ||
@@ -942,6 +993,9 @@ export function AiConfigForm() {
                             </SelectItem>
                             <SelectItem value="anthropic">
                               {t('settings.ai.providers.anthropic')}
+                            </SelectItem>
+                            <SelectItem value="minimax">
+                              {t('settings.ai.providers.minimax')}
                             </SelectItem>
                           </SelectContent>
                         </Select>
@@ -1043,12 +1097,13 @@ export function AiConfigForm() {
                                 {
                                   openai: 'sk-proj-...',
                                   anthropic: 'sk-ant-...',
-                                }[provider as 'openai' | 'anthropic'] ?? 'token-...'
+                                  minimax: 'eyJhbG... (JWT)',
+                                }[provider as 'openai' | 'anthropic' | 'minimax'] ?? 'token-...'
 
                               return (
                                 <Field className="sm:col-span-4">
                                   <FieldLabel htmlFor={field.name}>
-                                    {['openai', 'anthropic'].includes(provider)
+                                    {['openai', 'anthropic', 'minimax'].includes(provider)
                                       ? t('settings.ai.fields.apiKey')
                                       : t('settings.ai.fields.token')}
                                   </FieldLabel>

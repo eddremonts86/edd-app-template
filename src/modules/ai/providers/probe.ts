@@ -4,6 +4,7 @@ import { getAllAiConfigs } from '@/modules/ai/config/store'
 import { probeAnthropicProvider } from './anthropic'
 import { probeLlamaCppProvider } from './llama-cpp'
 import { probeLmStudioProvider } from './lmstudio'
+import { probeMiniMaxProvider } from './minimax'
 import { probeOllamaProvider } from './ollama'
 import { probeOpenAiProvider } from './openai'
 import type { AiProviderStatus } from './types'
@@ -21,7 +22,7 @@ export async function probeProvider(config: AiConfigFormData): Promise<AiProvide
     case 'openai':
       return await probeOpenAiProvider(config)
     case 'minimax':
-      return await probeOpenAiProvider(config)
+      return await probeMiniMaxProvider(config)
   }
 }
 

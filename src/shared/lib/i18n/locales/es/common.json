@@ -573,7 +573,9 @@
         "activeSessions": "Sesiones activas",
         "activeSessionsHint": "Conectados ahora",
         "unreadMessages": "Mensajes sin leer",
-        "unreadMessagesHint": "{{count}} llegaron en los últimos 7 días"
+        "unreadMessagesHint": "{{count}} llegaron en los últimos 7 días",
+        "trendUp": "vs semana pasada",
+        "trendDown": "vs semana pasada"
       },
       "usersOverview": {
         "title": "Resumen de usuarios",

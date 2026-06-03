@@ -243,9 +243,12 @@
         "ai": "AI Configuration"
       },
       "providers": {
+        "llama-cpp": "Llama.cpp",
+        "ollama": "Ollama",
         "openai": "OpenAI",
         "anthropic": "Anthropic",
-        "lm-studio": "LM Studio"
+        "lm-studio": "LM Studio",
+        "minimax": "MiniMax"
       },
       "fields": {
         "provider": "AI Provider",
@@ -307,7 +310,9 @@
         "activeSessions": "Active sessions",
         "activeSessionsHint": "Currently signed in",
         "unreadMessages": "Unread messages",
-        "unreadMessagesHint": "{{count}} arrived in the last 7 days"
+        "unreadMessagesHint": "{{count}} arrived in the last 7 days",
+        "trendUp": "vs last week",
+        "trendDown": "vs last week"
       },
       "usersOverview": {
         "title": "Users overview",

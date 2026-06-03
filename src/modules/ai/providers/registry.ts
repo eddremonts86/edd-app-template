@@ -2,6 +2,7 @@ import type { AiProviderId } from '@/modules/ai/config'
 import { anthropicProvider } from './anthropic'
 import { llamaCppProvider } from './llama-cpp'
 import { lmStudioProvider } from './lmstudio'
+import { miniMaxProvider } from './minimax'
 import { ollamaProvider } from './ollama'
 import { openAiProvider } from './openai'
 import type { ProviderRegistryItem } from './types'
@@ -17,5 +18,6 @@ registerProvider(ollamaProvider)
 registerProvider(lmStudioProvider)
 registerProvider(openAiProvider)
 registerProvider(anthropicProvider)
+registerProvider(miniMaxProvider)
 
 export const getProvider = (id: AiProviderId) => providerRegistry.get(id)

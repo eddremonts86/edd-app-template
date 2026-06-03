@@ -229,9 +229,12 @@
         "ai": "AI"
       },
       "providers": {
+        "llama-cpp": "Llama.cpp",
+        "ollama": "Ollama",
         "openai": "OpenAI",
         "anthropic": "Anthropic",
-        "lm-studio": "LM Studio"
+        "lm-studio": "LM Studio",
+        "minimax": "MiniMax"
       },
       "fields": {
         "provider": "AI-udbyder",
@@ -286,7 +289,9 @@
         "activeSessions": "Aktive sessioner",
         "activeSessionsHint": "Logget ind nu",
         "unreadMessages": "Ulæste beskeder",
-        "unreadMessagesHint": "{{count}} ankom i de sidste 7 dage"
+        "unreadMessagesHint": "{{count}} ankom i de sidste 7 dage",
+        "trendUp": "ift. sidste uge",
+        "trendDown": "ift. sidste uge"
       },
       "usersOverview": {
         "title": "Brugeroversigt",

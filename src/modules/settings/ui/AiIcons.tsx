@@ -30,6 +30,28 @@ export const MetaIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export const LlamaCppIcon = MetaIcon
 
+export const MinimaxIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M3 6.5c0-.83.67-1.5 1.5-1.5S6 5.67 6 6.5v11c0 .83-.67 1.5-1.5 1.5S3 18.33 3 17.5v-11Z"
+      fill="currentColor"
+    />
+    <path
+      d="M7.5 9.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v8c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5v-8Z"
+      fill="currentColor"
+    />
+    <path
+      d="M12 6.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v11c0 .83-.67 1.5-1.5 1.5S12 18.33 12 17.5v-11Z"
+      fill="currentColor"
+    />
+    <path
+      d="M16.5 9.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v8c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5v-8Z"
+      fill="currentColor"
+    />
+    <circle cx="21" cy="6.5" r="1.5" fill="currentColor" />
+  </svg>
+)
+
 export const LMStudioIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="2" />

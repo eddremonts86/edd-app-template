@@ -44,7 +44,7 @@ export function ErrorStateView({
   const stackTrace = errorDetails instanceof Error ? errorDetails.stack : undefined
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white p-4 text-center text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 text-center text-foreground">
       <div className="w-full max-w-md space-y-8">
         {/* Icon section */}
         <div className="relative mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
@@ -73,7 +73,7 @@ export function ErrorStateView({
           <h1 className="text-3xl font-bold tracking-tight">
             {isAuthenticated ? title : t('boundary.unauthenticatedTitle', 'Acceso restringido')}
           </h1>
-          <p className="text-slate-500 dark:text-slate-400">
+          <p className="text-muted-foreground">
             {isAuthenticated
               ? description
               : unauthMessage ||

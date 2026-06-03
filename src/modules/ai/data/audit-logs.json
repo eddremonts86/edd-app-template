@@ -2534,5 +2534,21 @@
     "providerId": "llama-cpp",
     "model": "DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf",
     "contextLength": 0
+  },
+  {
+    "timestamp": "2026-06-03T13:04:22.377Z",
+    "locale": "en",
+    "query": "dime como va todo?...",
+    "providerId": "minimax",
+    "model": "qwen3.5:2b",
+    "contextLength": 0
+  },
+  {
+    "timestamp": "2026-06-03T13:04:32.004Z",
+    "locale": "en",
+    "query": "Create a new project plan...",
+    "providerId": "minimax",
+    "model": "qwen3.5:2b",
+    "contextLength": 0
   }
 ]

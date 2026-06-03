@@ -283,16 +283,16 @@ function ThinkingProcess({ content }: { content: string }) {
   const [isExpanded, setIsExpanded] = React.useState(false)
 
   return (
-    <div className="my-3 overflow-hidden rounded-xl border border-indigo-500/20 bg-indigo-500/5 backdrop-blur-sm transition-all duration-300 hover:bg-indigo-500/10">
+    <div className="my-3 overflow-hidden rounded-xl border border-primary/20 bg-primary/5 backdrop-blur-sm transition-all duration-300 hover:bg-primary/10">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="flex w-full items-center justify-between px-4 py-3 transition-colors"
       >
         <div className="flex items-center gap-2.5">
-          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500/20 text-indigo-500">
+          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-primary">
             <Sparkles size={12} />
           </div>
-          <span className="text-xs font-semibold text-indigo-600/80 dark:text-indigo-300">
+          <span className="text-xs font-semibold text-primary/80 dark:text-primary-foreground/80">
             {t('ai.chat.thinking')}
           </span>
         </div>
@@ -310,7 +310,7 @@ function ThinkingProcess({ content }: { content: string }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="border-t border-indigo-500/10 bg-black/5 px-4 py-3 text-xs text-muted-foreground/90 font-mono whitespace-pre-wrap leading-relaxed dark:bg-white/5">
+            <div className="border-t border-border/50 bg-muted/30 px-4 py-3 text-xs text-muted-foreground/90 font-mono whitespace-pre-wrap leading-relaxed">
               {content}
             </div>
           </m.div>
@@ -339,13 +339,13 @@ const MarkdownA = ({ children, href }: { children?: React.ReactNode; href?: stri
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="underline decoration-indigo-500/50 underline-offset-2 hover:decoration-indigo-500 transition-colors font-medium"
+    className="underline decoration-primary/50 underline-offset-2 hover:decoration-primary transition-colors font-medium"
   >
     {children}
   </a>
 )
 const MarkdownBlockquote = ({ children }: { children?: React.ReactNode }) => (
-  <blockquote className="border-l-4 border-indigo-500/30 pl-4 py-1 my-2 italic text-muted-foreground bg-indigo-500/5 rounded-r">
+  <blockquote className="border-l-4 border-primary/30 pl-4 py-1 my-2 italic text-muted-foreground bg-primary/5 rounded-r">
     {children}
   </blockquote>
 )
@@ -651,11 +651,11 @@ function EmptyState({ onSuggestionClick }: { onSuggestionClick: (text: string) =
             key={s.label}
             variant="outline"
             onClick={() => onSuggestionClick(s.label)}
-            className="h-auto w-full flex items-start gap-4 p-4 text-left border-border/50 hover:bg-indigo-500/5 hover:border-indigo-500/30 transition-all duration-300 group rounded-2xl relative"
+            className="h-auto w-full flex items-start gap-4 p-4 text-left border border-border/50 hover:bg-primary/5 hover:border-primary/30 transition-all duration-300 group rounded-2xl relative"
           >
             <span className="text-3xl mt-0.5 shrink-0 select-none">{s.icon}</span>
             <div className="space-y-1.5 min-w-0 flex-1">
-              <span className="block font-semibold text-sm text-foreground group-hover:text-indigo-600 transition-colors">
+              <span className="block font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
                 {s.label}
               </span>
               <div className="text-[11px] leading-normal text-muted-foreground space-y-1">
@@ -961,7 +961,7 @@ export function HelpChatPage() {
       onSaveState={convManager.saveActionState}
     >
       <LazyMotion features={domAnimation}>
-        <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/20 bg-background/50 shadow-2xl backdrop-blur-2xl dark:border-white/5 dark:bg-black/40">
+        <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-background/50 shadow-2xl backdrop-blur-2xl dark:border-border/30 dark:bg-card/40">
           {/* --- Dynamic Background --- */}
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-indigo-200/20 via-background/0 to-background/0 dark:from-indigo-900/20"></div>
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,var(--tw-gradient-stops))] from-purple-200/20 via-background/0 to-background/0 dark:from-purple-900/20"></div>
@@ -981,7 +981,7 @@ export function HelpChatPage() {
           />
 
           {/* --- Header --- */}
-          <Card className="flex h-20 items-center justify-between rounded-none border-t-0 border-x-0 border-b border-white/10 bg-white/40 px-8 backdrop-blur-md dark:bg-black/20">
+          <Card className="flex h-20 items-center justify-between rounded-none border-t-0 border-x-0 border-b border-border bg-card/45 px-8 backdrop-blur-md dark:bg-card/25">
             <div className="flex items-center gap-4">
               <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25">
                 <Bot size={24} />
@@ -1033,7 +1033,7 @@ export function HelpChatPage() {
                     className={cn(
                       'h-8 gap-2 rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest shadow-sm transition-colors',
                       isAgentActive
-                        ? 'border-indigo-200 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 dark:border-indigo-900/50 dark:bg-indigo-900/20 dark:text-indigo-300 dark:hover:bg-indigo-900/40'
+                        ? 'border-primary/25 bg-primary/10 text-primary hover:bg-primary/20 dark:border-primary/30 dark:bg-primary/20 dark:text-primary-foreground'
                         : 'border-destructive/20 bg-destructive/10 text-destructive hover:bg-destructive/20',
                     )}
                   >
@@ -1159,7 +1159,7 @@ export function HelpChatPage() {
           {/* --- Input Area --- */}
           <section
             aria-label="File drop zone"
-            className="relative z-10 border-t border-white/10 bg-white/40 p-6 backdrop-blur-xl dark:bg-black/40"
+            className="relative z-10 border-t border-border bg-card/45 p-6 backdrop-blur-xl dark:bg-card/25"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
           >
@@ -1176,7 +1176,7 @@ export function HelpChatPage() {
                     {attachments.map((file) => (
                       <div
                         key={file.name}
-                        className="group relative flex w-36 shrink-0 flex-col gap-2 rounded-xl border border-white/20 bg-white/50 p-2.5 shadow-sm backdrop-blur-md dark:bg-black/50"
+                        className="group relative flex w-36 shrink-0 flex-col gap-2 rounded-xl border border-border bg-card/50 p-2.5 shadow-sm backdrop-blur-md dark:bg-card/50"
                       >
                         <div className="flex h-20 w-full items-center justify-center rounded-lg bg-muted/50 overflow-hidden">
                           {file.type.startsWith('image/') ? (
@@ -1215,12 +1215,12 @@ export function HelpChatPage() {
                 accept="image/*,application/pdf,.doc,.docx,.xls,.xlsx,.txt,.csv,.json,.md,.yaml,.yml,.xml,.log,.ts,.tsx,.js,.jsx,.py,.html,.css"
                 aria-label="Upload files"
               />
-              <InputGroup className="items-end gap-2 rounded-[2rem] border-white/20 bg-white/60 p-2 shadow-xl shadow-indigo-500/5 transition-all dark:bg-black/40 has-[textarea:focus-visible]:border-indigo-500/50 has-[textarea:focus-visible]:bg-white has-[textarea:focus-visible]:ring-4 has-[textarea:focus-visible]:ring-indigo-500/10 dark:has-[textarea:focus-visible]:bg-black/60">
+              <InputGroup className="items-end gap-2 rounded-[2rem] border border-border bg-card/60 p-2 shadow-xl shadow-indigo-500/5 transition-all dark:bg-card/40 has-[textarea:focus-visible]:border-primary/50 has-[textarea:focus-visible]:bg-card has-[textarea:focus-visible]:ring-4 has-[textarea:focus-visible]:ring-primary/10 dark:has-[textarea:focus-visible]:bg-card/65">
                 <InputGroupAddon className="py-0">
                   <InputGroupButton
                     variant="ghost"
                     size="icon-sm"
-                    className="h-11 w-11 shrink-0 rounded-full text-muted-foreground hover:bg-indigo-50 hover:text-indigo-600 dark:hover:bg-indigo-900/20"
+                    className="h-11 w-11 shrink-0 rounded-full text-muted-foreground hover:bg-primary/10 hover:text-primary"
                     onClick={() => fileInputRef.current?.click()}
                     title="Attach file"
                   >

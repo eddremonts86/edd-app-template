@@ -24,7 +24,6 @@ services:
       - '3000:3000'
     volumes:
       - .:/app
-      - ./ia-config:/app/ia-config:ro
       - edd_app_template_node_modules:/app/node_modules
     depends_on:
       db:

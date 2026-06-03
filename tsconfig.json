@@ -1,5 +1,5 @@
 {
-  "include": ["**/*.ts", "**/*.tsx", "ia-config/**/*.js"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["src/components/ui/**"],
   "compilerOptions": {
     "target": "ES2022",

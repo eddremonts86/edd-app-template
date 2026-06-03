@@ -33,7 +33,7 @@ export function DashboardPage() {
           </AlertDescription>
         </Alert>
         
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-border/40 bg-muted/20 px-4 py-3 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-border/70 bg-muted/50 px-4 py-3 text-xs text-muted-foreground">
           <span className="font-medium text-foreground flex items-center gap-1.5">
             <span className="flex h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
             Rutas del Starter

@@ -73,12 +73,12 @@ export const ANTHROPIC_BASE_URL =
 export const PROVIDER_DEFAULTS: Record<AiProvider, AiConfigFormData> = {
   minimax: {
     provider: 'minimax',
-    baseUrl: getEnv('MINIMAX_BASE_URL', 'https://api.minimaxi.chat/v1'),
-    port: parsePort(getEnv('MINIMAX_BASE_URL', 'https://api.minimaxi.chat/v1'), 443),
+    baseUrl: getEnv('MINIMAX_BASE_URL', 'https://api.minimax.io/v1'),
+    port: parsePort(getEnv('MINIMAX_BASE_URL', 'https://api.minimax.io/v1'), 443),
     token: '',
     apiKey: getEnv('MINIMAX_API_KEY', ''),
     parameters: {
-      model: getEnv('MINIMAX_MODEL', 'abab6.5-chat'),
+      model: getEnv('MINIMAX_MODEL', 'MiniMax-Text-01'),
       temperature: 0.7,
       max_tokens: 2048,
       top_p: 1,
@@ -86,8 +86,8 @@ export const PROVIDER_DEFAULTS: Record<AiProvider, AiConfigFormData> = {
       presence_penalty: 0,
     },
     endpoints: {
-      chat: '/v1/chat/completions',
-      models: '/v1/models',
+      chat: '/chat/completions',
+      models: '/models',
       load: '',
       download: '',
       status: '',
@@ -217,11 +217,15 @@ export const PROVIDER_DEFAULTS: Record<AiProvider, AiConfigFormData> = {
   },
 }
 
-export const buildDefaultConfig = (provider: AiProvider): AiConfigFormData => ({
-  ...PROVIDER_DEFAULTS[provider],
-  parameters: { ...PROVIDER_DEFAULTS[provider].parameters },
-  endpoints: { ...PROVIDER_DEFAULTS[provider].endpoints },
-})
+export const buildDefaultConfig = (provider: AiProvider): AiConfigFormData => {
+  const source = PROVIDER_DEFAULTS[provider] ?? PROVIDER_DEFAULTS['llama-cpp']
+  return {
+    ...source,
+    provider,
+    parameters: { ...source.parameters },
+    endpoints: { ...source.endpoints },
+  }
+}
 
 export const normalizeConfig = (
   config: Partial<AiConfigFormData> | null | undefined,
@@ -314,10 +318,10 @@ export const aiConfig: AiRuntimeConfig = {
     },
     minimax: {
       id: 'minimax',
-      baseUrl: getEnv('AI_MINIMAX_BASE_URL', 'https://api.minimax.chat/v1'),
-      endpoints: { chat: '/text/chatcompletion_v2', models: '/text/chatcompletion_v2' },
+      baseUrl: getEnv('AI_MINIMAX_BASE_URL', 'https://api.minimax.io/v1'),
+      endpoints: { chat: '/chat/completions', models: '/models' },
       headers: parseHeaderJson(getEnv('AI_MINIMAX_HEADERS')),
-      defaultModel: getEnv('AI_MINIMAX_MODEL', 'auto'),
+      defaultModel: getEnv('AI_MINIMAX_MODEL', 'MiniMax-Text-01'),
       generation: { temperature: 0.7, maxTokens: 2048, topP: 0.9 },
     },
   },
