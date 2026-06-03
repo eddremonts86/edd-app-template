@@ -63,7 +63,7 @@ export const Topbar = memo(function Topbar() {
               >
                 <Rocket className="w-6 h-6" />
               </m.div>
-              <span className="bg-linear-to-r from-primary to-primary/60 bg-clip-text text-xl font-bold tracking-tight text-transparent">
+              <span className="text-xl font-bold tracking-tight text-primary">
                 {t('app.brand')}
               </span>
             </Link>

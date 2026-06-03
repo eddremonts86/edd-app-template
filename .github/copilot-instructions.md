@@ -236,21 +236,25 @@ Required in `.env.development`:
 
 ### Vendor Skills — `.github/skills/vendor/`
 
-| Skill                                 | Domain                                    |
-| ------------------------------------- | ----------------------------------------- |
-| `tanstack-router-best-practices`      | Type-safe routing, loaders, search params |
-| `tanstack-query-best-practices`       | Server state, cache, mutations            |
-| `tanstack-start-best-practices`       | Server functions, SSR, middleware         |
-| `tanstack-integration-best-practices` | Router + Query + Start integration        |
-| `shadcn-ui` / `shadcn`                | Shadcn/Radix components, forms, themes    |
-| `typescript-advanced-types`           | Generics, conditionals, mapped types      |
-| `react-doctor`                        | Post-change React health check (0–100)    |
-| `frontend-design`                     | High-quality production UI patterns       |
-| `playwright-skill`                    | Full browser automation                   |
-| `clerk-setup` / `clerk-orgs`          | Clerk auth setup, multi-tenant, RBAC      |
-| `vercel-react-best-practices`         | React performance from Vercel Engineering |
-| `web-design-guidelines`               | Accessibility, UX, best practices audit   |
-| `code-simplifier`                     | Refactor for clarity and maintainability  |
+| Skill                                 | Domain                                          |
+| ------------------------------------- | ----------------------------------------------- |
+| `tanstack-router-best-practices`      | Type-safe routing, loaders, search params       |
+| `tanstack-query-best-practices`       | Server state, cache, mutations                  |
+| `tanstack-start-best-practices`       | Server functions, SSR, middleware               |
+| `tanstack-integration-best-practices` | Router + Query + Start integration              |
+| `tanstack-table`                      | Headless tables, sorting, filtering, pagination |
+| `tanstack-form`                       | Headless forms, validation, field state         |
+| `tanstack-virtual`                    | Virtualization for large lists/grids            |
+| `shadcn-ui` / `shadcn`                | Shadcn/Radix components, forms, themes          |
+| `typescript-advanced-types`           | Generics, conditionals, mapped types            |
+| `react-doctor`                        | Post-change React health check (0–100)          |
+| `impeccable`                          | UI audit, polish, critique, animate             |
+| `frontend-design`                     | High-quality production UI patterns             |
+| `playwright-skill`                    | Full browser automation                         |
+| `clerk-setup` / `clerk-orgs`          | Clerk auth setup, multi-tenant, RBAC            |
+| `vercel-react-best-practices`         | React performance from Vercel Engineering       |
+| `web-design-guidelines`               | Accessibility, UX, best practices audit         |
+| `code-simplifier`                     | Refactor for clarity and maintainability        |
 
 ## Module System
 
@@ -274,23 +278,24 @@ See `docs/ai/architecture.md` and the `ai-providers` skill.
 
 When working in a domain, load ALL applicable skills before generating code:
 
-| Task                          | Load these skills                                            |
-| ----------------------------- | ------------------------------------------------------------ |
-| New module                    | `module-architecture` + `feature-crud` + `i18n-deep`         |
-| Add CRUD to existing module   | `feature-crud` + `drizzle-db` + `i18n-deep`                  |
-| New widget / fix widget       | `widget-system` + `i18n-deep`                                |
-| AI providers / streaming      | `ai-providers` + `docker-ai-stack`                           |
-| Auth / protected routes       | `auth-dual-provider`                                         |
-| DB schema / migrations        | `drizzle-db`                                                 |
-| Translations                  | `i18n-deep`                                                  |
-| E2E tests                     | `e2e-testing-auth` + `playwright-skill`                      |
-| Docker / local LLM            | `docker-ai-stack`                                            |
-| UI component / accessibility  | `shadcn-first` + `frontend-design` + `web-design-guidelines` |
-| New sheet / side-panel        | `crud-sheet`                                                 |
-| Delete with toast confirm     | `toast-confirm-delete`                                       |
-| Post-change quality check     | `react-doctor`                                               |
-| Code cleanup / refactor       | `code-simplifier` + `vercel-react-best-practices`            |
-| List / table with many rows   | `data-tables` + `i18n-deep`                                  |
-| Refactor large view component | `data-tables` + `code-simplifier`                            |
+| Task                          | Load these skills                                                           |
+| ----------------------------- | --------------------------------------------------------------------------- |
+| New module                    | `module-architecture` + `feature-crud` + `i18n-deep`                        |
+| Add CRUD to existing module   | `feature-crud` + `drizzle-db` + `i18n-deep`                                 |
+| New widget / fix widget       | `widget-system` + `i18n-deep`                                               |
+| AI providers / streaming      | `ai-providers` + `docker-ai-stack`                                          |
+| Auth / protected routes       | `auth-dual-provider`                                                        |
+| DB schema / migrations        | `drizzle-db`                                                                |
+| Translations                  | `i18n-deep`                                                                 |
+| E2E tests                     | `e2e-testing-auth` + `playwright-skill`                                     |
+| Docker / local LLM            | `docker-ai-stack`                                                           |
+| UI component / accessibility  | `shadcn-first` + `frontend-design` + `web-design-guidelines` + `impeccable` |
+| New sheet / side-panel        | `crud-sheet`                                                                |
+| Delete with toast confirm     | `toast-confirm-delete`                                                      |
+| Post-change quality check     | `react-doctor`                                                              |
+| Code cleanup / refactor       | `code-simplifier` + `vercel-react-best-practices`                           |
+| List / table with many rows   | `data-tables` + `tanstack-table` + `tanstack-virtual` + `i18n-deep`         |
+| Refactor large view component | `data-tables` + `tanstack-table` + `code-simplifier`                        |
+| Form with validation          | `tanstack-form` + `i18n-deep`                                               |
 
 Agents live in `.github/agents/`. Skills live in `.github/skills/` (`app/` = this repo, `vendor/` = 3rd party).

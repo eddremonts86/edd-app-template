@@ -387,7 +387,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                               ),
                               blockquote: ({ node: _node, ...props }) => (
                                 <blockquote
-                                  className="border-l-4 border-primary/20 pl-4 italic my-2"
+                              className="border-l-2 border-primary/20 pl-4 italic my-2"
                                   {...props}
                                 />
                               ),

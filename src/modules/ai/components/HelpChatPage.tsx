@@ -345,7 +345,7 @@ const MarkdownA = ({ children, href }: { children?: React.ReactNode; href?: stri
   </a>
 )
 const MarkdownBlockquote = ({ children }: { children?: React.ReactNode }) => (
-  <blockquote className="border-l-4 border-primary/30 pl-4 py-1 my-2 italic text-muted-foreground bg-primary/5 rounded-r">
+  <blockquote className="border-l-2 border-primary/40 pl-4 py-1 my-2 italic text-muted-foreground bg-primary/5 rounded-r">
     {children}
   </blockquote>
 )
@@ -391,8 +391,8 @@ function MessageBubble({
       className={cn('group flex w-full gap-4', isUser ? 'justify-end' : 'justify-start')}
     >
       {!isUser && (
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20 ring-2 ring-background">
-          <Bot size={20} className="text-white" />
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/20 ring-2 ring-background">
+          <Bot size={20} className="text-primary-foreground" />
         </div>
       )}
 
@@ -411,7 +411,7 @@ function MessageBubble({
           className={cn(
             'relative overflow-hidden px-5 py-4 text-sm shadow-sm transition-all duration-300',
             isUser
-              ? 'rounded-2xl rounded-tr-sm bg-linear-to-br from-indigo-600 to-blue-600 text-white shadow-indigo-500/10'
+              ? 'rounded-2xl rounded-tr-sm bg-primary text-primary-foreground shadow-primary/10'
               : 'rounded-2xl rounded-tl-sm bg-card/80 border border-border/50 text-foreground backdrop-blur-md hover:bg-card/90 hover:shadow-md',
           )}
         >
@@ -559,9 +559,9 @@ function MessageBubble({
             : null}
           {isTyping && (
             <div className="mt-2 flex items-center gap-1.5">
-              <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 [animation-delay:-0.3s]" />
-              <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 [animation-delay:-0.15s]" />
-              <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60" />
+              <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:0ms]" />
+              <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:160ms]" />
+              <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:320ms]" />
             </div>
           )}
 
@@ -570,7 +570,7 @@ function MessageBubble({
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-7 w-7 rounded-full bg-background/80 shadow-sm backdrop-blur-sm hover:bg-background hover:text-indigo-600"
+                className="h-7 w-7 rounded-full bg-background/80 shadow-sm backdrop-blur-sm hover:bg-background hover:text-primary"
                 onClick={() => handleCopy(formatMessage(message))}
               >
                 {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
@@ -632,8 +632,8 @@ function EmptyState({ onSuggestionClick }: { onSuggestionClick: (text: string) =
   return (
     <div className="flex h-full flex-col items-center justify-center p-8 text-center animate-in fade-in zoom-in duration-500">
       <div className="mb-8 relative">
-        <div className="absolute inset-0 animate-pulse rounded-full bg-indigo-500/20 blur-xl"></div>
-        <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl bg-linear-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30 ring-4 ring-white/10">
+        <div className="absolute inset-0 animate-pulse rounded-full bg-primary/15 blur-xl"></div>
+        <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl bg-primary shadow-2xl shadow-primary/25 ring-4 ring-background/20">
           <Sparkles size={48} className="text-white" />
         </div>
       </div>
@@ -963,8 +963,8 @@ export function HelpChatPage() {
       <LazyMotion features={domAnimation}>
         <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-background/50 shadow-2xl backdrop-blur-2xl dark:border-border/30 dark:bg-card/40">
           {/* --- Dynamic Background --- */}
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-indigo-200/20 via-background/0 to-background/0 dark:from-indigo-900/20"></div>
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,var(--tw-gradient-stops))] from-purple-200/20 via-background/0 to-background/0 dark:from-purple-900/20"></div>
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-primary/8 via-background/0 to-background/0"></div>
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,var(--tw-gradient-stops))] from-primary/5 via-background/0 to-background/0"></div>
 
           {/* --- Conversation Panel --- */}
           <ConversationPanel
@@ -983,7 +983,7 @@ export function HelpChatPage() {
           {/* --- Header --- */}
           <Card className="flex h-20 items-center justify-between rounded-none border-t-0 border-x-0 border-b border-border bg-card/45 px-8 backdrop-blur-md dark:bg-card/25">
             <div className="flex items-center gap-4">
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/25">
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-lg shadow-primary/20">
                 <Bot size={24} />
                 <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
                   <span
@@ -1140,13 +1140,13 @@ export function HelpChatPage() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-start gap-4"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-purple-600 shadow-lg shadow-indigo-500/20 ring-2 ring-background">
-                        <Bot size={20} className="text-white" />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/20 ring-2 ring-background">
+                        <Bot size={20} className="text-primary-foreground" />
                       </div>
                       <div className="flex items-center gap-1.5 rounded-2xl rounded-tl-sm border border-border/40 bg-card/50 px-5 py-4 shadow-sm backdrop-blur-sm">
-                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-0" />
-                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-150" />
-                        <span className="h-2 w-2 animate-bounce rounded-full bg-indigo-500/60 delay-300" />
+                        <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:0ms]" />
+                        <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:160ms]" />
+                        <span className="h-2 w-2 typing-dot rounded-full bg-primary/60 [animation-delay:320ms]" />
                       </div>
                     </m.div>
                   )}
@@ -1265,7 +1265,7 @@ export function HelpChatPage() {
                       className={cn(
                         'h-11 w-11 shrink-0 rounded-full shadow-lg transition-all duration-300',
                         input.trim() || attachments.length > 0
-                          ? 'bg-linear-to-br from-indigo-500 to-purple-600 text-white hover:shadow-indigo-500/25 hover:scale-105'
+                          ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-primary/20'
                           : 'bg-muted text-muted-foreground hover:bg-muted/80',
                       )}
                       size="icon-sm"
