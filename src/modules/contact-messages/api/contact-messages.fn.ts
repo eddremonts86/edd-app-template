@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { and, count, desc, eq, ilike, inArray, isNull, or } from 'drizzle-orm'
 import { z } from 'zod'
 import { requireCurrentAppUser } from '@/modules/users/api/current-user.server'
+import { requirePermission } from '@/shared/lib/auth/authorize'
 import { requireAuthUser } from '@/shared/lib/auth/server'
 import { loadDb } from '@/shared/lib/db/load'
 import { authUsers, contactMessages, notifications, users } from '@/shared/lib/db/schema'
@@ -48,16 +49,6 @@ function isAdminUser(user: Awaited<ReturnType<typeof requireAuthUser>>): boolean
   return ADMIN_FALLBACK_IDENTIFIERS.some((candidate) => identifier.includes(candidate))
 }
 
-async function requireAdminUser() {
-  const authUser = await requireAuthUser()
-
-  if (!isAdminUser(authUser)) {
-    throw new Error('Forbidden')
-  }
-
-  return authUser
-}
-
 async function resolveAdminRecipientUserIds() {
   const db = await loadDb()
 
@@ -88,6 +79,7 @@ export const createContactMessageFn = createServerFn({ method: 'POST' })
       .insert(contactMessages)
       .values({
         id: crypto.randomUUID(),
+        ownerUserId: null,
         email: data.email,
         projectType: data.projectType,
         message: data.message?.trim() || null,
@@ -103,6 +95,7 @@ export const createContactMessageFn = createServerFn({ method: 'POST' })
       await db.insert(notifications).values(
         adminRecipientIds.map((recipientUserId) => ({
           id: crypto.randomUUID(),
+          ownerUserId: recipientUserId,
           recipientUserId,
           kind: 'contact-message',
           title: 'New contact brief',
@@ -118,6 +111,7 @@ export const createContactMessageFn = createServerFn({ method: 'POST' })
     } else {
       await db.insert(notifications).values({
         id: crypto.randomUUID(),
+        ownerUserId: null,
         recipientUserId: null,
         kind: 'contact-message',
         title: 'New contact brief',
@@ -150,8 +144,8 @@ export const getContactMessagesFn = createServerFn({ method: 'GET' })
       status: z.enum(['new', 'read', 'all']).default('all'),
     }),
   )
-  .handler(async ({ data }): Promise<ContactMessagesListResponse> => {
-    await requireAdminUser()
+  .handler(async ({ data, context }): Promise<ContactMessagesListResponse> => {
+    await requirePermission(context, 'contact_messages.read')
     const db = await loadDb()
 
     const filters = []
@@ -201,8 +195,8 @@ export const getContactMessagesFn = createServerFn({ method: 'GET' })
 
 export const markContactMessageReadFn = createServerFn({ method: 'POST' })
   .inputValidator(z.object({ id: z.string(), read: z.boolean().default(true) }))
-  .handler(async ({ data }) => {
-    await requireAdminUser()
+  .handler(async ({ data, context }) => {
+    await requirePermission(context, 'contact_messages.update')
     const db = await loadDb()
 
     const [updated] = await db
@@ -223,75 +217,82 @@ export const markContactMessageReadFn = createServerFn({ method: 'POST' })
 
 export const getInboxNotificationsFn = createServerFn({ method: 'GET' })
   .inputValidator(z.object({ limit: z.number().default(8) }))
-  .handler(async ({ data }): Promise<{ items: ContactNotification[]; unreadCount: number }> => {
-    const authUser = await requireAuthUser()
-    const canSeeGlobalNotifications = isAdminUser(authUser)
-    const db = await loadDb()
-    const limit = Math.max(1, Math.min(data.limit, 25))
+  .handler(
+    async ({ data, context }): Promise<{ items: ContactNotification[]; unreadCount: number }> => {
+      await requirePermission(context, 'contact_messages.read')
+      const authUser = await requireAuthUser()
+      const canSeeGlobalNotifications = isAdminUser(authUser)
+      const db = await loadDb()
+      const limit = Math.max(1, Math.min(data.limit, 25))
 
-    if (canSeeGlobalNotifications) {
+      if (canSeeGlobalNotifications) {
+        const [rows, [{ unreadTotal }]] = await Promise.all([
+          db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt)).limit(limit),
+          db
+            .select({ unreadTotal: count() })
+            .from(contactMessages)
+            .where(eq(contactMessages.status, 'new')),
+        ])
+
+        return {
+          items: rows.map((row) => ({
+            id: `contact:${row.id}`,
+            title: 'New contact brief',
+            body: buildNotificationBody(row.email, row.projectType, row.message),
+            link: '/dashboard/contact-messages',
+            entityId: row.id,
+            isRead: row.status === 'read',
+            createdAt: row.createdAt.toISOString(),
+          })),
+          unreadCount: Number(unreadTotal) || 0,
+        }
+      }
+
+      const appUser = await requireCurrentAppUser()
+
+      const visibilityWhere = canSeeGlobalNotifications
+        ? or(eq(notifications.recipientUserId, appUser.id), isNull(notifications.recipientUserId))
+        : eq(notifications.recipientUserId, appUser.id)
+
+      const unreadWhere = canSeeGlobalNotifications
+        ? and(
+            or(
+              eq(notifications.recipientUserId, appUser.id),
+              isNull(notifications.recipientUserId),
+            ),
+            eq(notifications.isRead, false),
+          )
+        : and(eq(notifications.recipientUserId, appUser.id), eq(notifications.isRead, false))
+
       const [rows, [{ unreadTotal }]] = await Promise.all([
-        db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt)).limit(limit),
         db
-          .select({ unreadTotal: count() })
-          .from(contactMessages)
-          .where(eq(contactMessages.status, 'new')),
+          .select()
+          .from(notifications)
+          .where(visibilityWhere)
+          .orderBy(desc(notifications.createdAt))
+          .limit(limit),
+        db.select({ unreadTotal: count() }).from(notifications).where(unreadWhere),
       ])
 
       return {
         items: rows.map((row) => ({
-          id: `contact:${row.id}`,
-          title: 'New contact brief',
-          body: buildNotificationBody(row.email, row.projectType, row.message),
-          link: '/dashboard/contact-messages',
-          entityId: row.id,
-          isRead: row.status === 'read',
+          id: row.id,
+          title: row.title,
+          body: row.body,
+          link: row.link,
+          entityId: row.entityId,
+          isRead: row.isRead,
           createdAt: row.createdAt.toISOString(),
         })),
         unreadCount: Number(unreadTotal) || 0,
       }
-    }
-
-    const appUser = await requireCurrentAppUser()
-
-    const visibilityWhere = canSeeGlobalNotifications
-      ? or(eq(notifications.recipientUserId, appUser.id), isNull(notifications.recipientUserId))
-      : eq(notifications.recipientUserId, appUser.id)
-
-    const unreadWhere = canSeeGlobalNotifications
-      ? and(
-          or(eq(notifications.recipientUserId, appUser.id), isNull(notifications.recipientUserId)),
-          eq(notifications.isRead, false),
-        )
-      : and(eq(notifications.recipientUserId, appUser.id), eq(notifications.isRead, false))
-
-    const [rows, [{ unreadTotal }]] = await Promise.all([
-      db
-        .select()
-        .from(notifications)
-        .where(visibilityWhere)
-        .orderBy(desc(notifications.createdAt))
-        .limit(limit),
-      db.select({ unreadTotal: count() }).from(notifications).where(unreadWhere),
-    ])
-
-    return {
-      items: rows.map((row) => ({
-        id: row.id,
-        title: row.title,
-        body: row.body,
-        link: row.link,
-        entityId: row.entityId,
-        isRead: row.isRead,
-        createdAt: row.createdAt.toISOString(),
-      })),
-      unreadCount: Number(unreadTotal) || 0,
-    }
-  })
+    },
+  )
 
 export const markNotificationsReadFn = createServerFn({ method: 'POST' })
   .inputValidator(z.object({ ids: z.array(z.string()).min(1) }))
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await requirePermission(context, 'contact_messages.read')
     const appUser = await requireCurrentAppUser()
     const authUser = await requireAuthUser()
     const canSeeGlobalNotifications = isAdminUser(authUser)

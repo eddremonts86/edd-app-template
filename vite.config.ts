@@ -100,7 +100,13 @@ const config = defineConfig((configEnv) => {
       external: ['xlsx', 'pdf-parse'],
     },
     plugins: [
-      !isViteDevtoolsDisabled && devtools(),
+      !isViteDevtoolsDisabled &&
+        devtools({
+          // The console-piping SSE (/__tsd/console-pipe/sse) was crashing the
+          // renderer with ERR_INCOMPLETE_CHUNKED_ENCODING during client-side
+          // navigation, killing the page on transitions between admin routes.
+          consolePiping: { enabled: false },
+        }),
       tailwindcss(),
       !isTest &&
         tanstackStart({

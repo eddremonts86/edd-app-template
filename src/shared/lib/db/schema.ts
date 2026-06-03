@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, boolean, unique, index } from 'drizzle-orm/pg-core'
+import { pgTable, text, timestamp, boolean, unique, index, jsonb } from 'drizzle-orm/pg-core'
 
 // ---------------------------------------------------------------------------
 // Authentication Tables (Better Auth)
@@ -98,6 +98,10 @@ export const contactMessages = pgTable(
   'contact_messages',
   {
     id: text('id').primaryKey(),
+    ownerUserId: text('owner_user_id').references(() => users.id, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+    }),
     email: text('email').notNull(),
     projectType: text('project_type').notNull(),
     message: text('message'),
@@ -120,6 +124,10 @@ export const notifications = pgTable(
   'notifications',
   {
     id: text('id').primaryKey(),
+    ownerUserId: text('owner_user_id').references(() => users.id, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+    }),
     recipientUserId: text('recipient_user_id').references(() => users.id, {
       onDelete: 'cascade',
       onUpdate: 'cascade',
@@ -135,7 +143,61 @@ export const notifications = pgTable(
     createdAt: timestamp('created_at').defaultNow().notNull(),
   },
   (t) => [
+    index('notifications_owner_idx').on(t.ownerUserId),
     index('notifications_recipient_read_idx').on(t.recipientUserId, t.isRead),
     index('notifications_created_at_idx').on(t.createdAt),
   ],
 )
+
+// ---------------------------------------------------------------------------
+// RBAC
+// ---------------------------------------------------------------------------
+
+export const permissions = pgTable('permissions', {
+  id: text('id').primaryKey(),
+  resource: text('resource').notNull(),
+  action: text('action').notNull(),
+  description: text('description'),
+})
+
+export const rolePermissions = pgTable(
+  'role_permissions',
+  {
+    role: text('role').notNull(),
+    permissionId: text('permission_id')
+      .notNull()
+      .references(() => permissions.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+  },
+  (t) => [unique('role_permissions_role_permission_id_unique').on(t.role, t.permissionId)],
+)
+
+export const resourceRoles = pgTable(
+  'resource_roles',
+  {
+    userId: text('user_id')
+      .notNull()
+      .references(() => users.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
+    resourceType: text('resource_type').notNull(),
+    resourceId: text('resource_id').notNull(),
+    role: text('role').notNull(),
+    grantedAt: timestamp('granted_at').defaultNow().notNull(),
+    grantedBy: text('granted_by').references(() => users.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
+  },
+  (t) => [
+    unique('resource_roles_user_type_id_unique').on(t.userId, t.resourceType, t.resourceId),
+    index('resource_roles_resource_idx').on(t.resourceType, t.resourceId),
+  ],
+)
+
+// ---------------------------------------------------------------------------
+// Site Settings (key/value store for dynamic site configuration)
+// ---------------------------------------------------------------------------
+export const siteSettings = pgTable('site_settings', {
+  key: text('key').primaryKey(),
+  value: jsonb('value').notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  updatedBy: text('updated_by'),
+})

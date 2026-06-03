@@ -202,7 +202,10 @@
       "languageTheme": "Sprog og Tema",
       "aiConfig": "AI-konfiguration",
       "devTools": "Udviklerværktøjer",
-      "aiLogs": "AI-logs"
+      "aiLogs": "AI-logs",
+      "branding": "Branding",
+      "brandingDesc": "Sociale, identitet",
+      "socialLinks": "Sociale Links"
     },
     "language": {
       "title": "Sprog",
@@ -280,6 +283,10 @@
         "testSuccess": "Forbindelse til AI-tjenesten oprettet.",
         "testError": "Kunne ikke oprette forbindelse til AI-tjenesten."
       }
+    },
+    "socialLinks": {
+      "title": "Sociale Links",
+      "subtitle": "Konfigurer links til sociale medier vist i sidefoden."
     }
   },
   "dashboard": {
@@ -1134,19 +1141,39 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": ["Arkitektur", "Moduloversigt", "Design tokens", "Konventioner"]
+          "items": [
+            "Arkitektur",
+            "Moduloversigt",
+            "Design tokens",
+            "Konventioner"
+          ]
         },
         "company": {
           "title": "Produkt",
-          "items": ["Roadmap", "Changelog", "Integrationer", "Release notes"]
+          "items": [
+            "Roadmap",
+            "Changelog",
+            "Integrationer",
+            "Release notes"
+          ]
         },
         "community": {
           "title": "Support",
-          "items": ["Dokumentation", "Guides", "Eksempler", "FAQ"]
+          "items": [
+            "Dokumentation",
+            "Guides",
+            "Eksempler",
+            "FAQ"
+          ]
         },
         "legal": {
           "title": "Juridisk",
-          "items": ["Privatliv", "Vilkår", "Cookies", "Licenser"]
+          "items": [
+            "Privatliv",
+            "Vilkår",
+            "Cookies",
+            "Licenser"
+          ]
         }
       }
     }

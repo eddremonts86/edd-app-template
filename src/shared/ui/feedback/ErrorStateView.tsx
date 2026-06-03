@@ -45,7 +45,7 @@ export function ErrorStateView({
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 text-center text-foreground">
-      <div className="w-full max-w-md space-y-8">
+      <div className="w-full max-w-2xl space-y-8">
         {/* Icon section */}
         <div className="relative mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
           <div className="relative z-10">
@@ -142,21 +142,33 @@ export function ErrorStateView({
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="mt-4 overflow-hidden"
                 >
-                  <div className="rounded-lg border bg-muted/50 p-4 text-left shadow-inner">
-                    <p className="mb-2 font-mono text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {t('boundary.errorMessage')}
-                    </p>
-                    <code className="block break-all font-mono text-xs text-destructive">
-                      {errorMessage}
-                    </code>
+                  <div className="rounded-xl border border-border bg-muted/40 text-left shadow-inner overflow-hidden">
+                    {/* Error message section */}
+                    <div className="border-b border-border bg-destructive/5 px-4 py-2 flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-destructive shrink-0" />
+                      <p className="font-mono text-[11px] font-semibold uppercase tracking-wider text-destructive/80">
+                        {t('boundary.errorMessage')}
+                      </p>
+                    </div>
+                    <div className="px-4 py-3">
+                      <code className="block break-words font-mono text-sm leading-relaxed text-destructive">
+                        {errorMessage}
+                      </code>
+                    </div>
+
                     {stackTrace && (
                       <>
-                        <p className="mb-2 mt-4 font-mono text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                          {t('boundary.stackTrace')}
-                        </p>
-                        <pre className="max-h-40 overflow-auto whitespace-pre-wrap font-mono text-[10px] text-muted-foreground/80 scrollbar-thin scrollbar-thumb-muted-foreground/20">
-                          {stackTrace}
-                        </pre>
+                        <div className="border-y border-border bg-muted/60 px-4 py-2 flex items-center gap-2">
+                          <span className="h-2 w-2 rounded-full bg-muted-foreground/50 shrink-0" />
+                          <p className="font-mono text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                            {t('boundary.stackTrace')}
+                          </p>
+                        </div>
+                        <div className="relative">
+                          <pre className="max-h-72 overflow-auto px-4 py-3 whitespace-pre font-mono text-[11px] leading-5 text-muted-foreground/90 scrollbar-thin scrollbar-thumb-muted-foreground/20">
+                            {stackTrace}
+                          </pre>
+                        </div>
                       </>
                     )}
                   </div>

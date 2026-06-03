@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { hashPassword } from 'better-auth/crypto'
 import { and, count, desc, eq, ilike, or } from 'drizzle-orm'
 import { z } from 'zod'
+import { requirePermission } from '@/shared/lib/auth/authorize'
 import { requireAuthUser } from '@/shared/lib/auth/server'
 import { loadDb } from '@/shared/lib/db/load'
 import { authAccounts, authUsers, users } from '@/shared/lib/db/schema'
@@ -122,7 +123,8 @@ export const getUsersFn = createServerFn({ method: 'GET' })
       pageParam: z.number().optional(),
     }),
   )
-  .handler(async ({ data }): Promise<UserListResponse> => {
+  .handler(async ({ data, context }): Promise<UserListResponse> => {
+    await requirePermission(context, 'users.read')
     const db = await loadDb()
     const { limit, search, pageParam = 1 } = data
     const offset = (pageParam - 1) * limit
@@ -175,7 +177,8 @@ export const getUsersFn = createServerFn({ method: 'GET' })
 
 export const getUserByIdFn = createServerFn({ method: 'GET' })
   .inputValidator(z.string())
-  .handler(async ({ data: id }): Promise<UserType | null> => {
+  .handler(async ({ data: id, context }): Promise<UserType | null> => {
+    await requirePermission(context, 'users.read')
     const db = await loadDb()
     const [result] = await db
       .select({
@@ -210,7 +213,8 @@ export const getUserByIdFn = createServerFn({ method: 'GET' })
 
 export const createUserFn = createServerFn({ method: 'POST' })
   .inputValidator(userSchema)
-  .handler(async ({ data: input }): Promise<UserType> => {
+  .handler(async ({ data: input, context }): Promise<UserType> => {
+    await requirePermission(context, 'users.create')
     const actorRole = await getActorRole()
     if (!canManageUsers(actorRole)) forbidden('Only admins can create users')
     if (input.roleKey && !canAssignRole(actorRole, 'user', input.roleKey)) {
@@ -295,7 +299,8 @@ export const createUserFn = createServerFn({ method: 'POST' })
 
 export const updateUserFn = createServerFn({ method: 'POST' })
   .inputValidator(z.object({ id: z.string(), data: userSchema.partial() }))
-  .handler(async ({ data: { id, data: updates } }): Promise<UserType> => {
+  .handler(async ({ data: { id, data: updates }, context }): Promise<UserType> => {
+    await requirePermission(context, 'users.update')
     const actorRole = await getActorRole()
     if (!canManageUsers(actorRole)) forbidden('Only admins can update users')
 
@@ -386,7 +391,8 @@ export const updateUserFn = createServerFn({ method: 'POST' })
 
 export const deleteUserFn = createServerFn({ method: 'POST' })
   .inputValidator(z.string())
-  .handler(async ({ data: id }): Promise<{ success: true }> => {
+  .handler(async ({ data: id, context }): Promise<{ success: true }> => {
+    await requirePermission(context, 'users.delete')
     const actorRole = await getActorRole()
     if (!canManageUsers(actorRole)) forbidden('Only admins can delete users')
 

@@ -51,6 +51,7 @@ import { Route as LandingDocsLegalPrivacyRouteImport } from './routes/_landing/_
 import { Route as LandingDocsLegalLicensesRouteImport } from './routes/_landing/_docs/legal/licenses'
 import { Route as LandingDocsLegalCookiesRouteImport } from './routes/_landing/_docs/legal/cookies'
 import { Route as DashboardDashboardSettingsSystemRouteImport } from './routes/_dashboard/dashboard/settings/system'
+import { Route as DashboardDashboardSettingsSite_settingsRouteImport } from './routes/_dashboard/dashboard/settings/site_settings'
 import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
 import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
 import { Route as DashboardDashboardSettingsAi_logsRouteImport } from './routes/_dashboard/dashboard/settings/ai_logs'
@@ -278,6 +279,12 @@ const DashboardDashboardSettingsSystemRoute =
     path: '/system',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
+const DashboardDashboardSettingsSite_settingsRoute =
+  DashboardDashboardSettingsSite_settingsRouteImport.update({
+    id: '/site_settings',
+    path: '/site_settings',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
 const DashboardDashboardSettingsIa_configRoute =
   DashboardDashboardSettingsIa_configRouteImport.update({
     id: '/ia_config',
@@ -321,6 +328,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
+  '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/legal/cookies': typeof LandingDocsLegalCookiesRoute
   '/legal/licenses': typeof LandingDocsLegalLicensesRoute
@@ -363,6 +371,7 @@ export interface FileRoutesByTo {
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
+  '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
   '/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/legal/cookies': typeof LandingDocsLegalCookiesRoute
   '/legal/licenses': typeof LandingDocsLegalLicensesRoute
@@ -411,6 +420,7 @@ export interface FileRoutesById {
   '/_dashboard/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/_dashboard/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
+  '/_dashboard/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
   '/_dashboard/dashboard/settings/system': typeof DashboardDashboardSettingsSystemRoute
   '/_landing/_docs/legal/cookies': typeof LandingDocsLegalCookiesRoute
   '/_landing/_docs/legal/licenses': typeof LandingDocsLegalLicensesRoute
@@ -457,6 +467,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
+    | '/dashboard/settings/site_settings'
     | '/dashboard/settings/system'
     | '/legal/cookies'
     | '/legal/licenses'
@@ -499,6 +510,7 @@ export interface FileRouteTypes {
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
+    | '/dashboard/settings/site_settings'
     | '/dashboard/settings/system'
     | '/legal/cookies'
     | '/legal/licenses'
@@ -546,6 +558,7 @@ export interface FileRouteTypes {
     | '/_dashboard/dashboard/settings/ai_logs'
     | '/_dashboard/dashboard/settings/dev_tools'
     | '/_dashboard/dashboard/settings/ia_config'
+    | '/_dashboard/dashboard/settings/site_settings'
     | '/_dashboard/dashboard/settings/system'
     | '/_landing/_docs/legal/cookies'
     | '/_landing/_docs/legal/licenses'
@@ -878,6 +891,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardSettingsSystemRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
+    '/_dashboard/dashboard/settings/site_settings': {
+      id: '/_dashboard/dashboard/settings/site_settings'
+      path: '/site_settings'
+      fullPath: '/dashboard/settings/site_settings'
+      preLoaderRoute: typeof DashboardDashboardSettingsSite_settingsRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
     '/_dashboard/dashboard/settings/ia_config': {
       id: '/_dashboard/dashboard/settings/ia_config'
       path: '/ia_config'
@@ -906,6 +926,7 @@ interface DashboardDashboardSettingsRouteRouteChildren {
   DashboardDashboardSettingsAi_logsRoute: typeof DashboardDashboardSettingsAi_logsRoute
   DashboardDashboardSettingsDev_toolsRoute: typeof DashboardDashboardSettingsDev_toolsRoute
   DashboardDashboardSettingsIa_configRoute: typeof DashboardDashboardSettingsIa_configRoute
+  DashboardDashboardSettingsSite_settingsRoute: typeof DashboardDashboardSettingsSite_settingsRoute
   DashboardDashboardSettingsSystemRoute: typeof DashboardDashboardSettingsSystemRoute
   DashboardDashboardSettingsIndexRoute: typeof DashboardDashboardSettingsIndexRoute
 }
@@ -918,6 +939,8 @@ const DashboardDashboardSettingsRouteRouteChildren: DashboardDashboardSettingsRo
       DashboardDashboardSettingsDev_toolsRoute,
     DashboardDashboardSettingsIa_configRoute:
       DashboardDashboardSettingsIa_configRoute,
+    DashboardDashboardSettingsSite_settingsRoute:
+      DashboardDashboardSettingsSite_settingsRoute,
     DashboardDashboardSettingsSystemRoute:
       DashboardDashboardSettingsSystemRoute,
     DashboardDashboardSettingsIndexRoute: DashboardDashboardSettingsIndexRoute,

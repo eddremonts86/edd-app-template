@@ -19,6 +19,53 @@ vi.mock('@/shared/lib/db', () => ({
   getDb: vi.fn(),
 }))
 
+// Auth mocks — server functions run outside TanStack Start runtime in unit tests
+vi.mock('@/shared/lib/auth/authorize', () => ({
+  requirePermission: vi.fn().mockResolvedValue(undefined),
+  can: vi.fn().mockResolvedValue(true),
+  canOnResource: vi.fn().mockResolvedValue(true),
+}))
+
+vi.mock('@/shared/lib/auth/server', () => ({
+  requireAuthUser: vi.fn().mockResolvedValue({
+    authMode: 'local',
+    provider: 'bypass',
+    userId: 'test-user-id',
+    email: 'test@example.com',
+    name: 'Test User',
+    image: null,
+    role: 'super_admin',
+  }),
+  getAuthUser: vi.fn().mockResolvedValue({
+    authMode: 'local',
+    provider: 'bypass',
+    userId: 'test-user-id',
+    email: 'test@example.com',
+    name: 'Test User',
+    image: null,
+    role: 'super_admin',
+  }),
+}))
+
+vi.mock('@/modules/users/api/current-user.server', () => ({
+  getCurrentAppUser: vi.fn().mockResolvedValue({
+    id: 'test-user-id',
+    name: 'Test User',
+    email: 'test@example.com',
+    avatar: null,
+    authUserId: 'test-user-id',
+    roleKey: 'super_admin',
+  }),
+  requireCurrentAppUser: vi.fn().mockResolvedValue({
+    id: 'test-user-id',
+    name: 'Test User',
+    email: 'test@example.com',
+    avatar: null,
+    authUserId: 'test-user-id',
+    roleKey: 'super_admin',
+  }),
+}))
+
 describe('Users CRUD server functions', () => {
   beforeEach(() => {
     vi.clearAllMocks()
@@ -108,13 +155,21 @@ describe('Users CRUD server functions', () => {
   })
 
   it('deletes a user', async () => {
+    // deleteUserFn first looks up the target user, then deletes
+    const selectChain = {
+      from: vi.fn().mockReturnThis(),
+      leftJoin: vi.fn().mockReturnThis(),
+      where: vi.fn().mockReturnThis(),
+      limit: vi.fn().mockResolvedValue([]),
+    }
+
     const dbMock = {
       delete: vi.fn(() => ({
         where: vi.fn().mockResolvedValue(undefined),
       })),
       insert: vi.fn(),
       update: vi.fn(),
-      select: vi.fn(),
+      select: vi.fn(() => selectChain),
     }
 
     vi.mocked(getDb).mockReturnValue(dbMock as never)

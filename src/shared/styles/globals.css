@@ -73,7 +73,9 @@
   }
 
   @keyframes typing-dot {
-    0%, 60%, 100% {
+    0%,
+    60%,
+    100% {
       transform: translateY(0);
       opacity: 0.4;
     }
@@ -146,7 +148,7 @@
   --card-foreground: oklch(0.15 0.01 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.01 240);
-  --primary: oklch(0.60 0.20 35);
+  --primary: oklch(0.6 0.2 35);
   --primary-foreground: #ffffff;
   --secondary: oklch(0.93 0.01 240);
   --secondary-foreground: oklch(0.2 0.01 240);
@@ -158,20 +160,20 @@
   --destructive-foreground: #ffffff;
   --border: oklch(0.92 0.008 240);
   --input: oklch(0.92 0.008 240);
-  --ring: oklch(0.60 0.20 35);
-  --chart-1: oklch(0.60 0.20 35);
+  --ring: oklch(0.6 0.2 35);
+  --chart-1: oklch(0.6 0.2 35);
   --chart-2: oklch(0.15 0.01 240);
   --chart-3: oklch(0.4 0.07 227.18);
   --chart-4: oklch(0.83 0.17 81.03);
   --chart-5: oklch(0.77 0.17 65.36);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.15 0.01 240);
-  --sidebar-primary: oklch(0.60 0.20 35);
+  --sidebar-primary: oklch(0.6 0.2 35);
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: oklch(0.97 0.015 35);
   --sidebar-accent-foreground: oklch(0.25 0.04 35);
   --sidebar-border: oklch(0.95 0.005 240);
-  --sidebar-ring: oklch(0.60 0.20 35);
+  --sidebar-ring: oklch(0.6 0.2 35);
 
   --font-sans:
     'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -220,7 +222,7 @@
   --chart-3: oklch(0.77 0.17 65.36);
   --chart-4: oklch(0.62 0.26 305.32);
   --chart-5: oklch(0.64 0.25 16.51);
-  --sidebar: oklch(0.20 0.01 30);
+  --sidebar: oklch(0.2 0.01 30);
   --sidebar-foreground: oklch(0.96 0.005 30);
   --sidebar-primary: oklch(0.68 0.22 35);
   --sidebar-primary-foreground: oklch(0.12 0.008 30);

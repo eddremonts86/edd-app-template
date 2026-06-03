@@ -5,6 +5,8 @@ import {
   IconRobot,
   IconActivity,
   IconTool,
+  IconPalette,
+  IconShare,
 } from '@tabler/icons-react'
 import { Link, Outlet, useLocation } from '@tanstack/react-router'
 import { ChevronDown } from 'lucide-react'
@@ -12,8 +14,8 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import { cn } from '@/shared/lib/utils'
+import { hasPermissionForRole } from '@/shared/lib/auth/permission-map'
 import { useCurrentUser } from '@/modules/users'
-import { isAdminRole } from '@/modules/users/model/permissions'
 
 interface NavItem {
   label: string
@@ -36,8 +38,8 @@ export function SettingsLayout() {
   const { pathname } = useLocation()
   const { roleKey } = useCurrentUser()
 
-  const isAdmin = isAdminRole(roleKey)
-  const isSuperAdmin = roleKey === 'super_admin'
+  const canAccessDeveloper = hasPermissionForRole(roleKey, 'site_settings.update')
+  const canAccessSystem = hasPermissionForRole(roleKey, 'users.delete')
 
   const sections: NavSection[] = [
     {
@@ -46,7 +48,7 @@ export function SettingsLayout() {
       description: t('settings.nav.configDesc'),
       icon: IconAdjustmentsHorizontal,
       visible: true,
-      defaultOpen: !isAdmin || pathname.includes('/system'),
+      defaultOpen: !canAccessDeveloper || pathname.includes('/system'),
       items: [
         {
           label: t('settings.nav.languageTheme'),
@@ -60,7 +62,7 @@ export function SettingsLayout() {
       label: t('settings.nav.developer'),
       description: t('settings.nav.developerDesc'),
       icon: IconCode,
-      visible: isAdmin,
+      visible: canAccessDeveloper,
       defaultOpen: pathname.includes('/ia_config') || pathname.includes('/dev_tools'),
       items: [
         {
@@ -80,13 +82,28 @@ export function SettingsLayout() {
       label: t('settings.nav.system'),
       description: t('settings.nav.systemDesc'),
       icon: IconActivity,
-      visible: isSuperAdmin,
+      visible: canAccessSystem,
       defaultOpen: pathname.includes('/ai_logs'),
       items: [
         {
           label: t('settings.nav.aiLogs'),
           to: '/dashboard/settings/ai_logs',
           icon: IconActivity,
+        },
+      ],
+    },
+    {
+      id: 'branding',
+      label: t('settings.nav.branding'),
+      description: t('settings.nav.brandingDesc'),
+      icon: IconPalette,
+      visible: canAccessDeveloper,
+      defaultOpen: pathname.includes('/site_settings'),
+      items: [
+        {
+          label: t('settings.nav.socialLinks'),
+          to: '/dashboard/settings/site_settings',
+          icon: IconShare,
         },
       ],
     },

@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useCurrentUser } from '@/modules/users'
+import { hasPermissionForRole } from '@/shared/lib/auth/permission-map'
 
 function getGreetingKey(hour: number) {
   if (hour < 12) return 'dashboard.overview.welcome.morning'
@@ -17,7 +18,7 @@ export function WelcomeHero() {
   const hour = new Date().getHours()
   const greeting = t(getGreetingKey(hour))
   const displayName = user?.name?.split(' ')[0] ?? t('dashboard.overview.welcome.fallbackName')
-  const isAdmin = roleKey === 'super_admin' || roleKey === 'admin'
+  const isAdmin = hasPermissionForRole(roleKey, 'site_settings.update')
 
   return (
     <Card className="relative overflow-hidden border-border/60 p-6 sm:p-8">

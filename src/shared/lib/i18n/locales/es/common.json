@@ -1188,19 +1188,39 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": ["Arquitectura", "Mapa de módulos", "Design tokens", "Convenciones"]
+          "items": [
+            "Arquitectura",
+            "Mapa de módulos",
+            "Design tokens",
+            "Convenciones"
+          ]
         },
         "company": {
           "title": "Producto",
-          "items": ["Roadmap", "Changelog", "Integraciones", "Notas de versión"]
+          "items": [
+            "Roadmap",
+            "Changelog",
+            "Integraciones",
+            "Notas de versión"
+          ]
         },
         "community": {
           "title": "Soporte",
-          "items": ["Documentación", "Guías", "Ejemplos", "FAQ"]
+          "items": [
+            "Documentación",
+            "Guías",
+            "Ejemplos",
+            "FAQ"
+          ]
         },
         "legal": {
           "title": "Legal",
-          "items": ["Privacidad", "Términos", "Cookies", "Licencias"]
+          "items": [
+            "Privacidad",
+            "Términos",
+            "Cookies",
+            "Licencias"
+          ]
         }
       }
     }
@@ -1216,7 +1236,14 @@
       "languageTheme": "Idioma y Tema",
       "aiConfig": "Configuración IA",
       "devTools": "Herramientas Dev",
-      "aiLogs": "Registros IA"
+      "aiLogs": "Registros IA",
+      "branding": "Marca",
+      "brandingDesc": "Redes, identidad",
+      "socialLinks": "Redes Sociales"
+    },
+    "socialLinks": {
+      "title": "Redes Sociales",
+      "subtitle": "Configura los enlaces a redes sociales del pie de página."
     }
   }
 }

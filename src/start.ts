@@ -2,6 +2,7 @@ import { clerkMiddleware } from '@clerk/tanstack-react-start/server'
 import { createStart } from '@tanstack/react-start'
 import type { AnyRequestMiddleware } from '@tanstack/react-start'
 import { isClerkServerEnabled } from '@/shared/lib/auth/config'
+import { requestLoggerMiddleware } from '@/shared/lib/observability'
 
 function isAuthBypassEnabled(): boolean {
   if (typeof process === 'undefined') return false
@@ -12,10 +13,13 @@ function isAuthBypassEnabled(): boolean {
 }
 
 export const startInstance = createStart(() => {
-  const requestMiddleware: readonly AnyRequestMiddleware[] =
-    isClerkServerEnabled() && !isAuthBypassEnabled() ? [clerkMiddleware()] : []
+  const middleware: AnyRequestMiddleware[] = [requestLoggerMiddleware]
+
+  if (isClerkServerEnabled() && !isAuthBypassEnabled()) {
+    middleware.push(clerkMiddleware())
+  }
 
   return {
-    requestMiddleware,
+    requestMiddleware: middleware,
   }
 })

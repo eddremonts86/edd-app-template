@@ -55,6 +55,7 @@
     "db:push": "drizzle-kit push",
     "db:seed": "tsx scripts/db/seed-db.ts",
     "db:seed:admin": "tsx --env-file=.env scripts/db/seed-admin.ts",
+    "db:seed:rbac": "tsx --env-file=.env scripts/db/seed-rbac.ts",
     "db:seed:generate": "tsx scripts/db/seed-complex.ts",
     "db:seed:import": "tsx scripts/db/seed-db.ts",
     "db:seed:realistic": "pnpm db:seed:generate && pnpm db:seed:import",

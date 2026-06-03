@@ -1,3 +1,4 @@
+export { SiteSettingsPage } from './ui/SiteSettingsPage'
 export { aiConfigApi } from './api/ai-config.api'
 export { useAiConfigStore, useAiProviderStatuses } from './api/ai-config.queries'
 export { AiConfigForm } from './ui/AiConfigForm'
