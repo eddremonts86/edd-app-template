@@ -237,8 +237,7 @@ export function AuthPage(): React.JSX.Element {
                       className="grid w-full grid-cols-2 rounded-2xl border border-border/40 bg-muted/40 p-1"
                     >
                       <Button
-                        type="button"
-                        onClick={() => setActiveTab('sign-in')}
+                        asChild
                         role="tab"
                         data-testid="auth-tab-sign-in"
                         aria-selected={activeTab === 'sign-in'}
@@ -248,12 +247,19 @@ export function AuthPage(): React.JSX.Element {
                             : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
-                        <LogIn className="h-3.5 w-3.5" />
-                        Sign in
+                        <a
+                          href="/auth"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setActiveTab('sign-in')
+                          }}
+                        >
+                          <LogIn className="h-3.5 w-3.5" />
+                          Sign in
+                        </a>
                       </Button>
                       <Button
-                        type="button"
-                        onClick={() => setActiveTab('sign-up')}
+                        asChild
                         role="tab"
                         data-testid="auth-tab-sign-up"
                         aria-selected={activeTab === 'sign-up'}
@@ -263,12 +269,19 @@ export function AuthPage(): React.JSX.Element {
                             : 'text-muted-foreground hover:text-foreground'
                         }`}
                       >
-                        <UserPlus className="h-3.5 w-3.5" />
-                        Create account
+                        <a
+                          href="/auth?tab=sign-up"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setActiveTab('sign-up')
+                          }}
+                        >
+                          <UserPlus className="h-3.5 w-3.5" />
+                          Create account
+                        </a>
                       </Button>
                     </div>
                   )}
-
                   {/* Header labels */}
                   <div>
                     <h3 className="text-xl font-bold tracking-tight text-foreground">
@@ -282,14 +295,12 @@ export function AuthPage(): React.JSX.Element {
                         : 'Sign in with the account you use every day.'}
                     </p>
                   </div>
-
                   {/* Display validation warning callouts */}
                   {formError && activeTab !== 'forgot-password' && (
                     <div className="rounded-xl border border-destructive/20 bg-destructive/5 px-4 py-3 text-xs text-destructive">
                       {formError}
                     </div>
                   )}
-
                   {!localAuthEnabled && (
                     <div className="rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 text-xs text-muted-foreground">
                       <p className="font-semibold text-foreground">Local Auth Disabled</p>
@@ -298,7 +309,6 @@ export function AuthPage(): React.JSX.Element {
                       </p>
                     </div>
                   )}
-
                   {/* Form fields rendering */}
                   {localAuthEnabled && activeTab === 'sign-in' && (
                     <form className="space-y-4" action="/auth/sign-in" method="post">
@@ -360,7 +370,6 @@ export function AuthPage(): React.JSX.Element {
                       </Button>
                     </form>
                   )}
-
                   {localAuthEnabled && activeTab === 'sign-up' && (
                     <form className="space-y-4" action="/auth/sign-up" method="post">
                       <div className="space-y-1.5">
@@ -422,6 +431,7 @@ export function AuthPage(): React.JSX.Element {
 
                       <Button
                         type="submit"
+                        data-testid="auth-submit-sign-up"
                         className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 transition-all flex items-center justify-center gap-2 mt-2 font-semibold"
                       >
                         <LogIn className="h-4 w-4" />
@@ -429,8 +439,7 @@ export function AuthPage(): React.JSX.Element {
                       </Button>
                     </form>
                   )}
-
-                  {/* Forgot Password Recovery View */}
+                  {/* Forgot Password Recovery View */}{' '}
                   {localAuthEnabled && activeTab === 'forgot-password' && (
                     <div className="space-y-4">
                       {resetSubmitted ? (

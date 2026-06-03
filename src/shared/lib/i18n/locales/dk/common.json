@@ -100,7 +100,12 @@
     "error": {
       "title": "Noget gik galt",
       "description": "Der opstod en fejl under indlæsning af data. Prøv venligst igen."
-    }
+    },
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "pinVisible": "Pin visible",
+    "none": "None",
+    "saving": "Saving..."
   },
   "theme": {
     "light": "Lys",
@@ -182,7 +187,11 @@
       "yesterday": "I går",
       "previousDays": "Sidste 7 dage",
       "older": "Ældre",
-      "untitledConversation": "Ny samtale"
+      "untitledConversation": "Ny samtale",
+      "dropFiles": "Drop files here to upload",
+      "pressEnter": "Press Enter to send",
+      "emptyDescription": "How can I help you today? You can ask about your data, configure the dashboard, or upload an image to analyze.",
+      "assistantName": "Smart Assistant"
     }
   },
   "settings": {
@@ -237,7 +246,12 @@
       "sections": {
         "connection": "Forbindelsesdetaljer",
         "parameters": "Modelparametre",
-        "endpoints": "Endpoint-konfiguration"
+        "endpoints": "Endpoint-konfiguration",
+        "status": "System Status",
+        "configurations": "Configurations",
+        "logs": "Logs",
+        "statusDescription": "Check the availability of your local and remote models.",
+        "fallback": "System Fallback Priority"
       },
       "tabs": {
         "system": "System",
@@ -281,7 +295,12 @@
         "saved": "AI-konfigurationen er gemt.",
         "reset": "AI-konfigurationen er nulstillet.",
         "testSuccess": "Forbindelse til AI-tjenesten oprettet.",
-        "testError": "Kunne ikke oprette forbindelse til AI-tjenesten."
+        "testError": "Kunne ikke oprette forbindelse til AI-tjenesten.",
+        "checkingStatus": "Checking service status...",
+        "fallbackDescription": "The system will automatically try the next available provider if the active one fails.",
+        "active": "Active",
+        "noModels": "No models found",
+        "modelsCount": "{{count}} models"
       }
     },
     "socialLinks": {
@@ -438,6 +457,16 @@
       "refreshUpcomingTasks": "Opdater kommende opgaver",
       "refreshExpenseDistribution": "Opdater udgiftsfordeling",
       "refreshWorkload": "Opdater arbejdsbelastning"
+    },
+    "title": "Dashboard",
+    "description": "Welcome to your dashboard.",
+    "recentTasks": {
+      "title": "Recent Tasks",
+      "description": "Your team's latest activity."
+    },
+    "workload": {
+      "title": "Team Workload",
+      "description": "Task distribution across team members."
     }
   },
   "analytics": {
@@ -597,7 +626,12 @@
       "createDescription": "Tilføj et nyt projekt til dit arbejdsområde. Udfyld detaljerne nedenfor.",
       "editTitle": "Rediger projekt",
       "editDescription": "Opdater projektdetaljer og konfiguration.",
-      "confirmationDescription": "Dit projekt er blevet oprettet. Du kan nu begynde at tilføje opgaver og teammedlemmer."
+      "confirmationDescription": "Dit projekt er blevet oprettet. Du kan nu begynde at tilføje opgaver og teammedlemmer.",
+      "teamEmpty": "No users found.",
+      "tabs": {
+        "general": "General",
+        "team": "Team"
+      }
     },
     "status": {
       "active": "Aktiv",
@@ -632,7 +666,32 @@
       "delete": "Er du sikker på, at du vil slette projektet '{{name}}'?"
     },
     "members": {
-      "removeConfirm": "Er du sikker på, at du vil fjerne {{name}} fra dette projekt?"
+      "removeConfirm": "Er du sikker på, at du vil fjerne {{name}} fra dette projekt?",
+      "title": "Team Members",
+      "description": "Manage who has access to this project and their roles.",
+      "add": "Add Member",
+      "register": "Register New Member",
+      "registerDescription": "Create a new user and add them to the project team.",
+      "searchUsers": "Search users...",
+      "searchMembers": "Search team members...",
+      "noAvailableUsers": "No more users available.",
+      "empty": "No members in this project.",
+      "success": {
+        "added": "Member added successfully",
+        "updated": "Role updated successfully",
+        "removed": "Member removed successfully"
+      }
+    },
+    "member": {
+      "role": "Role",
+      "owner": "Owner",
+      "manager": "Manager",
+      "contributor": "Contributor",
+      "viewer": "Viewer",
+      "add": "Add Member",
+      "remove": "Remove Member",
+      "updateRole": "Update Role",
+      "joinedAt": "Joined on"
     }
   },
   "team": {
@@ -686,7 +745,37 @@
       "dueDatePlaceholder": "Vælg dato",
       "assignedToLabel": "Tildelt til",
       "assignedToPlaceholder": "Vælg bruger",
-      "assignedToSelf": "Mig"
+      "assignedToSelf": "Mig",
+      "projectLabel": "Project",
+      "projectPlaceholder": "Select project",
+      "complexityLabel": "Complexity",
+      "complexityPlaceholder": "1-10 (e.g. 5)",
+      "estimatedTimeLabel": "Estimated Time",
+      "estimatedTimePlaceholder": "Hours (e.g. 4)",
+      "actualTimeLabel": "Actual Time",
+      "actualTimePlaceholder": "Hours (e.g. 2)",
+      "acceptanceCriteriaLabel": "Acceptance Criteria",
+      "acceptanceCriteriaPlaceholder": "Ex: Feature must be accessible...",
+      "dependenciesLabel": "Dependencies",
+      "dependenciesPlaceholder": "Select tasks...",
+      "sections": {
+        "general": {
+          "title": "General Information",
+          "description": "Define the basic aspects of the task so everyone understands what it's about."
+        },
+        "planning": {
+          "title": "Planning & Timing",
+          "description": "Set deadlines and estimate the effort required to complete the work."
+        },
+        "assignment": {
+          "title": "Assignment & Context",
+          "description": "Place the task within a project and assign it to the responsible person."
+        },
+        "tracking": {
+          "title": "Tracking & Relations",
+          "description": "Manage the current status and link this task with other dependencies."
+        }
+      }
     },
     "status": {
       "pending": "Afventer",
@@ -777,12 +866,36 @@
       "avatarLabel": "Avatar-URL",
       "avatarPlaceholder": "Avatar-URL",
       "avatarRandom": "Tilfældig",
-      "avatarHelp": "Indsæt en URL eller generer en tilfældig avatar"
+      "avatarHelp": "Indsæt en URL eller generer en tilfældig avatar",
+      "roleHelp": "The role defines the user's permissions.",
+      "jobTitleLabel": "Job Title",
+      "jobTitlePlaceholder": "e.g. Senior Developer",
+      "departmentLabel": "Department",
+      "departmentPlaceholder": "Select department",
+      "reportsToLabel": "Reports To",
+      "reportsToPlaceholder": "Select manager",
+      "reportsToHelp": "The person this user reports to directly.",
+      "sections": {
+        "account": {
+          "title": "Account Information",
+          "description": "Manage basic user data and identity on the platform."
+        },
+        "professional": {
+          "title": "Professional Details",
+          "description": "Define the user's role and job title within the organization."
+        },
+        "organization": {
+          "title": "Organizational Structure",
+          "description": "Place the user in a department and define their reporting line."
+        }
+      }
     },
     "table": {
       "user": "Bruger",
       "joined": "Oprettet",
-      "role": "Rolle / Adgang"
+      "role": "Rolle / Adgang",
+      "jobTitle": "Job Title",
+      "department": "Department"
     },
     "confirm": {
       "delete": "Er du sikker på, at du vil slette denne bruger?"
@@ -1141,39 +1254,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Arkitektur",
-            "Moduloversigt",
-            "Design tokens",
-            "Konventioner"
-          ]
+          "items": ["Arkitektur", "Moduloversigt", "Design tokens", "Konventioner"]
         },
         "company": {
           "title": "Produkt",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integrationer",
-            "Release notes"
-          ]
+          "items": ["Roadmap", "Changelog", "Integrationer", "Release notes"]
         },
         "community": {
           "title": "Support",
-          "items": [
-            "Dokumentation",
-            "Guides",
-            "Eksempler",
-            "FAQ"
-          ]
+          "items": ["Dokumentation", "Guides", "Eksempler", "FAQ"]
         },
         "legal": {
           "title": "Juridisk",
-          "items": [
-            "Privatliv",
-            "Vilkår",
-            "Cookies",
-            "Licenser"
-          ]
+          "items": ["Privatliv", "Vilkår", "Cookies", "Licenser"]
         }
       }
     }

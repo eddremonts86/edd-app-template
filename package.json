@@ -79,7 +79,18 @@
     "docker:ai:smoke:chat": "sh scripts/ai/smoke-chat.sh",
     "docker:verify": "pnpm docker:check && pnpm docker:ai:smoke && pnpm docker:ai:smoke:chat",
     "routes:inventory": "tsx scripts/routes/generate-inventory.ts",
-    "release": "node scripts/release/create-edd-app-release.mjs"
+    "release": "node scripts/release/create-edd-app-release.mjs",
+    "i18n:check": "tsx scripts/i18n/check-translations.ts",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,yaml,yml}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.100.1",
@@ -182,7 +193,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "fake-indexeddb": "^6.2.5",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "lint-staged": "^17.0.7",
     "prettier": "^3.8.3",
     "react-doctor": "^0.2.14",
     "tailwindcss": "^4.3.0",

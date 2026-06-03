@@ -103,7 +103,9 @@
     "error": {
       "title": "Algo salió mal",
       "description": "Ocurrió un error al cargar los datos. Inténtalo de nuevo."
-    }
+    },
+    "none": "None",
+    "saving": "Saving..."
   },
   "theme": {
     "light": "Claro",
@@ -125,7 +127,10 @@
     "deleteConfirm": "¿Estás seguro de que quieres eliminar este proyecto?",
     "actions": {
       "create": "Crear Proyecto",
-      "createAnother": "Crear otro proyecto"
+      "createAnother": "Crear otro proyecto",
+      "new": "New Project",
+      "edit": "Edit Project",
+      "delete": "Delete Project"
     },
     "success": {
       "created": "Proyecto creado",
@@ -158,7 +163,16 @@
       "technologiesPlaceholder": "Ej. React, Node.js",
       "skillsLabel": "Habilidades",
       "skillsPlaceholder": "Buscar habilidades...",
-      "skillsEmpty": "No se encontraron habilidades."
+      "skillsEmpty": "No se encontraron habilidades.",
+      "statusPlaceholder": "Select status",
+      "typePlaceholder": "Select type",
+      "priorityPlaceholder": "Select priority",
+      "departmentLabel": "Department",
+      "departmentPlaceholder": "Select department",
+      "tabs": {
+        "general": "General",
+        "team": "Team"
+      }
     },
     "status": {
       "active": "Activo",
@@ -197,7 +211,8 @@
       "hasTasks": "No se puede eliminar el proyecto '{{name}}' porque tiene tareas asociadas.",
       "delete": "Error al eliminar el proyecto.",
       "update": "Error al actualizar el proyecto.",
-      "fetch": "No se pudieron cargar los proyectos."
+      "fetch": "No se pudieron cargar los proyectos.",
+      "create": "Failed to create project"
     },
     "confirm": {
       "delete": "¿Estás seguro de que quieres eliminar el proyecto '{{name}}'?"
@@ -219,7 +234,30 @@
         "added": "Miembro añadido correctamente",
         "updated": "Rol actualizado correctamente",
         "removed": "Miembro eliminado correctamente"
-      }
+      },
+      "registerDescription": "Create a new user and add them to the project team."
+    },
+    "type": {
+      "internal": "Internal",
+      "external": "External",
+      "research": "Research",
+      "maintenance": "Maintenance"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "member": {
+      "role": "Role",
+      "owner": "Owner",
+      "manager": "Manager",
+      "contributor": "Contributor",
+      "viewer": "Viewer",
+      "add": "Add Member",
+      "remove": "Remove Member",
+      "updateRole": "Update Role",
+      "joinedAt": "Joined on"
     }
   },
   "users": {
@@ -281,7 +319,9 @@
           "title": "Estructura Organizativa",
           "description": "Ubica al usuario en un departamento y define su línea de reporte."
         }
-      }
+      },
+      "rolePlaceholder": "Select role",
+      "avatarRandom": "Random"
     },
     "table": {
       "user": "Usuario",
@@ -304,6 +344,16 @@
       "created": "Usuario creado correctamente",
       "updated": "Usuario actualizado correctamente",
       "deleted": "Usuario eliminado correctamente"
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this user?"
+    },
+    "loadingMore": "Syncing...",
+    "loadMore": "Load more users",
+    "error": {
+      "title": "Connection Error",
+      "description": "We couldn't sync the user list. Please retry in a moment.",
+      "retry": "Retry"
     }
   },
   "contactMessages": {
@@ -421,7 +471,36 @@
       "welcome": "¡Hola! ¿En qué puedo ayudarte hoy?",
       "clear": "Limpiar chat",
       "error": "Ocurrió un error al procesar tu solicitud.",
-      "stop": "Detener generación"
+      "stop": "Detener generación",
+      "send": "Send",
+      "typing": "AI is typing...",
+      "offline": "You're offline. Connect to send messages.",
+      "empty": "Start the conversation with a question.",
+      "providers": "Provider status",
+      "thinking": "Thinking Process",
+      "dropFiles": "Drop files here to upload",
+      "pressEnter": "Press Enter to send",
+      "emptyDescription": "How can I help you today? You can ask about your data, configure the dashboard, or upload an image to analyze.",
+      "assistantName": "Smart Assistant",
+      "supportAssistant": "Support Assistant",
+      "agentInactive": "The assistant is currently unavailable",
+      "retry": "Retry",
+      "connectionError": "Connection error with the server",
+      "emptyResponse": "The AI returned an empty response. Try asking again or rephrasing your question.",
+      "fileAutoInstruction": "Analyze the attached file. If it contains a list of tasks or items, create a task for each one using CREAR TAREA action blocks.",
+      "fileAnalyzeInstruction": "Analyze the attached file and provide a summary or relevant actions.",
+      "conversations": "Conversations",
+      "newConversation": "New conversation",
+      "deleteConversation": "Delete conversation",
+      "deleteAllConversations": "Delete all",
+      "confirmDeleteConversation": "Are you sure you want to delete this conversation?",
+      "confirmDeleteAll": "Are you sure you want to delete all conversations?",
+      "noConversations": "No conversations yet",
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "previousDays": "Previous 7 days",
+      "older": "Older",
+      "untitledConversation": "New conversation"
     }
   },
   "validation": {
@@ -429,7 +508,11 @@
     "invalidEmail": "Correo electrónico inválido",
     "invalidUrl": "URL inválida",
     "minLength": "Debe tener al menos {{count}} caracteres",
-    "maxLength": "Debe tener como máximo {{count}} caracteres"
+    "maxLength": "Debe tener como máximo {{count}} caracteres",
+    "invalidColor": "Invalid color",
+    "invalidDate": "Invalid date",
+    "futureDate": "Date must be in the future",
+    "minAmount": "Must be greater than 0"
   },
   "todos": {
     "title": "Tareas",
@@ -672,6 +755,38 @@
       "refreshUpcomingTasks": "Actualizar tareas próximas",
       "refreshExpenseDistribution": "Actualizar distribución de gastos",
       "refreshWorkload": "Actualizar carga de trabajo"
+    },
+    "title": "Dashboard",
+    "description": "Welcome to your dashboard.",
+    "stats": {
+      "netBalance": "Net Balance",
+      "totalRevenue": "Total Revenue",
+      "totalExpenses": "Total Expenses",
+      "pendingApproval": "Pending approval",
+      "subscriptions": "Subscriptions",
+      "sales": "Sales",
+      "activeNow": "Active Now",
+      "activeProjects": "Active Projects",
+      "change": "{{value}} from last month"
+    },
+    "recentTasks": {
+      "title": "Recent Tasks",
+      "description": "Your team's latest activity."
+    },
+    "workload": {
+      "title": "Team Workload",
+      "description": "Task distribution across team members."
+    },
+    "error": {
+      "title": "Error loading dashboard",
+      "description": "We couldn't load the dashboard data. Please try again later."
+    },
+    "upcomingTasks": {
+      "title": "Upcoming Tasks (Next 7 Days)",
+      "description": "Tasks due this week.",
+      "filterByResponsible": "Responsible",
+      "noTasks": "No upcoming tasks for this week.",
+      "noFilteredResults": "No tasks found for selected filters."
     }
   },
   "updates": {
@@ -905,7 +1020,10 @@
         "created": "Regla de recurrencia creada",
         "updated": "Regla de recurrencia actualizada",
         "deleted": "Regla de recurrencia eliminada"
-      }
+      },
+      "type": "Type",
+      "typeExpense": "Expense",
+      "typeIncome": "Income"
     },
     "categories": {
       "uncategorized": "Sin categoría"
@@ -980,7 +1098,12 @@
     "error": {
       "title": "Error",
       "description": "Ocurrió un error al cargar las categorías."
-    }
+    },
+    "nameLabel": "Name",
+    "namePlaceholder": "Category name",
+    "colorLabel": "Color",
+    "save": "Save Category",
+    "summary": "Showing {{shown}} of {{total}} categories"
   },
   "home": {
     "hero": {
@@ -1188,39 +1311,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Arquitectura",
-            "Mapa de módulos",
-            "Design tokens",
-            "Convenciones"
-          ]
+          "items": ["Arquitectura", "Mapa de módulos", "Design tokens", "Convenciones"]
         },
         "company": {
           "title": "Producto",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integraciones",
-            "Notas de versión"
-          ]
+          "items": ["Roadmap", "Changelog", "Integraciones", "Notas de versión"]
         },
         "community": {
           "title": "Soporte",
-          "items": [
-            "Documentación",
-            "Guías",
-            "Ejemplos",
-            "FAQ"
-          ]
+          "items": ["Documentación", "Guías", "Ejemplos", "FAQ"]
         },
         "legal": {
           "title": "Legal",
-          "items": [
-            "Privacidad",
-            "Términos",
-            "Cookies",
-            "Licencias"
-          ]
+          "items": ["Privacidad", "Términos", "Cookies", "Licencias"]
         }
       }
     }
@@ -1244,6 +1347,259 @@
     "socialLinks": {
       "title": "Redes Sociales",
       "subtitle": "Configura los enlaces a redes sociales del pie de página."
+    },
+    "title": "Settings",
+    "description": "Manage your dashboard preferences and application settings.",
+    "sections": {
+      "interface": "Interface Settings",
+      "development": "Development Tools"
+    },
+    "language": {
+      "title": "Language",
+      "description": "Select your preferred display language. Changes apply immediately."
+    },
+    "theme": {
+      "title": "Theme",
+      "description": "Choose your preferred color scheme for the interface."
+    },
+    "devtools": {
+      "title": "Developer Tools",
+      "description": "Show or hide TanStack DevTools in the interface.",
+      "show": "Show DevTools",
+      "showDescription": "Display TanStack DevTools panel for debugging."
+    },
+    "actions": {
+      "save": "Save Changes",
+      "reset": "Restore Defaults",
+      "saving": "Saving..."
+    },
+    "messages": {
+      "saved": "Settings saved successfully.",
+      "reset": "Settings restored to defaults.",
+      "error": "Failed to save settings. Please try again."
+    },
+    "ai": {
+      "title": "AI Configuration",
+      "description": "Configure AI service parameters, including base URL, access token, and endpoints.",
+      "sections": {
+        "status": "System Status",
+        "configurations": "Configurations",
+        "logs": "Logs",
+        "statusDescription": "Check the availability of your local and remote models.",
+        "fallback": "System Fallback Priority",
+        "connection": "Connection Details",
+        "parameters": "Model Parameters",
+        "endpoints": "Endpoints Configuration"
+      },
+      "tabs": {
+        "system": "System",
+        "ai": "AI Configuration"
+      },
+      "providers": {
+        "llama-cpp": "Llama.cpp",
+        "ollama": "Ollama",
+        "openai": "OpenAI",
+        "anthropic": "Anthropic",
+        "lm-studio": "LM Studio",
+        "minimax": "MiniMax"
+      },
+      "fields": {
+        "provider": "AI Provider",
+        "baseUrl": "Base URL",
+        "port": "Port",
+        "token": "Access Token (optional)",
+        "apiKey": "API Key",
+        "model": "Model ID",
+        "temperature": "Temperature",
+        "maxTokens": "Max Tokens",
+        "topP": "Top P",
+        "frequencyPenalty": "Frequency Penalty",
+        "presencePenalty": "Presence Penalty",
+        "chatEndpoint": "Chat Endpoint",
+        "modelsEndpoint": "Models Endpoint",
+        "loadEndpoint": "Load Endpoint",
+        "downloadEndpoint": "Download Endpoint",
+        "statusEndpoint": "Status Endpoint",
+        "timeout": "Timeout (ms)",
+        "additionalParams": "Additional Params (JSON)"
+      },
+      "actions": {
+        "save": "Save Configuration",
+        "reset": "Restore Defaults",
+        "test": "Test Connection",
+        "confirmReset": "Are you sure you want to reset AI configuration to default values?"
+      },
+      "messages": {
+        "saved": "AI configuration saved successfully.",
+        "reset": "AI configuration reset.",
+        "testSuccess": "Successfully connected to AI service.",
+        "testError": "Failed to connect to AI service.",
+        "checkingStatus": "Checking service status...",
+        "fallbackDescription": "The system will automatically try the next available provider if the active one fails.",
+        "active": "Active",
+        "noModels": "No models found",
+        "modelsCount": "{{count}} models"
+      }
+    }
+  },
+  "themeToggle": {
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "system": "System theme"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "pageViews": "Page Views",
+    "overview": "Overview",
+    "placeholder": "Analytics chart coming soon...",
+    "netBalance": "Net Balance",
+    "netBalanceDesc": "Income minus expenses",
+    "totalRevenue": "Total Revenue",
+    "totalRevenueDesc": "Total approved income",
+    "totalExpenses": "Total Expenses",
+    "totalExpensesDesc": "Total approved expenses",
+    "activeProjects": "Active Projects",
+    "activeProjectsDesc": "Currently active projects",
+    "taskCompletion": "Task Completion",
+    "tasks": "tasks",
+    "activeUsers": "Active Users",
+    "activeUsersDesc": "Total registered users",
+    "error": "Error loading KPIs",
+    "searchPlaceholder": "Search...",
+    "export": "Export",
+    "last7Days": "Last 7 days",
+    "last30Days": "Last 30 days",
+    "last90Days": "Last 90 days",
+    "financialTrend": {
+      "title": "Financial Trend",
+      "description": "Income and expenses over the last {{days}} days",
+      "error": "Error loading financial data",
+      "income": "Income",
+      "expenses": "Expenses"
+    },
+    "taskCompletionTrend": {
+      "title": "Task Completion Trend",
+      "description": "Tasks completed over the last {{days}} days",
+      "label": "Tasks Completed"
+    },
+    "taskDistribution": {
+      "byStatus": "Tasks by Status",
+      "byStatusDesc": "Current distribution of tasks",
+      "byPriority": "Tasks by Priority",
+      "byPriorityDesc": "Priority breakdown",
+      "label": "Tasks",
+      "error": "Error loading task data"
+    },
+    "projectPerformance": {
+      "title": "Project Performance",
+      "description": "Overview of project progress and budget usage",
+      "searchPlaceholder": "Search projects...",
+      "columns": {
+        "name": "Project Name",
+        "status": "Status",
+        "budget": "Budget Used",
+        "completion": "Task Completion",
+        "tasks": "Tasks"
+      },
+      "status": {
+        "active": "Active",
+        "completed": "Completed",
+        "on_hold": "On Hold"
+      }
+    }
+  },
+  "sectionCards": {
+    "totalRevenue": {
+      "title": "Total Revenue",
+      "trend": "Trending up this month",
+      "detail": "Visitors for the last 6 months"
+    },
+    "newCustomers": {
+      "title": "New Customers",
+      "trend": "Down 20% this period",
+      "detail": "Acquisition needs attention"
+    },
+    "activeAccounts": {
+      "title": "Active Accounts",
+      "trend": "Strong user retention",
+      "detail": "Engagement exceeds targets"
+    },
+    "growthRate": {
+      "title": "Growth Rate",
+      "trend": "Steady performance increase",
+      "detail": "Meets growth projections"
+    }
+  },
+  "chart": {
+    "timeRange": {
+      "placeholder": "Select a range",
+      "90d": "Last 3 months",
+      "30d": "Last 30 days",
+      "7d": "Last 7 days"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "summary": "Showing {{shown}} of {{total}} transactions",
+    "actions": {
+      "add": "Add Transaction",
+      "save": "Save Transaction",
+      "edit": "Edit",
+      "delete": "Delete",
+      "create": "Create Transaction"
+    },
+    "form": {
+      "customerNameLabel": "Customer Name",
+      "customerNamePlaceholder": "Customer name",
+      "customerEmailLabel": "Customer Email",
+      "customerEmailPlaceholder": "Customer email",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Select status",
+      "statusApproved": "Approved",
+      "statusPending": "Pending",
+      "statusRejected": "Rejected",
+      "amountLabel": "Amount",
+      "amountPlaceholder": "0.00",
+      "dateLabel": "Date",
+      "userLabel": "User",
+      "userPlaceholder": "Select User",
+      "projectLabel": "Project",
+      "projectPlaceholder": "Select Project",
+      "createDescription": "Create a new transaction record.",
+      "editDescription": "Edit transaction details."
+    },
+    "table": {
+      "customer": "Customer",
+      "status": "Status",
+      "date": "Date",
+      "amount": "Amount"
+    },
+    "status": {
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected"
+    },
+    "confirm": {
+      "delete": "Are you sure you want to delete this transaction?"
+    },
+    "error": {
+      "title": "Error",
+      "description": "An error occurred while loading transactions."
+    },
+    "toast": {
+      "created": "Transaction created successfully",
+      "updated": "Transaction updated successfully",
+      "deleted": "Transaction deleted successfully"
+    },
+    "history": "Transaction History",
+    "pending": {
+      "title": "Requires Your Approval",
+      "approveConfirm": "Are you sure you want to approve this transaction?",
+      "approveSuccess": "Transaction approved successfully",
+      "rejectPrompt": "Please provide a reason for rejection:",
+      "rejectSuccess": "Transaction rejected successfully",
+      "approve": "Approve",
+      "reject": "Reject"
     }
   }
 }
