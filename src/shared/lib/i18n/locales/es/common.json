@@ -224,8 +224,12 @@
   },
   "users": {
     "title": "Usuarios",
+    "subtitle": "Gestiona miembros del equipo, roles y permisos.",
     "subtitlePrefix": "Gestiona los niveles de acceso para ",
     "subtitleSuffix": " miembros del equipo.",
+    "filters": {
+      "search": "Buscar usuarios por nombre o email"
+    },
     "description": "Gestiona los usuarios de la plataforma.",
     "create": "Nuevo Usuario",
     "edit": "Editar Usuario",
@@ -243,6 +247,16 @@
       "emailPlaceholder": "correo@ejemplo.com",
       "roleLabel": "Rol",
       "roleHelp": "El rol define los permisos del usuario.",
+      "roleLocked": "Solo los administradores pueden cambiar roles.",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholderCreate": "Déjalo vacío para crear solo un perfil",
+      "passwordPlaceholderEdit": "Déjalo vacío para conservar la actual",
+      "passwordHelpCreate": "Proporciona una contraseña para crear una cuenta de inicio de sesión (Better Auth). Déjalo vacío para crear solo un perfil.",
+      "passwordHelpEdit": "Opcional. Si lo rellenas reemplaza la contraseña actual.",
+      "passwordTooShort": "La contraseña debe tener al menos 8 caracteres.",
+      "roleUser": "Usuario",
+      "roleAdmin": "Admin",
+      "roleSuperAdmin": "Super Admin",
       "avatarLabel": "Avatar URL",
       "avatarPlaceholder": "https://...",
       "avatarHelp": "Pega una URL o genera un avatar aleatorio.",
@@ -271,6 +285,7 @@
     },
     "table": {
       "user": "Usuario",
+      "joined": "Alta",
       "role": "Rol / Acceso",
       "jobTitle": "Cargo",
       "department": "Departamento"
@@ -540,6 +555,70 @@
     }
   },
   "dashboard": {
+    "overview": {
+      "welcome": {
+        "morning": "Buenos días",
+        "afternoon": "Buenas tardes",
+        "evening": "Buenas noches",
+        "fallbackName": "amigo",
+        "salute": "Bienvenido de nuevo, {{name}}",
+        "subtitle": "Esto es lo que está pasando hoy en tu espacio de trabajo."
+      },
+      "stats": {
+        "totalUsers": "Total de usuarios",
+        "registeredUsers": "Usuarios registrados",
+        "newUsersThisWeek": "Nuevos usuarios · 7d",
+        "lastSevenDays": "Últimos 7 días",
+        "vsPreviousWeekShort": "vs sem. ant.",
+        "activeSessions": "Sesiones activas",
+        "activeSessionsHint": "Conectados ahora",
+        "unreadMessages": "Mensajes sin leer",
+        "unreadMessagesHint": "{{count}} llegaron en los últimos 7 días"
+      },
+      "usersOverview": {
+        "title": "Resumen de usuarios",
+        "description": "Distribución por rol y proveedor de autenticación.",
+        "totalLabel": "Total de usuarios",
+        "vsLastWeek": "vs. semana pasada",
+        "byRole": "Por rol",
+        "byProvider": "Por proveedor"
+      },
+      "recentSignups": {
+        "title": "Registros recientes",
+        "description": "Las últimas personas que se unieron a tu espacio.",
+        "empty": "Aún no hay registros.",
+        "viewAll": "Ver todos los usuarios"
+      },
+      "contactByType": {
+        "title": "Solicitudes de contacto",
+        "description": "Distribución por tipo de proyecto.",
+        "totalLabel": "Total recibido",
+        "empty": "Aún no hay mensajes de contacto.",
+        "viewAll": "Ver bandeja",
+        "types": {
+          "saas": "SaaS",
+          "landing": "Landing",
+          "webapp": "Web app"
+        }
+      },
+      "quickLinks": {
+        "title": "Accesos rápidos",
+        "description": "Salta a los módulos que más usas.",
+        "users": "Usuarios",
+        "usersDesc": "Gestiona miembros y roles",
+        "messages": "Bandeja",
+        "messagesDesc": "Revisa solicitudes de contacto",
+        "help": "Ayuda",
+        "helpDesc": "Documentos y atajos",
+        "settings": "Configuración",
+        "settingsDesc": "Sistema y preferencias"
+      },
+      "providers": {
+        "better-auth": "Better Auth",
+        "clerk": "Clerk",
+        "local": "Local"
+      }
+    },
     "widgets": {
       "projectsStatus": "Estado de Proyectos",
       "projectsStatusDesc": "Resumen de proyectos por estado actual.",

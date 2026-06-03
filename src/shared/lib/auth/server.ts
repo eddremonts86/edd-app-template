@@ -28,7 +28,7 @@ export const getAuthUser = async (): Promise<ServerAuthUser> => {
       email: 'local-test@example.com',
       name: 'Local Test User',
       image: null,
-      role: 'admin',
+      role: 'super_admin',
     }
   }
 

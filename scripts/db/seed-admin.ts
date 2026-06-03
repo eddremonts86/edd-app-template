@@ -49,12 +49,13 @@ async function main() {
     const accountId = crypto.randomUUID()
     const now = new Date()
 
-    // Upsert the auth user row
+    // Upsert the auth user row (with super_admin role for the bootstrap account)
     const [user] = await sql`
-      INSERT INTO auth_users (id, name, email, email_verified, created_at, updated_at)
-      VALUES (${userId}, ${name}, ${email}, true, ${now}, ${now})
+      INSERT INTO auth_users (id, name, email, email_verified, role, created_at, updated_at)
+      VALUES (${userId}, ${name}, ${email}, true, 'super_admin', ${now}, ${now})
       ON CONFLICT (email) DO UPDATE
         SET name = EXCLUDED.name,
+            role = 'super_admin',
             updated_at = now()
       RETURNING id
     `
@@ -78,7 +79,14 @@ async function main() {
             updated_at = now()
     `
 
-    console.log(`✅  Admin user ready: ${email}`)
+    // Keep the app users row (if already linked) in sync with super_admin role.
+    await sql`
+      UPDATE users
+      SET role = 'super_admin', updated_at = now()
+      WHERE auth_user_id = ${user.id} OR email = ${email}
+    `
+
+    console.log(`✅  Super admin user ready: ${email}`)
   } finally {
     await sql.end({ timeout: 5 })
   }

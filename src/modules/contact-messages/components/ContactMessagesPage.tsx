@@ -37,7 +37,7 @@ export function ContactMessagesPage() {
   } | null>(null)
   const deferredSearch = React.useDeferredValue(search)
 
-  const { data, isLoading, isError, isFetching, refetch } = useContactMessages(
+  const { data, error, isLoading, isError, isFetching, refetch } = useContactMessages(
     100,
     deferredSearch,
     status,
@@ -46,6 +46,18 @@ export function ContactMessagesPage() {
 
   const rows = data?.data ?? []
   const hasActiveFilters = Boolean(search.trim()) || status !== 'all'
+  const isForbiddenError = React.useMemo(() => {
+    if (!error) return false
+    let message = ''
+    if (error instanceof Error) {
+      message = error.message
+    } else if (typeof error === 'string') {
+      message = error
+    } else {
+      message = JSON.stringify(error)
+    }
+    return /forbidden|unauthorized|401|403/i.test(message)
+  }, [error])
 
   const handleMarkRead = async (id: string, read: boolean) => {
     try {
@@ -65,8 +77,10 @@ export function ContactMessagesPage() {
   if (isError) {
     return (
       <TableErrorState
-        titleKey="contactMessages.error.title"
-        descriptionKey="contactMessages.error.description"
+        titleKey={isForbiddenError ? 'common.error.title' : 'contactMessages.error.title'}
+        descriptionKey={
+          isForbiddenError ? 'common.noPermission' : 'contactMessages.error.description'
+        }
         retryKey="contactMessages.error.retry"
       />
     )

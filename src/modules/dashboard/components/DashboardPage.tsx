@@ -1,74 +1,79 @@
-import { IconUsers } from '@tabler/icons-react'
+import { IconMail, IconShieldCheck, IconTrendingUp, IconUsers } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { UnreadContactMessagesWidget } from '@/modules/contact-messages'
-import { WidgetRefreshButton, WidgetRefreshingIndicator } from '@/modules/core/widget'
 import { useDashboardStats } from '../api/dashboard.queries'
+import { ContactByTypeWidget } from './widgets/ContactByTypeWidget'
+import { QuickLinksWidget } from './widgets/QuickLinksWidget'
+import { RecentSignupsWidget } from './widgets/RecentSignupsWidget'
+import { StatCard } from './widgets/StatCard'
+import { UsersOverviewWidget } from './widgets/UsersOverviewWidget'
+import { WelcomeHero } from './widgets/WelcomeHero'
 
-/**
- * DashboardPage — generic template version.
- * Shows basic user count stat. Replace with your app-specific KPIs.
- */
 export function DashboardPage() {
   const { t } = useTranslation()
-  const { data, isLoading, isFetching, refetch } = useDashboardStats()
+  const { data, isLoading } = useDashboardStats()
+
+  const users = data?.users
+  const cm = data?.contactMessages
+  const sessions = data?.sessions
+  const newDelta = users ? users.newThisWeek - users.newLastWeek : 0
 
   return (
     <div className="flex flex-col gap-6 animate-in fade-in duration-500">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight">{t('dashboard.title', 'Dashboard')}</h2>
-          <p className="text-muted-foreground">
-            {t('dashboard.subtitle', 'Overview of your application.')}
-          </p>
-        </div>
-      </div>
+      <WelcomeHero />
 
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        <UnreadContactMessagesWidget />
-
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
-              {t('dashboard.stats.totalUsers', 'Total Users')}
-            </CardTitle>
-            <div className="flex items-center gap-1">
-              {isFetching && <WidgetRefreshingIndicator />}
-              <WidgetRefreshButton isRefreshing={isFetching} onRefresh={refetch} />
-              <IconUsers className="h-4 w-4 text-muted-foreground" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            {isLoading ? (
-              <div className="h-8 w-24 animate-pulse bg-muted rounded" />
-            ) : (
-              <div className="text-2xl font-bold">{data?.totalUsers ?? 0}</div>
-            )}
-            <p className="text-xs text-muted-foreground mt-1">
-              {t('dashboard.stats.registeredUsers', 'Registered users')}
-            </p>
-          </CardContent>
-        </Card>
-
-        {/* Add more stat cards here as your app grows */}
+        <StatCard
+          label={t('dashboard.overview.stats.totalUsers')}
+          value={users?.total ?? 0}
+          hint={t('dashboard.overview.stats.registeredUsers')}
+          icon={<IconUsers className="h-5 w-5" aria-hidden />}
+          isLoading={isLoading}
+          accent="primary"
+        />
+        <StatCard
+          label={t('dashboard.overview.stats.newUsersThisWeek')}
+          value={users?.newThisWeek ?? 0}
+          hint={t('dashboard.overview.stats.lastSevenDays')}
+          icon={<IconTrendingUp className="h-5 w-5" aria-hidden />}
+          isLoading={isLoading}
+          accent="emerald"
+          trend={
+            users
+              ? { value: newDelta, label: t('dashboard.overview.stats.vsPreviousWeekShort') }
+              : null
+          }
+        />
+        <StatCard
+          label={t('dashboard.overview.stats.activeSessions')}
+          value={sessions?.active ?? 0}
+          hint={t('dashboard.overview.stats.activeSessionsHint')}
+          icon={<IconShieldCheck className="h-5 w-5" aria-hidden />}
+          isLoading={isLoading}
+          accent="violet"
+        />
+        <StatCard
+          label={t('dashboard.overview.stats.unreadMessages')}
+          value={cm?.unread ?? 0}
+          hint={t('dashboard.overview.stats.unreadMessagesHint', {
+            count: cm?.newThisWeek ?? 0,
+          })}
+          icon={<IconMail className="h-5 w-5" aria-hidden />}
+          isLoading={isLoading}
+          accent="amber"
+        />
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>{t('dashboard.quickStart.title', 'Getting Started')}</CardTitle>
-          <CardDescription>
-            {t('dashboard.quickStart.description', 'This is your app template. Start building!')}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-muted-foreground">
-            {t(
-              'dashboard.quickStart.body',
-              'Replace this dashboard with your app-specific widgets. The Users module, Auth, AI assistant, Settings, and Help are already wired up.',
-            )}
-          </p>
-        </CardContent>
-      </Card>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
+        <UsersOverviewWidget className="lg:col-span-2" />
+        <RecentSignupsWidget />
+      </div>
+
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3">
+        <UnreadContactMessagesWidget />
+        <ContactByTypeWidget />
+        <QuickLinksWidget />
+      </div>
     </div>
   )
 }

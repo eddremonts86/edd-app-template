@@ -64,7 +64,7 @@ export function UsersPage() {
   }
 
   return (
-    <div className="flex flex-col h-full space-y-4 animate-in fade-in duration-500">
+    <div className="flex flex-col h-full gap-5 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0">
         <div className="space-y-1">
           <h2 className="text-3xl font-bold tracking-tight">
@@ -75,9 +75,7 @@ export function UsersPage() {
               </span>
             )}
           </h2>
-          <p className="text-muted-foreground">
-            {t('users.subtitle', 'Manage your team members, roles and permissions.')}
-          </p>
+          <p className="text-muted-foreground">{t('users.subtitle')}</p>
         </div>
         <Button onClick={() => setIsCreateOpen(true)} className="gap-2">
           <UserPlus className="h-4 w-4" />
@@ -92,6 +90,7 @@ export function UsersPage() {
         loadedCount={allUsers.length}
         totalCount={totalCount}
         showSpinner={isFetching && !isFetchingNextPage}
+        showCount={false}
         placeholderKey="users.filters.search"
       />
 
@@ -100,25 +99,24 @@ export function UsersPage() {
       ) : allUsers.length === 0 ? (
         <TableEmptyState isSearchActive={hasActiveFilters} onClearSearch={clearFilters} />
       ) : (
-        <div className="relative group flex-1 min-h-0 flex flex-col">
-          <UserTable
-            users={allUsers}
-            onEdit={setEditingUser}
-            onDelete={handleDelete}
-            hasNextPage={hasNextPage ?? false}
-            isFetchingNextPage={isFetchingNextPage}
-            onFetchNextPage={fetchNextPage}
-            scrollResetKey={deferredSearch}
-          />
-        </div>
+        <UserTable
+          users={allUsers}
+          onEdit={setEditingUser}
+          onDelete={handleDelete}
+          hasNextPage={hasNextPage ?? false}
+          isFetchingNextPage={isFetchingNextPage}
+          onFetchNextPage={fetchNextPage}
+          scrollResetKey={deferredSearch}
+        />
       )}
 
       <Sheet open={isCreateOpen} onOpenChange={setIsCreateOpen}>
-        <CrudSheetContent className="bg-background/95 shadow-2xl backdrop-blur-xl sm:max-w-135">
+        <CrudSheetContent className="bg-background/95 shadow-2xl backdrop-blur-xl sm:max-w-2xl">
           <CrudSheetHeader
             title={t('users.sheet.createTitle')}
             description={t('users.sheet.createDescription')}
             onClose={() => setIsCreateOpen(false)}
+            showPing={false}
           />
           <CrudSheetBody className="p-6">
             <UserForm
@@ -134,11 +132,12 @@ export function UsersPage() {
       </Sheet>
 
       <Sheet open={!!editingUser} onOpenChange={(open) => !open && setEditingUser(null)}>
-        <CrudSheetContent className="bg-background/95 shadow-2xl backdrop-blur-xl sm:max-w-135">
+        <CrudSheetContent className="bg-background/95 shadow-2xl backdrop-blur-xl sm:max-w-2xl">
           <CrudSheetHeader
             title={t('users.sheet.editTitle')}
             description={t('users.sheet.editDescription')}
             onClose={() => setEditingUser(null)}
+            showPing={false}
           />
           <CrudSheetBody className="p-6">
             {editingUser && (

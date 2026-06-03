@@ -2,7 +2,7 @@ import { eq } from 'drizzle-orm'
 import { requireAuthUser } from '@/shared/lib/auth/server'
 import { loadDb } from '@/shared/lib/db/load'
 import { users } from '@/shared/lib/db/schema'
-import { getAppRoleKey, type AppRoleKey } from '../model/permissions'
+import { normalizeRoleKey, type AppRoleKey } from '../model/permissions'
 
 export interface CurrentAppUser {
   id: string
@@ -23,7 +23,7 @@ export async function getCurrentAppUser(): Promise<CurrentAppUser | null> {
       email: authUser.email ?? 'local-test@example.com',
       avatar: null,
       authUserId: authUser.userId,
-      roleKey: 'admin',
+      roleKey: 'super_admin',
     }
   }
 
@@ -54,7 +54,8 @@ export async function getCurrentAppUser(): Promise<CurrentAppUser | null> {
     email: record.email,
     avatar: record.avatar,
     authUserId: record.authUserId,
-    roleKey: getAppRoleKey(null), // Extend with app-specific role logic
+    // Prefer app users.role (source of truth); fall back to auth_users.role on the session.
+    roleKey: normalizeRoleKey(record.role ?? authUser.role),
   }
 }
 

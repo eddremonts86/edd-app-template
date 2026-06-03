@@ -289,6 +289,70 @@
   "dashboard": {
     "title": "Dashboard",
     "description": "Welcome to your dashboard.",
+    "overview": {
+      "welcome": {
+        "morning": "Good morning",
+        "afternoon": "Good afternoon",
+        "evening": "Good evening",
+        "fallbackName": "there",
+        "salute": "Welcome back, {{name}}",
+        "subtitle": "Here is what is happening across your workspace today."
+      },
+      "stats": {
+        "totalUsers": "Total users",
+        "registeredUsers": "Registered users",
+        "newUsersThisWeek": "New users · 7d",
+        "lastSevenDays": "Last 7 days",
+        "vsPreviousWeekShort": "vs prev. week",
+        "activeSessions": "Active sessions",
+        "activeSessionsHint": "Currently signed in",
+        "unreadMessages": "Unread messages",
+        "unreadMessagesHint": "{{count}} arrived in the last 7 days"
+      },
+      "usersOverview": {
+        "title": "Users overview",
+        "description": "Breakdown by role and authentication provider.",
+        "totalLabel": "Total users",
+        "vsLastWeek": "vs. last week",
+        "byRole": "By role",
+        "byProvider": "By provider"
+      },
+      "recentSignups": {
+        "title": "Recent signups",
+        "description": "The latest people to join your workspace.",
+        "empty": "No signups yet.",
+        "viewAll": "View all users"
+      },
+      "contactByType": {
+        "title": "Contact requests",
+        "description": "Distribution by project type.",
+        "totalLabel": "Total received",
+        "empty": "No contact messages yet.",
+        "viewAll": "View inbox",
+        "types": {
+          "saas": "SaaS",
+          "landing": "Landing",
+          "webapp": "Web app"
+        }
+      },
+      "quickLinks": {
+        "title": "Quick links",
+        "description": "Jump to the modules you use the most.",
+        "users": "Users",
+        "usersDesc": "Manage members and roles",
+        "messages": "Inbox",
+        "messagesDesc": "Review contact requests",
+        "help": "Help",
+        "helpDesc": "Docs and shortcuts",
+        "settings": "Settings",
+        "settingsDesc": "System and preferences"
+      },
+      "providers": {
+        "better-auth": "Better Auth",
+        "clerk": "Clerk",
+        "local": "Local"
+      }
+    },
     "stats": {
       "netBalance": "Net Balance",
       "totalRevenue": "Total Revenue",
@@ -737,8 +801,12 @@
   },
   "users": {
     "title": "Users",
+    "subtitle": "Manage your team members, roles and permissions.",
     "subtitlePrefix": "Manage access levels for ",
     "subtitleSuffix": " team members.",
+    "filters": {
+      "search": "Search users by name or email"
+    },
     "actions": {
       "new": "New User",
       "save": "Save User",
@@ -753,8 +821,16 @@
       "roleLabel": "Role",
       "rolePlaceholder": "Select role",
       "roleHelp": "The role defines the user's permissions.",
+      "roleLocked": "Only administrators can change roles.",
+      "passwordLabel": "Password",
+      "passwordPlaceholderCreate": "Leave empty for a profile-only user",
+      "passwordPlaceholderEdit": "Leave empty to keep current password",
+      "passwordHelpCreate": "Provide a password to provision a login account (Better Auth). Leave empty to create a profile-only entry.",
+      "passwordHelpEdit": "Optional. Setting a value replaces the current password.",
+      "passwordTooShort": "Password must be at least 8 characters long.",
       "roleUser": "User",
       "roleAdmin": "Admin",
+      "roleSuperAdmin": "Super Admin",
       "avatarLabel": "Avatar URL",
       "avatarPlaceholder": "Avatar URL",
       "avatarRandom": "Random",
@@ -783,6 +859,7 @@
     },
     "table": {
       "user": "User",
+      "joined": "Joined",
       "role": "Role / Access",
       "jobTitle": "Job Title",
       "department": "Department"

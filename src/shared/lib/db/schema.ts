@@ -78,12 +78,13 @@ export const users = pgTable('users', {
   name: text('name').notNull(),
   email: text('email').notNull().unique(),
   avatar: text('avatar'),
-  authUserId: text('auth_user_id')
-    .unique()
-    .references(() => authUsers.id, {
-      onDelete: 'set null',
-      onUpdate: 'cascade',
-    }),
+  role: text('role').default('user').notNull(),
+  // Auth provider this user authenticates with: 'better-auth' | 'clerk' | 'local'
+  // 'local' means the user was created from the admin UI without an auth identity yet.
+  provider: text('provider').default('local').notNull(),
+  // External auth identity id (Better Auth user id OR Clerk user id, etc.).
+  // No FK so users from any provider can be linked. Uniqueness still enforced.
+  authUserId: text('auth_user_id').unique(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })

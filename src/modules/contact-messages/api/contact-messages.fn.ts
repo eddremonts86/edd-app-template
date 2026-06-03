@@ -10,15 +10,17 @@ import type { ContactMessagesListResponse, ContactNotification } from '../model/
 const ADMIN_FALLBACK_IDENTIFIERS = ['edd_remonts', 'edd_admin']
 const NOTIFICATION_PREVIEW_MAX_LENGTH = 180
 
-const buildIdentifierFilters = (value: string) =>
-  ADMIN_FALLBACK_IDENTIFIERS.map((identifier) => ilike(value, `%${identifier}%`))
+type ILikeLeftOperand = Parameters<typeof ilike>[0]
+
+const buildIdentifierFilters = (column: ILikeLeftOperand) =>
+  ADMIN_FALLBACK_IDENTIFIERS.map((identifier) => ilike(column, `%${identifier}%`))
 
 const buildNotificationBody = (
   email: string,
   projectType: string,
   message: string | null,
 ): string => {
-  const preview = message?.replaceAll(/\s+/g, ' ').trim() ?? ''
+  const preview = message?.split(/\s+/).join(' ').trim() ?? ''
   if (preview.length > 0) {
     const trimmed =
       preview.length > NOTIFICATION_PREVIEW_MAX_LENGTH

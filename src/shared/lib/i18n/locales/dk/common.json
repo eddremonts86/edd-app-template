@@ -268,6 +268,70 @@
     }
   },
   "dashboard": {
+    "overview": {
+      "welcome": {
+        "morning": "Godmorgen",
+        "afternoon": "God eftermiddag",
+        "evening": "Godaften",
+        "fallbackName": "ven",
+        "salute": "Velkommen tilbage, {{name}}",
+        "subtitle": "Her er, hvad der sker i dit arbejdsområde i dag."
+      },
+      "stats": {
+        "totalUsers": "Brugere i alt",
+        "registeredUsers": "Registrerede brugere",
+        "newUsersThisWeek": "Nye brugere · 7d",
+        "lastSevenDays": "Sidste 7 dage",
+        "vsPreviousWeekShort": "ift. forrige uge",
+        "activeSessions": "Aktive sessioner",
+        "activeSessionsHint": "Logget ind nu",
+        "unreadMessages": "Ulæste beskeder",
+        "unreadMessagesHint": "{{count}} ankom i de sidste 7 dage"
+      },
+      "usersOverview": {
+        "title": "Brugeroversigt",
+        "description": "Fordeling efter rolle og loginudbyder.",
+        "totalLabel": "Brugere i alt",
+        "vsLastWeek": "ift. sidste uge",
+        "byRole": "Efter rolle",
+        "byProvider": "Efter udbyder"
+      },
+      "recentSignups": {
+        "title": "Seneste tilmeldinger",
+        "description": "De seneste personer der er kommet til.",
+        "empty": "Ingen tilmeldinger endnu.",
+        "viewAll": "Vis alle brugere"
+      },
+      "contactByType": {
+        "title": "Kontaktanmodninger",
+        "description": "Fordeling efter projekttype.",
+        "totalLabel": "Modtaget i alt",
+        "empty": "Ingen kontaktbeskeder endnu.",
+        "viewAll": "Vis indbakke",
+        "types": {
+          "saas": "SaaS",
+          "landing": "Landing",
+          "webapp": "Web app"
+        }
+      },
+      "quickLinks": {
+        "title": "Hurtige links",
+        "description": "Hop til de moduler du bruger mest.",
+        "users": "Brugere",
+        "usersDesc": "Administrér medlemmer og roller",
+        "messages": "Indbakke",
+        "messagesDesc": "Gennemse kontaktanmodninger",
+        "help": "Hjælp",
+        "helpDesc": "Dokumentation og genveje",
+        "settings": "Indstillinger",
+        "settingsDesc": "System og præferencer"
+      },
+      "providers": {
+        "better-auth": "Better Auth",
+        "clerk": "Clerk",
+        "local": "Local"
+      }
+    },
     "error": {
       "title": "Fejl",
       "description": "Der opstod en fejl ved indlæsning af dashboard-data."
@@ -657,8 +721,12 @@
   },
   "users": {
     "title": "Brugere",
+    "subtitle": "Administrer teammedlemmer, roller og tilladelser.",
     "subtitlePrefix": "Administrer adgangsniveauer for ",
     "subtitleSuffix": " teammedlemmer.",
+    "filters": {
+      "search": "Soeg brugere efter navn eller e-mail"
+    },
     "actions": {
       "new": "Ny bruger",
       "save": "Gem bruger",
@@ -674,6 +742,14 @@
       "rolePlaceholder": "Vælg rolle",
       "roleUser": "Bruger",
       "roleAdmin": "Admin",
+      "roleSuperAdmin": "Superadmin",
+      "roleLocked": "Kun administratorer kan ændre roller.",
+      "passwordLabel": "Adgangskode",
+      "passwordPlaceholderCreate": "Lad være tom for en profil-kun bruger",
+      "passwordPlaceholderEdit": "Lad være tom for at beholde nuværende adgangskode",
+      "passwordHelpCreate": "Angiv en adgangskode for at oprette en login-konto (Better Auth). Lad være tom for kun at oprette en profil.",
+      "passwordHelpEdit": "Valgfrit. Hvis du angiver en værdi, erstattes den nuværende adgangskode.",
+      "passwordTooShort": "Adgangskoden skal være mindst 8 tegn lang.",
       "avatarLabel": "Avatar-URL",
       "avatarPlaceholder": "Avatar-URL",
       "avatarRandom": "Tilfældig",
@@ -681,6 +757,7 @@
     },
     "table": {
       "user": "Bruger",
+      "joined": "Oprettet",
       "role": "Rolle / Adgang"
     },
     "confirm": {

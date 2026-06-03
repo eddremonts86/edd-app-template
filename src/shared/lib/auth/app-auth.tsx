@@ -35,6 +35,7 @@ interface BetterAuthSessionShape {
     email?: string | null
     name?: string | null
     image?: string | null
+    role?: string | null
   } | null
 }
 
@@ -80,7 +81,7 @@ function getBetterAuthUser(session: BetterAuthSessionShape | null | undefined): 
     email: user.email ?? '',
     name: user.name ?? 'User',
     image: user.image ?? null,
-    role: 'user',
+    role: user.role ?? 'user',
   }
 }
 
@@ -92,7 +93,7 @@ function getBypassUser(): AppAuthUser {
     email: 'local-test@example.com',
     name: 'Local Test User',
     image: null,
-    role: 'admin',
+    role: 'super_admin',
   }
 }
 
