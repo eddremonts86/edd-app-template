@@ -7,7 +7,7 @@
   "nav": {
     "home": "Hjem",
     "services": "Byggeblokke",
-    "timeline": "Roadmap",
+    "timeline": "Køreplan",
     "contact": "Support",
     "settings": "Indstillinger",
     "signIn": "Log ind",
@@ -101,11 +101,11 @@
       "title": "Noget gik galt",
       "description": "Der opstod en fejl under indlæsning af data. Prøv venligst igen."
     },
-    "pin": "Pin",
-    "unpin": "Unpin",
-    "pinVisible": "Pin visible",
-    "none": "None",
-    "saving": "Saving..."
+    "pin": "Fastgør",
+    "unpin": "Frigør",
+    "pinVisible": "Pin synlig",
+    "none": "Ingen",
+    "saving": "Gemmer..."
   },
   "theme": {
     "light": "Lys",
@@ -188,10 +188,13 @@
       "previousDays": "Sidste 7 dage",
       "older": "Ældre",
       "untitledConversation": "Ny samtale",
-      "dropFiles": "Drop files here to upload",
-      "pressEnter": "Press Enter to send",
-      "emptyDescription": "How can I help you today? You can ask about your data, configure the dashboard, or upload an image to analyze.",
-      "assistantName": "Smart Assistant"
+      "dropFiles": "Slip filer her for at uploade",
+      "pressEnter": "Tryk Enter for at sende",
+      "emptyDescription": "Hvordan kan jeg hjælpe dig i dag? Du kan stille spørgsmål om dine data, konfigurere dashboardet eller uploade et billede til analyse.",
+      "assistantName": "Smart Assistent",
+      "welcome": "Hej! Hvordan kan jeg hjælpe dig i dag?",
+      "clear": "Ryd chat",
+      "stop": "Stop generering"
     }
   },
   "settings": {
@@ -247,11 +250,11 @@
         "connection": "Forbindelsesdetaljer",
         "parameters": "Modelparametre",
         "endpoints": "Endpoint-konfiguration",
-        "status": "System Status",
-        "configurations": "Configurations",
+        "status": "Systemstatus",
+        "configurations": "Konfigurationer",
         "logs": "Logs",
-        "statusDescription": "Check the availability of your local and remote models.",
-        "fallback": "System Fallback Priority"
+        "statusDescription": "Kontrollér tilgængeligheden af dine lokale og fjernmodeller.",
+        "fallback": "Systemets reserveprioritet"
       },
       "tabs": {
         "system": "System",
@@ -296,11 +299,11 @@
         "reset": "AI-konfigurationen er nulstillet.",
         "testSuccess": "Forbindelse til AI-tjenesten oprettet.",
         "testError": "Kunne ikke oprette forbindelse til AI-tjenesten.",
-        "checkingStatus": "Checking service status...",
-        "fallbackDescription": "The system will automatically try the next available provider if the active one fails.",
-        "active": "Active",
-        "noModels": "No models found",
-        "modelsCount": "{{count}} models"
+        "checkingStatus": "Kontrollerer servicestatus...",
+        "fallbackDescription": "Systemet vil automatisk prøve den næste tilgængelige udbyder, hvis den aktive fejler.",
+        "active": "Aktiv",
+        "noModels": "Ingen modeller fundet",
+        "modelsCount": "{{count}} modeller"
       }
     },
     "socialLinks": {
@@ -354,7 +357,7 @@
         "types": {
           "saas": "SaaS",
           "landing": "Landing",
-          "webapp": "Web app"
+          "webapp": "Webapplikation"
         }
       },
       "quickLinks": {
@@ -372,7 +375,7 @@
       "providers": {
         "better-auth": "Better Auth",
         "clerk": "Clerk",
-        "local": "Local"
+        "local": "Lokal"
       }
     },
     "error": {
@@ -459,14 +462,14 @@
       "refreshWorkload": "Opdater arbejdsbelastning"
     },
     "title": "Dashboard",
-    "description": "Welcome to your dashboard.",
+    "description": "Velkommen til dit dashboard.",
     "recentTasks": {
-      "title": "Recent Tasks",
-      "description": "Your team's latest activity."
+      "title": "Seneste opgaver",
+      "description": "Dit teams seneste aktivitet."
     },
     "workload": {
-      "title": "Team Workload",
-      "description": "Task distribution across team members."
+      "title": "Teamets arbejdsbelastning",
+      "description": "Opgavefordeling på tværs af teammedlemmer."
     }
   },
   "analytics": {
@@ -627,11 +630,13 @@
       "editTitle": "Rediger projekt",
       "editDescription": "Opdater projektdetaljer og konfiguration.",
       "confirmationDescription": "Dit projekt er blevet oprettet. Du kan nu begynde at tilføje opgaver og teammedlemmer.",
-      "teamEmpty": "No users found.",
+      "teamEmpty": "Ingen brugere fundet.",
       "tabs": {
-        "general": "General",
+        "general": "Generelt",
         "team": "Team"
-      }
+      },
+      "datesLabel": "Datoer",
+      "addNewUser": "Tilføj ny bruger"
     },
     "status": {
       "active": "Aktiv",
@@ -660,38 +665,73 @@
       "create": "Kunne ikke oprette projektet",
       "update": "Kunne ikke opdatere projektet",
       "delete": "Kunne ikke slette projektet",
-      "hasTasks": "Kan ikke slette projektet '{{name}}', fordi det har tilknyttede opgaver."
+      "hasTasks": "Kan ikke slette projektet '{{name}}', fordi det har tilknyttede opgaver.",
+      "fetch": "Kunne ikke indlæse projekter."
     },
     "confirm": {
       "delete": "Er du sikker på, at du vil slette projektet '{{name}}'?"
     },
     "members": {
       "removeConfirm": "Er du sikker på, at du vil fjerne {{name}} fra dette projekt?",
-      "title": "Team Members",
-      "description": "Manage who has access to this project and their roles.",
-      "add": "Add Member",
-      "register": "Register New Member",
-      "registerDescription": "Create a new user and add them to the project team.",
-      "searchUsers": "Search users...",
-      "searchMembers": "Search team members...",
-      "noAvailableUsers": "No more users available.",
-      "empty": "No members in this project.",
+      "title": "Teammedlemmer",
+      "description": "Administrer hvem der har adgang til dette projekt og deres roller.",
+      "add": "Tilføj medlem",
+      "register": "Registrer nyt medlem",
+      "registerDescription": "Opret en ny bruger og tilføj dem til projektteamet.",
+      "searchUsers": "Søg brugere...",
+      "searchMembers": "Søg teammedlemmer...",
+      "noAvailableUsers": "Ingen flere brugere tilgængelige.",
+      "empty": "Ingen medlemmer i dette projekt.",
       "success": {
-        "added": "Member added successfully",
-        "updated": "Role updated successfully",
-        "removed": "Member removed successfully"
-      }
+        "added": "Medlem tilføjet korrekt",
+        "updated": "Rolle opdateret korrekt",
+        "removed": "Medlem fjernet korrekt"
+      },
+      "projectPlaceholder": "Vælg projekt...",
+      "selectProjectFirst": "Vælg et projekt først for at se medlemmer.",
+      "noMembers": "Ingen medlemmer i dette projekt."
     },
     "member": {
-      "role": "Role",
-      "owner": "Owner",
-      "manager": "Manager",
-      "contributor": "Contributor",
-      "viewer": "Viewer",
-      "add": "Add Member",
-      "remove": "Remove Member",
-      "updateRole": "Update Role",
-      "joinedAt": "Joined on"
+      "role": "Rolle",
+      "owner": "Ejer",
+      "manager": "Leder",
+      "contributor": "Bidragyder",
+      "viewer": "Tilskuer",
+      "add": "Tilføj medlem",
+      "remove": "Fjern medlem",
+      "updateRole": "Opdater rolle",
+      "joinedAt": "Tilsluttede sig den"
+    },
+    "description": "Administrer dine projekter og teams.",
+    "create": "Opret Projekt",
+    "edit": "Rediger Projekt",
+    "delete": "Slet Projekt",
+    "deleteConfirm": "Er du sikker på, at du vil slette dette projekt?",
+    "types": {
+      "internal": "Intern",
+      "external": "Ekstern",
+      "research": "Forskning",
+      "maintenance": "Vedligeholdelse"
+    },
+    "priorities": {
+      "low": "Lav",
+      "medium": "Mellem",
+      "high": "Høj"
+    },
+    "tabs": {
+      "general": "Generelt",
+      "team": "Team"
+    },
+    "roles": {
+      "owner": "Ejer",
+      "manager": "Leder",
+      "contributor": "Bidragyder",
+      "viewer": "Tilskuer"
+    },
+    "toast": {
+      "created": "Projekt oprettet korrekt",
+      "updated": "Projekt opdateret korrekt",
+      "deleted": "Projekt slettet korrekt"
     }
   },
   "team": {
@@ -746,36 +786,40 @@
       "assignedToLabel": "Tildelt til",
       "assignedToPlaceholder": "Vælg bruger",
       "assignedToSelf": "Mig",
-      "projectLabel": "Project",
-      "projectPlaceholder": "Select project",
-      "complexityLabel": "Complexity",
-      "complexityPlaceholder": "1-10 (e.g. 5)",
-      "estimatedTimeLabel": "Estimated Time",
-      "estimatedTimePlaceholder": "Hours (e.g. 4)",
-      "actualTimeLabel": "Actual Time",
-      "actualTimePlaceholder": "Hours (e.g. 2)",
-      "acceptanceCriteriaLabel": "Acceptance Criteria",
-      "acceptanceCriteriaPlaceholder": "Ex: Feature must be accessible...",
-      "dependenciesLabel": "Dependencies",
-      "dependenciesPlaceholder": "Select tasks...",
+      "projectLabel": "Projekt",
+      "projectPlaceholder": "Vælg projekt",
+      "complexityLabel": "Kompleksitet",
+      "complexityPlaceholder": "1-10 (f.eks. 5)",
+      "estimatedTimeLabel": "Estimeret tid",
+      "estimatedTimePlaceholder": "Timer (f.eks. 4)",
+      "actualTimeLabel": "Faktisk tid",
+      "actualTimePlaceholder": "Timer (f.eks. 2)",
+      "acceptanceCriteriaLabel": "Acceptkriterier",
+      "acceptanceCriteriaPlaceholder": "F.eks.: Funktionen skal være tilgængelig...",
+      "dependenciesLabel": "Afhængigheder",
+      "dependenciesPlaceholder": "Vælg opgaver...",
       "sections": {
         "general": {
-          "title": "General Information",
-          "description": "Define the basic aspects of the task so everyone understands what it's about."
+          "title": "Generelle oplysninger",
+          "description": "Definer de grundlæggende aspekter af opgaven, så alle forstår, hvad det handler om."
         },
         "planning": {
-          "title": "Planning & Timing",
-          "description": "Set deadlines and estimate the effort required to complete the work."
+          "title": "Planlægning og timing",
+          "description": "Sæt deadlines og estimer den indsats, der kræves for at fuldføre arbejdet."
         },
         "assignment": {
-          "title": "Assignment & Context",
-          "description": "Place the task within a project and assign it to the responsible person."
+          "title": "Tildeling og kontekst",
+          "description": "Placer opgaven inden for et projekt og tildel den til den ansvarlige."
         },
         "tracking": {
-          "title": "Tracking & Relations",
-          "description": "Manage the current status and link this task with other dependencies."
+          "title": "Sporing og relationer",
+          "description": "Administrer den aktuelle status og link denne opgave med andre afhængigheder."
         }
-      }
+      },
+      "statusTesting": "Under test",
+      "statusOnHold": "På hold",
+      "statusBlocked": "Blokeret",
+      "statusCancelled": "Annulleret"
     },
     "status": {
       "pending": "Afventer",
@@ -867,35 +911,36 @@
       "avatarPlaceholder": "Avatar-URL",
       "avatarRandom": "Tilfældig",
       "avatarHelp": "Indsæt en URL eller generer en tilfældig avatar",
-      "roleHelp": "The role defines the user's permissions.",
-      "jobTitleLabel": "Job Title",
-      "jobTitlePlaceholder": "e.g. Senior Developer",
-      "departmentLabel": "Department",
-      "departmentPlaceholder": "Select department",
-      "reportsToLabel": "Reports To",
-      "reportsToPlaceholder": "Select manager",
-      "reportsToHelp": "The person this user reports to directly.",
+      "roleHelp": "Rollen definerer brugerens tilladelser.",
+      "jobTitleLabel": "Jobtitel",
+      "jobTitlePlaceholder": "f.eks. Senior Udvikler",
+      "departmentLabel": "Afdeling",
+      "departmentPlaceholder": "Vælg afdeling",
+      "reportsToLabel": "Rapporterer til",
+      "reportsToPlaceholder": "Vælg leder",
+      "reportsToHelp": "Den person, som denne bruger rapporterer direkte til.",
       "sections": {
         "account": {
-          "title": "Account Information",
-          "description": "Manage basic user data and identity on the platform."
+          "title": "Kontooplysninger",
+          "description": "Administrer grundlæggende brugerdata og identitet på platformen."
         },
         "professional": {
-          "title": "Professional Details",
-          "description": "Define the user's role and job title within the organization."
+          "title": "Professionelle oplysninger",
+          "description": "Definer brugerens rolle og jobtitel i organisationen."
         },
         "organization": {
-          "title": "Organizational Structure",
-          "description": "Place the user in a department and define their reporting line."
+          "title": "Organisationsstruktur",
+          "description": "Placer brugeren i en afdeling og definer deres rapporteringslinje."
         }
-      }
+      },
+      "generateAvatar": "Generer avatar"
     },
     "table": {
       "user": "Bruger",
       "joined": "Oprettet",
       "role": "Rolle / Adgang",
-      "jobTitle": "Job Title",
-      "department": "Department"
+      "jobTitle": "Jobtitel",
+      "department": "Afdeling"
     },
     "confirm": {
       "delete": "Er du sikker på, at du vil slette denne bruger?"
@@ -917,6 +962,14 @@
       "created": "Bruger oprettet",
       "updated": "Bruger opdateret",
       "deleted": "Bruger slettet"
+    },
+    "description": "Administrer platformsbrugere.",
+    "create": "Ny Bruger",
+    "edit": "Rediger Bruger",
+    "delete": "Slet Bruger",
+    "roles": {
+      "admin": "Administrator",
+      "user": "Bruger"
     }
   },
   "contactMessages": {
@@ -1050,7 +1103,7 @@
   },
   "home": {
     "hero": {
-      "badge": "MODULAR • TYPED • TESTED • ENV-FIRST",
+      "badge": "MODULÆR • TYPET • TESTET • ENV-FIRST",
       "title": "Lancér din SaaS på 1 time",
       "titleHighlight": "med produktionsklar arkitektur",
       "description": "Undgå at genopfinde de samme basiselementer hver gang. Gå direkte til din forretningslogik med prækonfigureret hybrid autentificering, uafhængige domænemoduler og Playwright E2E tests.",
@@ -1350,7 +1403,7 @@
     "summary": {
       "income": "Indtægt",
       "expenses": "Udgifter",
-      "balance": "Balance",
+      "balance": "Saldo",
       "remaining": "Resterende",
       "overBy": "Overskredet med",
       "noLimit": "Ingen grænse",
@@ -1362,7 +1415,7 @@
       "spent": "brugt",
       "overBy": "Over med {{amount}}",
       "totalSpent": "Samlet forbrug",
-      "balance": "Balance",
+      "balance": "Saldo",
       "tabs": {
         "transactions": "Transaktioner",
         "categories": "Kategorier",

@@ -191,7 +191,10 @@
       "yesterday": "Yesterday",
       "previousDays": "Previous 7 days",
       "older": "Older",
-      "untitledConversation": "New conversation"
+      "untitledConversation": "New conversation",
+      "welcome": "Hello! How can I help you today?",
+      "clear": "Clear chat",
+      "stop": "Stop generation"
     }
   },
   "settings": {
@@ -386,7 +389,8 @@
       "sales": "Sales",
       "activeNow": "Active Now",
       "activeProjects": "Active Projects",
-      "change": "{{value}} from last month"
+      "change": "{{value}} from last month",
+      "activeNowContext": "{{value}} {{context}}"
     },
     "recentTasks": {
       "title": "Recent Tasks",
@@ -458,6 +462,14 @@
       "refreshUpcomingTasks": "Refresh upcoming tasks",
       "refreshExpenseDistribution": "Refresh expense distribution",
       "refreshWorkload": "Refresh workload"
+    },
+    "recentTransactions": "Recent transactions",
+    "recentSummary": "You have made {{count}} sales this month.",
+    "table": {
+      "customer": "Customer",
+      "status": "Status",
+      "date": "Date",
+      "amount": "Amount"
     }
   },
   "analytics": {
@@ -622,7 +634,9 @@
       "tabs": {
         "general": "General",
         "team": "Team"
-      }
+      },
+      "datesLabel": "Dates",
+      "addNewUser": "Add new user"
     },
     "members": {
       "title": "Team Members",
@@ -639,7 +653,10 @@
         "added": "Member added successfully",
         "updated": "Role updated successfully",
         "removed": "Member removed successfully"
-      }
+      },
+      "projectPlaceholder": "Select project...",
+      "selectProjectFirst": "Select a project first to view members.",
+      "noMembers": "No members in this project."
     },
     "status": {
       "active": "Active",
@@ -668,7 +685,8 @@
       "create": "Failed to create project",
       "update": "Failed to update project",
       "delete": "Failed to delete project",
-      "hasTasks": "Cannot delete project '{{name}}' because it has associated tasks."
+      "hasTasks": "Cannot delete project '{{name}}' because it has associated tasks.",
+      "fetch": "Failed to load projects."
     },
     "confirm": {
       "delete": "Are you sure you want to delete project '{{name}}'?"
@@ -683,6 +701,37 @@
       "remove": "Remove Member",
       "updateRole": "Update Role",
       "joinedAt": "Joined on"
+    },
+    "description": "Manage your projects and teams.",
+    "create": "Create Project",
+    "edit": "Edit Project",
+    "delete": "Delete Project",
+    "deleteConfirm": "Are you sure you want to delete this project?",
+    "types": {
+      "internal": "Internal",
+      "external": "External",
+      "research": "Research",
+      "maintenance": "Maintenance"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "tabs": {
+      "general": "General",
+      "team": "Team"
+    },
+    "roles": {
+      "owner": "Owner",
+      "manager": "Manager",
+      "contributor": "Contributor",
+      "viewer": "Viewer"
+    },
+    "toast": {
+      "created": "Project created successfully",
+      "updated": "Project updated successfully",
+      "deleted": "Project deleted successfully"
     }
   },
   "team": {
@@ -766,7 +815,11 @@
           "title": "Tracking & Relations",
           "description": "Manage the current status and link this task with other dependencies."
         }
-      }
+      },
+      "statusTesting": "Testing",
+      "statusOnHold": "On Hold",
+      "statusBlocked": "Blocked",
+      "statusCancelled": "Cancelled"
     },
     "status": {
       "pending": "Pending",
@@ -879,7 +932,8 @@
           "title": "Organizational Structure",
           "description": "Place the user in a department and define their reporting line."
         }
-      }
+      },
+      "generateAvatar": "Generate avatar"
     },
     "table": {
       "user": "User",
@@ -908,6 +962,14 @@
       "created": "User created successfully",
       "updated": "User updated successfully",
       "deleted": "User deleted successfully"
+    },
+    "description": "Manage platform users.",
+    "create": "New User",
+    "edit": "Edit User",
+    "delete": "Delete User",
+    "roles": {
+      "admin": "Administrator",
+      "user": "User"
     }
   },
   "contactMessages": {
@@ -1245,39 +1307,19 @@
       "links": {
         "essence": {
           "title": "Starter",
-          "items": [
-            "Architecture",
-            "Module map",
-            "Design tokens",
-            "Conventions"
-          ]
+          "items": ["Architecture", "Module map", "Design tokens", "Conventions"]
         },
         "company": {
           "title": "Product",
-          "items": [
-            "Roadmap",
-            "Changelog",
-            "Integrations",
-            "Release notes"
-          ]
+          "items": ["Roadmap", "Changelog", "Integrations", "Release notes"]
         },
         "community": {
           "title": "Support",
-          "items": [
-            "Documentation",
-            "Guides",
-            "Examples",
-            "FAQ"
-          ]
+          "items": ["Documentation", "Guides", "Examples", "FAQ"]
         },
         "legal": {
           "title": "Legal",
-          "items": [
-            "Privacy",
-            "Terms",
-            "Cookies",
-            "Licenses"
-          ]
+          "items": ["Privacy", "Terms", "Cookies", "Licenses"]
         }
       }
     }
