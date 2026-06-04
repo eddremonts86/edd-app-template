@@ -64,6 +64,9 @@ count.txt
 /chroma_data/
 /models/
 
+# Runtime-only module data (encrypted profiles, audit logs)
+/src/modules/database-admin/data/
+
 # Tools / Frameworks
 .tanstack
 .turbo

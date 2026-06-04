@@ -11,7 +11,12 @@ For any change that affects UI or routing:
 3. Check the console for errors with `mcp_io_github_chr_list_console_messages`
 4. Only then signal task completion
 
-Auth bypass for local validation: set `VITE_SKIP_AUTH=true` and `VITE_TEST_USER_ID=user_1` in `.env.development` (localhost only — revert before committing).
+For local validation, use the real admin credentials from `.env` — **never use `VITE_SKIP_AUTH` or `VITE_TEST_USER_ID`**:
+
+- Email: `DEFAULT_ADMIN_EMAIL` (`edd_admin@local.com`)
+- Password: `DEFAULT_ADMIN_PASSWORD` (see `.env`)
+- Start the server with just `pnpm dev:server` (no auth bypass env vars)
+- Login at `http://localhost:3000/sign-in` with the admin credentials above
 
 ## Project Overview
 
@@ -236,6 +241,7 @@ Required in `.env.development`:
 | **Observability (logger + middleware)** | `.github/skills/app/observability/SKILL.md`        |
 | **Multi-tenancy & RLS**                 | `.github/skills/app/multi-tenancy-rls/SKILL.md`    |
 | **RBAC & permissions**                  | `.github/skills/app/rbac-permissions/SKILL.md`     |
+| **Database admin module**               | `.github/skills/app/database-admin/SKILL.md`       |
 
 ### Vendor Skills — `.github/skills/vendor/`
 
@@ -303,5 +309,7 @@ When working in a domain, load ALL applicable skills before generating code:
 | Logging / debugging server fns | `observability`                                                             |
 | New tenant-scoped table        | `multi-tenancy-rls` + `drizzle-db`                                          |
 | Role / permission gating       | `rbac-permissions` + `auth-dual-provider`                                   |
+| DB connection profiles / admin | `database-admin`                                                            |
+| Server-only module pattern     | `module-architecture` + `database-admin`                                    |
 
 Agents live in `.github/agents/`. Skills live in `.github/skills/` (`app/` = this repo, `vendor/` = 3rd party).

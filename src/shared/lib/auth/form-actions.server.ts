@@ -1,4 +1,4 @@
-import { auth } from './better-auth'
+import { auth } from './better-auth.server'
 
 export type AuthFormTab = 'sign-in' | 'sign-up'
 

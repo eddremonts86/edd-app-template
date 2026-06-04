@@ -55,6 +55,7 @@ import { Route as DashboardDashboardSettingsSite_settingsRouteImport } from './r
 import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
 import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
 import { Route as DashboardDashboardSettingsAi_logsRouteImport } from './routes/_dashboard/dashboard/settings/ai_logs'
+import { Route as DashboardDashboardAdminDatabaseRouteImport } from './routes/_dashboard/dashboard/admin/database'
 
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/auth',
@@ -303,6 +304,12 @@ const DashboardDashboardSettingsAi_logsRoute =
     path: '/ai_logs',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
+const DashboardDashboardAdminDatabaseRoute =
+  DashboardDashboardAdminDatabaseRouteImport.update({
+    id: '/admin/database',
+    path: '/admin/database',
+    getParentRoute: () => DashboardDashboardRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LandingIndexRoute
@@ -325,6 +332,7 @@ export interface FileRoutesByFullPath {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/': typeof DashboardDashboardIndexRoute
+  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
@@ -368,6 +376,7 @@ export interface FileRoutesByTo {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard': typeof DashboardDashboardIndexRoute
+  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
@@ -417,6 +426,7 @@ export interface FileRoutesById {
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/_dashboard/dashboard/': typeof DashboardDashboardIndexRoute
+  '/_dashboard/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/_dashboard/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/_dashboard/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
@@ -464,6 +474,7 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/dashboard/'
+    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
@@ -507,6 +518,7 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/dashboard'
+    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
@@ -555,6 +567,7 @@ export interface FileRouteTypes {
     | '/api/ai/test-connection'
     | '/api/auth/$'
     | '/_dashboard/dashboard/'
+    | '/_dashboard/dashboard/admin/database'
     | '/_dashboard/dashboard/settings/ai_logs'
     | '/_dashboard/dashboard/settings/dev_tools'
     | '/_dashboard/dashboard/settings/ia_config'
@@ -919,6 +932,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardSettingsAi_logsRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
+    '/_dashboard/dashboard/admin/database': {
+      id: '/_dashboard/dashboard/admin/database'
+      path: '/admin/database'
+      fullPath: '/dashboard/admin/database'
+      preLoaderRoute: typeof DashboardDashboardAdminDatabaseRouteImport
+      parentRoute: typeof DashboardDashboardRouteRoute
+    }
   }
 }
 
@@ -957,6 +977,7 @@ interface DashboardDashboardRouteRouteChildren {
   DashboardDashboardHelpRoute: typeof DashboardDashboardHelpRoute
   DashboardDashboardUsersRoute: typeof DashboardDashboardUsersRoute
   DashboardDashboardIndexRoute: typeof DashboardDashboardIndexRoute
+  DashboardDashboardAdminDatabaseRoute: typeof DashboardDashboardAdminDatabaseRoute
 }
 
 const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren =
@@ -968,6 +989,7 @@ const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren
     DashboardDashboardHelpRoute: DashboardDashboardHelpRoute,
     DashboardDashboardUsersRoute: DashboardDashboardUsersRoute,
     DashboardDashboardIndexRoute: DashboardDashboardIndexRoute,
+    DashboardDashboardAdminDatabaseRoute: DashboardDashboardAdminDatabaseRoute,
   }
 
 const DashboardDashboardRouteRouteWithChildren =

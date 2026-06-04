@@ -103,3 +103,25 @@ export async function requirePermission(context: unknown, permission: string): P
   const allowed = await can(userId, permission)
   if (!allowed) throw new Error('Forbidden')
 }
+
+/**
+ * Stricter guard that only allows the `super_admin` DB role. Used by the
+ * database-admin module — we cannot rely on `can()` alone because we
+ * never want to delegate this surface to a custom rolePermissions row.
+ */
+export async function requireSuperAdmin(): Promise<void> {
+  const authUser = await requireAuthUser()
+  if (authUser.provider === 'bypass') return
+
+  const appUser = await requireCurrentAppUser()
+  if (!appUser?.id) throw new Error('Unauthorized')
+
+  const db = await loadDb()
+  const [row] = await db
+    .select({ role: users.role })
+    .from(users)
+    .where(eq(users.id, appUser.id))
+    .limit(1)
+
+  if (row?.role !== 'super_admin') throw new Error('Forbidden')
+}

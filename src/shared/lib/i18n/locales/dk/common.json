@@ -131,9 +131,7 @@
   },
   "language": {
     "select": "Vælg sprog",
-    "en": "Engelsk",
-    "es": "Spansk",
-    "dk": "Dansk"
+    "loading": "Indlæser..."
   },
   "themeToggle": {
     "light": "Lyst tema",
@@ -1747,8 +1745,105 @@
     "noResults": "Ingen resultater fundet",
     "clearFilters": "Ryd filtre"
   },
-  "language": {
-    "select": "Vælg sprog",
-    "loading": "Indlæser..."
+  "databaseAdmin": {
+    "title": "Databaseadministration",
+    "subtitle": "Administrér forbindelsesprofiler, test forbindelser og kør migrationer. Kun super_admin har adgang.",
+    "envProfile": ".env DATABASE_URL",
+    "nav": {
+      "title": "Database"
+    },
+    "status": {
+      "active": "Aktiv",
+      "usingEnv": "Bruger .env DATABASE_URL",
+      "usingOverride": "Bruger override-profil"
+    },
+    "encryptionMissing": {
+      "title": "Krypteringsnøgle mangler",
+      "body": "Sæt DB_CONFIG_SECRET (≥16 tegn) i servermiljøet for at gemme profiler sikkert. Skrivning er deaktiveret indtil da."
+    },
+    "tabs": {
+      "profiles": "Profiler",
+      "migrations": "Migrationer",
+      "audit": "Revisionslog"
+    },
+    "profiles": {
+      "title": "Forbindelsesprofiler",
+      "subtitle": "Definér alternative databaser. Aktivér én for hot-swap uden genstart.",
+      "empty": "Ingen profiler endnu"
+    },
+    "fields": {
+      "label": "Etiket",
+      "name": "Slug",
+      "connectionUrl": "Forbindelses-URL (valgfri)",
+      "host": "Vært",
+      "port": "Port",
+      "database": "Database",
+      "user": "Bruger",
+      "password": "Adgangskode",
+      "schema": "Skema",
+      "ssl": "SSL-tilstand",
+      "poolMax": "Pool maks",
+      "target": "Mål",
+      "lastTest": "Sidste test"
+    },
+    "actions": {
+      "newProfile": "Ny profil",
+      "revertToEnv": "Skift til .env",
+      "test": "Test forbindelse",
+      "testing": "Tester…",
+      "activate": "Aktivér",
+      "dryRun": "Tørtest",
+      "apply": "Anvend ventende",
+      "applying": "Anvender…"
+    },
+    "test": {
+      "success": "Forbindelse OK ({{ms}}ms)",
+      "failed": "Forbindelse fejlede"
+    },
+    "form": {
+      "invalid": "Angiv navn, etiket og enten connectionUrl eller host+database.",
+      "urlOrParts": "Angiv enten en fuld URL eller felterne nedenfor."
+    },
+    "confirm": {
+      "deleteTitle": "Slet denne profil?",
+      "deleteBody": "Dette fjerner permanent den gemte profil.",
+      "activateTitle": "Hot-swap databaseforbindelse?",
+      "activateBody": "Alle aktive forespørgsler bruger den nye forbindelse. Aktiv = {{label}}"
+    },
+    "sheet": {
+      "createTitle": "Ny forbindelsesprofil",
+      "createDescription": "Tilføj en Supabase / ekstern Postgres-profil. Test den før aktivering.",
+      "editTitle": "Redigér profil",
+      "editDescription": "Opdatér detaljerne. Adgangskode bevares medmindre du skriver en ny."
+    },
+    "migrations": {
+      "title": "Drizzle-migrationer",
+      "subtitle": "Kør ventende migrationer mod en gemt profil eller den aktuelle .env-forbindelse.",
+      "target": "Målforbindelse",
+      "file": "Fil",
+      "status": "Status",
+      "appliedAt": "Anvendt",
+      "applied": "Anvendt",
+      "pending": "Afventer",
+      "empty": "Ingen migrationer på disken",
+      "dryRunOk": "Tørtest OK — {{n}} ventende fil(er)",
+      "dryRunFail": "Tørtest fejlede",
+      "confirmTitle": "Anvend migrationer på {{label}}?",
+      "confirmBody": "Skrivninger commit'es per fil. Fejlede filer rulles tilbage og afbryder kørslen.",
+      "report": {
+        "dryRun": "Tørtest-rapport",
+        "applied": "Kørselsrapport"
+      }
+    },
+    "audit": {
+      "title": "Revisionslog",
+      "subtitle": "Seneste 500 følsomme handlinger. Nyeste først. Adgangskoder logges aldrig.",
+      "when": "Hvornår",
+      "actor": "Aktør",
+      "action": "Handling",
+      "result": "Resultat",
+      "details": "Detaljer",
+      "empty": "Ingen revisionsindgange endnu"
+    }
   }
 }

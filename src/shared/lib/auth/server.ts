@@ -1,5 +1,5 @@
 import { getRequestHeaders } from '@tanstack/react-start/server'
-import { auth as betterAuth } from './better-auth'
+import { auth as betterAuth } from './better-auth.server'
 import { getServerTestUserId, isServerAuthBypassEnabled } from './bypass.server'
 import { getAuthMode, isBetterAuthEnabled, isClerkServerEnabled, type AuthMode } from './config'
 

@@ -133,9 +133,64 @@ Sidebar reads sections dynamically via `getEnabledModules()` → navigation runt
 - [ ] No cross-module internal imports
 - [ ] i18n keys added to all 3 locale files (en/es/dk)
 
+---
+
+## Server-Only Code: `.server.ts` Convention
+
+### `src/start.ts` is ISOMORPHIC — runs on client AND server
+
+TanStack Start's `hydrateStart.js` imports `start.ts` on the browser client.
+**Any top-level import of a Node.js module (`fs`, `crypto`, `postgres`, etc.)
+from `start.ts` will crash the client** with errors like:
+
+- `Buffer is not defined`
+- `crypto is not defined`
+- `Module "fs" has been externalized for browser compatibility`
+
+### Use `src/ssr.tsx` for server-only initialization
+
+`src/ssr.tsx` is the SSR handler — it only runs on the server:
+
+```ts
+// ✅ src/ssr.tsx — safe place for Node.js initialization
+import { installDbAdminResolver } from '@/modules/database-admin/server/db-resolver-bridge.server'
+installDbAdminResolver()
+```
+
+```ts
+// ❌ src/start.ts — DO NOT import Node.js code here
+// Only middleware, Clerk, Sentry, observability (no fs/crypto/postgres at top level)
+```
+
+### `.server.ts` file suffix
+
+Files ending in `.server.ts` are **stubbed** by TanStack Start's Vite plugin on
+the client — their exports become no-ops. However:
+
+- If a stubbed function is **called** client-side, TanStack Start throws an
+  `import-protection` runtime error in dev
+- The stub prevents the Node.js code from reaching the bundle, but does not
+  prevent call-time errors if you invoke the function from client code
+
+**Rule**: Server-only modules must only be imported from:
+
+1. Other `.server.ts` files
+2. `.fn.ts` server functions (run server-side via createServerFn)
+3. `src/ssr.tsx`
+
+### Checklist for new server-only module helpers
+
+- [ ] File named `*.server.ts`
+- [ ] NOT imported from `src/start.ts`
+- [ ] Side-effect initialization called from `src/ssr.tsx`
+- [ ] No top-level dynamic `import()` of Node.js modules from non-server files
+
+---
+
 ## References
 
 Load these files for real implementation patterns from the codebase:
 
 - `references/module-patterns.md` — manifest shape, registry registration, barrel pattern, route adapter, owned-files inventory, anti-pattern examples
 - `src/modules/projects/` — canonical reference implementation (most complete module)
+- `src/modules/database-admin/` — example of server-only resolver pattern + `.server.ts` usage

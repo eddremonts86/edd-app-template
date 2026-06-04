@@ -13,9 +13,9 @@ import { ChevronDown } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { cn } from '@/shared/lib/utils'
-import { hasPermissionForRole } from '@/shared/lib/auth/permission-map'
 import { useCurrentUser } from '@/modules/users'
+import { hasPermissionForRole } from '@/shared/lib/auth/permission-map'
+import { cn } from '@/shared/lib/utils'
 
 interface NavItem {
   label: string

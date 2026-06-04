@@ -131,9 +131,7 @@
   },
   "language": {
     "select": "Select language",
-    "en": "English",
-    "es": "Spanish",
-    "dk": "Danish"
+    "loading": "Loading..."
   },
   "themeToggle": {
     "light": "Light theme",
@@ -1747,8 +1745,105 @@
     "noResults": "No results found",
     "clearFilters": "Clear filters"
   },
-  "language": {
-    "select": "Select language",
-    "loading": "Loading..."
+  "databaseAdmin": {
+    "title": "Database administration",
+    "subtitle": "Manage connection profiles, test connectivity, and run migrations. Only super_admin can access this surface.",
+    "envProfile": ".env DATABASE_URL",
+    "nav": {
+      "title": "Database"
+    },
+    "status": {
+      "active": "Active",
+      "usingEnv": "Using .env DATABASE_URL",
+      "usingOverride": "Using override profile"
+    },
+    "encryptionMissing": {
+      "title": "Encryption secret missing",
+      "body": "Set DB_CONFIG_SECRET (≥16 chars) in your server environment to enable secure profile storage. Writes are disabled until then."
+    },
+    "tabs": {
+      "profiles": "Profiles",
+      "migrations": "Migrations",
+      "audit": "Audit log"
+    },
+    "profiles": {
+      "title": "Connection profiles",
+      "subtitle": "Define alternative databases. Activate one to hot-swap without restarting.",
+      "empty": "No profiles yet"
+    },
+    "fields": {
+      "label": "Label",
+      "name": "Slug",
+      "connectionUrl": "Connection URL (optional)",
+      "host": "Host",
+      "port": "Port",
+      "database": "Database",
+      "user": "User",
+      "password": "Password",
+      "schema": "Schema",
+      "ssl": "SSL mode",
+      "poolMax": "Pool max",
+      "target": "Target",
+      "lastTest": "Last test"
+    },
+    "actions": {
+      "newProfile": "New profile",
+      "revertToEnv": "Revert to .env",
+      "test": "Test connection",
+      "testing": "Testing…",
+      "activate": "Activate",
+      "dryRun": "Dry-run",
+      "apply": "Apply pending",
+      "applying": "Applying…"
+    },
+    "test": {
+      "success": "Connection OK ({{ms}}ms)",
+      "failed": "Connection failed"
+    },
+    "form": {
+      "invalid": "Provide a name, label, and either a connectionUrl or host+database.",
+      "urlOrParts": "Provide either a full URL or the discrete fields below."
+    },
+    "confirm": {
+      "deleteTitle": "Delete this profile?",
+      "deleteBody": "This permanently removes the saved profile.",
+      "activateTitle": "Hot-swap database connection?",
+      "activateBody": "All in-flight queries will use the new connection. Active = {{label}}"
+    },
+    "sheet": {
+      "createTitle": "New connection profile",
+      "createDescription": "Add a Supabase / external Postgres profile. Test it before activating.",
+      "editTitle": "Edit profile",
+      "editDescription": "Update connection details. Password stays unchanged unless you type a new one."
+    },
+    "migrations": {
+      "title": "Drizzle migrations",
+      "subtitle": "Run pending migrations against any saved profile or the current .env connection.",
+      "target": "Target connection",
+      "file": "File",
+      "status": "Status",
+      "appliedAt": "Applied at",
+      "applied": "Applied",
+      "pending": "Pending",
+      "empty": "No migrations on disk",
+      "dryRunOk": "Dry-run OK — {{n}} pending file(s)",
+      "dryRunFail": "Dry-run failed",
+      "confirmTitle": "Apply migrations on {{label}}?",
+      "confirmBody": "Writes will be committed per file. Failed files roll back and abort the run.",
+      "report": {
+        "dryRun": "Dry-run report",
+        "applied": "Run report"
+      }
+    },
+    "audit": {
+      "title": "Audit log",
+      "subtitle": "Last 500 sensitive operations. Newest first. Passwords are never logged.",
+      "when": "When",
+      "actor": "Actor",
+      "action": "Action",
+      "result": "Result",
+      "details": "Details",
+      "empty": "No audit entries yet"
+    }
   }
 }

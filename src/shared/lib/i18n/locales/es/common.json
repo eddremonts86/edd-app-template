@@ -131,9 +131,7 @@
   },
   "language": {
     "select": "Seleccionar idioma",
-    "en": "Inglés",
-    "es": "Español",
-    "dk": "Danés"
+    "loading": "Cargando..."
   },
   "projects": {
     "title": "Proyectos",
@@ -1747,8 +1745,105 @@
     "noResults": "No se encontraron resultados",
     "clearFilters": "Limpiar filtros"
   },
-  "language": {
-    "select": "Seleccionar idioma",
-    "loading": "Cargando..."
+  "databaseAdmin": {
+    "title": "Administración de base de datos",
+    "subtitle": "Gestiona perfiles de conexión, prueba conectividad y ejecuta migraciones. Solo super_admin tiene acceso.",
+    "envProfile": ".env DATABASE_URL",
+    "nav": {
+      "title": "Base de datos"
+    },
+    "status": {
+      "active": "Activo",
+      "usingEnv": "Usando .env DATABASE_URL",
+      "usingOverride": "Usando perfil de override"
+    },
+    "encryptionMissing": {
+      "title": "Falta el secreto de cifrado",
+      "body": "Define DB_CONFIG_SECRET (≥16 caracteres) en el entorno del servidor para almacenar perfiles de forma segura. La escritura está deshabilitada hasta entonces."
+    },
+    "tabs": {
+      "profiles": "Perfiles",
+      "migrations": "Migraciones",
+      "audit": "Auditoría"
+    },
+    "profiles": {
+      "title": "Perfiles de conexión",
+      "subtitle": "Define bases de datos alternativas. Activa una para hacer hot-swap sin reiniciar.",
+      "empty": "Sin perfiles aún"
+    },
+    "fields": {
+      "label": "Etiqueta",
+      "name": "Slug",
+      "connectionUrl": "URL de conexión (opcional)",
+      "host": "Host",
+      "port": "Puerto",
+      "database": "Base de datos",
+      "user": "Usuario",
+      "password": "Contraseña",
+      "schema": "Esquema",
+      "ssl": "Modo SSL",
+      "poolMax": "Pool máx.",
+      "target": "Destino",
+      "lastTest": "Última prueba"
+    },
+    "actions": {
+      "newProfile": "Nuevo perfil",
+      "revertToEnv": "Volver a .env",
+      "test": "Probar conexión",
+      "testing": "Probando…",
+      "activate": "Activar",
+      "dryRun": "Simular",
+      "apply": "Aplicar pendientes",
+      "applying": "Aplicando…"
+    },
+    "test": {
+      "success": "Conexión OK ({{ms}}ms)",
+      "failed": "Conexión fallida"
+    },
+    "form": {
+      "invalid": "Proporciona un nombre, etiqueta y connectionUrl o host+database.",
+      "urlOrParts": "Proporciona una URL completa o los campos discretos a continuación."
+    },
+    "confirm": {
+      "deleteTitle": "¿Eliminar este perfil?",
+      "deleteBody": "Esto elimina permanentemente el perfil guardado.",
+      "activateTitle": "¿Hacer hot-swap de la conexión?",
+      "activateBody": "Las consultas en curso usarán la nueva conexión. Activo = {{label}}"
+    },
+    "sheet": {
+      "createTitle": "Nuevo perfil de conexión",
+      "createDescription": "Agrega un perfil Supabase / Postgres externo. Pruébalo antes de activar.",
+      "editTitle": "Editar perfil",
+      "editDescription": "Actualiza los detalles. La contraseña no cambia salvo que escribas una nueva."
+    },
+    "migrations": {
+      "title": "Migraciones Drizzle",
+      "subtitle": "Ejecuta migraciones pendientes contra cualquier perfil guardado o la conexión .env actual.",
+      "target": "Conexión destino",
+      "file": "Archivo",
+      "status": "Estado",
+      "appliedAt": "Aplicado el",
+      "applied": "Aplicado",
+      "pending": "Pendiente",
+      "empty": "Sin migraciones en disco",
+      "dryRunOk": "Simulación OK — {{n}} archivo(s) pendiente(s)",
+      "dryRunFail": "Simulación fallida",
+      "confirmTitle": "¿Aplicar migraciones en {{label}}?",
+      "confirmBody": "Cada archivo se confirmará por separado. Si falla, hace rollback y aborta la ejecución.",
+      "report": {
+        "dryRun": "Reporte de simulación",
+        "applied": "Reporte de ejecución"
+      }
+    },
+    "audit": {
+      "title": "Registro de auditoría",
+      "subtitle": "Últimas 500 operaciones sensibles. Más recientes primero. Las contraseñas nunca se registran.",
+      "when": "Cuándo",
+      "actor": "Actor",
+      "action": "Acción",
+      "result": "Resultado",
+      "details": "Detalles",
+      "empty": "Sin entradas de auditoría aún"
+    }
   }
 }

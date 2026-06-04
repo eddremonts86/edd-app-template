@@ -192,12 +192,49 @@ import {
 } from '@/shared/lib/auth/config'
 ```
 
+## Local Dev Login (Real Credentials)
+
+**Never use `VITE_SKIP_AUTH=true` or `VITE_TEST_USER_ID` for manual browser validation.**
+Always login with the real seeded admin:
+
+```bash
+# 1. Start server (no bypass env vars)
+pnpm dev:server
+
+# 2. Open browser and login at:
+#    http://localhost:3000/auth
+#
+# Email:    edd_admin@local.com        (DEFAULT_ADMIN_EMAIL in .env)
+# Password: Passw0rd!234%             (DEFAULT_ADMIN_PASSWORD in .env)
+```
+
+> **The sign-in route is `/auth`** (not `/sign-in`).
+> The form POSTs to `/auth/sign-in` server handler → Better Auth → redirect to `/dashboard`.
+
+### Prerequisite: PostgreSQL must be running
+
+Better Auth queries `auth_users` on every sign-in. If Postgres is down you get a 500.
+
+```bash
+# Start the DB container
+docker compose up -d db
+
+# Or if using local Postgres:
+brew services start postgresql@15
+```
+
+Signs of DB being down:
+
+- Sign-in returns HTTP 500
+- Server log shows `ECONNREFUSED` / `DrizzleQueryError`
+
 ## Checklist (Protected Feature)
 
 - [ ] Route uses `ensureAppAuthSession()` in `beforeLoad`
 - [ ] Components use `useAppAuth()` — never raw Clerk/Better Auth hooks
 - [ ] Logout gated on `auth.canSignOut` (false in bypass)
 - [ ] Server functions use `requireAuthUser()` for protected operations
+- [ ] Browser validation uses real credentials (`edd_admin@local.com`), not bypass
 - [ ] `AUTH_MODE` env set correctly for environment
 - [ ] Default admin is seeded from `.env` for local auth checks
 - [ ] No `VITE_SKIP_AUTH` in production env files
