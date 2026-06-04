@@ -31,6 +31,7 @@ import {
   SlidersHorizontal,
 } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import {
@@ -190,6 +191,7 @@ export function UnifiedDataTable<TData, TValue>({
   enableColumnVisibility = true,
   emptyStateLabel = 'No se encontraron resultados',
 }: UnifiedDataTableProps<TData, TValue>) {
+  const { t } = useTranslation()
   const isMobile = useIsMobile()
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
@@ -214,14 +216,14 @@ export function UnifiedDataTable<TData, TValue>({
             (table.getIsSomePageRowsSelected() && 'indeterminate')
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-          aria-label="Seleccionar todas las filas"
+          aria-label={t('dataTable.selectAllRows', 'Select all rows')}
         />
       ),
       cell: ({ row }) => (
         <Checkbox
           checked={row.getIsSelected()}
           onCheckedChange={(value) => row.toggleSelected(!!value)}
-          aria-label="Seleccionar fila"
+          aria-label={t('dataTable.selectRow', 'Select row')}
         />
       ),
       enableSorting: false,
@@ -342,7 +344,9 @@ export function UnifiedDataTable<TData, TValue>({
     >
       {selectedRows.length > 0 && bulkActions.length > 0 && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-border/40 bg-secondary/20 p-3">
-          <span className="text-sm font-medium">{selectedRows.length} seleccionados</span>
+          <span className="text-sm font-medium">
+            {selectedRows.length} {t('dataTable.selected', 'selected')}
+          </span>
           <div className="flex flex-wrap items-center gap-2">
             {bulkActions.map((action) => (
               <Button
@@ -367,8 +371,10 @@ export function UnifiedDataTable<TData, TValue>({
                 <Input
                   placeholder={
                     filterColumn
-                      ? `Buscar por ${filterColumn}...`
-                      : 'Buscar en todas las columnas...'
+                      ? t('dataTable.searchByColumn', 'Search by {{column}}...', {
+                          column: filterColumn,
+                        })
+                      : t('dataTable.searchAll', 'Search in all columns...')
                   }
                   value={searchValue}
                   onChange={(event) => setSearchValue(event.target.value)}
@@ -383,7 +389,7 @@ export function UnifiedDataTable<TData, TValue>({
                 onClick={() => setShowAdvancedFilters((current) => !current)}
               >
                 <SlidersHorizontal className="mr-2 h-4 w-4" />
-                Filtros avanzados
+                {t('dataTable.advancedFilters', 'Advanced filters')}
               </Button>
             )}
             {enableGrouping && allGroupableColumns.length > 0 && (
@@ -394,7 +400,7 @@ export function UnifiedDataTable<TData, TValue>({
                     className="h-11 px-4 gap-2 border-dashed border-border/60 hover:border-primary/30 rounded-2xl"
                   >
                     <Layers3 className="w-4 h-4" />
-                    Agrupar
+                    {t('dataTable.groupBy', 'Group by')}
                     <ChevronDown className="w-4 h-4 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -402,7 +408,7 @@ export function UnifiedDataTable<TData, TValue>({
                   align="end"
                   className="w-56 p-2 rounded-2xl shadow-2xl backdrop-blur-xl border-border/40"
                 >
-                  <DropdownMenuLabel>Agrupar por</DropdownMenuLabel>
+                  <DropdownMenuLabel>{t('dataTable.groupBy', 'Group by')}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   {allGroupableColumns.map((column) => (
                     <DropdownMenuCheckboxItem
@@ -459,7 +465,7 @@ export function UnifiedDataTable<TData, TValue>({
                 onClick={handleExport}
               >
                 <Download className="w-4 h-4" />
-                Exportar
+                {t('dataTable.export', 'Export')}
               </Button>
             )}
           </div>
@@ -486,7 +492,7 @@ export function UnifiedDataTable<TData, TValue>({
                         <SelectValue placeholder={filter.label} />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="all">Todos</SelectItem>
+                        <SelectItem value="all">{t('dataTable.all', 'All')}</SelectItem>
                         {(filter.options ?? []).map((option) => (
                           <SelectItem key={option.value} value={option.value}>
                             {option.label}
@@ -502,7 +508,9 @@ export function UnifiedDataTable<TData, TValue>({
                     key={filter.columnId}
                     value={(column.getFilterValue() as string) ?? ''}
                     onChange={(event) => column.setFilterValue(event.target.value)}
-                    placeholder={filter.placeholder ?? `Filtrar por ${filter.label}`}
+                    placeholder={
+                      filter.placeholder ?? t('dataTable.filterBy', 'Filter by ') + filter.label
+                    }
                     className="h-11 rounded-2xl bg-secondary/20 border-transparent"
                   />
                 )

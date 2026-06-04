@@ -52,7 +52,7 @@ export function GlowyWavesHero() {
     <section
       className="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden bg-background pt-24 pb-16 md:pt-32"
       role="region"
-      aria-label="Developer-first hero section"
+      aria-label={t('home.hero.ariaLabel', 'Developer-first hero section')}
     >
       <canvas
         ref={canvasRef}
@@ -111,7 +111,7 @@ export function GlowyWavesHero() {
                 variant="ghost"
                 onClick={handleCopy}
                 className="h-8 w-8 p-0 shrink-0 rounded-lg text-muted-foreground hover:text-foreground hover:bg-background/80"
-                aria-label="Copy installation command"
+                aria-label={t('home.hero.copyCommandAria', 'Copy installation command')}
               >
                 {copied ? (
                   <Check className="h-4 w-4 text-green-500" />
@@ -196,7 +196,9 @@ export function GlowyWavesHero() {
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Code className="h-5 w-5" />
                       </div>
-                      <h4 className="text-sm font-bold text-foreground mb-1">App Shell</h4>
+                      <h4 className="text-sm font-bold text-foreground mb-1">
+                        {t('home.hero.appShell', 'App Shell')}
+                      </h4>
                       <p className="text-xs text-muted-foreground">
                         Theme provider, sidebar navigation layouts, dialog systems, responsive
                         layouts.
@@ -226,7 +228,9 @@ export function GlowyWavesHero() {
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Layers className="h-5 w-5" />
                       </div>
-                      <h4 className="text-sm font-bold text-foreground mb-1">Domain Modules</h4>
+                      <h4 className="text-sm font-bold text-foreground mb-1">
+                        {t('home.hero.domainModules', 'Domain Modules')}
+                      </h4>
                       <p className="text-xs text-muted-foreground">
                         Users directory, budgets, transactions, settings dashboard, asynchronous SSE
                         AI chat client.
@@ -256,7 +260,9 @@ export function GlowyWavesHero() {
                       <div className="mb-4 inline-flex items-center gap-2 rounded-lg bg-primary/10 p-2 text-primary">
                         <Database className="h-5 w-5" />
                       </div>
-                      <h4 className="text-sm font-bold text-foreground mb-1">Integrations & QA</h4>
+                      <h4 className="text-sm font-bold text-foreground mb-1">
+                        {t('home.hero.integrationsQA', 'Integrations & QA')}
+                      </h4>
                       <p className="text-xs text-muted-foreground">
                         Better Auth, Clerk hooks, Drizzle ORM queries, Playwright and Vitest testing
                         configurations.
@@ -285,7 +291,9 @@ export function GlowyWavesHero() {
                     {/* Mock Authentication Card */}
                     <div className="w-full max-w-sm rounded-xl border border-border/60 bg-background p-6 shadow-xl">
                       <div className="mb-6 space-y-1">
-                        <h4 className="text-lg font-bold text-foreground">Access Workspace</h4>
+                        <h4 className="text-lg font-bold text-foreground">
+                          {t('home.hero.accessWorkspace', 'Access Workspace')}
+                        </h4>
                         <p className="text-xs text-muted-foreground">
                           Sign in to your product development sandbox.
                         </p>
@@ -293,18 +301,18 @@ export function GlowyWavesHero() {
                       <div className="space-y-4">
                         <div className="space-y-1">
                           <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                            Email Address
+                            {t('landing.emailAddressLabel', 'Email Address')}
                           </label>
                           <input
                             type="email"
                             disabled
-                            placeholder="admin@company.com"
+                            placeholder={t('landing.emailPlaceholder', 'admin@company.com')}
                             className="w-full rounded-md border border-border/60 bg-muted/20 px-3 py-1.5 text-xs text-muted-foreground"
                           />
                         </div>
                         <div className="space-y-1">
                           <label className="text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                            Password
+                            {t('landing.passwordLabel', 'Password')}
                           </label>
                           <input
                             type="password"
@@ -314,7 +322,7 @@ export function GlowyWavesHero() {
                           />
                         </div>
                         <Button disabled size="sm" className="w-full text-xs py-1.5 h-auto">
-                          Sign in with Email
+                          {t('landing.signInWithEmail', 'Sign in with Email')}
                         </Button>
                       </div>
                       <div className="relative my-4">
@@ -323,7 +331,7 @@ export function GlowyWavesHero() {
                         </div>
                         <div className="relative flex justify-center text-[10px] uppercase">
                           <span className="bg-background px-2 text-muted-foreground">
-                            or access via
+                            {t('landing.orAccessVia', 'or access via')}
                           </span>
                         </div>
                       </div>
@@ -333,14 +341,14 @@ export function GlowyWavesHero() {
                           className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-muted/10 py-1.5 text-[10px] font-medium text-muted-foreground"
                         >
                           <Users className="h-3 w-3" />
-                          Social Login
+                          {t('landing.socialLogin', 'Social Login')}
                         </button>
                         <button
                           disabled
                           className="flex items-center justify-center gap-1.5 rounded-md border border-border/60 bg-primary/10 py-1.5 text-[10px] font-medium text-primary"
                         >
                           <Shield className="h-3 w-3" />
-                          Clerk SSO
+                          {t('landing.clerkSSO', 'Clerk SSO')}
                         </button>
                       </div>
                     </div>
@@ -360,19 +368,19 @@ export function GlowyWavesHero() {
                     <div className="w-full md:w-1/4 border-r border-border/30 pr-2 space-y-1 hidden md:block">
                       <div className="rounded-md bg-primary/10 text-primary px-3.5 py-1.5 text-xs font-semibold flex items-center gap-2">
                         <Layers className="h-3.5 w-3.5" />
-                        Dashboard
+                        {t('dashboard.label', 'Dashboard')}
                       </div>
                       <div className="px-3.5 py-1.5 text-xs text-muted-foreground font-medium flex items-center gap-2 hover:bg-secondary/40 rounded transition-colors">
                         <Users className="h-3.5 w-3.5" />
-                        Team Users
+                        {t('landing.teamUsers', 'Team Users')}
                       </div>
                       <div className="px-3.5 py-1.5 text-xs text-muted-foreground font-medium flex items-center gap-2 hover:bg-secondary/40 rounded transition-colors">
                         <Database className="h-3.5 w-3.5" />
-                        Transactions
+                        {t('landing.transactions', 'Transactions')}
                       </div>
                       <div className="px-3.5 py-1.5 text-xs text-muted-foreground font-medium flex items-center gap-2 hover:bg-secondary/40 rounded transition-colors">
                         <Code className="h-3.5 w-3.5" />
-                        Budgets Map
+                        {t('landing.budgetsMap', 'Budgets Map')}
                       </div>
                     </div>
 
@@ -382,25 +390,27 @@ export function GlowyWavesHero() {
                       <div className="grid grid-cols-3 gap-2">
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
                           <p className="text-[10px] uppercase font-bold text-muted-foreground">
-                            Volume
+                            {t('landing.volume', 'Volume')}
                           </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">$12,450.00</p>
                           <span className="text-[8px] text-green-500 font-bold">▲ +12.4%</span>
                         </div>
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
                           <p className="text-[10px] uppercase font-bold text-muted-foreground">
-                            Projects
+                            {t('landing.projects', 'Projects')}
                           </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">4 Active</p>
-                          <span className="text-[8px] text-primary font-bold">In production</span>
+                          <span className="text-[8px] text-primary font-bold">
+                            {t('home.hero.inProduction', 'In production')}
+                          </span>
                         </div>
                         <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
                           <p className="text-[10px] uppercase font-bold text-muted-foreground">
-                            API Latency
+                            {t('landing.apiLatency', 'API Latency')}
                           </p>
                           <p className="text-sm font-semibold text-foreground mt-0.5">48 ms</p>
                           <span className="text-[8px] text-green-500 font-bold">
-                            100% operational
+                            {t('landing.operational100', '100% operational')}
                           </span>
                         </div>
                       </div>
@@ -409,29 +419,35 @@ export function GlowyWavesHero() {
                       <div className="rounded-lg border border-border/30 bg-background p-2.5">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-[10px] font-bold text-foreground">
-                            Recent Activity
+                            {t('landing.recentActivity', 'Recent Activity')}
                           </span>
                           <span className="text-[8px] bg-primary/15 text-primary px-1.5 py-0.5 rounded font-bold">
-                            Auto-sync active
+                            {t('landing.autoSyncActive', 'Auto-sync active')}
                           </span>
                         </div>
                         <div className="space-y-1.5">
                           <div className="flex justify-between items-center text-[10px] border-b border-border/20 pb-1">
-                            <span className="text-foreground font-medium">Acme Corp Ltd.</span>
-                            <span className="text-muted-foreground">Today, 10:14 AM</span>
+                            <span className="text-foreground font-medium">
+                              {t('home.hero.acmeCorp', 'Acme Corp Ltd.')}
+                            </span>
+                            <span className="text-muted-foreground">
+                              {t('home.hero.todayTime', 'Today, 10:14 AM')}
+                            </span>
                             <span className="font-bold text-foreground">$1,200.00</span>
                             <span className="px-1.5 py-0.2 rounded bg-green-500/10 text-green-500 font-semibold text-[8px]">
-                              Approved
+                              {t('landing.approved', 'Approved')}
                             </span>
                           </div>
                           <div className="flex justify-between items-center text-[10px] pb-0.5">
                             <span className="text-foreground font-medium">
-                              Global Delivery Inc.
+                              {t('landing.globalDelivery', 'Global Delivery Inc.')}
                             </span>
-                            <span className="text-muted-foreground">Yesterday, 4:32 PM</span>
+                            <span className="text-muted-foreground">
+                              {t('home.hero.yesterdayTime', 'Yesterday, 4:32 PM')}
+                            </span>
                             <span className="font-bold text-foreground">$450.00</span>
                             <span className="px-1.5 py-0.2 rounded bg-amber-500/10 text-amber-500 font-semibold text-[8px]">
-                              Pending
+                              {t('landing.pending', 'Pending')}
                             </span>
                           </div>
                         </div>

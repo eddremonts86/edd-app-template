@@ -399,7 +399,7 @@ function MessageBubble({
       <div className={cn('flex max-w-[85%] flex-col gap-1', isUser && 'items-end')}>
         <div className="flex items-center gap-2 px-1">
           <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
-            {isUser ? 'You' : 'AI Assistant'}
+            {isUser ? t('ai.chat.you', 'You') : t('ai.chat.aiAssistant', 'AI Assistant')}
           </span>
           <span className="text-[10px] text-muted-foreground/40">•</span>
           <span className="text-[10px] text-muted-foreground/40">
@@ -527,11 +527,11 @@ function MessageBubble({
                         type="button"
                         onClick={() => onImageClick(imgUrl)}
                         className="block w-full"
-                        title="Click to preview image"
+                        title={t('ai.chat.clickToPreviewImage', 'Click to preview image')}
                       >
                         <img
                           src={imgUrl}
-                          alt="Uploaded content"
+                          alt={t('ai.chat.uploadedContent', 'Uploaded content')}
                           className="max-h-75 w-full cursor-zoom-in object-cover transition-transform duration-300 hover:scale-105"
                         />
                       </button>
@@ -584,7 +584,7 @@ function MessageBubble({
         <div className="flex h-10 w-10 shrink-0 items-center justify-center">
           {userAvatar ? (
             <Avatar className="h-10 w-10 rounded-full border-2 border-white shadow-lg shadow-indigo-500/20 ring-2 ring-indigo-100 dark:border-zinc-800 dark:ring-indigo-900">
-              <AvatarImage src={userAvatar} alt="User" />
+              <AvatarImage src={userAvatar} alt={t('ai.chat.user', 'User')} />
               <AvatarFallback>
                 <User size={20} className="text-muted-foreground" />
               </AvatarFallback>
@@ -660,11 +660,15 @@ function EmptyState({ onSuggestionClick }: { onSuggestionClick: (text: string) =
               </span>
               <div className="text-[11px] leading-normal text-muted-foreground space-y-1">
                 <p>
-                  <strong className="text-foreground/70 font-semibold">Flow: </strong>
+                  <strong className="text-foreground/70 font-semibold">
+                    {t('ai.chat.flow', 'Flow:')}{' '}
+                  </strong>
                   {s.action}
                 </p>
                 <p>
-                  <strong className="text-foreground/70 font-semibold">Data: </strong>
+                  <strong className="text-foreground/70 font-semibold">
+                    {t('ai.chat.data', 'Data:')}{' '}
+                  </strong>
                   {s.data}
                 </p>
               </div>
@@ -1017,7 +1021,9 @@ export function HelpChatPage() {
                 </div>
                 <div className="flex items-center gap-1.5 mt-0.5 text-[10px] text-muted-foreground/60 font-medium">
                   <Sparkles size={10} />
-                  <span>AI can make mistakes. Verify important information.</span>
+                  <span>
+                    {t('ai.chat.disclaimer', 'AI can make mistakes. Verify important information.')}
+                  </span>
                 </div>
               </div>
             </div>
@@ -1061,7 +1067,7 @@ export function HelpChatPage() {
                 className="h-10 w-10 rounded-full hover:bg-destructive/10 hover:text-destructive transition-colors"
                 onClick={handleClear}
                 disabled={messages.length === 0 || isLoading}
-                title="Clear Chat"
+                title={t('ai.chat.clearChat', 'Clear Chat')}
               >
                 <Trash2 size={18} />
               </Button>
@@ -1069,7 +1075,7 @@ export function HelpChatPage() {
                 variant="ghost"
                 size="icon"
                 className="h-10 w-10 rounded-full hover:bg-muted"
-                title="Settings"
+                title={t('ai.chat.settings', 'Settings')}
                 onClick={() => navigate({ to: '/dashboard/settings', search: { ia_config: true } })}
               >
                 <Settings size={18} />
@@ -1158,7 +1164,7 @@ export function HelpChatPage() {
 
           {/* --- Input Area --- */}
           <section
-            aria-label="File drop zone"
+            aria-label={t('ai.chat.fileDropZone', 'File drop zone')}
             className="relative z-10 border-t border-border bg-card/45 p-6 backdrop-blur-xl dark:bg-card/25"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
@@ -1213,7 +1219,7 @@ export function HelpChatPage() {
                 ref={fileInputRef}
                 onChange={onFileChange}
                 accept="image/*,application/pdf,.doc,.docx,.xls,.xlsx,.txt,.csv,.json,.md,.yaml,.yml,.xml,.log,.ts,.tsx,.js,.jsx,.py,.html,.css"
-                aria-label="Upload files"
+                aria-label={t('ai.chat.uploadFiles', 'Upload files')}
               />
               <InputGroup className="items-end gap-2 rounded-[2rem] border border-border bg-card/60 p-2 shadow-xl shadow-indigo-500/5 transition-all dark:bg-card/40 has-[textarea:focus-visible]:border-primary/50 has-[textarea:focus-visible]:bg-card has-[textarea:focus-visible]:ring-4 has-[textarea:focus-visible]:ring-primary/10 dark:has-[textarea:focus-visible]:bg-card/65">
                 <InputGroupAddon className="py-0">
@@ -1222,7 +1228,7 @@ export function HelpChatPage() {
                     size="icon-sm"
                     className="h-11 w-11 shrink-0 rounded-full text-muted-foreground hover:bg-primary/10 hover:text-primary"
                     onClick={() => fileInputRef.current?.click()}
-                    title="Attach file"
+                    title={t('ai.chat.attachFile', 'Attach file')}
                   >
                     <Paperclip size={20} />
                   </InputGroupButton>
@@ -1291,7 +1297,7 @@ export function HelpChatPage() {
                 <button
                   className="absolute right-6 top-6 rounded-full bg-white/10 p-3 text-white hover:bg-white/20 transition-colors"
                   onClick={() => setIsPreviewOpen(null)}
-                  title="Close preview"
+                  title={t('ai.chat.closePreview', 'Close preview')}
                 >
                   <X size={28} />
                 </button>
@@ -1300,7 +1306,7 @@ export function HelpChatPage() {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
                   src={isPreviewOpen}
-                  alt="Preview"
+                  alt={t('ai.chat.preview', 'Preview')}
                   className="max-h-[85vh] max-w-[85vw] rounded-2xl object-contain shadow-2xl ring-1 ring-white/10"
                   onClick={(e: React.MouseEvent<HTMLImageElement>) => e.stopPropagation()}
                 />

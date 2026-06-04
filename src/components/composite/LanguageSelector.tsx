@@ -44,7 +44,9 @@ export const LanguageSelector = memo(function LanguageSelector({
         ) : (
           <Globe className="h-4 w-4" />
         )}
-        <span className="text-sm font-medium uppercase">{mounted ? currentLanguage : '--'}</span>
+        <span className="text-sm font-medium uppercase">
+          {mounted ? currentLanguage : t('language.loading', '--')}
+        </span>
       </button>
 
       <div

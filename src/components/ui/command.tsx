@@ -2,43 +2,40 @@ import * as React from 'react'
 import { Slot } from 'radix-ui'
 import { cn } from '@/shared/lib/utils'
 
-const Command = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
-      className,
-    )}
-    {...props}
-  />
-))
+const Command = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
+        className,
+      )}
+      {...props}
+    />
+  ),
+)
 Command.displayName = 'Command'
 
-const CommandList = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
-    {...props}
-  />
-))
+const CommandList = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
+      {...props}
+    />
+  ),
+)
 CommandList.displayName = 'CommandList'
 
-const CommandEmpty = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn('py-6 text-center text-sm text-muted-foreground', className)}
-    {...props}
-  />
-))
+const CommandEmpty = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('py-6 text-center text-sm text-muted-foreground', className)}
+      {...props}
+    />
+  ),
+)
 CommandEmpty.displayName = 'CommandEmpty'
 
 const CommandGroup = React.forwardRef<
@@ -84,12 +81,11 @@ const CommandItem = React.forwardRef<HTMLDivElement, CommandItemProps>(
 )
 CommandItem.displayName = 'CommandItem'
 
-const CommandSeparator = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn('-mx-1 h-px bg-border', className)} {...props} />
-))
+const CommandSeparator = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('-mx-1 h-px bg-border', className)} {...props} />
+  ),
+)
 CommandSeparator.displayName = 'CommandSeparator'
 
 export { Command, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator }

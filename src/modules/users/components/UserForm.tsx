@@ -92,16 +92,22 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
               {getInitials(defaultValues?.name ?? form.getFieldValue('name') ?? 'U')}
             </AvatarFallback>
           </Avatar>
-          <span className="text-xs text-muted-foreground">Avatar Preview</span>
+          <span className="text-xs text-muted-foreground">
+            {t('users.form.avatarPreview', 'Avatar Preview')}
+          </span>
         </div>
 
         {/* Section 1: Profile Details */}
         <div className="space-y-4">
           <div className="flex flex-col gap-0.5">
-            <h4 className="text-sm font-semibold text-foreground">Profile Information</h4>
-            <p className="text-[11px] text-muted-foreground">Set the member's public details</p>
+            <h4 className="text-sm font-semibold text-foreground">
+              {t('users.form.profileInfo', 'Profile Information')}
+            </h4>
+            <p className="text-[11px] text-muted-foreground">
+              {t('users.form.profileInfoDesc', "Set the member's public details")}
+            </p>
           </div>
-          
+
           <Separator className="opacity-50" />
 
           {/* Name */}
@@ -113,7 +119,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
           >
             {(field) => (
               <div className="grid gap-2">
-                <label htmlFor={field.name} className="text-sm font-medium leading-none text-foreground">
+                <label
+                  htmlFor={field.name}
+                  className="text-sm font-medium leading-none text-foreground"
+                >
                   {t('users.form.nameLabel', 'Name')}
                 </label>
                 <Input
@@ -124,7 +133,9 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
                   className="bg-muted/10"
                 />
                 {field.state.meta.errors[0] && (
-                  <p className="text-[11px] font-medium text-destructive">{field.state.meta.errors[0]}</p>
+                  <p className="text-[11px] font-medium text-destructive">
+                    {field.state.meta.errors[0]}
+                  </p>
                 )}
               </div>
             )}
@@ -143,7 +154,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
           >
             {(field) => (
               <div className="grid gap-2">
-                <label htmlFor={field.name} className="text-sm font-medium leading-none text-foreground">
+                <label
+                  htmlFor={field.name}
+                  className="text-sm font-medium leading-none text-foreground"
+                >
                   {t('users.form.emailLabel', 'Email')}
                 </label>
                 <Input
@@ -155,7 +169,9 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
                   className="bg-muted/10"
                 />
                 {field.state.meta.errors[0] && (
-                  <p className="text-[11px] font-medium text-destructive">{field.state.meta.errors[0]}</p>
+                  <p className="text-[11px] font-medium text-destructive">
+                    {field.state.meta.errors[0]}
+                  </p>
                 )}
               </div>
             )}
@@ -165,8 +181,12 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
         {/* Section 2: Permissions */}
         <div className="space-y-4 pt-2">
           <div className="flex flex-col gap-0.5">
-            <h4 className="text-sm font-semibold text-foreground">Access Permissions</h4>
-            <p className="text-[11px] text-muted-foreground">Define role rank inside the workspace</p>
+            <h4 className="text-sm font-semibold text-foreground">
+              {t('users.form.accessPermissions', 'Access Permissions')}
+            </h4>
+            <p className="text-[11px] text-muted-foreground">
+              {t('users.form.accessPermissionsDesc', 'Define role rank inside the workspace')}
+            </p>
           </div>
 
           <Separator className="opacity-50" />
@@ -181,7 +201,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
               const disabled = !canEditRoles
               return (
                 <div className="grid gap-2">
-                  <label htmlFor={field.name} className="text-sm font-medium leading-none text-foreground">
+                  <label
+                    htmlFor={field.name}
+                    className="text-sm font-medium leading-none text-foreground"
+                  >
                     {t('users.form.roleLabel', 'Role')}
                   </label>
                   <Select
@@ -196,7 +219,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
                       <SelectItem value="user" disabled={!canAssignUser && currentValue !== 'user'}>
                         {t('users.form.roleUser', 'User')}
                       </SelectItem>
-                      <SelectItem value="admin" disabled={!canAssignAdmin && currentValue !== 'admin'}>
+                      <SelectItem
+                        value="admin"
+                        disabled={!canAssignAdmin && currentValue !== 'admin'}
+                      >
                         {t('users.form.roleAdmin', 'Admin')}
                       </SelectItem>
                       {(canAssignSuper || currentValue === 'super_admin') && (
@@ -223,8 +249,12 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
         {/* Section 3: Credentials & Media */}
         <div className="space-y-4 pt-2">
           <div className="flex flex-col gap-0.5">
-            <h4 className="text-sm font-semibold text-foreground">Visuals & Credentials</h4>
-            <p className="text-[11px] text-muted-foreground">Set login security and custom avatar links</p>
+            <h4 className="text-sm font-semibold text-foreground">
+              {t('users.form.visualsCredentials', 'Visuals & Credentials')}
+            </h4>
+            <p className="text-[11px] text-muted-foreground">
+              {t('users.form.visualsCredentialsDesc', 'Set login security and custom avatar links')}
+            </p>
           </div>
 
           <Separator className="opacity-50" />
@@ -248,7 +278,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
             >
               {(field) => (
                 <div className="grid gap-2">
-                  <label htmlFor={field.name} className="text-sm font-medium leading-none text-foreground">
+                  <label
+                    htmlFor={field.name}
+                    className="text-sm font-medium leading-none text-foreground"
+                  >
                     {t('users.form.passwordLabel', 'Password')}{' '}
                     {!passwordRequired && (
                       <span className="text-muted-foreground font-normal">
@@ -277,7 +310,9 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
                     className="bg-muted/10"
                   />
                   {field.state.meta.errors[0] && (
-                    <p className="text-[11px] font-medium text-destructive">{field.state.meta.errors[0]}</p>
+                    <p className="text-[11px] font-medium text-destructive">
+                      {field.state.meta.errors[0]}
+                    </p>
                   )}
                   <p className="text-[11px] text-muted-foreground leading-relaxed">
                     {isCreate
@@ -299,7 +334,10 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
           <form.Field name="avatar">
             {(field) => (
               <div className="grid gap-2">
-                <label htmlFor={field.name} className="text-sm font-medium leading-none text-foreground">
+                <label
+                  htmlFor={field.name}
+                  className="text-sm font-medium leading-none text-foreground"
+                >
                   {t('users.form.avatarLabel', 'Avatar URL')}{' '}
                   <span className="text-muted-foreground font-normal">
                     ({t('common.optional', 'optional')})
@@ -308,7 +346,7 @@ export function UserForm({ defaultValues, onSubmit, onCancel, isLoading }: UserF
                 <div className="flex gap-2">
                   <Input
                     id={field.name}
-                    placeholder="https://..."
+                    placeholder={t('users.form.avatarUrlPlaceholder', 'https://...')}
                     value={field.state.value}
                     onChange={(e) => {
                       field.handleChange(e.target.value)

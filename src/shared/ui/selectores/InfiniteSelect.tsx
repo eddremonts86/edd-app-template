@@ -1,5 +1,6 @@
 import { Check, ChevronsUpDown, Loader2, Search, X } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -93,6 +94,7 @@ export function InfiniteSelect<T = unknown>({
   size = 'default',
   disabled,
 }: InfiniteSelectProps<T>) {
+  const { t } = useTranslation()
   const [open, setOpen] = React.useState(false)
   const [internalSearch, setInternalSearch] = React.useState('')
   const listRef = React.useRef<HTMLDivElement>(null)
@@ -291,7 +293,9 @@ export function InfiniteSelect<T = unknown>({
 
               {/* Empty state */}
               {!isLoading && localFiltered.length === 0 && !allOption && !pinnedOptions?.length && (
-                <p className="py-4 text-center text-sm text-muted-foreground">No results found</p>
+                <p className="py-4 text-center text-sm text-muted-foreground">
+                  {t('common.empty.noResults', 'No results found')}
+                </p>
               )}
             </>
           )}

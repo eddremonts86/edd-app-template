@@ -66,7 +66,7 @@ function deepMerge(source: JsonObject, target: JsonObject, path = ''): number {
 
 function countLeaves(val: JsonValue): number {
   if (typeof val !== 'object' || val === null || Array.isArray(val)) return 1
-  return Object.values(val as JsonObject).reduce((sum, v) => sum + countLeaves(v), 0)
+  return Object.values(val as JsonObject).reduce((sum: number, v) => sum + countLeaves(v), 0)
 }
 
 function getNamespaces(): string[] {

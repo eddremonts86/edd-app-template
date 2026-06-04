@@ -34,7 +34,10 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
               <div className="font-semibold text-foreground truncate flex items-center gap-2">
                 <span className="truncate">{user.name}</span>
                 {user.provider && user.provider !== 'local' && (
-                  <Badge variant="outline" className="text-[9px] uppercase tracking-wider py-0 px-1.5 h-4">
+                  <Badge
+                    variant="outline"
+                    className="text-[9px] uppercase tracking-wider py-0 px-1.5 h-4"
+                  >
                     {user.provider === 'clerk' ? 'Clerk' : 'Better Auth'}
                   </Badge>
                 )}

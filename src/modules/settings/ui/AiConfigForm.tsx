@@ -42,7 +42,6 @@ import {
   useTestAiConnection,
   useUpdateAiConfig,
 } from '../api/ai-config.queries'
-
 import { AiLanguageAudit } from './AiLanguageAudit'
 
 const PROVIDER_DEFAULTS: Record<AiProvider, Partial<AiConfigFormData>> = {
@@ -203,6 +202,7 @@ function ProviderStatusCard({
   onSelect,
   onTest,
 }: ProviderStatusCardProps) {
+  const { t } = useTranslation()
   const [showDetails, setShowDetails] = React.useState(false)
   const hasDetails = !!(apiBaseUrl || resolvedModel || status?.modelCount || testResult)
 
@@ -320,19 +320,25 @@ function ProviderStatusCard({
           <div className="rounded-md border border-border/40 bg-background/50 px-2 py-1.5 text-left space-y-1.5 text-[10px] animate-in fade-in slide-in-from-top-1 duration-200">
             {apiBaseUrl && (
               <div>
-                <span className="text-muted-foreground block">API URL</span>
+                <span className="text-muted-foreground block">
+                  {t('settings.ai.fields.apiUrl', 'API URL')}
+                </span>
                 <span className="block truncate font-mono text-foreground/90">{apiBaseUrl}</span>
               </div>
             )}
             {resolvedModel && (
               <div>
-                <span className="text-muted-foreground block">Modelo activo</span>
+                <span className="text-muted-foreground block">
+                  {t('settings.ai.fields.activeModel', 'Active model')}
+                </span>
                 <span className="block truncate font-mono text-foreground/90">{resolvedModel}</span>
               </div>
             )}
             {testResult && (
               <div className="pt-1 border-t border-border/30">
-                <span className="text-muted-foreground block">Resultado del test</span>
+                <span className="text-muted-foreground block">
+                  {t('settings.ai.fields.testResult', 'Test result')}
+                </span>
                 <span
                   className={cn(
                     'block font-mono font-medium',
@@ -859,7 +865,7 @@ export function AiConfigForm() {
                   },
                   {
                     id: 'ollama',
-                    title: 'Ollama',
+                    title: t('settings.ai.providers.ollama', 'Ollama'),
                     description:
                       'Streamlined local LLM runner supporting Llama 3, Mistral, and other open-source models.',
                   },
@@ -955,8 +961,12 @@ export function AiConfigForm() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="llama-cpp">Llama.cpp</SelectItem>
-                            <SelectItem value="ollama">Ollama</SelectItem>
+                            <SelectItem value="llama-cpp">
+                              {t('settings.ai.providers.llama-cpp', 'Llama.cpp')}
+                            </SelectItem>
+                            <SelectItem value="ollama">
+                              {t('settings.ai.providers.ollama', 'Ollama')}
+                            </SelectItem>
                             <SelectItem value="lm-studio">
                               {t('settings.ai.providers.lm-studio')}
                             </SelectItem>

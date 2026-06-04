@@ -70,7 +70,9 @@
     "search": "Search",
     "filter": "Filter",
     "sort": "Sort",
-    "actions": "Actions",
+    "actions": {
+      "move": "Move"
+    },
     "confirm": "Confirm",
     "undoWarning": "This action cannot be undone.",
     "noPermission": "You don't have permission to perform this action.",
@@ -105,6 +107,21 @@
     "error": {
       "title": "Something went wrong",
       "description": "An error occurred while loading data. Please try again."
+    },
+    "close": "Close",
+    "ping": "Ping",
+    "ms": "ms",
+    "pinOpen": "Pin open",
+    "more": "More",
+    "datePicker": {
+      "placeholder": "Pick a date"
+    },
+    "auto": "Auto",
+    "empty": {
+      "noResults": "No results found"
+    },
+    "placeholders": {
+      "url": "https://"
     }
   },
   "theme": {
@@ -141,7 +158,10 @@
       "settings": "Settings",
       "help": "Get Help",
       "search": "Search"
-    }
+    },
+    "title": "Sidebar",
+    "mobileDescription": "Displays the mobile sidebar.",
+    "toggle": "Toggle Sidebar"
   },
   "ai": {
     "search": {
@@ -194,7 +214,20 @@
       "untitledConversation": "New conversation",
       "welcome": "Hello! How can I help you today?",
       "clear": "Clear chat",
-      "stop": "Stop generation"
+      "stop": "Stop generation",
+      "you": "You",
+      "aiAssistant": "AI Assistant",
+      "clickToPreviewImage": "Click to preview image",
+      "uploadedContent": "Uploaded content",
+      "user": "User",
+      "clearChat": "Clear Chat",
+      "settings": "Settings",
+      "fileDropZone": "File drop zone",
+      "uploadFiles": "Upload files",
+      "attachFile": "Attach file",
+      "closePreview": "Close preview",
+      "preview": "Preview",
+      "disclaimer": "AI can make mistakes. Verify important information."
     }
   },
   "settings": {
@@ -470,7 +503,10 @@
       "status": "Status",
       "date": "Date",
       "amount": "Amount"
-    }
+    },
+    "acmeInc": "Acme Inc.",
+    "unpin": "Unpin",
+    "pinToRight": "Pin to right"
   },
   "analytics": {
     "title": "Analytics",
@@ -933,7 +969,15 @@
           "description": "Place the user in a department and define their reporting line."
         }
       },
-      "generateAvatar": "Generate avatar"
+      "generateAvatar": "Generate avatar",
+      "avatarPreview": "Avatar Preview",
+      "profileInfo": "Profile Information",
+      "profileInfoDesc": "Basic information about the user",
+      "accessPermissions": "Access Permissions",
+      "accessPermissionsDesc": "Role and access level settings",
+      "visualsCredentials": "Visuals & Credentials",
+      "visualsCredentialsDesc": "Avatar and login credentials",
+      "avatarUrlPlaceholder": "https://example.com/avatar.jpg"
     },
     "table": {
       "user": "User",
@@ -1024,7 +1068,8 @@
       "refresh": "Refresh unread contact messages",
       "empty": "No unread briefs right now.",
       "viewAll": "Open contact inbox"
-    }
+    },
+    "backToDashboard": "Back to Dashboard"
   },
   "transactions": {
     "title": "Transactions",
@@ -1107,12 +1152,23 @@
       "title": "Launch SaaS in 1 hour",
       "titleHighlight": "with production-ready architecture",
       "description": "Avoid rebuilding core primitives. Jump straight into business logic with hybrid authentication, clean route separation, pre-configured Playwright tests, and fully typed modules.",
+      "ariaLabel": "Developer-first hero section",
+      "copyCommandAria": "Copy installation command",
+      "copiedFeedback": "Copied!",
       "ctaSecondary": "Explore stack",
       "tabs": {
         "architecture": "Architecture Map",
         "auth": "Auth & Roles UI",
         "dashboard": "Dashboard Preview"
-      }
+      },
+      "appShell": "App Shell",
+      "domainModules": "Domain Modules",
+      "accessWorkspace": "Access",
+      "inProduction": "In production",
+      "todayTime": "Today, 10:14 AM",
+      "yesterdayTime": "Yesterday, 4:32 PM",
+      "acmeCorp": "Acme Corp Ltd.",
+      "integrationsQA": "Integrations & QA"
     },
     "comparison": {
       "title": "Stop reinventing boilerplate",
@@ -1610,5 +1666,89 @@
         "parseFailed": "Could not read the file. Make sure it's a valid bank statement."
       }
     }
+  },
+  "landing": {
+    "emailPlaceholder": "admin@company.com",
+    "emailAddressLabel": "Email Address",
+    "passwordLabel": "Password",
+    "signInWithEmail": "Sign in with Email",
+    "orAccessVia": "or access via",
+    "socialLogin": "Social Login",
+    "clerkSSO": "Clerk SSO",
+    "teamUsers": "Team Users",
+    "transactions": "Transactions",
+    "budgetsMap": "Budgets Map",
+    "recentActivity": "Recent Activity",
+    "autoSyncActive": "Auto-sync active",
+    "approved": "Approved",
+    "pending": "Pending",
+    "globalDelivery": "Global Delivery Inc.",
+    "volume": "Volume",
+    "projects": "Projects",
+    "apiLatency": "API Latency",
+    "operational100": "100% operational"
+  },
+  "breadcrumb": {
+    "ariaLabel": "breadcrumb"
+  },
+  "multiSelect": {
+    "searchPlaceholder": "Search…",
+    "placeholder": "Select…"
+  },
+  "docs": {
+    "title": "Documentation",
+    "summary": "Welcome to the edd Starter documentation. Find architecture overviews, integration matrices, implementation guides, and legal templates to ship your SaaS safely and quickly.",
+    "category": {
+      "starter": "Starter",
+      "starterDesc": "Understand the architecture, module map, design system tokens, and development conventions.",
+      "product": "Product",
+      "productDesc": "Follow the feature roadmap, view updates in the changelog, learn about integrations, and browse release notes.",
+      "support": "Support",
+      "supportDesc": "Find guides, templates, real examples, and quick answers to frequently asked questions.",
+      "legal": "Legal",
+      "legalDesc": "Review our open-source privacy policy, service terms, cookies statement, and package licenses."
+    },
+    "links": {
+      "architecture": "Architecture & Layers",
+      "moduleMap": "Module Map & Blocks",
+      "designTokens": "Design Tokens Customization",
+      "conventions": "Codebase Conventions",
+      "roadmap": "Roadmap & Future Modules",
+      "changelog": "Changelog of Versions",
+      "integrations": "Integrations Matrix",
+      "releaseNotes": "Release Notes Narrative",
+      "documentation": "Documentation Index",
+      "guides": "Step-by-step Guides",
+      "examples": "Reference Examples",
+      "faq": "Frequently Asked Questions",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "cookies": "Cookies Usage",
+      "licenses": "Open Source Licenses"
+    },
+    "gettingStarted": {
+      "title": "Getting Started Instantly",
+      "description": "To begin developing your SaaS application, we recommend walking through the core components in order. Clone the template repository, set up your credentials, configure your database, and run the developer server."
+    },
+    "cta": {
+      "startLearning": "Start Learning",
+      "viewRoadmap": "View Roadmap"
+    }
+  },
+  "dataTable": {
+    "selected": "selected",
+    "searchByColumn": "Search by {{column}}...",
+    "searchAll": "Search in all columns...",
+    "advancedFilters": "Advanced filters",
+    "groupBy": "Group by",
+    "export": "Export",
+    "selectAllRows": "Select all rows",
+    "selectRow": "Select row",
+    "noResults": "No results found",
+    "clearFilters": "Clear filters"
+  },
+  "language": {
+    "select": "Select language",
+    "loading": "Loading..."
   }
 }

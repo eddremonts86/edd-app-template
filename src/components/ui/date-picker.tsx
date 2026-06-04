@@ -2,6 +2,7 @@
 import { format } from 'date-fns'
 import { Calendar, X } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/shared/lib/utils'
 import { Button } from './button'
 import { Calendar as CalendarComponent } from './calendar'
@@ -21,12 +22,13 @@ interface DatePickerProps {
 export function DatePicker({
   value,
   onChange,
-  placeholder = 'Pick a date',
+  placeholder = t('common.datePicker.placeholder', 'Pick a date'),
   disabledDates,
   className,
   optional = false,
   disabled = false,
 }: DatePickerProps) {
+  const { t } = useTranslation()
   const [open, setOpen] = React.useState(false)
   // Parse date safely: avoid timezone offset shifting the date back a day
   const date = React.useMemo(() => {

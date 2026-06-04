@@ -82,10 +82,10 @@ describe('UnifiedDataTable', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /filtros avanzados/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Advanced filters/i }))
 
-    const nameInput = screen.getByPlaceholderText('Filtrar por Name')
-    const teamInput = screen.getByPlaceholderText('Filtrar por Team')
+    const nameInput = screen.getByPlaceholderText('Filter by Name')
+    const teamInput = screen.getByPlaceholderText('Filter by Team')
 
     fireEvent.change(nameInput, { target: { value: 'a' } })
     fireEvent.change(teamInput, { target: { value: 'alpha' } })
@@ -109,16 +109,16 @@ describe('UnifiedDataTable', () => {
         onExport={onExport}
         bulkActions={[
           {
-            label: 'Aprobar seleccionados',
+            label: 'Approve selected',
             onClick: onBulk,
           },
         ]}
       />,
     )
 
-    fireEvent.click(screen.getAllByLabelText('Seleccionar fila')[0])
-    fireEvent.click(screen.getByRole('button', { name: /aprobar seleccionados/i }))
-    fireEvent.click(screen.getByRole('button', { name: /exportar/i }))
+    fireEvent.click(screen.getAllByLabelText('Select row')[0])
+    fireEvent.click(screen.getByRole('button', { name: /Approve selected/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Export/i }))
 
     expect(onBulk).toHaveBeenCalledTimes(1)
     expect(onBulk.mock.calls[0][0]).toHaveLength(1)

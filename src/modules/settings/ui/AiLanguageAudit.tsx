@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { format } from 'date-fns'
 import { Activity, RefreshCw, Settings2, ChevronDown } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -25,11 +26,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { cn } from '@/shared/lib/utils'
-import {
-  useDebouncedSearch,
-  TableSearchBar,
-  TableEmptyState,
-} from '@/shared/ui/tables'
+import { useDebouncedSearch, TableSearchBar, TableEmptyState } from '@/shared/ui/tables'
 
 interface AuditLog {
   timestamp: string
@@ -52,6 +49,7 @@ function tryFormatDate(iso: string) {
 }
 
 export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const { searchInput, setSearchInput, activeSearch, clearSearch } = useDebouncedSearch()
   const { data, refetch, isRefetching } = useQuery({
@@ -94,11 +92,11 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
 
   const filteredLogs = React.useMemo(() => {
     let logs = sortedLogs
-    
+
     if (providerFilter) {
       logs = logs.filter((log) => log.providerId === providerFilter)
     }
-    
+
     if (localeFilter) {
       logs = logs.filter((log) => log.locale === localeFilter)
     }
@@ -137,8 +135,6 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
       queryClient.invalidateQueries({ queryKey: ['ai-audit'] })
     },
   })
-
-
 
   return (
     <Card
@@ -182,13 +178,13 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
                   id="force-locale"
                   className="h-7 w-35 border-none bg-transparent px-2 text-xs font-medium focus:ring-0 hover:bg-muted/50 transition-colors"
                 >
-                  <SelectValue placeholder="Auto" />
+                  <SelectValue placeholder={t('common.auto', 'Auto')} />
                 </SelectTrigger>
                 <SelectContent align="end">
-                  <SelectItem value="auto">Auto (OS Detected)</SelectItem>
-                  <SelectItem value="en">English (en)</SelectItem>
-                  <SelectItem value="es">Spanish (es)</SelectItem>
-                  <SelectItem value="dk">Danish (dk)</SelectItem>
+                  <SelectItem value="auto">{t('common.autoOs', 'Auto (OS Detected)')}</SelectItem>
+                  <SelectItem value="en">{t('common.langEnglish', 'English (en)')}</SelectItem>
+                  <SelectItem value="es">{t('common.langSpanish', 'Spanish (es)')}</SelectItem>
+                  <SelectItem value="dk">{t('common.langDanish', 'Danish (dk)')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -201,7 +197,9 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
               disabled={isRefetching}
             >
               <RefreshCw className={cn('h-3.5 w-3.5', isRefetching && 'animate-spin')} />
-              <span className="sr-only sm:not-sr-only">Refresh</span>
+              <span className="sr-only sm:not-sr-only">
+                {t('common.actions.refresh', 'Refresh')}
+              </span>
             </Button>
           </div>
         </div>
@@ -226,16 +224,14 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
               placeholderKey="common.search"
             />
           </div>
-          
+
           <div className="flex items-center gap-2">
             {/* Provider Filter */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="sm" className="h-9 gap-1 text-xs bg-muted/20">
-                  <span>Provider:</span>
-                  <span className="font-bold text-primary">
-                    {providerFilter || 'All'}
-                  </span>
+                  <span>{t('aiLanguageAudit.filters.provider', 'Provider')}:</span>
+                  <span className="font-bold text-primary">{providerFilter || 'All'}</span>
                   <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
                 </Button>
               </PopoverTrigger>
@@ -274,10 +270,8 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="sm" className="h-9 gap-1 text-xs bg-muted/20">
-                  <span>Locale:</span>
-                  <span className="font-bold text-primary uppercase">
-                    {localeFilter || 'All'}
-                  </span>
+                  <span>{t('aiLanguageAudit.filters.locale', 'Locale')}:</span>
+                  <span className="font-bold text-primary uppercase">{localeFilter || 'All'}</span>
                   <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
                 </Button>
               </PopoverTrigger>
@@ -331,10 +325,18 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
               <Table className="relative w-full">
                 <TableHeader className="sticky top-0 bg-card z-10 shadow-xs">
                   <TableRow>
-                    <TableHead className="w-[180px]">Timestamp</TableHead>
-                    <TableHead className="w-[100px]">Locale</TableHead>
-                    <TableHead className="w-[180px]">Provider</TableHead>
-                    <TableHead>Query Snippet</TableHead>
+                    <TableHead className="w-[180px]">
+                      {t('aiLanguageAudit.table.timestamp', 'Timestamp')}
+                    </TableHead>
+                    <TableHead className="w-[100px]">
+                      {t('aiLanguageAudit.table.locale', 'Locale')}
+                    </TableHead>
+                    <TableHead className="w-[180px]">
+                      {t('aiLanguageAudit.table.provider', 'Provider')}
+                    </TableHead>
+                    <TableHead>
+                      {t('aiLanguageAudit.table.querySnippet', 'Query Snippet')}
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -394,7 +396,10 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
             )}
           </div>
         ) : (
-          <TableEmptyState isSearchActive={!!activeSearch || !!providerFilter || !!localeFilter} onClearSearch={handleClearAllFilters} />
+          <TableEmptyState
+            isSearchActive={!!activeSearch || !!providerFilter || !!localeFilter}
+            onClearSearch={handleClearAllFilters}
+          />
         )}
       </CardContent>
     </Card>

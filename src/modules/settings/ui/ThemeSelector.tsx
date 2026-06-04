@@ -133,7 +133,9 @@ export function ThemeSelector({ value, onChange }: ThemeSelectorProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-baseline justify-between">
-        <h4 className="text-sm font-semibold text-foreground">Theme</h4>
+        <h4 className="text-sm font-semibold text-foreground">
+          {t('settings.theme.title', 'Theme')}
+        </h4>
         <span className="text-xs text-muted-foreground">{t(`theme.${value}`)}</span>
       </div>
       <div className="grid grid-cols-3 gap-2.5">

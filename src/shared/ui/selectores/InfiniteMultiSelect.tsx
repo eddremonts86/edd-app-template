@@ -1,5 +1,6 @@
 import { Check, ChevronsUpDown, Loader2, Search, X } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -80,8 +81,8 @@ export function InfiniteMultiSelect<T = unknown>({
   isFetchingNextPage,
   isLoading,
   onSearchChange,
-  searchPlaceholder = 'Search…',
-  placeholder = 'Select…',
+  searchPlaceholder,
+  placeholder,
   icon,
   renderOption,
   renderChip,
@@ -91,7 +92,13 @@ export function InfiniteMultiSelect<T = unknown>({
   contentClassName,
   disabled,
 }: InfiniteMultiSelectProps<T>) {
+  const { t } = useTranslation()
   const [open, setOpen] = React.useState(false)
+
+  // Apply translations for placeholders if not provided
+  const effectiveSearchPlaceholder =
+    searchPlaceholder ?? t('multiSelect.searchPlaceholder', 'Search…')
+  const effectivePlaceholder = placeholder ?? t('multiSelect.placeholder', 'Select…')
   const [internalSearch, setInternalSearch] = React.useState('')
   const listRef = React.useRef<HTMLDivElement>(null)
   const searchInputRef = React.useRef<HTMLInputElement>(null)
@@ -221,7 +228,7 @@ export function InfiniteMultiSelect<T = unknown>({
           >
             <span className="flex items-center gap-2 truncate text-muted-foreground">
               {icon && <span className="shrink-0 [&_svg]:h-3.5 [&_svg]:w-3.5">{icon}</span>}
-              {values.length > 0 ? `${values.length} selected` : placeholder}
+              {values.length > 0 ? `${values.length} selected` : effectivePlaceholder}
             </span>
             <ChevronsUpDown className="ml-0.5 h-3.5 w-3.5 shrink-0 opacity-50" />
           </Button>
@@ -239,7 +246,7 @@ export function InfiniteMultiSelect<T = unknown>({
             <Input
               ref={searchInputRef}
               className="h-7 border-0 bg-transparent p-0 shadow-none focus-visible:ring-0 text-sm"
-              placeholder={searchPlaceholder}
+              placeholder={effectiveSearchPlaceholder}
               value={internalSearch}
               onChange={(e) => setInternalSearch(e.target.value)}
             />

@@ -70,11 +70,7 @@ export function UsersPage() {
       ) : totalCount === 0 ? (
         <TableEmptyState isSearchActive={false} onClearSearch={() => {}} />
       ) : (
-        <UserTable
-          users={allUsers || []}
-          onEdit={setEditingUser}
-          onDelete={handleDelete}
-        />
+        <UserTable users={allUsers || []} onEdit={setEditingUser} onDelete={handleDelete} />
       )}
 
       <Sheet open={isCreateOpen} onOpenChange={setIsCreateOpen}>

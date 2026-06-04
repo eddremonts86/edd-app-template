@@ -2,6 +2,7 @@
 
 import { Pin, WifiOff, X } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
 import { cn } from '@/shared/lib/utils'
@@ -112,6 +113,7 @@ export function CrudSheetHeader({
   actionsSlot,
   showPing = true,
 }: CrudSheetHeaderProps) {
+  const { t } = useTranslation()
   const { isOnline, latencyMs, ping } = useSheetPing(showPing)
   const pinCtx = useCrudPin()
 
@@ -136,12 +138,16 @@ export function CrudSheetHeader({
                 ? 'bg-green-500/10 text-green-600 border-green-500/20'
                 : 'bg-red-500/10 text-red-600 border-red-500/20',
             )}
-            title="Ping"
+            title={t('common.ping', 'Ping')}
           >
             <span
               className={cn('size-1.5 rounded-full', isOnline ? 'bg-green-500' : 'bg-red-500')}
             />
-            {isOnline ? `${latencyMs ?? '-'}ms` : <WifiOff className="h-3 w-3" />}
+            {isOnline ? (
+              `${latencyMs ?? '-'}${t('common.ms', 'ms')}`
+            ) : (
+              <WifiOff className="h-3 w-3" />
+            )}
           </button>
         ) : null}
         {actionsSlot}
@@ -157,7 +163,7 @@ export function CrudSheetHeader({
                 : 'text-muted-foreground hover:text-foreground',
             )}
             onClick={pinCtx.onPinToggle}
-            title={pinCtx.pinned ? 'Unpin' : 'Pin open'}
+            title={pinCtx.pinned ? t('common.unpin', 'Unpin') : t('common.pinOpen', 'Pin open')}
           >
             <Pin className={cn('size-4', pinCtx.pinned && 'fill-current')} />
           </Button>
@@ -168,7 +174,7 @@ export function CrudSheetHeader({
           size="icon"
           className="h-8 w-8 text-muted-foreground hover:text-foreground"
           onClick={onClose}
-          title="Close"
+          title={t('common.close', 'Close')}
         >
           <X className="size-4" />
         </Button>

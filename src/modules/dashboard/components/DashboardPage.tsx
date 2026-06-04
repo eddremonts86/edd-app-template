@@ -11,7 +11,6 @@ import { RecentSignupsWidget } from './widgets/RecentSignupsWidget'
 import { StatCard } from './widgets/StatCard'
 import { UsersOverviewWidget } from './widgets/UsersOverviewWidget'
 
-
 export function DashboardPage() {
   const { t } = useTranslation()
   const { data, isLoading } = useDashboardStats()
@@ -27,28 +26,43 @@ export function DashboardPage() {
       <div className="flex flex-col gap-3">
         <Alert variant="warning" className="p-4 rounded-2xl">
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle className="font-semibold">{t('dashboard.overview.welcome.morning')}, Workspace Admin</AlertTitle>
+          <AlertTitle className="font-semibold">
+            {t('dashboard.overview.welcome.morning')}, Workspace Admin
+          </AlertTitle>
           <AlertDescription>
-            You are operating in the template sandbox workspace. Changes persist locally but external sync requires active API keys.
+            You are operating in the template sandbox workspace. Changes persist locally but
+            external sync requires active API keys.
           </AlertDescription>
         </Alert>
-        
+
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-border/70 bg-muted/50 px-4 py-3 text-xs text-muted-foreground">
           <span className="font-medium text-foreground flex items-center gap-1.5">
             <span className="flex h-2 w-2 rounded-full bg-yellow-500 animate-pulse" />
             Rutas del Starter
           </span>
           <div className="flex items-center gap-4 flex-wrap">
-            <Link to="/starter/architecture" className="hover:text-primary transition-colors flex items-center gap-1">
+            <Link
+              to="/starter/architecture"
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
               Doc. de Arquitectura <ExternalLink className="h-3 w-3" />
             </Link>
-            <Link to="/starter/module-map" className="hover:text-primary transition-colors flex items-center gap-1">
+            <Link
+              to="/starter/module-map"
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
               Mapa de Módulos <ExternalLink className="h-3 w-3" />
             </Link>
-            <Link to="/starter/design-tokens" className="hover:text-primary transition-colors flex items-center gap-1">
+            <Link
+              to="/starter/design-tokens"
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
               Tokens de Diseño <ExternalLink className="h-3 w-3" />
             </Link>
-            <Link to="/starter/conventions" className="hover:text-primary transition-colors flex items-center gap-1">
+            <Link
+              to="/starter/conventions"
+              className="hover:text-primary transition-colors flex items-center gap-1"
+            >
               Convenciones del Proyecto <ExternalLink className="h-3 w-3" />
             </Link>
           </div>
@@ -69,7 +83,11 @@ export function DashboardPage() {
               users
                 ? {
                     value: Math.abs(newDelta),
-                    label: t(newDelta >= 0 ? 'dashboard.overview.stats.trendUp' : 'dashboard.overview.stats.trendDown'),
+                    label: t(
+                      newDelta >= 0
+                        ? 'dashboard.overview.stats.trendUp'
+                        : 'dashboard.overview.stats.trendDown',
+                    ),
                   }
                 : undefined
             }
@@ -108,4 +126,3 @@ export function DashboardPage() {
     </div>
   )
 }
-

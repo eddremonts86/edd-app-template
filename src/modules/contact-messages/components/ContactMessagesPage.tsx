@@ -184,14 +184,27 @@ export function ContactMessagesPage() {
 
           <div className="space-y-2">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-destructive/80">
-              Qué puedes hacer
+              {t('contactMessages.error.title', 'What you can do')}
             </h4>
             <ul className="list-disc pl-5 text-xs space-y-1 opacity-90 leading-relaxed text-destructive/95">
               <li>
-                Verifica que tienes los permisos correctos (se requiere rol de administrador).
+                {t(
+                  'contactMessages.error.item1',
+                  'Make sure you have the correct permissions (administrator role required).',
+                )}
               </li>
-              <li>Asegúrate de que estás autenticado en el workspace.</li>
-              <li>Consulta la guía técnica sobre la gestión de roles.</li>
+              <li>
+                {t(
+                  'contactMessages.error.item2',
+                  'Make sure you are authenticated in the workspace.',
+                )}
+              </li>
+              <li>
+                {t(
+                  'contactMessages.error.item3',
+                  'Consult the technical guide on role management.',
+                )}
+              </li>
             </ul>
           </div>
 
@@ -201,10 +214,14 @@ export function ContactMessagesPage() {
               asChild
               className="border-destructive/30 text-destructive hover:bg-destructive/10"
             >
-              <Link to="/dashboard">Volver al Dashboard</Link>
+              <Link to="/dashboard">
+                {t('contactMessages.backToDashboard', 'Back to Dashboard')}
+              </Link>
             </Button>
             <Button variant="link" asChild className="text-destructive font-medium text-xs">
-              <Link to="/starter/architecture">Manual de Arquitectura & Roles →</Link>
+              <Link to="/starter/architecture">
+                {t('contactMessages.error.architectureLink', 'Architecture & Roles Manual →')}
+              </Link>
             </Button>
           </div>
         </Alert>

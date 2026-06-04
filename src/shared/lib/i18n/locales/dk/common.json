@@ -60,7 +60,7 @@
     "passwordWeakError": "Brug mindst {{min}} tegn med bogstaver, tal og et symbol."
   },
   "common": {
-    "loading": "Indlæser...",
+    "loading": "Loading...",
     "loadingMore": "Indlæser mere...",
     "save": "Gem",
     "cancel": "Annuller",
@@ -70,7 +70,9 @@
     "search": "Søg",
     "filter": "Filter",
     "sort": "Sorter",
-    "actions": "Handlinger",
+    "actions": {
+      "move": "Move"
+    },
     "confirm": "Bekræft",
     "undoWarning": "Denne handling kan ikke fortrydes.",
     "noPermission": "Du har ikke tilladelse til at udføre denne handling.",
@@ -102,10 +104,25 @@
       "description": "Der opstod en fejl under indlæsning af data. Prøv venligst igen."
     },
     "pin": "Fastgør",
-    "unpin": "Frigør",
+    "unpin": "Unpin",
     "pinVisible": "Pin synlig",
     "none": "Ingen",
-    "saving": "Gemmer..."
+    "saving": "Gemmer...",
+    "close": "Close",
+    "ping": "Ping",
+    "ms": "ms",
+    "pinOpen": "Pin open",
+    "more": "More",
+    "datePicker": {
+      "placeholder": "Pick a date"
+    },
+    "auto": "Auto",
+    "empty": {
+      "noResults": "No results found"
+    },
+    "placeholders": {
+      "url": "https://"
+    }
   },
   "theme": {
     "light": "Lys",
@@ -141,7 +158,10 @@
       "settings": "Indstillinger",
       "help": "Hjælp",
       "search": "Søg"
-    }
+    },
+    "title": "Sidebar",
+    "mobileDescription": "Displays the mobile sidebar.",
+    "toggle": "Toggle Sidebar"
   },
   "ai": {
     "search": {
@@ -194,7 +214,20 @@
       "assistantName": "Smart Assistent",
       "welcome": "Hej! Hvordan kan jeg hjælpe dig i dag?",
       "clear": "Ryd chat",
-      "stop": "Stop generering"
+      "stop": "Stop generering",
+      "you": "You",
+      "aiAssistant": "AI Assistant",
+      "clickToPreviewImage": "Click to preview image",
+      "uploadedContent": "Uploaded content",
+      "user": "User",
+      "clearChat": "Clear Chat",
+      "settings": "Settings",
+      "fileDropZone": "File drop zone",
+      "uploadFiles": "Upload files",
+      "attachFile": "Attach file",
+      "closePreview": "Close preview",
+      "preview": "Preview",
+      "disclaimer": "AI can make mistakes. Verify important information."
     }
   },
   "settings": {
@@ -224,7 +257,7 @@
       "description": "Vælg dit foretrukne visningssprog. Ændringer træder i kraft med det samme."
     },
     "theme": {
-      "title": "Tema",
+      "title": "Theme",
       "description": "Vælg dit foretrukne farveskema til grænsefladen."
     },
     "devtools": {
@@ -470,7 +503,10 @@
     "workload": {
       "title": "Teamets arbejdsbelastning",
       "description": "Opgavefordeling på tværs af teammedlemmer."
-    }
+    },
+    "acmeInc": "Acme Inc.",
+    "unpin": "Unpin",
+    "pinToRight": "Pin to right"
   },
   "analytics": {
     "title": "Analyse",
@@ -933,7 +969,15 @@
           "description": "Placer brugeren i en afdeling og definer deres rapporteringslinje."
         }
       },
-      "generateAvatar": "Generer avatar"
+      "generateAvatar": "Generer avatar",
+      "avatarPreview": "Avatar Preview",
+      "profileInfo": "Profile Information",
+      "profileInfoDesc": "Basic information about the user",
+      "accessPermissions": "Access Permissions",
+      "accessPermissionsDesc": "Role and access level settings",
+      "visualsCredentials": "Visuals & Credentials",
+      "visualsCredentialsDesc": "Avatar and login credentials",
+      "avatarUrlPlaceholder": "https://example.com/avatar.jpg"
     },
     "table": {
       "user": "Bruger",
@@ -1024,7 +1068,8 @@
       "refresh": "Opdater ulæste kontaktbeskeder",
       "empty": "Ingen ulæste henvendelser lige nu.",
       "viewAll": "Åbn kontaktindbakke"
-    }
+    },
+    "backToDashboard": "Back to Dashboard"
   },
   "transactions": {
     "title": "Transaktioner",
@@ -1107,12 +1152,23 @@
       "title": "Lancér din SaaS på 1 time",
       "titleHighlight": "med produktionsklar arkitektur",
       "description": "Undgå at genopfinde de samme basiselementer hver gang. Gå direkte til din forretningslogik med prækonfigureret hybrid autentificering, uafhængige domænemoduler og Playwright E2E tests.",
+      "ariaLabel": "Udvikler-fokuseret hero sektion",
+      "copyCommandAria": "Kopier installationskommando",
+      "copiedFeedback": "Kopieret!",
       "ctaSecondary": "Se stack",
       "tabs": {
         "architecture": "Arkitekturkort",
         "auth": "Brugerstyring UI",
         "dashboard": "Dashboard-visning"
-      }
+      },
+      "appShell": "App Shell",
+      "domainModules": "Domain Modules",
+      "accessWorkspace": "Access",
+      "inProduction": "In production",
+      "todayTime": "Today, 10:14 AM",
+      "yesterdayTime": "Yesterday, 4:32 PM",
+      "acmeCorp": "Acme Corp Ltd.",
+      "integrationsQA": "Integrations & QA"
     },
     "comparison": {
       "title": "Stop med at genopfinde dyb tallerken",
@@ -1610,5 +1666,89 @@
         "parseFailed": "Kunne ikke læse filen. Kontroller at det er et gyldigt kontoudtog."
       }
     }
+  },
+  "landing": {
+    "emailPlaceholder": "admin@company.com",
+    "emailAddressLabel": "Email Address",
+    "passwordLabel": "Password",
+    "signInWithEmail": "Sign in with Email",
+    "orAccessVia": "or access via",
+    "socialLogin": "Social Login",
+    "clerkSSO": "Clerk SSO",
+    "teamUsers": "Team Users",
+    "transactions": "Transactions",
+    "budgetsMap": "Budgets Map",
+    "recentActivity": "Recent Activity",
+    "autoSyncActive": "Auto-sync active",
+    "approved": "Approved",
+    "pending": "Pending",
+    "globalDelivery": "Global Delivery Inc.",
+    "volume": "Volume",
+    "projects": "Projects",
+    "apiLatency": "API Latency",
+    "operational100": "100% operational"
+  },
+  "breadcrumb": {
+    "ariaLabel": "breadcrumb"
+  },
+  "multiSelect": {
+    "searchPlaceholder": "Søg…",
+    "placeholder": "Vælg…"
+  },
+  "docs": {
+    "title": "Dokumentation",
+    "summary": "Velkommen til edd Starter dokumentation. Find arkitekturoversigter, integrationsmatricer, implementationsguider og juridiske skabeloner til at udgive din SaaS hurtigt og sikkert.",
+    "category": {
+      "starter": "Begynder",
+      "starterDesc": "Forstå arkitekturen, moduloversigt, design system tokens og udviklingskonventioner.",
+      "product": "Produkt",
+      "productDesc": "Følg roadmap, se opdateringer i changelog, lær om integrationer og udgivelsesnoter.",
+      "support": "Support",
+      "supportDesc": "Find guides, skabeloner, reelle eksempler og hurtige svar på ofte stillede spørgsmål.",
+      "legal": "Juridisk",
+      "legalDesc": "Gennemgå vores open-source privatlivspolitik, servicevilkår, cookie-erklæring og pakkelicenser."
+    },
+    "links": {
+      "architecture": "Arkitektur og Lag",
+      "moduleMap": "Moduloversigt og Blokke",
+      "designTokens": "Design Tokens Tilpasning",
+      "conventions": "Kodebase Konventioner",
+      "roadmap": "Roadmap og Fremtidige Moduler",
+      "changelog": "Versions Changelog",
+      "integrations": "Integrations Matrix",
+      "releaseNotes": "Udgivelsesnoter",
+      "documentation": "Dokumentations Index",
+      "guides": "Trin-for-trin Guides",
+      "examples": "Reference Eksempler",
+      "faq": "Ofte Stillede Spørgsmål",
+      "privacy": "Privatlivspolitik",
+      "terms": "Vilkår for Brug",
+      "cookies": "Cookie Brug",
+      "licenses": "Open Source Licenser"
+    },
+    "gettingStarted": {
+      "title": "Kom i Gang Med Det Samme",
+      "description": "For at begynde at udvikle din SaaS applikation, anbefaler vi at gennemgå kernekomponenterne i rækkefølge. Klon template repository, opsæt dine credentials, konfigurer din database og kør udviklerserveren."
+    },
+    "cta": {
+      "startLearning": "Start med at Lære",
+      "viewRoadmap": "Se Roadmap"
+    }
+  },
+  "dataTable": {
+    "selected": "valgt",
+    "searchByColumn": "Søg efter {{column}}...",
+    "searchAll": "Søg i alle kolonner...",
+    "advancedFilters": "Avancerede filtre",
+    "groupBy": "Gruppér",
+    "export": "Eksportér",
+    "selectAllRows": "Vælg alle rækker",
+    "selectRow": "Vælg række",
+    "noResults": "Ingen resultater fundet",
+    "clearFilters": "Ryd filtre"
+  },
+  "language": {
+    "select": "Vælg sprog",
+    "loading": "Indlæser..."
   }
 }

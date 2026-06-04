@@ -72,8 +72,8 @@ describe('UnifiedDataTable integration', () => {
       />,
     )
 
-    fireEvent.click(screen.getByRole('button', { name: /filtros avanzados/i }))
-    fireEvent.change(screen.getByPlaceholderText('Filtrar por Owner'), {
+    fireEvent.click(screen.getByRole('button', { name: /Advanced filters/i }))
+    fireEvent.change(screen.getByPlaceholderText('Filter by Owner'), {
       target: { value: 'Alice' },
     })
 
@@ -82,9 +82,9 @@ describe('UnifiedDataTable integration', () => {
       expect(screen.queryAllByText('Bob')).toHaveLength(0)
     })
 
-    fireEvent.click(screen.getAllByLabelText('Seleccionar fila')[0])
+    fireEvent.click(screen.getAllByLabelText('Select row')[0])
     fireEvent.click(screen.getByRole('button', { name: /process selected/i }))
-    fireEvent.click(screen.getByRole('button', { name: /exportar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Export/i }))
 
     expect(onBulkAction).toHaveBeenCalledTimes(1)
     expect(onBulkAction.mock.calls[0][0]).toHaveLength(1)

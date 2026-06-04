@@ -1,4 +1,5 @@
 import { IconCheck } from '@tabler/icons-react'
+import { useTranslation } from 'react-i18next'
 import { languageFlags, languageNames, supportedLanguages } from '@/shared/lib/i18n'
 import { cn } from '@/shared/lib/utils'
 
@@ -14,10 +15,13 @@ const NATIVE_LABELS: Record<string, string> = {
 }
 
 export function LanguageSelector({ value, onChange }: LanguageSelectorProps) {
+  const { t } = useTranslation()
   return (
     <div className="space-y-3">
       <div className="flex items-baseline justify-between">
-        <h4 className="text-sm font-semibold text-foreground">Language</h4>
+        <h4 className="text-sm font-semibold text-foreground">
+          {t('settings.language.title', 'Language')}
+        </h4>
         <span className="text-xs text-muted-foreground">
           {languageNames[value as keyof typeof languageNames] ?? value}
         </span>

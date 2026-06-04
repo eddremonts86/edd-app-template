@@ -31,11 +31,7 @@ export function SiteSettingsPage() {
   const { data: savedLinks, isLoading } = useSocialLinks()
   const updateMutation = useUpdateSocialLinks()
 
-  const [links, setLinks] = React.useState<SocialLink[]>(DEFAULT_SOCIAL_LINKS)
-
-  React.useEffect(() => {
-    if (savedLinks) setLinks(savedLinks)
-  }, [savedLinks])
+  const [links, setLinks] = React.useState<SocialLink[]>(savedLinks ?? DEFAULT_SOCIAL_LINKS)
 
   function handleToggle(platform: SocialLink['platform'], enabled: boolean) {
     setLinks((prev) => prev.map((l) => (l.platform === platform ? { ...l, enabled } : l)))
@@ -84,7 +80,7 @@ export function SiteSettingsPage() {
                       id={`href-${link.platform}`}
                       value={link.href}
                       onChange={(e) => handleHref(link.platform, e.target.value)}
-                      placeholder="https://"
+                      placeholder={t('common.placeholders.url', 'https://')}
                       disabled={!link.enabled}
                       className="h-8 text-sm"
                     />

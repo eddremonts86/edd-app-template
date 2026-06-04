@@ -176,7 +176,7 @@ export function AuthPage(): React.JSX.Element {
                       Workspace access
                     </h1>
                     <h2 className="text-lg font-bold tracking-tight text-foreground/80 mt-2">
-                      Sign in once. Keep moving.
+                      {t('auth.hero.tagline', 'Sign in once. Keep moving.')}
                     </h2>
                     <p className="text-sm leading-relaxed text-muted-foreground mt-3">
                       Use the method you already use. Same workspace, no extra steps.
@@ -233,7 +233,7 @@ export function AuthPage(): React.JSX.Element {
                   {activeTab !== 'forgot-password' && (
                     <div
                       role="tablist"
-                      aria-label="Access modes selector"
+                      aria-label={t('auth.tablist.label', 'Access modes selector')}
                       className="grid w-full grid-cols-2 rounded-2xl border border-border/40 bg-muted/40 p-1"
                     >
                       <Button
@@ -255,7 +255,7 @@ export function AuthPage(): React.JSX.Element {
                           }}
                         >
                           <LogIn className="h-3.5 w-3.5" />
-                          Sign in
+                          {t('auth.actions.signIn', 'Sign in')}
                         </a>
                       </Button>
                       <Button
@@ -277,7 +277,7 @@ export function AuthPage(): React.JSX.Element {
                           }}
                         >
                           <UserPlus className="h-3.5 w-3.5" />
-                          Create account
+                          {t('auth.actions.signUp', 'Create account')}
                         </a>
                       </Button>
                     </div>
@@ -286,13 +286,19 @@ export function AuthPage(): React.JSX.Element {
                   <div>
                     <h3 className="text-xl font-bold tracking-tight text-foreground">
                       {activeTab === 'forgot-password'
-                        ? 'Reset your password'
-                        : 'Email and password'}
+                        ? t('auth.headings.resetPassword', 'Reset your password')
+                        : t('auth.headings.emailPassword', 'Email and password')}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1">
                       {activeTab === 'forgot-password'
-                        ? "Enter your email address and we'll send you a recovery link."
-                        : 'Sign in with the account you use every day.'}
+                        ? t(
+                            'auth.descriptions.resetPassword',
+                            "Enter your email address and we'll send you a recovery link.",
+                          )
+                        : t(
+                            'auth.descriptions.signIn',
+                            'Sign in with the account you use every day.',
+                          )}
                     </p>
                   </div>
                   {/* Display validation warning callouts */}
@@ -306,9 +312,14 @@ export function AuthPage(): React.JSX.Element {
                   )}
                   {!localAuthEnabled && (
                     <div className="rounded-xl border border-amber-500/25 bg-amber-500/5 p-4 text-xs text-muted-foreground">
-                      <p className="font-semibold text-foreground">Local Auth Disabled</p>
+                      <p className="font-semibold text-foreground">
+                        {t('auth.localAuthDisabled.title', 'Local Auth Disabled')}
+                      </p>
                       <p className="mt-1">
-                        Credentials database is currently off. Please use dynamic identity logins.
+                        {t(
+                          'auth.localAuthDisabled.body',
+                          'Credentials database is currently off. Please use dynamic identity logins.',
+                        )}
                       </p>
                     </div>
                   )}
@@ -316,14 +327,16 @@ export function AuthPage(): React.JSX.Element {
                   {localAuthEnabled && activeTab === 'sign-in' && (
                     <form className="space-y-4" action="/auth/sign-in" method="post">
                       <div className="space-y-1.5">
-                        <Label htmlFor="sign-in-email">Email address</Label>
+                        <Label htmlFor="sign-in-email">
+                          {t('auth.labels.email', 'Email address')}
+                        </Label>
                         <Input
                           id="sign-in-email"
                           data-testid="auth-input-sign-in-email"
                           name="email"
                           type="email"
                           autoComplete="email"
-                          placeholder="you@company.com"
+                          placeholder={t('auth.placeholders.email', 'you@company.com')}
                           className="h-11 rounded-xl"
                           required
                           value={signInValues.email}
@@ -335,7 +348,9 @@ export function AuthPage(): React.JSX.Element {
 
                       <div className="space-y-1.5">
                         <div className="flex items-center justify-between">
-                          <Label htmlFor="sign-in-password">Password</Label>
+                          <Label htmlFor="sign-in-password">
+                            {t('auth.labels.password', 'Password')}
+                          </Label>
                           <button
                             type="button"
                             onClick={() => {
@@ -344,7 +359,7 @@ export function AuthPage(): React.JSX.Element {
                             }}
                             className="text-xs font-semibold text-primary hover:underline bg-transparent border-0 cursor-pointer"
                           >
-                            Forgot password?
+                            {t('auth.actions.forgotPassword', 'Forgot password?')}
                           </button>
                         </div>
                         <Input
@@ -353,7 +368,10 @@ export function AuthPage(): React.JSX.Element {
                           name="password"
                           type="password"
                           autoComplete="current-password"
-                          placeholder="Your account password"
+                          placeholder={t(
+                            'auth.placeholders.accountPassword',
+                            'Your account password',
+                          )}
                           className="h-11 rounded-xl"
                           required
                           value={signInValues.password}
@@ -369,21 +387,23 @@ export function AuthPage(): React.JSX.Element {
                         className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 transition-all flex items-center justify-center gap-2 mt-2 font-semibold"
                       >
                         <LogIn className="h-4 w-4" />
-                        Enter workspace
+                        {t('auth.actions.enterWorkspace', 'Enter workspace')}
                       </Button>
                     </form>
                   )}
                   {localAuthEnabled && activeTab === 'sign-up' && (
                     <form className="space-y-4" action="/auth/sign-up" method="post">
                       <div className="space-y-1.5">
-                        <Label htmlFor="sign-up-name">Full name</Label>
+                        <Label htmlFor="sign-up-name">
+                          {t('auth.labels.fullName', 'Full name')}
+                        </Label>
                         <Input
                           id="sign-up-name"
                           name="name"
                           type="text"
                           autoComplete="name"
                           pattern={AUTH_SIGN_UP_NAME_HTML_PATTERN}
-                          placeholder="Jane Doe"
+                          placeholder={t('auth.placeholders.fullName', 'Jane Doe')}
                           className="h-11 rounded-xl"
                           required
                           value={signUpValues.name}
@@ -394,13 +414,15 @@ export function AuthPage(): React.JSX.Element {
                       </div>
 
                       <div className="space-y-1.5">
-                        <Label htmlFor="sign-up-email">Email address</Label>
+                        <Label htmlFor="sign-up-email">
+                          {t('auth.labels.email', 'Email address')}
+                        </Label>
                         <Input
                           id="sign-up-email"
                           name="email"
                           type="email"
                           autoComplete="email"
-                          placeholder="you@company.com"
+                          placeholder={t('auth.placeholders.email', 'you@company.com')}
                           className="h-11 rounded-xl"
                           required
                           value={signUpValues.email}
@@ -411,7 +433,9 @@ export function AuthPage(): React.JSX.Element {
                       </div>
 
                       <div className="space-y-1.5">
-                        <Label htmlFor="sign-up-password">Password</Label>
+                        <Label htmlFor="sign-up-password">
+                          {t('auth.labels.password', 'Password')}
+                        </Label>
                         <Input
                           id="sign-up-password"
                           name="password"
@@ -419,7 +443,10 @@ export function AuthPage(): React.JSX.Element {
                           autoComplete="new-password"
                           minLength={AUTH_SIGN_UP_MIN_PASSWORD_LENGTH}
                           pattern={AUTH_SIGN_UP_PASSWORD_HTML_PATTERN}
-                          placeholder="Create a strong password"
+                          placeholder={t(
+                            'auth.placeholders.createPassword',
+                            'Create a strong password',
+                          )}
                           className="h-11 rounded-xl"
                           required
                           value={signUpValues.password}
@@ -428,7 +455,11 @@ export function AuthPage(): React.JSX.Element {
                           }
                         />
                         <p className="text-[10px] text-muted-foreground pt-1">
-                          Must contain at least {AUTH_SIGN_UP_MIN_PASSWORD_LENGTH} characters.
+                          {t(
+                            'auth.placeholders.minChars',
+                            'Must contain at least {{min}} characters.',
+                            { min: AUTH_SIGN_UP_MIN_PASSWORD_LENGTH },
+                          )}
                         </p>
                       </div>
 
@@ -438,7 +469,7 @@ export function AuthPage(): React.JSX.Element {
                         className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 transition-all flex items-center justify-center gap-2 mt-2 font-semibold"
                       >
                         <LogIn className="h-4 w-4" />
-                        Enter workspace
+                        <span>{t('auth.actions.enterWorkspace', 'Enter workspace')}</span>
                       </Button>
                     </form>
                   )}
@@ -451,7 +482,9 @@ export function AuthPage(): React.JSX.Element {
                             <MailCheck className="h-6 w-6" />
                           </div>
                           <div className="space-y-1">
-                            <p className="font-bold text-sm text-foreground">Check your email</p>
+                            <p className="font-bold text-sm text-foreground">
+                              {t('auth.forgotPassword.checkEmail', 'Check your email')}
+                            </p>
                             <p className="text-xs text-muted-foreground leading-relaxed">
                               We have sent a password reset link to{' '}
                               <strong className="text-foreground">{resetEmail}</strong>.
@@ -466,17 +499,19 @@ export function AuthPage(): React.JSX.Element {
                             }}
                             className="h-9 rounded-xl w-full text-xs font-semibold"
                           >
-                            Back to Sign in
+                            {t('auth.actions.backToSignIn', 'Back to Sign in')}
                           </Button>
                         </div>
                       ) : (
                         <form className="space-y-4" onSubmit={handleResetSubmit}>
                           <div className="space-y-1.5">
-                            <Label htmlFor="reset-email">Email address</Label>
+                            <Label htmlFor="reset-email">
+                              {t('auth.labels.email', 'Email address')}
+                            </Label>
                             <Input
                               id="reset-email"
                               type="email"
-                              placeholder="you@company.com"
+                              placeholder={t('auth.placeholders.email', 'you@company.com')}
                               className="h-11 rounded-xl"
                               required
                               value={resetEmail}
@@ -488,7 +523,7 @@ export function AuthPage(): React.JSX.Element {
                             type="submit"
                             className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/95 transition-all flex items-center justify-center gap-2 mt-2 font-semibold"
                           >
-                            Send reset link
+                            {t('auth.actions.sendResetLink', 'Send reset link')}
                           </Button>
 
                           <div className="text-center pt-2">
@@ -500,7 +535,7 @@ export function AuthPage(): React.JSX.Element {
                               }}
                               className="text-xs font-semibold text-muted-foreground hover:text-foreground bg-transparent border-0 cursor-pointer"
                             >
-                              Back to Sign in
+                              {t('auth.actions.backToSignIn', 'Back to Sign in')}
                             </button>
                           </div>
                         </form>
@@ -512,7 +547,7 @@ export function AuthPage(): React.JSX.Element {
                 {/* SSO options area */}
                 <div className="mt-8 pt-6 border-t border-border/30 space-y-4">
                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">
-                    Another way to sign in{' '}
+                    {t('auth.anotherWay', 'Another way to sign in')}
                   </span>
 
                   {clerkAuthEnabled ? (
@@ -521,12 +556,15 @@ export function AuthPage(): React.JSX.Element {
                         variant="outline"
                         className="h-11 w-full rounded-xl border border-border/60 bg-background/50 hover:bg-background/80 transition-all flex items-center justify-center gap-2 font-semibold"
                       >
-                        <span>Continue with Clerk SSO</span>
+                        <span>{t('auth.actions.continueClerkSSO', 'Continue with Clerk SSO')}</span>
                       </Button>
                     </SignInButton>
                   ) : (
                     <div className="p-3.5 rounded-xl border border-dashed border-border/60 bg-muted/20 text-xs text-center text-muted-foreground font-medium">
-                      Other methods are temporarily unavailable.
+                      {t(
+                        'auth.localAuthDisabled.otherMethods',
+                        'Other methods are temporarily unavailable.',
+                      )}
                     </div>
                   )}
                 </div>

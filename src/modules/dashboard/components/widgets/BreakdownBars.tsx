@@ -29,7 +29,12 @@ export function BreakdownBars({ segments, total, className }: Readonly<Breakdown
               <span className="flex items-center gap-2 text-foreground/90">
                 <span
                   className="inline-block h-2 w-2 rounded-full"
-                  style={{ ['--bar' as string]: s.color, background: 'var(--bar)' } as React.CSSProperties}
+                  style={
+                    {
+                      ['--bar' as string]: s.color,
+                      background: 'var(--bar)',
+                    } as React.CSSProperties
+                  }
                   aria-hidden
                 />
                 {s.label}
@@ -41,7 +46,13 @@ export function BreakdownBars({ segments, total, className }: Readonly<Breakdown
             <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
               <div
                 className="h-full rounded-full transition-[width] duration-500"
-                style={{ ['--bar' as string]: s.color, width: `${pct}%`, background: 'var(--bar)' } as React.CSSProperties}
+                style={
+                  {
+                    ['--bar' as string]: s.color,
+                    width: `${pct}%`,
+                    background: 'var(--bar)',
+                  } as React.CSSProperties
+                }
               />
             </div>
           </div>

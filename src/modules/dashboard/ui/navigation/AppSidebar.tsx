@@ -210,7 +210,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:p-1.5!">
               <a href="/">
                 <IconInnerShadowTop className="size-5!" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">
+                  {t('dashboard.acmeInc', 'Acme Inc.')}
+                </span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -253,7 +255,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 size="icon"
                 className="h-8 w-8 text-muted-foreground hover:text-foreground"
                 onClick={() => setIsPinned(!isPinned)}
-                title={isPinned ? 'Unpin' : 'Pin to right'}
+                title={
+                  isPinned
+                    ? t('dashboard.unpin', 'Unpin')
+                    : t('dashboard.pinToRight', 'Pin to right')
+                }
               >
                 {isPinned ? <PinOff className="size-4" /> : <Pin className="size-4" />}
               </Button>
@@ -262,7 +268,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 size="icon"
                 className="h-8 w-8 text-muted-foreground hover:text-foreground"
                 onClick={() => setIsSearchOpen(false)}
-                title="Close"
+                title={t('common.close', 'Close')}
               >
                 <X className="size-4" />
               </Button>

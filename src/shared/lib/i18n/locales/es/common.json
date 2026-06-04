@@ -60,7 +60,7 @@
     "passwordWeakError": "Usa al menos {{min}} caracteres con letras, números y un símbolo."
   },
   "common": {
-    "loading": "Cargando...",
+    "loading": "Loading...",
     "loadingMore": "Cargando más...",
     "save": "Guardar",
     "cancel": "Cancelar",
@@ -70,7 +70,9 @@
     "search": "Buscar",
     "filter": "Filtrar",
     "sort": "Ordenar",
-    "actions": "Acciones",
+    "actions": {
+      "move": "Move"
+    },
     "confirm": "Confirmar",
     "undoWarning": "Esta acción no se puede deshacer.",
     "noPermission": "No tienes permiso para realizar esta acción.",
@@ -87,7 +89,7 @@
     "openMenu": "Abrir menú",
     "optional": "opcional",
     "pin": "Anclar",
-    "unpin": "Desanclar",
+    "unpin": "Unpin",
     "pinVisible": "Mantener visible",
     "stop": "Detener",
     "clear": "Limpiar",
@@ -105,7 +107,22 @@
       "description": "Ocurrió un error al cargar los datos. Inténtalo de nuevo."
     },
     "none": "Ninguno",
-    "saving": "Guardando..."
+    "saving": "Guardando...",
+    "close": "Close",
+    "ping": "Ping",
+    "ms": "ms",
+    "pinOpen": "Pin open",
+    "more": "More",
+    "datePicker": {
+      "placeholder": "Pick a date"
+    },
+    "auto": "Auto",
+    "empty": {
+      "noResults": "No results found"
+    },
+    "placeholders": {
+      "url": "https://"
+    }
   },
   "theme": {
     "light": "Claro",
@@ -321,7 +338,15 @@
         }
       },
       "rolePlaceholder": "Seleccionar rol",
-      "avatarRandom": "Aleatorio"
+      "avatarRandom": "Aleatorio",
+      "avatarPreview": "Avatar Preview",
+      "profileInfo": "Profile Information",
+      "profileInfoDesc": "Basic information about the user",
+      "accessPermissions": "Access Permissions",
+      "accessPermissionsDesc": "Role and access level settings",
+      "visualsCredentials": "Visuals & Credentials",
+      "visualsCredentialsDesc": "Avatar and login credentials",
+      "avatarUrlPlaceholder": "https://example.com/avatar.jpg"
     },
     "table": {
       "user": "Usuario",
@@ -408,7 +433,8 @@
       "refresh": "Actualizar mensajes de contacto sin leer",
       "empty": "No hay briefs sin leer por ahora.",
       "viewAll": "Abrir bandeja de contacto"
-    }
+    },
+    "backToDashboard": "Back to Dashboard"
   },
   "team": {
     "title": "Equipo",
@@ -447,7 +473,10 @@
       "settings": "Configuración",
       "help": "Ayuda",
       "search": "Buscar"
-    }
+    },
+    "title": "Sidebar",
+    "mobileDescription": "Displays the mobile sidebar.",
+    "toggle": "Toggle Sidebar"
   },
   "ai": {
     "search": {
@@ -500,7 +529,20 @@
       "yesterday": "Ayer",
       "previousDays": "Últimos 7 días",
       "older": "Más antiguos",
-      "untitledConversation": "Nueva conversación"
+      "untitledConversation": "Nueva conversación",
+      "you": "You",
+      "aiAssistant": "AI Assistant",
+      "clickToPreviewImage": "Click to preview image",
+      "uploadedContent": "Uploaded content",
+      "user": "User",
+      "clearChat": "Clear Chat",
+      "settings": "Settings",
+      "fileDropZone": "File drop zone",
+      "uploadFiles": "Upload files",
+      "attachFile": "Attach file",
+      "closePreview": "Close preview",
+      "preview": "Preview",
+      "disclaimer": "AI can make mistakes. Verify important information."
     }
   },
   "validation": {
@@ -796,7 +838,10 @@
       "status": "Estado",
       "date": "Fecha",
       "amount": "Importe"
-    }
+    },
+    "acmeInc": "Acme Inc.",
+    "unpin": "Unpin",
+    "pinToRight": "Pin to right"
   },
   "updates": {
     "subscribe": {
@@ -1120,12 +1165,23 @@
       "title": "Lanza tu SaaS en 1 hora",
       "titleHighlight": "con arquitectura lista para producción",
       "description": "Evita rehacer primitivas básicas. Ve directo a la lógica de tu negocio con autenticación híbrida, rutas desacopladas, tests de Playwright preconfigurados y módulos tipados.",
+      "ariaLabel": "Sección hero para desarrolladores",
+      "copyCommandAria": "Copiar comando de instalación",
+      "copiedFeedback": "¡Copiado!",
       "ctaSecondary": "Explorar stack",
       "tabs": {
         "architecture": "Mapa de Arquitectura",
         "auth": "UI de Autenticación",
         "dashboard": "Vista de Dashboard"
-      }
+      },
+      "appShell": "App Shell",
+      "domainModules": "Domain Modules",
+      "accessWorkspace": "Access",
+      "inProduction": "In production",
+      "todayTime": "Today, 10:14 AM",
+      "yesterdayTime": "Yesterday, 4:32 PM",
+      "acmeCorp": "Acme Corp Ltd.",
+      "integrationsQA": "Integrations & QA"
     },
     "comparison": {
       "title": "Deja de reinventar el boilerplate",
@@ -1368,7 +1424,7 @@
       "description": "Selecciona tu idioma de visualización preferido. Los cambios se aplican inmediatamente."
     },
     "theme": {
-      "title": "Tema",
+      "title": "Theme",
       "description": "Elige tu esquema de color preferido para la interfaz."
     },
     "devtools": {
@@ -1610,5 +1666,89 @@
       "approve": "Aprobar",
       "reject": "Rechazar"
     }
+  },
+  "landing": {
+    "emailPlaceholder": "admin@company.com",
+    "emailAddressLabel": "Email Address",
+    "passwordLabel": "Password",
+    "signInWithEmail": "Sign in with Email",
+    "orAccessVia": "or access via",
+    "socialLogin": "Social Login",
+    "clerkSSO": "Clerk SSO",
+    "teamUsers": "Team Users",
+    "transactions": "Transactions",
+    "budgetsMap": "Budgets Map",
+    "recentActivity": "Recent Activity",
+    "autoSyncActive": "Auto-sync active",
+    "approved": "Approved",
+    "pending": "Pending",
+    "globalDelivery": "Global Delivery Inc.",
+    "volume": "Volume",
+    "projects": "Projects",
+    "apiLatency": "API Latency",
+    "operational100": "100% operational"
+  },
+  "breadcrumb": {
+    "ariaLabel": "breadcrumb"
+  },
+  "multiSelect": {
+    "searchPlaceholder": "Buscar…",
+    "placeholder": "Seleccionar…"
+  },
+  "docs": {
+    "title": "Documentación",
+    "summary": "Bienvenido a la documentación de edd Starter. Encuentra arquitectura, matrices de integración, guías de implementación y plantillas legales para lanzar tu SaaS de forma rápida y segura.",
+    "category": {
+      "starter": "Inicio",
+      "starterDesc": "Comprende la arquitectura, mapa de módulos, tokens del sistema de diseño y convenciones de desarrollo.",
+      "product": "Producto",
+      "productDesc": "Sigue la hoja de ruta, consulta las actualizaciones del changelog, aprende sobre integraciones y notas de lanzamiento.",
+      "support": "Soporte",
+      "supportDesc": "Encuentra guías, plantillas, ejemplos reales y respuestas a las preguntas más frecuentes.",
+      "legal": "Legal",
+      "legalDesc": "Revisa nuestra política de privacidad, términos de servicio, declaración de cookies y licencias de código abierto."
+    },
+    "links": {
+      "architecture": "Arquitectura y Capas",
+      "moduleMap": "Mapa de Módulos y Bloques",
+      "designTokens": "Personalización de Tokens",
+      "conventions": "Convenciones del Código",
+      "roadmap": "Hoja de Ruta",
+      "changelog": "Historial de Versiones",
+      "integrations": "Matriz de Integraciones",
+      "releaseNotes": "Notas de Lanzamiento",
+      "documentation": "Índice de Documentación",
+      "guides": "Guías Paso a Paso",
+      "examples": "Ejemplos de Referencia",
+      "faq": "Preguntas Frecuentes",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "cookies": "Uso de Cookies",
+      "licenses": "Licencias de Código Abierto"
+    },
+    "gettingStarted": {
+      "title": "Empieza Instantáneamente",
+      "description": "Para comenzar a desarrollar tu aplicación SaaS, recomendamos recorrer los componentes principales en orden. Clona el repositorio, configura tus credenciales, prepara tu base de datos y ejecuta el servidor de desarrollo."
+    },
+    "cta": {
+      "startLearning": "Comenzar a Aprender",
+      "viewRoadmap": "Ver Hoja de Ruta"
+    }
+  },
+  "dataTable": {
+    "selected": "seleccionados",
+    "searchByColumn": "Buscar por {{column}}...",
+    "searchAll": "Buscar en todas las columnas...",
+    "advancedFilters": "Filtros avanzados",
+    "groupBy": "Agrupar",
+    "export": "Exportar",
+    "selectAllRows": "Seleccionar todas las filas",
+    "selectRow": "Seleccionar fila",
+    "noResults": "No se encontraron resultados",
+    "clearFilters": "Limpiar filtros"
+  },
+  "language": {
+    "select": "Seleccionar idioma",
+    "loading": "Cargando..."
   }
 }

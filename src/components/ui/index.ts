@@ -146,5 +146,11 @@ export {
   AlertDialogAction,
   AlertDialogCancel,
 } from './alert-dialog'
-export { Command, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from './command'
-
+export {
+  Command,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandSeparator,
+} from './command'

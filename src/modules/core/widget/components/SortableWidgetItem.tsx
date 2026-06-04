@@ -2,6 +2,7 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { ArrowLeftRight, Check, GripVertical, UnfoldVertical } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/shared/lib/utils'
 import { useWidgetEditMode } from '../config/widget-edit-mode'
 
@@ -32,6 +33,7 @@ export function SortableWidgetItem({
   onResize,
   children,
 }: SortableWidgetItemProps) {
+  const { t } = useTranslation()
   const { editing } = useWidgetEditMode()
   const { attributes, listeners, setNodeRef, transform, transition, isDragging, over } =
     useSortable({ id, disabled: !editing })
@@ -169,7 +171,7 @@ export function SortableWidgetItem({
                 {...listeners}
               >
                 <GripVertical className="h-3.5 w-3.5" />
-                <span>Move</span>
+                <span>{t('common.actions.move', 'Move')}</span>
               </button>
 
               <div className="h-4 w-px bg-border/60" />
@@ -202,7 +204,7 @@ export function SortableWidgetItem({
                   )}
                 >
                   <Check className="h-3.5 w-3.5" />
-                  <span>Auto</span>
+                  <span>{t('common.auto', 'Auto')}</span>
                 </button>
               ) : (
                 <span className="flex h-7 items-center px-2 text-xs text-popover-foreground/40">

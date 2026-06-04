@@ -81,6 +81,7 @@
     "routes:inventory": "tsx scripts/routes/generate-inventory.ts",
     "release": "node scripts/release/create-edd-app-release.mjs",
     "i18n:check": "tsx scripts/i18n/check-translations.ts",
+    "validate": "pnpm type-check && pnpm lint && pnpm prettier --check src/ && pnpm prettier --check tests/ && pnpm i18n:check && pnpm test",
     "prepare": "husky"
   },
   "lint-staged": {

@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { Bell } from 'lucide-react'
 import * as React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -16,6 +17,7 @@ import { useInboxNotifications, useMarkNotificationsRead } from '@/modules/conta
  * Wire up your app-specific notification source here.
  */
 export function NotificationBell() {
+  const { t } = useTranslation()
   const { data, refetch } = useInboxNotifications(8)
   const markReadMutation = useMarkNotificationsRead()
   const items = data?.items ?? []
@@ -53,7 +55,9 @@ export function NotificationBell() {
               {displayCount > 99 ? '99+' : displayCount}
             </span>
           )}
-          <span className="sr-only">Toggle notifications</span>
+          <span className="sr-only">
+            {t('dashboard.notifications.toggle', 'Toggle notifications')}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
@@ -61,9 +65,11 @@ export function NotificationBell() {
         className="w-104 border-border/70 bg-popover/95 p-0 shadow-xl backdrop-blur"
       >
         <DropdownMenuLabel className="flex items-center justify-between px-4 py-3">
-          <span className="text-sm font-semibold">Notifications</span>
+          <span className="text-sm font-semibold">
+            {t('dashboard.notifications.title', 'Notifications')}
+          </span>
           <span className="rounded-full bg-muted px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
-            {displayCount} pendientes
+            {displayCount} {t('dashboard.notifications.pending', 'pending')}
           </span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
