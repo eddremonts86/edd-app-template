@@ -1,9 +1,8 @@
-Me gustaria aplicar estos princiopios a nuestros Paginas, componentes y BD para que la app siga evolucionando lo mejor posible. Ademas debenmos crear skills para que en el futuro integremeos estas ideas los desarrollos futuros. Por favor analiza la informacion y la case de codigo para que esto funcion en la app.
+# Multi-tenancy and Row-Level Security — design notes
 
-Por favor lee y entiendo el documento, crea un plan para actualizar la app y bd con estos pasos de optimizacion, recuerda generar tantas skills sean necesarias para que en el futuro no tengamos problemas como los que se han identificado en el documento. 
-
-
-
+> **Status:** Reference notes — not yet implemented in this template. Captures principles to apply when adding multi-tenant data, RBAC, and PostgreSQL Row-Level Security to a derived app.
+>
+> **Source:** Working notes migrated from `dbUpdates.txt` (Jun 2026).
 
 ## 1. Multi-tenancy: separar los datos por usuario, empresa o tenant
 
