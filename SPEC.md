@@ -1,7 +1,8 @@
 # SPEC.md — edd-app-template
 
-**Version:** 1.0.0  
+**Version:** 1.1.0  
 **Date:** 2026-04-29  
+**Updated:** 2026-06-05  
 **Status:** Approved
 
 ---
@@ -79,30 +80,53 @@ It is the distilled, business-domain-agnostic core extracted from `apps/budget-a
 
 ### 2.9 i18n
 
-- i18next with EN + ES locales
+- i18next with EN + ES + DK locales
 - Locale switcher in settings
+- `pnpm i18n:check` verifies parity across locales
 - Acceptance: Switching locale updates all translated strings
+
+### 2.10 Contact Messages
+
+- Public landing contact form persists submissions
+- Admin inbox + dashboard widget (admin+ only)
+- Acceptance: Submitting the form creates a row visible to admin users
+
+### 2.11 Database Admin (super_admin)
+
+- Connection profile management
+- In-app migration runner
+- Audit trail of administrative actions
+- Acceptance: Profiles persist encrypted; non-super-admin users cannot reach the routes
+
+### 2.12 Observability
+
+- Sentry integration for error tracking and performance monitoring
+- DSN configured via `.env`
+- Acceptance: Unhandled exceptions appear in the Sentry project
 
 ---
 
 ## 3. Tech Stack (Fixed)
 
-| Layer            | Technology                             |
-| ---------------- | -------------------------------------- |
-| Runtime          | TanStack Start (React 18 + SSR)        |
-| Routing          | TanStack Router (file-based)           |
-| Server state     | TanStack Query                         |
-| Bundler          | Vite                                   |
-| Language         | TypeScript (strict)                    |
-| Styling          | Tailwind CSS v4 + shadcn/ui + Radix UI |
-| Database         | PostgreSQL via Drizzle ORM             |
-| Auth             | Better Auth                            |
-| AI               | Vercel AI SDK (multi-provider)         |
-| Vector DB        | ChromaDB                               |
-| Testing          | Vitest (unit) + Playwright (E2E)       |
-| Package manager  | pnpm                                   |
-| Containerization | Docker Compose                         |
-| Deployment       | Netlify (netlify.toml)                 |
+| Layer            | Technology                                                                     |
+| ---------------- | ------------------------------------------------------------------------------ |
+| Runtime          | TanStack Start (React 19 + SSR)                                                |
+| Routing          | TanStack Router (file-based)                                                   |
+| Server state     | TanStack Query                                                                 |
+| Forms            | TanStack Form + Zod                                                            |
+| Bundler          | Vite                                                                           |
+| Language         | TypeScript 7 (strict)                                                          |
+| Styling          | Tailwind CSS v4 + shadcn/ui + Radix UI                                         |
+| Database         | PostgreSQL via Drizzle ORM                                                     |
+| Auth             | Better Auth + Clerk (dual mode)                                                |
+| AI               | Custom multi-provider client (OpenAI, Anthropic, Ollama, LM Studio, llama.cpp) |
+| Vector DB        | ChromaDB                                                                       |
+| Testing          | Vitest (unit) + Playwright (E2E)                                               |
+| i18n             | i18next (EN + ES + DK)                                                         |
+| Observability    | Sentry                                                                         |
+| Package manager  | pnpm                                                                           |
+| Containerization | Docker Compose                                                                 |
+| Deployment       | Netlify (netlify.toml)                                                         |
 
 ---
 
@@ -111,7 +135,10 @@ It is the distilled, business-domain-agnostic core extracted from `apps/budget-a
 ```
 apps/edd-app-template/
 ├── SPEC.md                    # This file
-├── agent.md                   # Architecture guide for AI agents
+├── CLAUDE.md                  # Orientation for AI agents
+├── README.md
+├── DESIGN.md
+├── PRODUCT.md
 ├── package.json               # name: "edd-app-template"
 ├── vite.config.ts
 ├── tsconfig.json
@@ -153,16 +180,20 @@ apps/edd-app-template/
 │   │   └── routeTree.gen.ts
 │   │
 │   ├── modules/
-│   │   ├── README.md          # Module architecture guide
-│   │   ├── index.ts           # Module barrel
-│   │   ├── core/              # Registry, types, navigation runtime
-│   │   ├── auth/              # Auth flows + Better Auth client
-│   │   ├── landing/           # Hero, Features, Pricing, CTA, Footer
-│   │   ├── dashboard/         # Dashboard shell + widget system
-│   │   ├── users/             # User model + profile API
-│   │   ├── settings/          # Settings UI + account management
-│   │   ├── ai/                # Multi-provider AI + RAG + search
-│   │   └── help/              # Help panel
+│   │   ├── README.md             # Module architecture guide
+│   │   ├── index.ts              # Module barrel
+│   │   ├── ai/                   # Multi-provider AI + RAG + search
+│   │   ├── auth/                 # Auth flows (Better Auth + Clerk)
+│   │   ├── contact-messages/     # Public contact form + admin inbox
+│   │   ├── core/                 # Registry, types, navigation runtime
+│   │   ├── dashboard/            # Dashboard shell + widget system
+│   │   ├── database-admin/       # DB profiles, migrations, audit (super_admin)
+│   │   ├── help/                 # Help panel + quick-links widget
+│   │   ├── landing/              # Hero, Features, Services, Contact, Footer
+│   │   ├── settings/             # Settings UI + account management
+│   │   ├── shared/               # Cross-module business helpers
+│   │   ├── updates/              # Subscribe-to-updates block (off by default)
+│   │   └── users/                # User directory + RBAC helpers (admin+)
 │   │
 │   └── shared/
 │       ├── hooks/
@@ -256,24 +287,27 @@ Inherits all rules from the workspace root `eslint.config.mjs` plus:
 
 ## 8. Module Classification (what stays in budget-app vs this template)
 
-| Module         | Template | Budget-app only |
-| -------------- | -------- | --------------- |
-| `auth`         | ✅       |                 |
-| `ai`           | ✅       |                 |
-| `core`         | ✅       |                 |
-| `landing`      | ✅       |                 |
-| `dashboard`    | ✅       |                 |
-| `users`        | ✅       |                 |
-| `settings`     | ✅       |                 |
-| `help`         | ✅       |                 |
-| `shared`       | ✅       |                 |
-| `budgets`      |          | ✅              |
-| `categories`   |          | ✅              |
-| `transactions` |          | ✅              |
-| `projects`     |          | ✅              |
-| `tasks`        |          | ✅              |
-| `team`         |          | ✅              |
-| `analytics`    |          | ✅              |
+| Module             | Template | Budget-app only |
+| ------------------ | -------- | --------------- |
+| `ai`               | ✅       |                 |
+| `auth`             | ✅       |                 |
+| `contact-messages` | ✅       |                 |
+| `core`             | ✅       |                 |
+| `dashboard`        | ✅       |                 |
+| `database-admin`   | ✅       |                 |
+| `help`             | ✅       |                 |
+| `landing`          | ✅       |                 |
+| `settings`         | ✅       |                 |
+| `shared`           | ✅       |                 |
+| `updates`          | ✅       |                 |
+| `users`            | ✅       |                 |
+| `budgets`          |          | ✅              |
+| `categories`       |          | ✅              |
+| `transactions`     |          | ✅              |
+| `projects`         |          | ✅              |
+| `tasks`            |          | ✅              |
+| `team`             |          | ✅              |
+| `analytics`        |          | ✅              |
 
 ---
 
