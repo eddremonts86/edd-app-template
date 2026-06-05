@@ -4,6 +4,7 @@
 
 Everything related to the multi-provider AI system (Llama.cpp, Ollama, LM Studio, OpenAI, Anthropic).
 
+- [Overview](ai/README.mdx) — entry point and reading order
 - [Architecture](ai/architecture.md) — provider layout, domain structure
 - [Agents](ai/agents.md) — agent configurations for IDE tools
 - [Setup](ai/setup.md) — provider setup and bootstrap commands
@@ -19,6 +20,8 @@ Application structure, module conventions, and UI protocols.
 - [Modular architecture plan](architecture/modular-architecture-plan.md) — routes → modules → shared layering
 - [Module ownership audit](architecture/module-ownership-audit.md) — folder ownership rules per module
 - [CRUD sheet protocol](architecture/crud-sheet-protocol.md) — standard for CRUD sheet UI components
+- [Authorization hardening plan](architecture/authorization-hardening-plan.md) — roadmap toward RBAC + server-side checks
+- [Multi-tenancy and RLS notes](architecture/multi-tenancy-and-rls-notes.md) — design notes for future multi-tenant data + Postgres RLS
 
 ## Auth
 
