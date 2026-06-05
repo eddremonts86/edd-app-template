@@ -88,3 +88,7 @@ models/*.gguf
 
 # Admin seed credentials (never commit)
 .admin-credentials
+
+# Local env bundles — never commit
+env.zip
+*.env.zip
