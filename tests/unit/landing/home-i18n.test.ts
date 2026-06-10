@@ -61,6 +61,22 @@ const REQUIRED_KEYS = [
   'home.footer.description',
 ] as const
 
+const collectStrings = (obj: unknown, prefix = ''): Array<[string, string]> => {
+  if (typeof obj === 'string') return [[prefix, obj]]
+  if (Array.isArray(obj)) {
+    return obj.flatMap((item, i) => collectStrings(item, `${prefix}.${i}`))
+  }
+  if (obj && typeof obj === 'object') {
+    return Object.entries(obj).flatMap(([key, value]) =>
+      collectStrings(value, prefix ? `${prefix}.${key}` : key),
+    )
+  }
+  return []
+}
+
+const placeholdersOf = (value: string) =>
+  [...value.matchAll(/\{\{(\w+)\}\}/g)].map((match) => match[1]).sort()
+
 describe('landing home namespace', () => {
   for (const [name, locale] of Object.entries(locales)) {
     it(`has every scene key in "${name}"`, () => {
@@ -80,4 +96,19 @@ describe('landing home namespace', () => {
       expect(getPath(locale, 'home.features')).toBeUndefined()
     })
   }
+
+  it('keeps interpolation placeholders identical across locales', () => {
+    const reference = new Map(collectStrings(en.home, 'home'))
+    for (const [name, locale] of Object.entries({ es, dk })) {
+      const mismatches: string[] = []
+      for (const [key, value] of collectStrings(locale.home, 'home')) {
+        const source = reference.get(key)
+        if (typeof source !== 'string') continue
+        if (placeholdersOf(source).join(',') !== placeholdersOf(value).join(',')) {
+          mismatches.push(`${name}:${key}`)
+        }
+      }
+      expect(mismatches).toEqual([])
+    }
+  })
 })
