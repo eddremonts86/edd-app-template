@@ -1145,223 +1145,299 @@
     "minAmount": "Skal være større end 0"
   },
   "home": {
-    "hero": {
-      "badge": "MODULÆR • TYPET • TESTET • ENV-FIRST",
-      "title": "Lancér din SaaS på 1 time",
-      "titleHighlight": "med produktionsklar arkitektur",
-      "description": "Undgå at genopfinde de samme basiselementer hver gang. Gå direkte til din forretningslogik med prækonfigureret hybrid autentificering, uafhængige domænemoduler og Playwright E2E tests.",
-      "ariaLabel": "Udvikler-fokuseret hero sektion",
-      "copyCommandAria": "Kopier installationskommando",
-      "copiedFeedback": "Kopieret!",
-      "ctaSecondary": "Se stack",
-      "tabs": {
-        "architecture": "Arkitekturkort",
-        "auth": "Brugerstyring UI",
-        "dashboard": "Dashboard-visning"
-      },
-      "appShell": "App Shell",
-      "domainModules": "Domain Modules",
-      "accessWorkspace": "Access",
-      "inProduction": "In production",
-      "todayTime": "Today, 10:14 AM",
-      "yesterdayTime": "Yesterday, 4:32 PM",
-      "acmeCorp": "Acme Corp Ltd.",
-      "integrationsQA": "Integrations & QA"
+    "opening": {
+      "badge": "Modulær · Typet · Testet",
+      "title": "Den første uge af enhver SaaS,",
+      "titleHighlight": "allerede bygget.",
+      "description": "Auth, database, AI, oversættelser og tests er koblet til fra start. Generér projektet på et minut, log ind på dit eget dashboard inden for en time, og brug ugen på dit produkt — ikke på grundarbejdet.",
+      "ariaLabel": "Introduktion: produktionsklar SaaS-skabelon",
+      "copyCommandAria": "Kopiér installationskommandoen",
+      "copiedFeedback": "Kopieret",
+      "ctaSecondary": "Se hvad der følger med",
+      "scrollCue": "Scroll videre",
+      "arc": {
+        "ariaLabel": "Hvad du får, og hvornår",
+        "scaffold": {
+          "value": "60 s",
+          "label": "til et kørende projekt"
+        },
+        "app": {
+          "value": "1 t",
+          "label": "til en fungerende app"
+        },
+        "production": {
+          "value": "5 d",
+          "label": "til produktion"
+        }
+      }
     },
-    "comparison": {
-      "title": "Stop med at genopfinde dyb tallerken",
-      "description": "Se hvordan det at starte med edd-skabelonen sammenlignes med at konfigurere din applikation fra bunden.",
+    "friction": {
+      "eyebrow": "Den skjulte pris",
+      "title": "De første uger forsvinder altid i det samme arbejde",
+      "description": "Login-flows, mappestruktur, testrunnere, Docker. Intet af det gør dit produkt anderledes, og det hele kan gå galt. Her er, hvad skabelonen klarer for dig.",
+      "withStarter": "Med skabelonen",
+      "fromScratch": "Fra bunden",
       "rows": {
         "auth": {
-          "name": "Prækonfigureret hybrid auth",
-          "starter": "Better Auth + Clerk-udbydere prækonfigureret. Databasesessioner klar på 5 minutter.",
-          "scratch": "1-2 dage med opsætning af endpoints, JWT'er, cookiesikkerhed, middleware og bruger db-skemaer."
+          "name": "Autentificering",
+          "starter": "Better Auth og Clerk er sat op på forhånd. Databasesessioner virker på få minutter.",
+          "scratch": "En dag eller to tabt på endpoints, JWT'er, cookie-flags, middleware og brugertabeller."
         },
-        "routes": {
-          "name": "Modulær arkitektur",
-          "starter": "Strikte grænser mellem Landing, App Shell og moduler for at undgå tæt kobling.",
-          "scratch": "Spaghettistruktur af mapper der fører til tæt kobling og refaktorerings-hovedpine senere."
+        "architecture": {
+          "name": "Arkitektur",
+          "starter": "Selvstændige moduler bag én samlet import. Ny kode vikler sig ikke ind i gammel.",
+          "scratch": "En mappestruktur improviseret under deadline — og smertefuldt refaktoreret et halvt år senere."
         },
-        "test": {
-          "name": "E2E- og enhedstests",
-          "starter": "Playwright og Vitest fuldt konfigureret med realistiske røgtests og rutedækning.",
-          "scratch": "Timer brugt på at justere konfigurationsfiler, testrunners, db-seeding og CI-indstillinger."
+        "tests": {
+          "name": "Test",
+          "starter": "Vitest og Playwright kører fra start, med røgtests på rigtige ruter.",
+          "scratch": "Timer med konfigurationsfiler, runnere, database-seeding og CI før den første brugbare test."
         },
         "ai": {
-          "name": "SSE-streaming til IA",
-          "starter": "SSE-endpoints på backend og tilpasningsvenlig AI-chat UI er allerede færdigbygget.",
-          "scratch": "Skrivning af egne chunk-parsing server endpoints og chat-tilstandshåndtering til AI."
+          "name": "AI-streaming",
+          "starter": "SSE-streaming og chat-UI er allerede bygget, med fem udbydere at vælge imellem.",
+          "scratch": "Håndskrevet chunk-parsing, retry-logik og streaming-state for hver eneste udbyder."
         },
         "docker": {
-          "name": "Docker Compose til produktion",
-          "starter": "Multi-profil docker-setup til database, ChromaDB og app klar til implementering.",
-          "scratch": "Manuel oprettelse af Dockerfiles og docker-compose konfigurationer til produktion."
+          "name": "Deployment",
+          "starter": "Docker Compose med flere profiler til app, Postgres og ChromaDB — klar til enhver VPS.",
+          "scratch": "Dockerfiles og compose-filer skrevet i hånden — og fejlsøgt i produktion."
         }
       }
     },
-    "plan": {
-      "badge": "5-DAGES PROCES TIL LIVE MVP",
-      "title": "5-dages shipping-proces",
-      "description": "Få dit produkt live med en organiseret tjekliste. Stop med at gætte på næste skridt.",
-      "stepLabel": "Trin {{num}} af 5",
+    "firstMinute": {
+      "eyebrow": "Det første minut",
+      "title": "Én kommando. En rigtig kodebase.",
+      "description": "Ikke en tom mappe — en typet monolit med tolv moduler, migreringer og CI-hooks, opkaldt efter dit produkt.",
+      "terminalAria": "Terminaloutput fra scaffolding-kommandoen",
+      "boxes": {
+        "appShell": {
+          "title": "App Shell",
+          "tag": "typet",
+          "description": "Tema, sidebar-navigation, dialoger og responsivt layout."
+        },
+        "modules": {
+          "title": "Domænemoduler",
+          "tag": "isoleret",
+          "description": "Brugere, indstillinger, dashboard-widgets og en streamende AI-chat — hver for sig isoleret."
+        },
+        "integrations": {
+          "title": "Integrationer & QA",
+          "tag": "testet",
+          "description": "Better Auth, Drizzle ORM, Playwright og Vitest — konfigureret og forbundet med hinanden."
+        }
+      }
+    },
+    "firstHour": {
+      "eyebrow": "Den første time",
+      "title": "Log ind på et produkt, der allerede virker",
+      "description": "Inden timen er omme, klikker du rundt i din egen app: rigtigt login, et levende dashboard og en AI-chat, der svarer over SSE. Skærmene herunder er skabelonen — urørt.",
+      "tabs": {
+        "auth": "Login",
+        "dashboard": "Dashboard"
+      },
+      "mock": {
+        "workspaceTitle": "Adgang til dit workspace",
+        "workspaceSubtitle": "Log ind i den app, du genererede for en time siden.",
+        "emailLabel": "E-mailadresse",
+        "emailPlaceholder": "admin@firma.dk",
+        "passwordLabel": "Adgangskode",
+        "signIn": "Log ind med e-mail",
+        "orAccessVia": "eller fortsæt med",
+        "socialLogin": "Socialt login",
+        "clerkSSO": "Clerk SSO",
+        "navDashboard": "Dashboard",
+        "navUsers": "Brugere",
+        "navTransactions": "Transaktioner",
+        "navBudgets": "Budgetter",
+        "volume": "Volumen",
+        "projects": "Projekter",
+        "projectsValue": "4 aktive",
+        "apiLatency": "API-latenstid",
+        "inProduction": "I produktion",
+        "operational": "100 % oppetid",
+        "recentActivity": "Seneste aktivitet",
+        "autoSync": "Auto-synk slået til",
+        "acme": "Acme Corp ApS",
+        "globalDelivery": "Global Delivery Inc.",
+        "today": "I dag kl. 10.14",
+        "yesterday": "I går kl. 16.32",
+        "approved": "Godkendt",
+        "pending": "Afventer"
+      },
+      "stack": {
+        "title": "Hvad der følger med",
+        "description": "Seks dele, du ellers selv skulle bygge — allerede forbundet med hinanden.",
+        "items": {
+          "landing": {
+            "title": "Landing & marketing",
+            "description": "Denne side: hero, scener, kontaktformular og footer — alt sammen bag oversættelsesnøgler."
+          },
+          "shell": {
+            "title": "App shell",
+            "description": "Sammenklappelig sidebar, topbar, temaer og toasts — responsivt fra start."
+          },
+          "auth": {
+            "title": "Autentificering",
+            "description": "Better Auth med databasesessioner plus valgfri Clerk SSO."
+          },
+          "data": {
+            "title": "Datalag",
+            "description": "Drizzle ORM oven på Postgres, med typede skemaer og migreringer med én kommando."
+          },
+          "ai": {
+            "title": "AI-modul",
+            "description": "Fem udbydere, én klient: OpenAI, Anthropic, Ollama, LM Studio og llama.cpp — med RAG via ChromaDB."
+          },
+          "quality": {
+            "title": "Kvalitetstjek",
+            "description": "Typecheck, ESLint, Prettier, oversættelsesparitet og tests bag én enkelt validate-kommando."
+          }
+        }
+      }
+    },
+    "fiveDays": {
+      "eyebrow": "Dag et til fem",
+      "title": "Fem dage fra første commit til produktion",
+      "description": "En realistisk plan, ikke en nedtælling. Hver dag har et mål, en håndfuld opgaver og den præcise kommando, du skal køre. Sæt flueben undervejs.",
+      "dayLabel": "Dag {{num}}",
+      "tasksLabel": "Tjekliste",
+      "commandLabel": "Kør",
+      "fileLabel": "Her skal du kigge",
       "progress": {
-        "title": "Shipping-klarhed",
-        "stats": "{{completed}} af {{total}} opgaver udført ({{percent}}%)"
+        "title": "Klar til lancering",
+        "stats": "{{completed}} af {{total}} opgaver udført ({{percent}} %)"
       },
-      "day1": {
-        "title": "Dag 1: Setup & Env",
-        "subtitle": "Klon repositoriet og verificer dine lokale miljøvariabler.",
-        "task1": "Klon skabelon-repositoriet",
-        "task2": "Opret lokal .env-kopi",
-        "task3": "Installer pakker og tjek udviklingsserveren"
-      },
-      "day2": {
-        "title": "Dag 2: Visuelt & Tokens",
-        "subtitle": "Definér dine farver og opsæt navigationen i App Shell.",
-        "task1": "Rediger OKLCH-farvevariabler i globals.css",
-        "task2": "Udskift standardskabelonens logoer",
-        "task3": "Mappe ruter i sidebar-navigationen"
-      },
-      "day3": {
-        "title": "Dag 3: Auth & Database",
-        "subtitle": "Kobl Better Auth op og kør databasemigreringer.",
-        "task1": "Konfigurer AUTH_SECRET i dit miljø",
-        "task2": "Definer domæneskemaer i Drizzle kit",
-        "task3": "Kør migreringer mod databasen"
-      },
-      "day4": {
-        "title": "Dag 4: Kernefunktioner",
-        "subtitle": "Tilføj ruter i routeren og forbind IA-chat-strømme.",
-        "task1": "Opret brugerdefinerede ruter under router-træet",
-        "task2": "Byg widgets til dashboardet og UI-moduler",
-        "task3": "Forbind SSE-baserede streamingmodeller i chatten"
-      },
-      "day5": {
-        "title": "Dag 5: QA & Deploy",
-        "subtitle": "Kør dine Playwright-tests og byg produktion-bundle.",
-        "task1": "Kør E2E-tests med Playwright",
-        "task2": "Udfør optimeret produktion-build med Vite",
-        "task3": "Valider opsætningen med docker-compose.yml"
-      }
-    },
-    "features": {
-      "title": "Hvorfor denne starter øger hastigheden",
-      "description": "Tre praktiske søjler der gør ethvert nyt produkt lettere at lancere og vedligeholde.",
-      "items": {
-        "efficiency": {
-          "title": "Klar struktur",
-          "description": "Klar adskillelse av moduler og ruteorganisation holder funktionerne uafhængige.",
-          "example": "Eksempel: domænemoduler er uafhængige, så nye funktioner ikke ødelægger eksisterende flows."
+      "days": {
+        "day1": {
+          "title": "Miljø",
+          "subtitle": "Klon repositoriet, kopiér eksempelfilen med miljøvariabler, og tjek at udviklingsserveren starter.",
+          "tasks": [
+            "Klon skabelonens repositorium",
+            "Kopiér .env.example til .env",
+            "Installér afhængigheder og åbn udviklingsserveren"
+          ]
         },
-        "ethics": {
-          "title": "Sikre standarder",
-          "description": "Auth-mønstre og miljøkonfigurationer er klar fra første dag.",
-          "example": "Eksempel: auth- og databaseforbindelser er klar, før forretningslogik tilføjes."
+        "day2": {
+          "title": "Brand",
+          "subtitle": "Gør den til din: farver, logo og navigation.",
+          "tasks": [
+            "Justér OKLCH-paletten i globals.css",
+            "Udskift standardlogoet",
+            "Omdøb navigationspunkterne i dashboardet"
+          ]
         },
-        "closeness": {
-          "title": "Udvidelsesvenlig",
-          "description": "Ændr branding, moduler og flows uden at omskrive kernearkitekturen.",
-          "example": "Eksempel: tilpas landing-tekst og moduler mens du bevarer det fælles fundament."
+        "day3": {
+          "title": "Auth & data",
+          "subtitle": "Sæt dine nøgler op, og form databasen.",
+          "tasks": [
+            "Sæt AUTH_SECRET i dit miljø",
+            "Definér dit domæneskema med Drizzle",
+            "Generér og kør migreringerne"
+          ]
+        },
+        "day4": {
+          "title": "Dit produkt",
+          "subtitle": "Den sjove del: ruter, widgets og AI til dit eget domæne.",
+          "tasks": [
+            "Tilføj dine ruter i router-træet",
+            "Byg dine første dashboard-widgets",
+            "Peg AI-chatten mod din udbyder"
+          ]
+        },
+        "day5": {
+          "title": "Lancering",
+          "subtitle": "Bevis at det virker, og sæt det foran rigtige brugere.",
+          "tasks": [
+            "Kør Playwright-E2E-suiten",
+            "Byg produktions-buildet",
+            "Start Docker Compose-stakken"
+          ]
         }
       }
     },
-    "services": {
-      "badge": "STACK PÅ 60 SEKUNDER",
-      "title": "Stack på 60 sekunder",
-      "description": "Gå hurtigt fra tekster til app-moduler med prækonfigureret arkitektur.",
-      "cta": "Se kode",
+    "manifesto": {
+      "eyebrow": "Derfor holder det",
       "items": {
-        "software": {
-          "title": "1. Landing-side",
-          "description": "Færdig hero, featurekort, tjekliste og kontaktformular.",
-          "badge": "Klar til brug"
+        "structure": {
+          "title": "Struktur",
+          "statement": "Hver funktion bor i sit eget modul bag én import.",
+          "proof": "Tolv moduler følger med i dag. Sletter du ét, vælter de andre ikke."
         },
-        "design": {
-          "title": "2. App Shell Layout",
-          "description": "Dashboard med responsive navigationsmenuer og toast-notifikationer."
+        "security": {
+          "title": "Sikkerhed",
+          "statement": "Auth, roller og konfiguration afgøres før din første funktion — ikke efter dit første uheld.",
+          "proof": "Better Auth-sessioner, RBAC og typet adgang til miljøvariabler er koblet til fra start."
         },
-        "mobility": {
-          "title": "3. Autentificering",
-          "description": "Better Auth integreret med database-persistens og sessions-helpers.",
-          "badge": "Sikker"
-        },
-        "clarity": {
-          "title": "4. Data Schema Layer",
-          "description": "Drizzle mapping til Postgres og automatisk stærk typning."
-        },
-        "growth": {
-          "title": "5. Miljø & Tokens",
-          "description": "Central indlæsning af miljøvariabler og Tailwind CSS v4 variables."
-        },
-        "trust": {
-          "title": "6. CI & QA grundlag",
-          "description": "Playwright- og Vitest-opsætning og Git-hooks til løbende kvalitetskontrol.",
-          "badge": "QA"
+        "longevity": {
+          "title": "Holdbarhed",
+          "statement": "Udskift brandet, modulerne og teksterne. Arkitekturen er bygget til at overleve dem.",
+          "proof": "Selv denne landingsside er et modul, du kunne udskifte i eftermiddag."
         }
       }
     },
     "contact": {
-      "title": "Byg din næste applikation",
-      "description": "Fortæl hvad du vil lancere. Vi kortlægger den hurtigste vej baseret på denne starter.",
-      "responseTime": "Typisk svartid: inden for 24-48 timer.",
+      "title": "Spørgsmål, før du kloner?",
+      "description": "Skriv til os om skabelonen — et opsætningsproblem, en funktion du savner, eller tvivl om arkitekturen. Din besked lander i det samme contact-messages-modul, som følger med starteren.",
+      "responseNote": "Vi svarer som regel inden for et par dage.",
       "form": {
-        "name": {
-          "label": "Dit navn",
-          "placeholder": "Jane Doe"
-        },
         "email": {
-          "label": "Arbejds-e-mail",
+          "label": "E-mail",
           "placeholder": "dig@firma.dk"
         },
-        "subject": {
-          "label": "Projekttype",
-          "placeholder": "SaaS, landing, intern webapp..."
-        },
-        "message": {
-          "label": "Hvad skal første version indeholde? (valgfri)",
-          "placeholder": "Overordnet mål, must-have features og tidslinje."
-        },
-        "submit": "Send brief",
-        "messages": {
-          "successTitle": "Brief sendt",
-          "successDescription": "Tak. Vi har gemt din brief og notificeret admin-teamet.",
-          "errorTitle": "Kunne ikke sende brief",
-          "errorDescription": "Prøv igen om et øjeblik."
-        },
         "projectType": {
-          "label": "Projekttype",
-          "placeholder": "Vælg projekttype",
+          "label": "Emne",
+          "placeholder": "Vælg et emne",
           "options": {
             "saas": "SaaS-produkt",
-            "landing": "Marketing landing-side",
-            "webapp": "Intern webapplikation"
+            "landing": "Marketingside",
+            "webapp": "Internt værktøj"
           }
+        },
+        "message": {
+          "label": "Din besked",
+          "placeholder": "Hvad bygger du, og hvor kan vi hjælpe?"
+        },
+        "submit": "Send besked",
+        "messages": {
+          "successTitle": "Besked sendt",
+          "successDescription": "Tak for din besked. Den ligger i vores indbakke — og i demo-dashboardet.",
+          "errorTitle": "Kunne ikke sendes",
+          "errorDescription": "Prøv igen om et øjeblik."
         }
       },
-      "support": {
-        "channels": "Asynkron support",
-        "channelsDesc": "Kommuniker direkte via supportpanelet i din sandbox. Ingen unødige møder.",
-        "sla": "Svartid: 24-48t",
-        "slaDesc": "Vi svarer typisk på arkitektoniske og tekniske spørgsmål inden for 24-48 timer.",
-        "access": "Delte kanaler",
-        "accessDesc": "Private kanaler på Slack eller Discord oprettes under onboarding for hurtig feedback."
+      "aside": {
+        "github": {
+          "title": "Åbent repositorium",
+          "description": "Fejl og ønsker håndteres som GitHub-issues. Roadmappet er offentligt.",
+          "cta": "Åbn GitHub"
+        },
+        "async": {
+          "title": "Asynkront som udgangspunkt",
+          "description": "Ingen opkald, ingen møder. Skriv når det passer dig — vi svarer på samme måde."
+        },
+        "updates": {
+          "title": "Opdateringer uden støj",
+          "description": "Release notes lander i din indbakke højst én gang om måneden."
+        }
       }
     },
     "footer": {
       "brand": "edd Starter",
-      "since": "Fundament for fremtidige produkter",
+      "since": "Fundamentet for det næste",
       "copyright": "© {{year}} edd. Alle rettigheder forbeholdes.",
-      "description": "Én base til at starte alle edd SaaS-, landing- og webprojekter med ensartet kvalitet og hurtigere levering.",
+      "description": "Ét fundament for hvert edd-produkt: samme kvalitet, samme konventioner, hurtigere levering.",
+      "backToTop": "Til toppen",
       "subscribe": {
-        "title": "Få opdateringer om starteren",
+        "title": "Nyt om starteren",
         "placeholder": "dig@firma.dk",
         "button": "Tilmeld",
-        "note": "Få release notes og best practices for hurtig shipping. Maksimalt én e-mail om måneden."
+        "note": "Release notes og lanceringstips. Højst én mail om måneden."
       },
       "links": {
         "essence": {
           "title": "Starter",
-          "items": ["Arkitektur", "Moduloversigt", "Design tokens", "Konventioner"]
+          "items": ["Arkitektur", "Moduloversigt", "Designtokens", "Konventioner"]
         },
         "company": {
           "title": "Produkt",
@@ -1372,7 +1448,7 @@
           "items": ["Dokumentation", "Guides", "Eksempler", "FAQ"]
         },
         "legal": {
-          "title": "Juridisk",
+          "title": "Jura",
           "items": ["Privatliv", "Vilkår", "Cookies", "Licenser"]
         }
       }
@@ -1664,27 +1740,6 @@
         "parseFailed": "Kunne ikke læse filen. Kontroller at det er et gyldigt kontoudtog."
       }
     }
-  },
-  "landing": {
-    "emailPlaceholder": "admin@company.com",
-    "emailAddressLabel": "Email Address",
-    "passwordLabel": "Password",
-    "signInWithEmail": "Sign in with Email",
-    "orAccessVia": "or access via",
-    "socialLogin": "Social Login",
-    "clerkSSO": "Clerk SSO",
-    "teamUsers": "Team Users",
-    "transactions": "Transactions",
-    "budgetsMap": "Budgets Map",
-    "recentActivity": "Recent Activity",
-    "autoSyncActive": "Auto-sync active",
-    "approved": "Approved",
-    "pending": "Pending",
-    "globalDelivery": "Global Delivery Inc.",
-    "volume": "Volume",
-    "projects": "Projects",
-    "apiLatency": "API Latency",
-    "operational100": "100% operational"
   },
   "breadcrumb": {
     "ariaLabel": "breadcrumb"
