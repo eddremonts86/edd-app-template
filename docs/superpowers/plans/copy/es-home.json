@@ -1,0 +1,295 @@
+{
+  "opening": {
+    "badge": "Modular · Tipado · Probado",
+    "title": "La primera semana de cualquier SaaS,",
+    "titleHighlight": "ya construida.",
+    "description": "La autenticación, la base de datos, la IA, las traducciones y los tests ya vienen conectados. Genere el proyecto en un minuto, entre en su propio dashboard en menos de una hora y dedique la semana a su producto, no a los cimientos.",
+    "ariaLabel": "Introducción: plantilla SaaS lista para producción",
+    "copyCommandAria": "Copiar el comando de instalación",
+    "copiedFeedback": "Copiado",
+    "ctaSecondary": "Vea qué incluye",
+    "scrollCue": "Siga bajando",
+    "arc": {
+      "ariaLabel": "Qué obtiene y cuándo",
+      "scaffold": { "value": "60 s", "label": "para un proyecto en marcha" },
+      "app": { "value": "1 h", "label": "para una app funcional" },
+      "production": { "value": "5 d", "label": "para producción" }
+    }
+  },
+  "friction": {
+    "eyebrow": "El costo oculto",
+    "title": "Las primeras semanas desaparecen siempre en el mismo trabajo",
+    "description": "Flujos de acceso, estructura de carpetas, runners de tests, Docker. Nada de eso diferencia su producto y todo puede salir mal. Esto es lo que la plantilla le quita de encima.",
+    "withStarter": "Con la plantilla",
+    "fromScratch": "Desde cero",
+    "rows": {
+      "auth": {
+        "name": "Autenticación",
+        "starter": "Better Auth y Clerk llegan preconfigurados. Las sesiones en base de datos funcionan en minutos.",
+        "scratch": "Uno o dos días perdidos entre endpoints, JWT, cookies, middleware y tablas de usuarios."
+      },
+      "architecture": {
+        "name": "Arquitectura",
+        "starter": "Módulos autocontenidos tras un único punto de importación. Lo nuevo no se enreda con lo viejo.",
+        "scratch": "Una estructura de carpetas improvisada bajo presión, refactorizada con dolor a los seis meses."
+      },
+      "tests": {
+        "name": "Pruebas",
+        "starter": "Vitest y Playwright funcionan desde el primer momento, con pruebas de humo sobre rutas reales.",
+        "scratch": "Horas de configuración, runners, seeds de base de datos y CI antes del primer test útil."
+      },
+      "ai": {
+        "name": "Streaming de IA",
+        "starter": "El streaming por SSE y la interfaz de chat ya están construidos, con cinco proveedores disponibles.",
+        "scratch": "Programar a mano el parseo de chunks, los reintentos y el estado del streaming para cada proveedor."
+      },
+      "docker": {
+        "name": "Despliegue",
+        "starter": "Docker Compose multiperfil para la app, Postgres y ChromaDB, listo para cualquier VPS.",
+        "scratch": "Escribir Dockerfiles y archivos compose a mano y depurarlos ya en producción."
+      }
+    }
+  },
+  "firstMinute": {
+    "eyebrow": "El primer minuto",
+    "title": "Un comando. Una base de código real.",
+    "description": "No es una carpeta vacía: es un monolito tipado con doce módulos, migraciones y hooks de CI, con el nombre de su producto.",
+    "terminalAria": "Salida de terminal del comando de creación",
+    "boxes": {
+      "appShell": {
+        "title": "App Shell",
+        "tag": "tipado",
+        "description": "Tema, navegación lateral, diálogos y layout adaptable."
+      },
+      "modules": {
+        "title": "Módulos de dominio",
+        "tag": "aislado",
+        "description": "Usuarios, ajustes, widgets del dashboard y un chat de IA en streaming, cada uno aislado."
+      },
+      "integrations": {
+        "title": "Integraciones y QA",
+        "tag": "probado",
+        "description": "Better Auth, Drizzle ORM, Playwright y Vitest, configurados y conectados entre sí."
+      }
+    }
+  },
+  "firstHour": {
+    "eyebrow": "La primera hora",
+    "title": "Entre en un producto que ya funciona",
+    "description": "Antes de que pase una hora estará navegando por su propia aplicación: acceso real, un dashboard con datos y un chat de IA respondiendo por SSE. Las pantallas de abajo son la plantilla, sin retocar.",
+    "tabs": { "auth": "Acceso", "dashboard": "Dashboard" },
+    "mock": {
+      "workspaceTitle": "Acceda a su espacio de trabajo",
+      "workspaceSubtitle": "Entre en la app que generó hace una hora.",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "admin@empresa.com",
+      "passwordLabel": "Contraseña",
+      "signIn": "Entrar con correo",
+      "orAccessVia": "o continúe con",
+      "socialLogin": "Acceso social",
+      "clerkSSO": "SSO de Clerk",
+      "navDashboard": "Panel",
+      "navUsers": "Usuarios",
+      "navTransactions": "Transacciones",
+      "navBudgets": "Presupuestos",
+      "volume": "Volumen",
+      "projects": "Proyectos",
+      "projectsValue": "4 activos",
+      "apiLatency": "Latencia de API",
+      "inProduction": "En producción",
+      "operational": "100 % operativo",
+      "recentActivity": "Actividad reciente",
+      "autoSync": "Sincronización activa",
+      "acme": "Acme Corp, S. L.",
+      "globalDelivery": "Global Delivery Inc.",
+      "today": "Hoy, 10:14",
+      "yesterday": "Ayer, 16:32",
+      "approved": "Aprobada",
+      "pending": "Pendiente"
+    },
+    "stack": {
+      "title": "Qué incluye",
+      "description": "Seis piezas que de otro modo construiría usted mismo, ya conectadas entre sí.",
+      "items": {
+        "landing": {
+          "title": "Landing y marketing",
+          "description": "Esta misma página: hero, escenas, formulario de contacto y footer, todo tras claves de traducción."
+        },
+        "shell": {
+          "title": "App shell",
+          "description": "Barra lateral plegable, barra superior, temas y avisos, adaptable desde el principio."
+        },
+        "auth": {
+          "title": "Autenticación",
+          "description": "Better Auth con sesiones en base de datos y SSO de Clerk opcional."
+        },
+        "data": {
+          "title": "Capa de datos",
+          "description": "Drizzle ORM sobre Postgres, con esquemas tipados y migraciones con un solo comando."
+        },
+        "ai": {
+          "title": "Módulo de IA",
+          "description": "Cinco proveedores, un solo cliente: OpenAI, Anthropic, Ollama, LM Studio y llama.cpp, con RAG sobre ChromaDB."
+        },
+        "quality": {
+          "title": "Control de calidad",
+          "description": "Type-check, ESLint, Prettier, paridad de traducciones y tests tras un único comando de validación."
+        }
+      }
+    }
+  },
+  "fiveDays": {
+    "eyebrow": "Del día uno al cinco",
+    "title": "Cinco días del primer commit a producción",
+    "description": "Un camino realista, no una cuenta atrás. Cada día tiene un objetivo, unas pocas tareas y el comando exacto que ejecutar. Vaya marcándolas a medida que avance.",
+    "dayLabel": "Día {{num}}",
+    "tasksLabel": "Lista de tareas",
+    "commandLabel": "Ejecute",
+    "fileLabel": "Dónde mirar",
+    "progress": {
+      "title": "Preparación del lanzamiento",
+      "stats": "{{completed}} de {{total}} tareas hechas ({{percent}} %)"
+    },
+    "days": {
+      "day1": {
+        "title": "Entorno",
+        "subtitle": "Clone el repositorio, copie el archivo de entorno de ejemplo y compruebe que el servidor de desarrollo arranca.",
+        "tasks": [
+          "Clonar el repositorio de la plantilla",
+          "Copiar .env.example a .env",
+          "Instalar dependencias y abrir el servidor de desarrollo"
+        ]
+      },
+      "day2": {
+        "title": "Marca",
+        "subtitle": "Hágala suya: colores, logo y navegación.",
+        "tasks": [
+          "Ajustar la paleta OKLCH en globals.css",
+          "Sustituir el logo por defecto",
+          "Renombrar las entradas de navegación del dashboard"
+        ]
+      },
+      "day3": {
+        "title": "Auth y datos",
+        "subtitle": "Configure sus credenciales y dé forma a la base de datos.",
+        "tasks": [
+          "Definir AUTH_SECRET en el entorno",
+          "Modelar el esquema de dominio con Drizzle",
+          "Generar y ejecutar las migraciones"
+        ]
+      },
+      "day4": {
+        "title": "Su producto",
+        "subtitle": "La parte divertida: rutas, widgets e IA para su dominio real.",
+        "tasks": [
+          "Añadir sus rutas al árbol del router",
+          "Construir los primeros widgets del dashboard",
+          "Apuntar el chat de IA a su proveedor"
+        ]
+      },
+      "day5": {
+        "title": "Lanzamiento",
+        "subtitle": "Demuestre que funciona y póngalo delante de la gente.",
+        "tasks": [
+          "Ejecutar la suite E2E de Playwright",
+          "Compilar el build de producción",
+          "Levantar el stack de Docker Compose"
+        ]
+      }
+    }
+  },
+  "manifesto": {
+    "eyebrow": "Por qué se sostiene",
+    "items": {
+      "structure": {
+        "title": "Estructura",
+        "statement": "Cada función vive en su propio módulo, tras una única importación.",
+        "proof": "Hoy se incluyen doce módulos. Borrar uno no rompe los demás."
+      },
+      "security": {
+        "title": "Seguridad",
+        "statement": "La autenticación, los roles y la configuración se deciden antes de la primera función, no después del primer incidente.",
+        "proof": "Las sesiones de Better Auth, el RBAC y el acceso tipado al entorno ya vienen conectados."
+      },
+      "longevity": {
+        "title": "Durabilidad",
+        "statement": "Cambie la marca, los módulos y los textos. La arquitectura está hecha para sobrevivirlos.",
+        "proof": "Esta landing es, en sí misma, un módulo que podría reemplazar esta tarde."
+      }
+    }
+  },
+  "contact": {
+    "title": "¿Dudas antes de clonar?",
+    "description": "Escríbanos sobre la plantilla: un problema de instalación, una función que eche en falta, una duda de arquitectura. Su mensaje llega al mismo módulo contact-messages que se incluye con el starter.",
+    "responseNote": "Solemos responder en un par de días.",
+    "form": {
+      "email": { "label": "Correo electrónico", "placeholder": "usted@empresa.com" },
+      "projectType": {
+        "label": "Tema",
+        "placeholder": "Elija un tema",
+        "options": {
+          "saas": "Producto SaaS",
+          "landing": "Sitio de marketing",
+          "webapp": "Herramienta interna"
+        }
+      },
+      "message": {
+        "label": "Su mensaje",
+        "placeholder": "¿Qué está construyendo y en qué podemos ayudarle?"
+      },
+      "submit": "Enviar mensaje",
+      "messages": {
+        "successTitle": "Mensaje enviado",
+        "successDescription": "Gracias por escribir. Ya está en nuestra bandeja y en el dashboard de demostración.",
+        "errorTitle": "No se pudo enviar",
+        "errorDescription": "Inténtelo de nuevo en un momento."
+      }
+    },
+    "aside": {
+      "github": {
+        "title": "Repositorio abierto",
+        "description": "Los errores y las peticiones se gestionan como issues de GitHub. El roadmap es público.",
+        "cta": "Abrir GitHub"
+      },
+      "async": {
+        "title": "Asíncrono por defecto",
+        "description": "Sin llamadas ni reuniones. Escriba cuando le convenga; respondemos de la misma manera."
+      },
+      "updates": {
+        "title": "Novedades sin ruido",
+        "description": "Las notas de versión llegan a su correo como mucho una vez al mes."
+      }
+    }
+  },
+  "footer": {
+    "brand": "edd Starter",
+    "since": "La base de lo que viene",
+    "copyright": "© {{year}} edd. Todos los derechos reservados.",
+    "description": "Una sola base para cada producto edd: la misma calidad, las mismas convenciones y entregas más rápidas.",
+    "backToTop": "Volver arriba",
+    "subscribe": {
+      "title": "Novedades del starter",
+      "placeholder": "usted@empresa.com",
+      "button": "Suscribirse",
+      "note": "Notas de versión y consejos para lanzar. Como mucho, un correo al mes."
+    },
+    "links": {
+      "essence": {
+        "title": "Starter",
+        "items": ["Arquitectura", "Mapa de módulos", "Tokens de diseño", "Convenciones"]
+      },
+      "company": {
+        "title": "Producto",
+        "items": ["Hoja de ruta", "Changelog", "Integraciones", "Notas de versión"]
+      },
+      "community": {
+        "title": "Soporte",
+        "items": ["Documentación", "Guías", "Ejemplos", "Preguntas frecuentes"]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": ["Privacidad", "Términos", "Cookies", "Licencias"]
+      }
+    }
+  }
+}

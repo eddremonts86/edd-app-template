@@ -1,0 +1,295 @@
+{
+  "opening": {
+    "badge": "Modular · Typed · Tested",
+    "title": "The first week of every SaaS,",
+    "titleHighlight": "already built.",
+    "description": "Auth, database, AI, translations and tests come wired. Scaffold a project in a minute, sign into your own dashboard within the hour, and spend the week on your product — not on groundwork.",
+    "ariaLabel": "Introduction: production-ready SaaS template",
+    "copyCommandAria": "Copy the install command",
+    "copiedFeedback": "Copied",
+    "ctaSecondary": "See what's inside",
+    "scrollCue": "Keep scrolling",
+    "arc": {
+      "ariaLabel": "What you get, and when",
+      "scaffold": { "value": "60 s", "label": "to a running scaffold" },
+      "app": { "value": "1 h", "label": "to a working app" },
+      "production": { "value": "5 d", "label": "to production" }
+    }
+  },
+  "friction": {
+    "eyebrow": "The trade-off",
+    "title": "The first weeks always disappear into the same work",
+    "description": "Sign-in flows, folder structure, test runners, Docker. None of it makes your product different, and all of it can go wrong. Here is what the template takes off your plate.",
+    "withStarter": "With the template",
+    "fromScratch": "From scratch",
+    "rows": {
+      "auth": {
+        "name": "Authentication",
+        "starter": "Better Auth and Clerk arrive pre-configured. Database sessions work in minutes.",
+        "scratch": "A day or two lost to endpoints, JWTs, cookie flags, middleware and user tables."
+      },
+      "architecture": {
+        "name": "Architecture",
+        "starter": "Self-contained modules behind one barrel import. New features can't tangle with old ones.",
+        "scratch": "A folder layout improvised under deadline, refactored painfully six months in."
+      },
+      "tests": {
+        "name": "Testing",
+        "starter": "Vitest and Playwright run out of the box, with smoke tests covering real routes.",
+        "scratch": "Hours of config files, runners, database seeding and CI before the first useful test."
+      },
+      "ai": {
+        "name": "AI streaming",
+        "starter": "Server-sent events and a chat UI are already built, with five providers to choose from.",
+        "scratch": "Hand-rolling chunk parsing, retry logic and streaming state for every provider."
+      },
+      "docker": {
+        "name": "Deployment",
+        "starter": "Multi-profile Docker Compose for the app, Postgres and ChromaDB, ready for any VPS.",
+        "scratch": "Writing Dockerfiles and compose files by hand, then debugging them in production."
+      }
+    }
+  },
+  "firstMinute": {
+    "eyebrow": "Minute one",
+    "title": "One command. A real codebase.",
+    "description": "Not an empty folder — a typed monolith with twelve modules, migrations and CI hooks, named after your product.",
+    "terminalAria": "Terminal output of the scaffolding command",
+    "boxes": {
+      "appShell": {
+        "title": "App Shell",
+        "tag": "typed",
+        "description": "Theme, sidebar navigation, dialogs and responsive layout."
+      },
+      "modules": {
+        "title": "Domain Modules",
+        "tag": "isolated",
+        "description": "Users, settings, dashboard widgets and a streaming AI chat — each one isolated."
+      },
+      "integrations": {
+        "title": "Integrations & QA",
+        "tag": "tested",
+        "description": "Better Auth, Drizzle ORM, Playwright and Vitest, configured and talking to each other."
+      }
+    }
+  },
+  "firstHour": {
+    "eyebrow": "Hour one",
+    "title": "Sign in to a product that already works",
+    "description": "Before the hour is out you are clicking through your own app: real sign-in, a live dashboard, an AI chat answering over SSE. The screens below are the template, untouched.",
+    "tabs": { "auth": "Sign-in", "dashboard": "Dashboard" },
+    "mock": {
+      "workspaceTitle": "Access your workspace",
+      "workspaceSubtitle": "Sign in to the app you scaffolded an hour ago.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "admin@company.com",
+      "passwordLabel": "Password",
+      "signIn": "Sign in with email",
+      "orAccessVia": "or continue with",
+      "socialLogin": "Social login",
+      "clerkSSO": "Clerk SSO",
+      "navDashboard": "Dashboard",
+      "navUsers": "Users",
+      "navTransactions": "Transactions",
+      "navBudgets": "Budgets",
+      "volume": "Volume",
+      "projects": "Projects",
+      "projectsValue": "4 active",
+      "apiLatency": "API latency",
+      "inProduction": "In production",
+      "operational": "100% operational",
+      "recentActivity": "Recent activity",
+      "autoSync": "Auto-sync on",
+      "acme": "Acme Corp Ltd.",
+      "globalDelivery": "Global Delivery Inc.",
+      "today": "Today, 10:14 AM",
+      "yesterday": "Yesterday, 4:32 PM",
+      "approved": "Approved",
+      "pending": "Pending"
+    },
+    "stack": {
+      "title": "What's inside",
+      "description": "Six pieces you would otherwise build yourself, already wired together.",
+      "items": {
+        "landing": {
+          "title": "Landing & marketing",
+          "description": "This very page: hero, scenes, contact form and footer, all behind translation keys."
+        },
+        "shell": {
+          "title": "App shell",
+          "description": "Collapsible sidebar, topbar, theming and toasts, responsive from the start."
+        },
+        "auth": {
+          "title": "Authentication",
+          "description": "Better Auth with database sessions, plus optional Clerk SSO."
+        },
+        "data": {
+          "title": "Data layer",
+          "description": "Drizzle ORM over Postgres, with typed schemas and one-command migrations."
+        },
+        "ai": {
+          "title": "AI module",
+          "description": "Five providers, one client: OpenAI, Anthropic, Ollama, LM Studio and llama.cpp — with RAG via ChromaDB."
+        },
+        "quality": {
+          "title": "Quality gates",
+          "description": "Type checks, ESLint, Prettier, i18n parity and tests behind a single validate command."
+        }
+      }
+    }
+  },
+  "fiveDays": {
+    "eyebrow": "Days one to five",
+    "title": "Five days from first commit to production",
+    "description": "A realistic path, not a countdown. Each day has a goal, a handful of tasks and the exact command to run. Tick them off as you go.",
+    "dayLabel": "Day {{num}}",
+    "tasksLabel": "Checklist",
+    "commandLabel": "Run",
+    "fileLabel": "Where to look",
+    "progress": {
+      "title": "Launch readiness",
+      "stats": "{{completed}} of {{total}} tasks done ({{percent}}%)"
+    },
+    "days": {
+      "day1": {
+        "title": "Environment",
+        "subtitle": "Clone the repository, copy the example env file and check that the dev server boots.",
+        "tasks": [
+          "Clone the template repository",
+          "Copy .env.example to .env",
+          "Install dependencies and open the dev server"
+        ]
+      },
+      "day2": {
+        "title": "Brand",
+        "subtitle": "Make it yours: colors, logo and navigation.",
+        "tasks": [
+          "Adjust the OKLCH palette in globals.css",
+          "Replace the default logo",
+          "Rename the dashboard navigation entries"
+        ]
+      },
+      "day3": {
+        "title": "Auth & data",
+        "subtitle": "Wire your credentials and shape the database.",
+        "tasks": [
+          "Set AUTH_SECRET in your environment",
+          "Define your domain schema with Drizzle",
+          "Generate and run the migrations"
+        ]
+      },
+      "day4": {
+        "title": "Your product",
+        "subtitle": "The fun part: routes, widgets and AI for your actual domain.",
+        "tasks": [
+          "Add your routes under the router tree",
+          "Build your first dashboard widgets",
+          "Point the AI chat at your provider"
+        ]
+      },
+      "day5": {
+        "title": "Ship",
+        "subtitle": "Prove it works, then put it in front of people.",
+        "tasks": [
+          "Run the Playwright end-to-end suite",
+          "Build the production bundle",
+          "Bring up the Docker Compose stack"
+        ]
+      }
+    }
+  },
+  "manifesto": {
+    "eyebrow": "Why it holds up",
+    "items": {
+      "structure": {
+        "title": "Structure",
+        "statement": "Every feature lives in its own module, behind one import.",
+        "proof": "Twelve modules ship today. Deleting one doesn't break the others."
+      },
+      "security": {
+        "title": "Security",
+        "statement": "Auth, roles and configuration are decided before your first feature — not after your first incident.",
+        "proof": "Better Auth sessions, RBAC and typed env access come wired."
+      },
+      "longevity": {
+        "title": "Longevity",
+        "statement": "Swap the brand, the modules and the copy. The architecture is built to outlive them.",
+        "proof": "This landing is itself a module you could replace this afternoon."
+      }
+    }
+  },
+  "contact": {
+    "title": "Questions before you clone?",
+    "description": "Write to us about the template — a setup problem, a missing feature, an architectural doubt. Your message lands in the same contact-messages module that ships with the starter.",
+    "responseNote": "We usually answer within a couple of days.",
+    "form": {
+      "email": { "label": "Email", "placeholder": "you@company.com" },
+      "projectType": {
+        "label": "Topic",
+        "placeholder": "Pick a topic",
+        "options": {
+          "saas": "SaaS product",
+          "landing": "Marketing site",
+          "webapp": "Internal tool"
+        }
+      },
+      "message": {
+        "label": "Your message",
+        "placeholder": "What are you building, and where can we help?"
+      },
+      "submit": "Send message",
+      "messages": {
+        "successTitle": "Message sent",
+        "successDescription": "Thanks for writing. It's in our inbox — and in the demo dashboard.",
+        "errorTitle": "Could not send",
+        "errorDescription": "Please try again in a moment."
+      }
+    },
+    "aside": {
+      "github": {
+        "title": "Open repository",
+        "description": "Bugs and feature requests live as GitHub issues. The roadmap is public.",
+        "cta": "Open GitHub"
+      },
+      "async": {
+        "title": "Async by default",
+        "description": "No calls, no meetings. Write when it suits you; we answer the same way."
+      },
+      "updates": {
+        "title": "Low-volume updates",
+        "description": "Release notes land in your inbox at most once a month."
+      }
+    }
+  },
+  "footer": {
+    "brand": "edd Starter",
+    "since": "The base for what's next",
+    "copyright": "© {{year}} edd. All rights reserved.",
+    "description": "One foundation for every edd product: same quality, same conventions, faster delivery.",
+    "backToTop": "Back to top",
+    "subscribe": {
+      "title": "Starter updates",
+      "placeholder": "you@company.com",
+      "button": "Subscribe",
+      "note": "Release notes and shipping tips. At most one email a month."
+    },
+    "links": {
+      "essence": {
+        "title": "Starter",
+        "items": ["Architecture", "Module map", "Design tokens", "Conventions"]
+      },
+      "company": {
+        "title": "Product",
+        "items": ["Roadmap", "Changelog", "Integrations", "Release notes"]
+      },
+      "community": {
+        "title": "Support",
+        "items": ["Documentation", "Guides", "Examples", "FAQ"]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": ["Privacy", "Terms", "Cookies", "Licenses"]
+      }
+    }
+  }
+}
