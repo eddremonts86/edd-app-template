@@ -1,8 +1,12 @@
-export { GlowyWavesHero } from './GlowyWavesHero'
-export { FeatureCardsBlock } from './FeatureCardsBlock'
-export { ComparisonBlock } from './ComparisonBlock'
-export { OurServicesSection } from './OurServicesSection'
-export { FiveDayPlanBlock } from './FiveDayPlanBlock'
-export { ContactBlock } from './ContactBlock'
-export { FooterBlock } from './FooterBlock'
 export { HomePage } from './HomePage'
+export { FooterBlock } from './FooterBlock'
+export { ContactForm } from './ContactForm'
+export {
+  OpeningScene,
+  FrictionScene,
+  FirstMinuteScene,
+  FirstHourScene,
+  FiveDaysScene,
+  ManifestoScene,
+  ClosingScene,
+} from './scenes'

@@ -129,7 +129,7 @@ export function FooterBlock() {
               className="text-xs text-muted-foreground hover:text-foreground gap-1.5 h-8 px-2"
             >
               <ArrowUp className="h-3.5 w-3.5" />
-              Back to Top
+              {t('home.footer.backToTop', 'Back to top')}
             </Button>
           </div>
         </div>
