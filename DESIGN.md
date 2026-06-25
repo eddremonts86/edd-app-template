@@ -35,18 +35,31 @@ All values in OKLCH. Neutrals are tinted toward hue ~240 (cool slate) in light m
 | `--sidebar-primary`    | `oklch(0.60 0.20 35)`    | Sidebar active item                                |
 | `--sidebar-accent`     | `oklch(0.97 0.015 35)`   | Sidebar hover                                      |
 
-### Dark Mode
+### Dark Mode — "Obsidian Aurora"
 
-| Token                | OKLCH                  | Use                                          |
-| -------------------- | ---------------------- | -------------------------------------------- |
-| `--background`       | `oklch(0.12 0.008 30)` | Near-black warm charcoal                     |
-| `--foreground`       | `oklch(0.96 0.005 30)` | Off-white warm                               |
-| `--primary`          | `oklch(0.68 0.22 35)`  | Brighter coppery orange (accessible on dark) |
-| `--card`             | `oklch(0.15 0.01 30)`  | Slightly lighter than bg                     |
-| `--muted`            | `oklch(0.19 0.01 30)`  | Muted dark surfaces                          |
-| `--muted-foreground` | `oklch(0.65 0.01 30)`  | Subdued on dark                              |
-| `--sidebar`          | `oklch(0.20 0.01 30)`  | Sidebar (slightly off from bg)               |
-| `--border`           | `oklch(0.21 0.01 30)`  | Dark mode borders                            |
+Cool indigo-tinted neutrals (hue 250) replace the previous warm charcoal (hue 30). Five-tier elevation system, luminous borders, brand orange dialed down in chroma.
+
+| Token                  | OKLCH                    | Use                                                 |
+| ---------------------- | ------------------------ | --------------------------------------------------- |
+| `--background`         | `oklch(0.145 0.012 250)` | Obsidian canvas — black with whisper of indigo      |
+| `--foreground`         | `oklch(0.96 0.005 250)`  | Off-white, cool-tinted                              |
+| `--card`               | `oklch(0.205 0.015 250)` | Elevated surface 1                                  |
+| `--popover`            | `oklch(0.245 0.014 250)` | Elevated surface 2 (above card)                     |
+| `--sidebar`            | `oklch(0.175 0.013 250)` | Sidebar (distinct from bg, slightly cooler)         |
+| `--muted`              | `oklch(0.235 0.012 250)` | Muted surfaces (chips, badges, secondary buttons)   |
+| `--muted-foreground`   | `oklch(0.68 0.012 250)`  | Subdued text on dark                                |
+| `--primary`            | `oklch(0.72 0.18 38)`    | Coppery orange — chroma dialed down from 0.22→0.18  |
+| `--primary-foreground` | `oklch(0.14 0.01 250)`   | Dark text on primary (better contrast on orange)    |
+| `--accent`             | `oklch(0.28 0.04 38)`    | Hover tints — warm and clearly distinct             |
+| `--border`             | `oklch(0.32 0.012 250)`  | **Luminous** — lighter than the surface (edge glow) |
+| `--input`              | `oklch(0.28 0.012 250)`  | Form inputs                                         |
+| `--ring`               | `oklch(0.72 0.18 38)`    | Focus ring (matches primary)                        |
+
+**Elevation rules:**
+
+1. `background` < `sidebar` < `card` < `muted`/`accent` < `popover`
+2. Borders are intentionally _lighter_ than the surface they sit on, simulating edge-light.
+3. Shadows are true black with high opacity (0.3–0.7) so elevated surfaces cast a believable drop on the dark canvas.
 
 ### Semantic Colors (Status)
 
