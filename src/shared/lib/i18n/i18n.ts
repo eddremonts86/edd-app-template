@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import { writeLocaleCookie } from './locale-cookie'
-import { normalizeLocale, supportedLanguages } from './locales'
+import { readLocaleCookie, writeLocaleCookie } from './locale-cookie'
+import { defaultLocale, normalizeLocale, supportedLanguages } from './locales'
 import dkCommon from './locales/dk/common.json'
 import dkErrors from './locales/dk/errors.json'
 // Import locale files directly for better bundling
@@ -51,13 +51,24 @@ const i18nLogger = {
 // The detector's localStorage cache used to overwrite the stored choice with
 // the init language on every reload, which is why a picked language never
 // survived a navigation.
+// The browser must start on the cookie's language *before* React renders, so
+// the first client render matches what the server sent. Doing it later — in a
+// provider's render pass or an effect — either mismatches hydration or calls
+// changeLanguage() mid-render, which makes every useTranslation subscriber
+// setState while another component is rendering.
+const initialLocale =
+  typeof document === 'undefined'
+    ? defaultLocale
+    : (readLocaleCookie(document.cookie) ?? defaultLocale)
+
 i18n
   .use(i18nLogger)
   .use(initReactI18next)
   .init({
     resources,
-    // Overridden per request by I18nProvider — see resolveLocale().
-    lng: 'en',
+    // On the server this is a placeholder: each request renders from a clone
+    // pinned to its own locale. See I18nProvider and resolveLocale().
+    lng: initialLocale,
     fallbackLng: 'en',
     supportedLngs: supportedLanguages,
     ns: ['common', 'errors'],
