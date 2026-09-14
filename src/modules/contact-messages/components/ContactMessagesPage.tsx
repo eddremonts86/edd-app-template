@@ -22,7 +22,11 @@ import { UnifiedDataTable } from '@/shared/ui/tables/DataTable'
 import { useContactMessages, useMarkContactMessageRead } from '../api/contact-messages.queries'
 import type { ContactMessage } from '../model/types'
 
-type SelectedMessage = Pick<ContactMessage, 'email' | 'projectType' | 'createdAt' | 'message'>
+// The detail panel now acts on the message, so it needs its id and read state.
+type SelectedMessage = Pick<
+  ContactMessage,
+  'id' | 'email' | 'projectType' | 'createdAt' | 'message' | 'status'
+>
 
 export function ContactMessagesPage() {
   const { t } = useTranslation()
@@ -296,15 +300,17 @@ export function ContactMessagesPage() {
           {selectedMessage && (
             <div className="px-6 pb-6 pt-5">
               <div className="space-y-3 border-b pb-4">
-                <p className="text-sm font-semibold text-foreground text-wrap-pretty">
-                  {selectedMessage.message?.slice(0, 120) || t('contactMessages.table.fullMessage')}
-                </p>
                 <div className="grid gap-x-6 gap-y-1 text-sm sm:grid-cols-2">
                   <p>
                     <span className="mr-2 text-muted-foreground">
                       {t('contactMessages.table.email')}:
                     </span>
-                    <span className="font-medium text-foreground">{selectedMessage.email}</span>
+                    <a
+                      href={`mailto:${selectedMessage.email}`}
+                      className="font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {selectedMessage.email}
+                    </a>
                   </p>
                   <p>
                     <span className="mr-2 text-muted-foreground">
@@ -325,10 +331,31 @@ export function ContactMessagesPage() {
                 </div>
               </div>
 
-              <div className="mt-5 max-h-[58vh] overflow-y-auto pr-2">
+              <div className="mt-5 max-h-[52vh] overflow-y-auto pr-2">
                 <p className="whitespace-pre-wrap wrap-break-word text-[15px] leading-8 text-foreground">
                   {selectedMessage.message || t('contactMessages.table.emptyMessage')}
                 </p>
+              </div>
+
+              {/* The inbox's verbs. Without these the panel opened, showed the
+                  message, and dead-ended — the core task had no exit. */}
+              <div className="mt-6 flex flex-wrap gap-2 border-t pt-4">
+                <Button
+                  variant={selectedMessage.status === 'new' ? 'default' : 'outline'}
+                  disabled={markReadMutation.isPending}
+                  onClick={() =>
+                    handleMarkRead(selectedMessage.id, selectedMessage.status === 'new')
+                  }
+                >
+                  {selectedMessage.status === 'new'
+                    ? t('contactMessages.actions.markRead')
+                    : t('contactMessages.actions.markNew')}
+                </Button>
+                <Button variant="outline" asChild>
+                  <a href={`mailto:${selectedMessage.email}`}>
+                    {t('contactMessages.actions.reply')}
+                  </a>
+                </Button>
               </div>
             </div>
           )}

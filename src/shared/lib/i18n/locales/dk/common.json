@@ -865,7 +865,8 @@
       "refresh": "Opdater",
       "readFull": "Læs hele beskeden",
       "markRead": "Markér som læst",
-      "markNew": "Markér som ny"
+      "markNew": "Markér som ny",
+      "reply": "Svar via e-mail"
     },
     "sheet": {
       "title": "Beskeddetaljer",

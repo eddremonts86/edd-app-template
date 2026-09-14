@@ -865,7 +865,8 @@
       "refresh": "Refresh",
       "readFull": "Read full message",
       "markRead": "Mark as read",
-      "markNew": "Mark as new"
+      "markNew": "Mark as new",
+      "reply": "Reply by email"
     },
     "sheet": {
       "title": "Message details",

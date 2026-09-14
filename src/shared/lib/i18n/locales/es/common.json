@@ -374,7 +374,8 @@
       "refresh": "Actualizar",
       "readFull": "Leer mensaje completo",
       "markRead": "Marcar leído",
-      "markNew": "Marcar nuevo"
+      "markNew": "Marcar nuevo",
+      "reply": "Responder por correo"
     },
     "sheet": {
       "title": "Detalle del mensaje",
