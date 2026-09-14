@@ -91,7 +91,7 @@ export function UserTable({ users, onEdit, onDelete }: UserTableProps) {
     },
     {
       id: 'actions',
-      header: () => <div className="text-right">{t('common.actions', 'Actions')}</div>,
+      header: () => <div className="text-right">{t('common.actions.label', 'Actions')}</div>,
       cell: ({ row }) => {
         const user = row.original
         return (

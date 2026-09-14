@@ -858,7 +858,7 @@ export function HelpChatPage() {
       toast.success(t('settings.ai.messages.saved') || 'Provider updated')
     },
     onError: (error) => {
-      toast.error(t('settings.ai.messages.error') || 'Failed to update provider', {
+      toast.error(t('settings.ai.messages.updateError') || 'Failed to update provider', {
         description: error instanceof Error ? error.message : 'Unknown error',
       })
     },

@@ -71,7 +71,9 @@
     "filter": "Filtrar",
     "sort": "Ordenar",
     "actions": {
-      "move": "Move"
+      "label": "Acciones",
+      "refresh": "Actualizar",
+      "move": "Mover"
     },
     "confirm": "Confirmar",
     "undoWarning": "Esta acción no se puede deshacer.",
@@ -1577,7 +1579,8 @@
         "fallbackDescription": "El sistema intentará automáticamente el siguiente proveedor disponible si el activo falla.",
         "active": "Activo",
         "noModels": "No se encontraron modelos",
-        "modelsCount": "{{count}} modelos"
+        "modelsCount": "{{count}} modelos",
+        "updateError": "No se pudo actualizar el proveedor."
       }
     }
   },

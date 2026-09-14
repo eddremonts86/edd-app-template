@@ -71,7 +71,9 @@
     "filter": "Filter",
     "sort": "Sorter",
     "actions": {
-      "move": "Move"
+      "label": "Handlinger",
+      "refresh": "Opdater",
+      "move": "Flyt"
     },
     "confirm": "Bekræft",
     "undoWarning": "Denne handling kan ikke fortrydes.",
@@ -334,7 +336,8 @@
         "fallbackDescription": "Systemet vil automatisk prøve den næste tilgængelige udbyder, hvis den aktive fejler.",
         "active": "Aktiv",
         "noModels": "Ingen modeller fundet",
-        "modelsCount": "{{count}} modeller"
+        "modelsCount": "{{count}} modeller",
+        "updateError": "Kunne ikke opdatere udbyderen."
       }
     },
     "socialLinks": {

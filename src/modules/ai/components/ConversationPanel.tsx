@@ -406,7 +406,7 @@ export function ConversationPanel({
                     disabled={filteredConversations.length === 0}
                   >
                     <Trash2 size={14} className="mr-2" />
-                    {t('ai.chat.deleteAll')}
+                    {t('ai.chat.deleteAllConversations')}
                   </Button>
                 )}
               </div>

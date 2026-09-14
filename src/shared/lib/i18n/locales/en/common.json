@@ -71,6 +71,8 @@
     "filter": "Filter",
     "sort": "Sort",
     "actions": {
+      "label": "Actions",
+      "refresh": "Refresh",
       "move": "Move"
     },
     "confirm": "Confirm",
@@ -334,7 +336,8 @@
         "fallbackDescription": "The system will automatically try the next available provider if the active one fails.",
         "active": "Active",
         "noModels": "No models found",
-        "modelsCount": "{{count}} models"
+        "modelsCount": "{{count}} models",
+        "updateError": "Failed to update provider."
       }
     },
     "socialLinks": {

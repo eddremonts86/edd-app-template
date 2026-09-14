@@ -73,7 +73,7 @@ export function useUserColumns(
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>{t('common.actions', 'Actions')}</DropdownMenuLabel>
+                <DropdownMenuLabel>{t('common.actions.label', 'Actions')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => onEdit(user)}>
                   <Pencil className="mr-2 h-4 w-4" />

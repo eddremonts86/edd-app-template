@@ -68,7 +68,7 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
           className="h-8 w-8"
           onClick={() => refetch()}
           disabled={isFetching}
-          aria-label={t('common.refresh')}
+          aria-label={t('common.actions.refresh')}
         >
           <IconRefresh className={cn('h-4 w-4', isFetching && 'animate-spin')} aria-hidden />
         </Button>

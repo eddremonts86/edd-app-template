@@ -2,7 +2,9 @@
  * Translation completeness checker.
  *
  * Validates that every key present in the English (source) locale files
- * also exists in Spanish (es) and Danish (dk).
+ * also exists in Spanish (es) and Danish (dk), and that every literal
+ * `t('some.key')` in src/ actually resolves to a string in the source
+ * catalogue.
  *
  * Usage:
  *   tsx scripts/i18n/check-translations.ts
@@ -13,6 +15,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { join, resolve } from 'node:path'
 
 const LOCALES_DIR = resolve('src/shared/lib/i18n/locales')
+const SRC_DIR = resolve('src')
 const SOURCE_LANG = 'en'
 const TARGET_LANGS = ['es', 'dk']
 
@@ -43,9 +46,94 @@ function getNamespaces(): string[] {
   return readdirSync(join(LOCALES_DIR, SOURCE_LANG)).filter((f) => f.endsWith('.json'))
 }
 
+/**
+ * Resolve a dot-notation key against a loaded namespace.
+ */
+function resolveKey(data: JsonObject, key: string): JsonNode | undefined {
+  return key.split('.').reduce<JsonNode | undefined>((node, segment) => {
+    if (typeof node !== 'object' || node === null || Array.isArray(node)) return undefined
+    return (node as JsonObject)[segment]
+  }, data)
+}
+
+function collectSourceFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name)
+    if (entry.isDirectory()) return full === LOCALES_DIR ? [] : collectSourceFiles(full)
+    return /\.tsx?$/.test(entry.name) ? [full] : []
+  })
+}
+
+/**
+ * Check every literal `t('some.key')` in src/ against the source catalogue.
+ *
+ * Two failures reach the user as visible garbage and are errors:
+ *   - the key is absent and the call has no inline default → i18next renders
+ *     the raw key ("common.refresh")
+ *   - the key resolves to an object and was not requested with
+ *     `returnObjects` → i18next renders an error string
+ *
+ * A key that is absent but has an inline default only degrades to English for
+ * es/dk readers, so it is reported as a warning.
+ *
+ * Returns the number of errors found.
+ */
+function checkUsage(catalogues: JsonObject[]): number {
+  const rawKeys: Array<[string, string]> = []
+  const objectKeys: Array<[string, string]> = []
+  const untranslated = new Set<string>()
+
+  for (const file of collectSourceFiles(SRC_DIR)) {
+    const source = readFileSync(file, 'utf-8')
+    for (const match of source.matchAll(/\bt\(\s*'([a-zA-Z0-9_.]+)'\s*(,?)/g)) {
+      const [, key, comma] = match
+      // Only dotted keys are catalogue lookups; bare identifiers are other t()s.
+      if (!key.includes('.')) continue
+
+      const value = catalogues
+        .map((catalogue) => resolveKey(catalogue, key))
+        .find((found) => found !== undefined)
+
+      if (value === undefined) {
+        if (comma) untranslated.add(key)
+        else rawKeys.push([key, file])
+        continue
+      }
+
+      if (typeof value === 'object' && value !== null) {
+        const call = source.slice(match.index, match.index + 200)
+        if (!call.includes('returnObjects')) objectKeys.push([key, file])
+      }
+    }
+  }
+
+  console.log(`\n🔑  Key usage check — ${SOURCE_LANG} catalogue\n`)
+
+  for (const [key, file] of rawKeys) {
+    console.error(`  ❌  ${key} — missing, no default: renders the raw key`)
+    console.error(`       ${file}`)
+  }
+  for (const [key, file] of objectKeys) {
+    console.error(`  ❌  ${key} — resolves to an object, used as a string`)
+    console.error(`       ${file}`)
+  }
+  if (untranslated.size > 0) {
+    console.warn(
+      `  ⚠️   ${untranslated.size} key(s) missing from the catalogue but given an inline default —`,
+    )
+    console.warn(`       es/dk readers see English. Add them to keep the UI translated.`)
+  }
+  if (rawKeys.length === 0 && objectKeys.length === 0) {
+    console.log(`  ✅  every t('…') key resolves to a string`)
+  }
+
+  return rawKeys.length + objectKeys.length
+}
+
 function main() {
   let totalMissing = 0
   const namespaces = getNamespaces()
+  const sourceCatalogues: JsonObject[] = []
 
   console.log(
     `\n🌐  Translation check — source: ${SOURCE_LANG} → targets: ${TARGET_LANGS.join(', ')}\n`,
@@ -54,6 +142,7 @@ function main() {
   for (const namespace of namespaces) {
     const sourcePath = join(LOCALES_DIR, SOURCE_LANG, namespace)
     const sourceData = loadJson(sourcePath)
+    sourceCatalogues.push(sourceData)
     const sourceKeys = new Set(collectKeys(sourceData))
 
     for (const lang of TARGET_LANGS) {
@@ -94,6 +183,8 @@ function main() {
     }
   }
 
+  const usageErrors = checkUsage(sourceCatalogues)
+
   console.log(`\n${'─'.repeat(52)}`)
   console.log(`Checked ${namespaces.length} namespace(s) × ${TARGET_LANGS.length} target lang(s)`)
 
@@ -101,10 +192,15 @@ function main() {
     console.error(
       `\n💥  ${totalMissing} missing translation key(s) found — fix them before merging.\n`,
     )
-    process.exit(1)
-  } else {
-    console.log(`\n✨  All translations are complete.\n`)
   }
+  if (usageErrors > 0) {
+    console.error(`\n💥  ${usageErrors} broken t('…') key(s) found — fix them before merging.\n`)
+  }
+  if (totalMissing > 0 || usageErrors > 0) {
+    process.exit(1)
+  }
+
+  console.log(`\n✨  All translations are complete.\n`)
 }
 
 main()

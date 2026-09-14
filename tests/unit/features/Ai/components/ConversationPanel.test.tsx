@@ -104,7 +104,7 @@ describe('ConversationPanel', () => {
     const conv = createConversation({ title: 'Delete me' })
     render(<ConversationPanel {...defaultProps} conversations={[conv]} isOpen={true} />)
 
-    fireEvent.click(screen.getByText('ai.chat.deleteAll'))
+    fireEvent.click(screen.getByText('ai.chat.deleteAllConversations'))
     expect(screen.getByText('ai.chat.confirmDeleteAll')).toBeDefined()
 
     fireEvent.click(screen.getByText('common.confirm'))
