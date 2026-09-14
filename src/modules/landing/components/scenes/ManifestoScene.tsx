@@ -22,7 +22,7 @@ export function ManifestoScene() {
               className="py-12 md:py-16"
             >
               <p className="mb-4 flex items-baseline gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
-                <span className="tabular-nums text-muted-foreground/60">
+                <span className="tabular-nums text-muted-foreground">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 {t(`home.manifesto.items.${id}.title`)}

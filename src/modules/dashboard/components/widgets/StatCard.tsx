@@ -60,9 +60,9 @@ export function StatCard({
                 className={cn(
                   'inline-flex items-center rounded-md px-1.5 py-0.5 text-[11px] font-semibold',
                   trend.value > 0 &&
-                    'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 dark:bg-emerald-500/20',
+                    'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 dark:bg-emerald-500/20',
                   trend.value < 0 &&
-                    'bg-rose-500/10 text-rose-600 dark:text-rose-400 dark:bg-rose-500/20',
+                    'bg-rose-500/10 text-rose-700 dark:text-rose-400 dark:bg-rose-500/20',
                   trend.value === 0 && 'bg-muted text-muted-foreground',
                 )}
               >

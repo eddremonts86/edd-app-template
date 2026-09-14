@@ -149,7 +149,7 @@ export function FirstMinuteScene() {
                 </div>
                 {index < ARCH_BOXES.length - 1 && (
                   <div
-                    className="absolute -right-[1.4rem] top-1/2 hidden -translate-y-1/2 text-muted-foreground/30 md:block"
+                    className="absolute -right-[1.4rem] top-1/2 hidden -translate-y-1/2 text-muted-foreground md:block"
                     aria-hidden="true"
                   >
                     <ChevronRight className="h-6 w-6 animate-pulse motion-reduce:animate-none" />

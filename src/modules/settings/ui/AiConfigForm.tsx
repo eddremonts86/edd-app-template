@@ -224,7 +224,7 @@ function ProviderStatusCard({
       }`}
     >
       {/* Priority Index */}
-      <div className="absolute top-3 left-4 text-lg font-bold text-muted-foreground/20 font-mono">
+      <div className="absolute top-3 left-4 text-lg font-bold text-muted-foreground font-mono">
         {String(index + 1).padStart(2, '0')}
       </div>
 
@@ -347,7 +347,7 @@ function ProviderStatusCard({
                 >
                   {testResult.message}
                 </span>
-                <span className="text-[8px] text-muted-foreground/60 block">
+                <span className="text-[8px] text-muted-foreground block">
                   {new Date(testResult.testedAt).toLocaleTimeString()}
                 </span>
               </div>

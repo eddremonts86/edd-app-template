@@ -253,6 +253,7 @@ export function AuthPage(): React.JSX.Element {
                     >
                       <Button
                         asChild
+                        variant="ghost"
                         role="tab"
                         data-testid="auth-tab-sign-in"
                         aria-selected={activeTab === 'sign-in'}
@@ -275,6 +276,7 @@ export function AuthPage(): React.JSX.Element {
                       </Button>
                       <Button
                         asChild
+                        variant="ghost"
                         role="tab"
                         data-testid="auth-tab-sign-up"
                         aria-selected={activeTab === 'sign-up'}

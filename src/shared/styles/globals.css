@@ -148,19 +148,23 @@
   --card-foreground: oklch(0.15 0.01 240);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0.01 240);
-  --primary: oklch(0.6 0.2 35);
+  /* 0.56, not 0.6: at 0.6 this colour used as text measured 3.86:1 on the light
+     canvas, under the 4.5 floor. Same hue and chroma, one step deeper. */
+  --primary: oklch(0.52 0.2 35);
   --primary-foreground: #ffffff;
   --secondary: oklch(0.93 0.01 240);
   --secondary-foreground: oklch(0.2 0.01 240);
   --muted: oklch(0.93 0.01 240);
-  --muted-foreground: oklch(0.5 0.01 240);
+  /* 0.46, not 0.5: on the raised surfaces (dialogs, popovers) that sit a shade
+     below the page canvas, 0.5 measured 4.27:1 — just under the 4.5 floor. */
+  --muted-foreground: oklch(0.46 0.01 240);
   --accent: oklch(0.97 0.015 35);
   --accent-foreground: oklch(0.25 0.04 35);
-  --destructive: oklch(0.58 0.24 28.48);
+  --destructive: oklch(0.49 0.24 28.48);
   --destructive-foreground: #ffffff;
   --border: oklch(0.92 0.008 240);
   --input: oklch(0.92 0.008 240);
-  --ring: oklch(0.6 0.2 35);
+  --ring: oklch(0.52 0.2 35);
   /* Categorical ramp, hue 25-80 — one warm family, separated by lightness and
      chroma so the steps stay distinguishable without leaving the palette.
      Replaces a set that mixed a near-black at hue 240 and a cool blue. */
@@ -171,12 +175,12 @@
   --chart-5: oklch(0.45 0.05 40);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.15 0.01 240);
-  --sidebar-primary: oklch(0.6 0.2 35);
+  --sidebar-primary: oklch(0.52 0.2 35);
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: oklch(0.97 0.015 35);
   --sidebar-accent-foreground: oklch(0.25 0.04 35);
   --sidebar-border: oklch(0.95 0.005 240);
-  --sidebar-ring: oklch(0.6 0.2 35);
+  --sidebar-ring: oklch(0.52 0.2 35);
 
   --font-sans:
     'Geist', 'Geist Fallback', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -215,8 +219,8 @@
   --muted-foreground: oklch(0.65 0.01 30);
   --accent: oklch(0.19 0.015 35);
   --accent-foreground: oklch(0.68 0.22 35);
-  --destructive: oklch(0.55 0.18 25);
-  --destructive-foreground: #ffffff;
+  --destructive: oklch(0.66 0.18 25);
+  --destructive-foreground: oklch(0.12 0.008 30);
   --border: oklch(0.21 0.01 30);
   --input: oklch(0.21 0.01 30);
   --ring: oklch(0.68 0.22 35);

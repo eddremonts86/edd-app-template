@@ -86,7 +86,7 @@ export function UnreadContactMessagesWidget() {
                 className="rounded-lg border border-border/60 bg-muted/15 px-3 py-2.5"
               >
                 <p className="line-clamp-3 text-sm leading-relaxed text-foreground">{item.body}</p>
-                <p className="mt-1 text-[11px] text-muted-foreground/80">
+                <p className="mt-1 text-[11px] text-muted-foreground">
                   {new Date(item.createdAt).toLocaleString()}
                 </p>
               </div>

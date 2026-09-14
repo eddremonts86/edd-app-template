@@ -575,7 +575,7 @@ export function UnifiedDataTable<TData, TValue>({
                     return (
                       <TableHead
                         key={header.id}
-                        className="h-12 text-xs font-bold uppercase tracking-wider text-muted-foreground/70 px-6 border-b border-border/40 sticky top-0 bg-inherit"
+                        className="h-12 text-xs font-bold uppercase tracking-wider text-muted-foreground px-6 border-b border-border/40 sticky top-0 bg-inherit"
                       >
                         {header.isPlaceholder ? null : isSortable ? (
                           <Button

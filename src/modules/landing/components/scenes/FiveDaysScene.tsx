@@ -130,7 +130,7 @@ export function FiveDaysScene() {
                       </p>
                     </div>
 
-                    <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground/75">
+                    <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
                       {t('home.fiveDays.tasksLabel', 'Checklist')}
                     </p>
                     <div className="grid gap-2">
@@ -145,7 +145,7 @@ export function FiveDaysScene() {
                             {isChecked ? (
                               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
                             ) : (
-                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-foreground" />
+                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
                             )}
                             <span
                               className={`text-xs font-medium sm:text-sm ${

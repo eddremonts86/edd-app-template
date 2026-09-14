@@ -292,7 +292,7 @@ function ThinkingProcess({ content }: { content: string }) {
           <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-primary">
             <Sparkles size={12} />
           </div>
-          <span className="text-xs font-semibold text-primary/80 dark:text-primary-foreground/80">
+          <span className="text-xs font-semibold text-primary/80 dark:text-primary">
             {t('ai.chat.thinking')}
           </span>
         </div>
@@ -310,7 +310,7 @@ function ThinkingProcess({ content }: { content: string }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="border-t border-border/50 bg-muted/30 px-4 py-3 text-xs text-muted-foreground/90 font-mono whitespace-pre-wrap leading-relaxed">
+            <div className="border-t border-border/50 bg-muted/30 px-4 py-3 text-xs text-muted-foreground font-mono whitespace-pre-wrap leading-relaxed">
               {content}
             </div>
           </m.div>
@@ -398,11 +398,11 @@ function MessageBubble({
 
       <div className={cn('flex max-w-[85%] flex-col gap-1', isUser && 'items-end')}>
         <div className="flex items-center gap-2 px-1">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
             {isUser ? t('ai.chat.you', 'You') : t('ai.chat.aiAssistant', 'AI Assistant')}
           </span>
-          <span className="text-[10px] text-muted-foreground/40">•</span>
-          <span className="text-[10px] text-muted-foreground/40">
+          <span className="text-[10px] text-muted-foreground">•</span>
+          <span className="text-[10px] text-muted-foreground">
             {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
         </div>
@@ -1021,7 +1021,7 @@ export function HelpChatPage() {
                     {isAgentActive ? t('ai.chat.supportAssistant') : t('ai.chat.agentInactive')}
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 mt-0.5 text-[10px] text-muted-foreground/60 font-medium">
+                <div className="flex items-center gap-1.5 mt-0.5 text-[10px] text-muted-foreground font-medium">
                   <Sparkles size={10} />
                   <span>
                     {t('ai.chat.disclaimer', 'AI can make mistakes. Verify important information.')}
@@ -1041,8 +1041,8 @@ export function HelpChatPage() {
                     className={cn(
                       'h-8 gap-2 rounded-full border px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest shadow-sm transition-colors',
                       isAgentActive
-                        ? 'border-primary/25 bg-primary/10 text-primary hover:bg-primary/20 dark:border-primary/30 dark:bg-primary/20 dark:text-primary-foreground'
-                        : 'border-destructive/20 bg-destructive/10 text-destructive hover:bg-destructive/20',
+                        ? 'border-primary/25 bg-primary/10 text-primary hover:bg-primary/15 dark:border-primary/30 dark:bg-primary/20'
+                        : 'border-destructive/20 bg-destructive/10 text-destructive hover:bg-destructive/15',
                     )}
                   >
                     <div className="flex items-center gap-2">
@@ -1202,7 +1202,7 @@ export function HelpChatPage() {
                         </span>
                         <button
                           onClick={() => removeAttachment(attachments.indexOf(file))}
-                          className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-destructive text-white shadow-md opacity-0 transition-all group-hover:opacity-100 hover:scale-110"
+                          className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-destructive text-destructive-foreground shadow-md opacity-0 transition-all group-hover:opacity-100 hover:scale-110"
                           title={`Remove ${file.name}`}
                         >
                           <X size={12} />
@@ -1251,7 +1251,7 @@ export function HelpChatPage() {
                     return t('ai.chat.placeholder')
                   })()}
                   disabled={isLoading || !isOnline || !isAgentActive}
-                  className="min-h-11 max-h-40 resize-none border-0 bg-transparent py-2.5 text-base placeholder:text-muted-foreground/50"
+                  className="min-h-11 max-h-40 resize-none border-0 bg-transparent py-2.5 text-base placeholder:text-muted-foreground"
                 />
 
                 <InputGroupAddon align="inline-end" className="py-0">

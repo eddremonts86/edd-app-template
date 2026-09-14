@@ -267,7 +267,7 @@ export function ConversationPanel({
 
                       return (
                         <div key={group} className="space-y-2">
-                          <h3 className="px-2 text-xs font-medium text-muted-foreground/70">
+                          <h3 className="px-2 text-xs font-medium text-muted-foreground">
                             {getGroupLabel(group)}
                           </h3>
                           <div className="space-y-1">
@@ -302,7 +302,7 @@ export function ConversationPanel({
                                     className={cn(
                                       'flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors',
                                       activeId === conv.id
-                                        ? 'bg-card text-primary shadow-sm dark:bg-primary/20 dark:text-primary-foreground'
+                                        ? 'bg-card text-primary shadow-sm dark:bg-primary/20'
                                         : 'bg-muted text-muted-foreground',
                                     )}
                                   >
@@ -319,7 +319,7 @@ export function ConversationPanel({
                                   >
                                     {conv.title || t('ai.chat.newConversation')}
                                   </p>
-                                  <p className="truncate text-xs text-muted-foreground/80">
+                                  <p className="truncate text-xs text-muted-foreground">
                                     {new Date(conv.updatedAt).toLocaleTimeString([], {
                                       hour: '2-digit',
                                       minute: '2-digit',

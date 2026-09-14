@@ -101,7 +101,7 @@ export function NotificationBell() {
                         New
                       </span>
                     )}
-                    <p className="mt-1 text-[11px] text-muted-foreground/80">
+                    <p className="mt-1 text-[11px] text-muted-foreground">
                       {new Date(item.createdAt).toLocaleString()}
                     </p>
                   </div>

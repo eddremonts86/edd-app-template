@@ -147,7 +147,7 @@ function DocsLayout() {
                       }}
                     >
                       <span>{item.label}</span>
-                      <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground/50" />
+                      <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground" />
                     </Link>
                   ))}
                 </div>

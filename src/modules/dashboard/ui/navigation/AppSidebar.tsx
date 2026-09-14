@@ -405,7 +405,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                       ) : (
                         <div className="flex flex-col items-center justify-center py-4 text-center">
                           <div className="rounded-full bg-muted p-3 mb-3">
-                            <Search className="size-5 text-muted-foreground/50" />
+                            <Search className="size-5 text-muted-foreground" />
                           </div>
                           <p className="text-muted-foreground italic">{t('ai.search.empty')}</p>
                         </div>
@@ -417,7 +417,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </ScrollArea>
 
             {/* Suggestions Section inside Command */}
-            <Command className="border-t rounded-none bg-muted/10 shrink-0">
+            <Command className="[&_[data-slot=command-group-heading]]:text-muted-foreground border-t rounded-none bg-muted/10 shrink-0">
               <CommandList className="p-6">
                 <CommandGroup
                   heading={

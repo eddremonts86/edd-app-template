@@ -47,7 +47,7 @@ export function NotFoundPage() {
             Page not found
           </motion.h2>
           <motion.p
-            className="mx-auto max-w-[500px] text-muted-foreground/80"
+            className="mx-auto max-w-[500px] text-muted-foreground"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}

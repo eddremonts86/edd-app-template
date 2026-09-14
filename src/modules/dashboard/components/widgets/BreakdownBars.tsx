@@ -40,7 +40,7 @@ export function BreakdownBars({ segments, total, className }: Readonly<Breakdown
                 {s.label}
               </span>
               <span className="font-medium tabular-nums text-muted-foreground">
-                {s.value} <span className="text-muted-foreground/60">· {pct}%</span>
+                {s.value} <span className="text-muted-foreground">· {pct}%</span>
               </span>
             </div>
             <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">

@@ -148,7 +148,7 @@ export function UsersPage() {
             <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
             <AlertDialogAction
               disabled={isSelf || deleteMutation.isPending}
-              className="bg-destructive text-white hover:bg-destructive/90"
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
               onClick={() => {
                 if (!deletingUser || isSelf) return
                 deleteMutation.mutate(deletingUser.id)

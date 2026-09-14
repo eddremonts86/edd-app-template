@@ -97,8 +97,8 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
                 <p
                   className={cn(
                     'text-sm font-semibold tabular-nums',
-                    delta > 0 && 'text-emerald-500',
-                    delta < 0 && 'text-rose-500',
+                    delta > 0 && 'text-emerald-700 dark:text-emerald-400',
+                    delta < 0 && 'text-rose-700 dark:text-rose-400',
                     delta === 0 && 'text-muted-foreground',
                   )}
                 >
