@@ -49,7 +49,7 @@ function toOpenAiUsage(usage: unknown) {
   }
 }
 
-export function toOpenAiChatCompletionsResponse(upstream: Response, model: string): Response {
+export function toOpenAiChatCompletionsResponse(upstream: Response): Response {
   if (!upstream.ok || !upstream.body) return upstream
 
   const id = `chatcmpl-${Date.now().toString(36)}`
@@ -65,6 +65,8 @@ export function toOpenAiChatCompletionsResponse(upstream: Response, model: strin
   let buffer = ''
   let openedRole = false
   let usage: unknown
+  // Reported by the upstream events; the client never names a model.
+  let model = 'unknown'
 
   // `start` with a drain loop, not `pull` — the dev server's response adapter
   // only consumes a stream that pushes, so a pull-driven one stalls after the
@@ -91,6 +93,11 @@ export function toOpenAiChatCompletionsResponse(upstream: Response, model: strin
             } catch {
               continue
             }
+
+            const meta = (event.metadata as { tanstack?: { model?: unknown } } | undefined)
+              ?.tanstack
+            if (typeof meta?.model === 'string') model = meta.model
+            else if (typeof event.model === 'string') model = event.model
 
             if (event.type === 'TEXT_MESSAGE_CONTENT' && typeof event.delta === 'string') {
               const delta: OpenAiDelta = openedRole

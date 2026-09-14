@@ -20,17 +20,20 @@ const PROXY: ChatConfig['provider'] = {
 interface SurfaceOptions {
   /** Distinct per surface so the two panels don't share a transcript. */
   persistKey: string
-  systemPrompt: string
   ui?: Partial<UiConfig>
 }
 
-export function createChatConfig({ persistKey, systemPrompt, ui }: SurfaceOptions): ChatConfig {
+export function createChatConfig({ persistKey, ui }: SurfaceOptions): ChatConfig {
   return {
     provider: PROXY,
     // The server resolves the real model from its own config; an empty id here
     // would be sent verbatim, so name the surface instead of a provider model.
     model: { id: 'auto', label: 'Assistant', tools: false, vision: false },
-    systemPrompt,
+    // Empty on purpose: the route builds a system prompt from the request
+    // locale, so one from the client would both duplicate it and pin the
+    // assistant to whatever language this bundle was built with. The library
+    // only emits a system message when this is non-empty.
+    systemPrompt: '',
     temperature: 0.7,
     persistKey,
     retry: { attempts: 2, initialDelayMs: 800, maxDelayMs: 6_000 },

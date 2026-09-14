@@ -26,9 +26,9 @@ const handleOpenAiChatPost = async ({ request }: { request: Request }) => {
     headers: request.headers,
     body: JSON.stringify({
       messages: Array.isArray(body.messages) ? body.messages : [],
-      // An empty model id means "whatever the server has configured", which is
-      // the point of proxying: the client never picks the provider.
-      ...(body.model ? { model: body.model } : {}),
+      // `model` is deliberately not forwarded. The client never picks the
+      // provider or the model — that is the point of proxying — and the id the
+      // library sends is a UI label the provider would reject outright.
       params: {
         ...(body.temperature !== undefined ? { temperature: body.temperature } : {}),
         ...(body.top_p !== undefined ? { topP: body.top_p } : {}),
@@ -38,7 +38,7 @@ const handleOpenAiChatPost = async ({ request }: { request: Request }) => {
   })
 
   const upstream = await handleChatPost({ request: upstreamRequest })
-  return toOpenAiChatCompletionsResponse(upstream, body.model || 'auto')
+  return toOpenAiChatCompletionsResponse(upstream)
 }
 
 export const Route = createFileRoute('/api/ai/chat/completions')({

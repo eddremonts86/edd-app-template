@@ -1,4 +1,3 @@
-import { ChatPanel } from '@edd_remonts/ai-schadcn-chat'
 import type { ChatConfig } from '@edd_remonts/ai-schadcn-chat'
 import * as React from 'react'
 
@@ -11,17 +10,17 @@ export interface AiChatSurfaceProps {
   fallback?: React.ReactNode
 }
 
-/**
- * Client-only mount for the chat panel.
- *
- * The panel restores its transcript from localStorage on first render, which
- * the server has no equivalent of — rendering it during SSR produces markup
- * the client immediately replaces, so it waits for mount instead.
- */
+// Loaded through a dynamic import, not a static one: the panel's modules pull
+// in stylesheets with `import "….css"`, which Node cannot evaluate, so a static
+// import puts them in the SSR graph and the server bails out of the whole
+// subtree. Rendering it only after mount keeps them off the server entirely.
+const ChatPanel = React.lazy(async () => ({
+  default: (await import('@edd_remonts/ai-schadcn-chat')).ChatPanel,
+}))
+
 export function AiChatSurface({ fallback = null, ...props }: AiChatSurfaceProps) {
-  // useSyncExternalStore is the sanctioned "am I on the client" read: the
-  // server snapshot is false, the client snapshot true, and nothing sets
-  // state from an effect.
+  // The sanctioned "am I on the client" read: the server snapshot is false, the
+  // client snapshot true, and no state is set from an effect.
   const mounted = React.useSyncExternalStore(
     () => () => {},
     () => true,
@@ -30,5 +29,9 @@ export function AiChatSurface({ fallback = null, ...props }: AiChatSurfaceProps)
 
   if (!mounted) return <>{fallback}</>
 
-  return <ChatPanel {...props} />
+  return (
+    <React.Suspense fallback={<>{fallback}</>}>
+      <ChatPanel {...props} />
+    </React.Suspense>
+  )
 }
