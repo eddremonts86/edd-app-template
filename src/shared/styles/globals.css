@@ -1,4 +1,8 @@
 @import 'tailwindcss';
+/* Scroll-fade variables for @edd_remonts/ai-schadcn-chat. No reset, no
+   token overrides — it only defines its own --scroll-fade-* custom
+   properties, so it cannot reach the app's palette. */
+@import '@edd_remonts/ai-schadcn-chat/styles.css';
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
 
