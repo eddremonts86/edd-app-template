@@ -4,7 +4,6 @@ import type { AiProviderId } from '@/modules/ai/config'
 import { buildChatSystemPrompt, resolveLanguageName } from '@/modules/ai/prompts'
 import {
   consolidateChatMessages,
-  createAiChatResponse,
   createJsonErrorResponse,
   createJsonResponse,
   findLastUserQuery,
@@ -12,9 +11,8 @@ import {
   injectReferenceContext,
   isDashboardDomainQuery,
   normalizeIncomingChatMessages,
+  dispatchProviderChat,
   resolveProviderRuntime,
-  streamLmStudioChat,
-  streamOllamaChat,
 } from '@/modules/ai/server'
 import type { ChatMessages } from '@/modules/ai/server'
 import type { IncomingChatMessage } from '@/modules/ai/server/chat-messages'
@@ -93,32 +91,14 @@ export const handleChatPost = async ({ request }: { request: Request }) => {
       contextLength: 0,
     }).catch(() => undefined)
 
-    if (providerId === 'ollama') {
-      return await streamOllamaChat({
-        config: finalConfig,
-        params: body.params,
-        messages: consolidatedMessages,
-        resolvedModel,
-      })
-    }
-
-    if (providerId === 'lm-studio') {
-      return await streamLmStudioChat({
-        config: finalConfig,
-        params: body.params,
-        messages: consolidatedMessages,
-        resolvedModel,
-      })
-    }
-
-    return createAiChatResponse({
+    return dispatchProviderChat({
       provider,
-      config: finalConfig,
       providerId,
+      config: finalConfig,
       resolvedModel,
       messages: consolidatedMessages as ChatMessages,
-      conversationId: body.conversationId,
       params: body.params,
+      conversationId: body.conversationId,
     })
   } catch (error) {
     const { message, stack } = getErrorDetails(error)

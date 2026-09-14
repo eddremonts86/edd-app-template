@@ -3,13 +3,11 @@ import type { SearchRequestBody } from '@/modules/ai'
 import { buildSearchSystemPrompt, normalizeSearchMessages } from '@/modules/ai/prompts'
 import { retrieveContext } from '@/modules/ai/rag/retrieval'
 import {
-  createAiChatResponse,
   createJsonErrorResponse,
   createJsonResponse,
   getErrorMessage,
+  dispatchProviderChat,
   resolveProviderRuntime,
-  streamLmStudioChat,
-  streamOllamaChat,
 } from '@/modules/ai/server'
 import type { ChatMessages } from '@/modules/ai/server'
 import { isE2E } from '@/shared/lib/env'
@@ -56,30 +54,10 @@ export const handleSearchPost = async ({ request }: { request: Request }) => {
     const systemPrompt = buildSearchSystemPrompt(ragContext)
     const messages = normalizeSearchMessages(query, systemPrompt)
 
-    if (providerId === 'ollama') {
-      return await streamOllamaChat({
-        config: finalConfig,
-        params: body.params,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        messages: messages as any,
-        resolvedModel,
-      })
-    }
-
-    if (providerId === 'lm-studio') {
-      return await streamLmStudioChat({
-        config: finalConfig,
-        params: body.params,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        messages: messages as any,
-        resolvedModel,
-      })
-    }
-
-    return createAiChatResponse({
+    return dispatchProviderChat({
       provider,
-      config: finalConfig,
       providerId,
+      config: finalConfig,
       resolvedModel,
       messages: messages as unknown as ChatMessages,
       params: body.params,

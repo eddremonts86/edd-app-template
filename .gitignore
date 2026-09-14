@@ -92,3 +92,8 @@ models/*.gguf
 # Local env bundles — never commit
 env.zip
 *.env.zip
+
+# Local AI provider state — holds API keys once configured through the UI.
+# A real MiniMax key was committed here once; keep it out of version control.
+src/modules/ai/data/ai-config-store.json
+src/modules/ai/data/audit-logs.json

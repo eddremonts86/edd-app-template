@@ -91,11 +91,38 @@ export function consolidateChatMessages(messages: ChatMessage[]): ChatMessage[] 
   return result
 }
 
+/**
+ * Flatten a message body to plain text.
+ *
+ * `content` is a string on the legacy shape and an array of content parts on the
+ * one the AI SDK sends. Returning the array unchanged crashed every downstream
+ * consumer that called `.toLowerCase()` on it, which took the whole chat route
+ * down with a 500 for any client using the modern shape.
+ */
+function toPlainText(content: unknown): string {
+  if (typeof content === 'string') return content
+  if (!Array.isArray(content)) return ''
+
+  return content
+    .map((part) => {
+      if (typeof part === 'string') return part
+      if (part && typeof part === 'object' && 'text' in part) {
+        const { text } = part as { text?: unknown }
+        return typeof text === 'string' ? text : ''
+      }
+      return ''
+    })
+    .filter(Boolean)
+    .join(' ')
+}
+
 export function findLastUserQuery(messages: ChatMessage[]): string | undefined {
-  return messages
+  const lastUserMessage = messages
     .slice()
     .reverse()
-    .find((message) => message.role === 'user' && message.content.length > 0)?.content
+    .find((message) => message.role === 'user' && toPlainText(message.content).length > 0)
+
+  return lastUserMessage ? toPlainText(lastUserMessage.content) : undefined
 }
 
 export async function isDashboardDomainQuery(query?: string): Promise<boolean> {

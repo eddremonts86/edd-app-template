@@ -59,5 +59,10 @@ export function resolveProviderModel(options: {
     }
   }
 
-  return discoveredModel || normalizedConfiguredModel || autoModelFallback || 'auto'
+  // `autoModelFallback` is the calling route's local-model default (an Ollama
+  // tag). Handing it to a cloud provider sent MiniMax the string "qwen3.5:2b"
+  // and got back `unknown model`, which is how the global search appeared to be
+  // broken while the provider itself was healthy.
+  const ollamaOnlyFallback = providerId === 'ollama' ? autoModelFallback : undefined
+  return discoveredModel || normalizedConfiguredModel || ollamaOnlyFallback || 'auto'
 }

@@ -4,12 +4,27 @@ import tailwindcss from '@tailwindcss/vite'
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
 const isTest = process.env.NODE_ENV === 'test' || !!process.env.VITEST
 const isViteDevtoolsDisabled = process.env.DISABLE_TANSTACK_VITE_DEVTOOLS === 'true'
 
 const config = defineConfig((configEnv) => {
+  // Vite only exposes VITE_-prefixed vars, and only to import.meta.env. Server
+  // code reads process.env (AI provider keys, DATABASE_URL, auth secrets), which
+  // `vite dev` never populates — so every server-side secret resolved empty and
+  // the AI providers all reported AUTH_REQUIRED with a key sitting in .env.
+  // Load the full env and merge it in, without clobbering anything the shell
+  // already set (CI and Docker pass real values that must win).
+  // Not under test: the suite asserts the built-in defaults, and leaking a
+  // developer's .env into it makes the results depend on whose machine it runs on.
+  if (!isTest && configEnv.mode !== 'test') {
+    const fileEnv = loadEnv(configEnv.mode, process.cwd(), '')
+    for (const [key, value] of Object.entries(fileEnv)) {
+      if (process.env[key] === undefined) process.env[key] = value
+    }
+  }
+
   // NOTE: TanStack Start's Vite plugin does not set isSsrBuild=true for its
   // server bundle (it uses the Environment API internally). This alias therefore
   // applies to the CLIENT bundle only — server-only code must import via the
