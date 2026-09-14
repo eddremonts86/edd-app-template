@@ -118,9 +118,11 @@ export function SettingsLayout() {
         <p className="text-muted-foreground max-w-2xl">{t('settings.description')}</p>
       </div>
 
-      <div className="flex gap-8 items-start">
+      {/* Single column on phones: a 208px shrink-0 rail beside the content left
+          it 103px wide at 375px, which clipped every settings card. */}
+      <div className="flex flex-col gap-6 md:flex-row md:gap-8 md:items-start">
         {/* Left nav */}
-        <nav className="w-52 shrink-0 flex flex-col gap-1">
+        <nav className="flex flex-col gap-1 md:w-52 md:shrink-0">
           {visibleSections.map((section) => (
             <SettingsNavSection key={section.id} section={section} currentPath={pathname} />
           ))}

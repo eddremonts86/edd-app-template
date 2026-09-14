@@ -46,7 +46,7 @@ export function NotificationBell() {
         <Button
           variant="ghost"
           size="icon"
-          className="relative rounded-full"
+          className="relative rounded-full size-11 md:size-9"
           data-testid="dashboard-notification-trigger"
         >
           <Bell className="h-5 w-5" />
