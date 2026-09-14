@@ -6,14 +6,11 @@ import { users } from '@/shared/lib/db/schema'
 
 type Intent =
   | 'users'
-  | 'todos'
-  | 'transactions'
-  | 'categories'
+  | 'contactMessages'
   | 'dashboard'
-  | 'analytics'
-  | 'projects'
-  | 'team'
   | 'settings'
+  | 'ai'
+  | 'database'
   | 'help'
   | 'navigation'
   | 'status'
@@ -23,7 +20,7 @@ type Intent =
 // ---------------------------------------------------------------------------
 
 type ActionType = 'create' | 'edit' | 'delete'
-type ActionEntity = 'todo' | 'user' | 'transaction' | 'category'
+type ActionEntity = 'user'
 
 interface ActionIntent {
   action: ActionType
@@ -81,29 +78,19 @@ const ACTION_KEYWORDS: Record<ActionType, string[]> = {
   ],
 }
 
+// Users are the only entity this app creates, edits or deletes from chat.
 const ENTITY_KEYWORDS: Record<ActionEntity, string[]> = {
-  todo: ['tarea', 'tareas', 'task', 'tasks', 'todo', 'todos', 'pendiente'],
-  user: ['usuario', 'usuarios', 'user', 'users', 'miembro', 'member'],
-  transaction: [
-    'transacción',
-    'transaccion',
-    'transacciones',
-    'transaction',
-    'transactions',
-    'pago',
-    'pagos',
-  ],
-  category: ['categoría', 'categoria', 'categorias', 'category', 'categories'],
+  user: ['usuario', 'usuarios', 'user', 'users', 'miembro', 'member', 'cuenta', 'account'],
 }
 
 function detectActionIntent(query: string): ActionIntent | null {
-  const lowerQuery = query.toLowerCase()
+  const haystack = tokenize(query)
 
   let detectedAction: ActionType | null = null
   let detectedEntity: ActionEntity | null = null
 
   for (const [action, keywords] of Object.entries(ACTION_KEYWORDS)) {
-    if (keywords.some((kw) => lowerQuery.includes(kw))) {
+    if (keywords.some((kw) => haystack.includes(tokenize(kw)))) {
       detectedAction = action as ActionType
       break
     }
@@ -112,7 +99,7 @@ function detectActionIntent(query: string): ActionIntent | null {
   if (!detectedAction) return null
 
   for (const [entity, keywords] of Object.entries(ENTITY_KEYWORDS)) {
-    if (keywords.some((kw) => lowerQuery.includes(kw))) {
+    if (keywords.some((kw) => haystack.includes(tokenize(kw)))) {
       detectedEntity = entity as ActionEntity
       break
     }
@@ -128,66 +115,38 @@ function detectActionIntent(query: string): ActionIntent | null {
 const INTENT_KEYWORDS: Record<Intent, string[]> = {
   users: [
     'user',
+    'users',
     'usuario',
     'usuarios',
     'admin',
+    'admins',
     'administrador',
     'rol',
+    'roles',
     'role',
     'miembro',
+    'miembros',
     'member',
+    'members',
   ],
-  todos: [
-    'task',
-    'tasks',
-    'tarea',
-    'tareas',
-    'todo',
-    'todos',
-    'pendiente',
-    'pendientes',
-    'resolver',
-    'completar',
-    'falta',
-    'faltan',
-    'prioridad',
-    'priority',
-    'urgente',
-    'importante',
-    'hoy',
-    'mañana',
-    'vencida',
-    'overdue',
-    'progreso',
-    'progress',
-    'in_progress',
-  ],
-  transactions: [
-    'transaction',
-    'transactions',
-    'transacción',
-    'transacciones',
-    'transaccion',
-    'payment',
-    'pago',
-    'pagos',
-    'amount',
-    'monto',
-    'dinero',
-    'revenue',
-    'ingreso',
-    'cliente',
-    'customer',
-  ],
-  categories: [
-    'category',
-    'categories',
-    'categoría',
-    'categorias',
-    'categoria',
-    'color',
-    'etiqueta',
-    'label',
+  contactMessages: [
+    'contact',
+    'contacts',
+    'contacto',
+    'mensaje',
+    'mensajes',
+    'message',
+    'messages',
+    'inbox',
+    'bandeja',
+    'unread',
+    'sin leer',
+    'no leidos',
+    'no leídos',
+    'archivar',
+    'archive',
+    'responder',
+    'reply',
   ],
   dashboard: [
     'dashboard',
@@ -197,29 +156,44 @@ const INTENT_KEYWORDS: Record<Intent, string[]> = {
     'estadísticas',
     'estadisticas',
     'stats',
-    'suscripciones',
-    'subscriptions',
-    'ventas',
-    'sales',
-    'activos',
-    'active',
-    'revenue',
-    'ingresos',
+    'resumen',
+    'overview',
+    'actividad',
+    'activity',
   ],
-  analytics: [
-    'analytics',
-    'analíticas',
-    'analiticas',
-    'chart',
-    'gráfico',
-    'grafico',
-    'views',
-    'vistas',
-    'reporte',
-    'report',
+  ai: [
+    'proveedor',
+    'proveedores',
+    'provider',
+    'providers',
+    'modelo',
+    'modelos',
+    'model',
+    'models',
+    'minimax',
+    'ollama',
+    'openai',
+    'anthropic',
+    'lm studio',
+    'temperature',
+    'temperatura',
+    'token',
+    'tokens',
   ],
-  projects: ['project', 'projects', 'proyecto', 'proyectos'],
-  team: ['team', 'equipo', 'miembros', 'members'],
+  database: [
+    'database',
+    'base de datos',
+    'bd',
+    'migracion',
+    'migración',
+    'migraciones',
+    'migration',
+    'migrations',
+    'sql',
+    'postgres',
+    'esquema',
+    'schema',
+  ],
   settings: [
     'settings',
     'configuración',
@@ -276,12 +250,28 @@ const INTENT_KEYWORDS: Record<Intent, string[]> = {
   status: ['status', 'estado', 'system', 'sistema', 'health', 'salud'],
 }
 
+/**
+ * Lowercased, punctuation turned into spaces, and padded — so a keyword can be
+ * matched on word boundaries with a plain `includes`.
+ *
+ * Matching bare substrings made "Copenhagen" contain "open" and pulled a
+ * navigation intent out of a question about the weather. Multi-word keywords
+ * ('barra lateral', 'ir a') and accented ones ('sección') still work, which a
+ * \b regex would not manage.
+ */
+function tokenize(text: string): string {
+  return ` ${text
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()} `
+}
+
 function detectIntent(query: string): Intent[] {
   const intents: Intent[] = []
-  const lowerQuery = query.toLowerCase()
+  const haystack = tokenize(query)
 
   for (const [intent, keywords] of Object.entries(INTENT_KEYWORDS)) {
-    if (keywords.some((kw) => lowerQuery.includes(kw))) {
+    if (keywords.some((kw) => haystack.includes(tokenize(kw)))) {
       intents.push(intent as Intent)
     }
   }
@@ -302,11 +292,14 @@ interface AppKnowledge {
       description?: string
       descriptionEs?: string
     }>
+    // Same shape as `main`: every secondary entry is a real route now that
+    // none of them are bare actions.
     secondary: Array<{
       label: string
       labelEs: string
-      url?: string
-      action?: string
+      url: string
+      description?: string
+      descriptionEs?: string
     }>
   }
   pages: Record<
@@ -361,11 +354,8 @@ function buildAppNavigationContext(knowledge: AppKnowledge, locale: string): str
 
   for (const item of knowledge.navigation.secondary) {
     const label = isSpanish ? item.labelEs : item.label
-    if (item.url) {
-      lines.push(`• ${label}: ${item.url}`)
-    } else if (item.action) {
-      lines.push(`• ${label}: ${item.action}`)
-    }
+    const description = isSpanish ? item.descriptionEs : item.description
+    lines.push(`• ${label}: ${item.url}${description ? ` — ${description}` : ''}`)
   }
 
   return lines.join('\n')
@@ -390,14 +380,11 @@ function buildCommonAnswersContext(knowledge: AppKnowledge, intents: Intent[]): 
 
   // Map intents to whereToFind keys
   const intentToKey: Partial<Record<Intent, string>> = {
-    todos: 'tasks',
     users: 'users',
-    transactions: 'transactions',
-    analytics: 'analytics',
+    contactMessages: 'contactMessages',
     settings: 'settings',
-    projects: 'projects',
-    team: 'team',
-    categories: 'categories',
+    ai: 'ai',
+    database: 'database',
     help: 'help',
   }
 
@@ -466,24 +453,15 @@ async function fetchDynamicContext(intents: Intent[]): Promise<string | null> {
 // ---------------------------------------------------------------------------
 
 const ACTION_CREATE_SCHEMAS: Record<ActionEntity, string> = {
-  todo: `{"title":"<task title>","description":"<task description>","status":"pending","priority":"medium","dueDate":"<YYYY-MM-DD>","assignedTo":"<userId>"}`,
-  user: `{"name":"<user name>","email":"<user email>","role":"user","avatar":"https://api.dicebear.com/7.x/avataaars/svg?seed=<name>","createdAt":"<ISO date>"}`,
-  transaction: `{"customer":{"name":"<customer name>","email":"<email>"},"status":"Pending","date":"<YYYY-MM-DD>","amount":<number>}`,
-  category: `{"name":"<category name>","color":"<hex color>"}`,
+  user: `{"name":"<user name>","email":"<user email>","role":"user"}`,
 }
 
 const ACTION_UPDATE_SCHEMAS: Record<ActionEntity, string> = {
-  todo: `{"title":"<new title>","description":"<new description>","status":"<pending|in_progress|completed>","priority":"<low|medium|high>","dueDate":"<YYYY-MM-DD>","assignedTo":"<userId>"}`,
   user: `{"name":"<new name>","email":"<new email>","role":"<admin|user>"}`,
-  transaction: `{"customer":{"name":"<name>","email":"<email>"},"status":"<Approved|Pending|Rejected>","amount":<number>}`,
-  category: `{"name":"<new name>","color":"<new hex color>"}`,
 }
 
 const ENTITY_LABELS: Record<ActionEntity, { en: string; es: string }> = {
-  todo: { en: 'task', es: 'tarea' },
   user: { en: 'user', es: 'usuario' },
-  transaction: { en: 'transaction', es: 'transacción' },
-  category: { en: 'category', es: 'categoría' },
 }
 
 function buildActionInstructions(actionIntent: ActionIntent, locale: string): string {
@@ -505,9 +483,7 @@ function buildActionInstructions(actionIntent: ActionIntent, locale: string): st
       `{"type":"create_${actionIntent.entity}","data":${schema}}`,
       '```',
       `4. Fill in the data fields based on what the user provided. Use sensible defaults for missing fields.`,
-      `5. For dueDate, use today's date (${new Date().toISOString().split('T')[0]}) if not specified.`,
-      `6. For assignedTo, use the current user's ID from the context data if available.`,
-      `7. After the code block, tell the user to click the button to confirm the creation.`,
+      `5. After the code block, tell the user to click the button to confirm the creation.`,
       `IMPORTANT: The code block language MUST be "action" (not json, not javascript). This triggers the UI button.`,
     ].join('\n')
   }
@@ -581,14 +557,11 @@ export async function injectDynamicContext(query: string, locale: string = 'en')
       // Add specific page context for matched intents
       const intentToUrl: Partial<Record<Intent, string>> = {
         dashboard: '/dashboard',
-        todos: '/dashboard/todos',
-        analytics: '/dashboard/analytics',
-        projects: '/dashboard/projects',
-        team: '/dashboard/team',
         users: '/dashboard/users',
-        categories: '/dashboard/categories',
-        transactions: '/dashboard/transactions',
-        settings: '/dashboard/settings',
+        contactMessages: '/dashboard/contact-messages',
+        settings: '/dashboard/settings/system',
+        ai: '/dashboard/settings/ia_config',
+        database: '/dashboard/admin/database',
         help: '/dashboard/help',
       }
 

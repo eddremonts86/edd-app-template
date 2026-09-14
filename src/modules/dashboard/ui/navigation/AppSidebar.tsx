@@ -1,28 +1,10 @@
 import { IconInnerShadowTop } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
-import {
-  AlertCircle,
-  ChevronRight,
-  Loader2,
-  Navigation,
-  Pin,
-  PinOff,
-  Search,
-  Sparkles,
-  WifiOff,
-  X,
-} from 'lucide-react'
+import { ChevronRight, Navigation, Pin, PinOff, Search, WifiOff, X } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import {
-  Badge,
   Button,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
   Sheet,
   SheetContent,
   SheetDescription,
@@ -32,7 +14,6 @@ import {
   CommandList,
   CommandGroup,
   CommandItem,
-  ScrollArea,
 } from '@/components/ui'
 import {
   Sidebar,
@@ -45,30 +26,12 @@ import {
 } from '@/components/ui/sidebar'
 import { getSidebarNavigation } from '@/modules'
 import { useAiSearch } from '@/modules/ai'
-import type { AiProviderId } from '@/modules/ai/config'
+import { AiChatSurface, createChatConfig } from '@/modules/ai/chat'
 import { useCurrentUser } from '@/modules/users'
 import { cn } from '@/shared/lib/utils'
 import { NavMain } from './NavMain'
 import { NavSecondary } from './NavSecondary'
 import { NavUser } from './NavUser'
-
-type SearchResultPayload = {
-  result: unknown
-  providerId?: AiProviderId
-}
-
-const extractSearchText = (result: unknown) => {
-  if (!result) return ''
-  if (typeof result === 'string') return result
-  if (typeof result === 'object' && result !== null) {
-    const record = result as Record<string, unknown>
-    const message = record.message as Record<string, unknown> | undefined
-    if (message && typeof message.content === 'string') return message.content
-    if (typeof record.content === 'string') return record.content
-    if (Array.isArray(record.output_text)) return record.output_text.join('\n')
-  }
-  return JSON.stringify(result)
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { t } = useTranslation()
@@ -76,11 +39,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   void currentUserId
 
   const { isOpen: isSearchOpen, setIsOpen: setIsSearchOpen, isPinned, setIsPinned } = useAiSearch()
-  const [searchQuery, setSearchQuery] = React.useState('')
-  const [searchResult, setSearchResult] = React.useState<SearchResultPayload | null>(null)
   const [isOnline, setIsOnline] = React.useState(true)
-  const [isSearching, setIsSearching] = React.useState(false)
-  const [searchError, setSearchError] = React.useState<string | null>(null)
 
   React.useEffect(() => {
     if (typeof window === 'undefined') return
@@ -110,75 +69,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return () => window.removeEventListener('keydown', handleKeydown)
   }, [setIsSearchOpen])
 
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!searchQuery.trim()) return
-
-    setIsSearching(true)
-    setSearchError(null)
-    setSearchResult({ result: '', providerId: undefined })
-
-    try {
-      const response = await fetch('/api/ai/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: searchQuery }),
-      })
-
-      if (!response.ok) {
-        throw new Error((await response.text()) || 'Search failed')
-      }
-
-      if (!response.body) return
-
-      const reader = response.body.getReader()
-      const decoder = new TextDecoder()
-      let accumulatedText = ''
-
-      while (true) {
-        const { done, value } = await reader.read()
-        if (done) break
-
-        const chunk = decoder.decode(value, { stream: true })
-        const lines = chunk.split('\n')
-
-        for (const line of lines) {
-          if (line && line.startsWith('data: ')) {
-            const data = line.slice(6)
-            if (data === '[DONE]') continue
-
-            try {
-              const parsed = JSON.parse(data)
-              // Handle various delta formats from different providers/adapters
-              let text = ''
-              if (typeof parsed.text === 'string') text = parsed.text
-              else if (typeof parsed.delta === 'string') text = parsed.delta
-              else if (typeof parsed.content === 'string') text = parsed.content
-              else if (typeof parsed === 'string') text = parsed
-              // Handle OpenAI standard format
-              else if (Array.isArray(parsed.choices) && parsed.choices[0]?.delta?.content) {
-                text = parsed.choices[0].delta.content
-              }
-
-              if (text) {
-                accumulatedText += text
-                setSearchResult((prev) => ({
-                  result: accumulatedText,
-                  providerId: prev?.providerId, // Provider ID might need a separate event or response header
-                }))
-              }
-            } catch {
-              // Ignore parse errors
-            }
-          }
-        }
-      }
-    } catch (error) {
-      setSearchError(error instanceof Error ? error.message : 'Unknown error')
-    } finally {
-      setIsSearching(false)
-    }
-  }
   const transactionBadge = undefined
   const overBudgetBadge = undefined
 
@@ -194,13 +84,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     },
   })
 
+  // Its own persistKey: the search panel and the help page are separate
+  // conversations, and sharing one would surface help answers here.
+  const searchConfig = React.useMemo(
+    () =>
+      createChatConfig({
+        persistKey: 'edd-app:global-search',
+        ui: {
+          placeholder: t('ai.search.placeholder'),
+          enableConversationHistory: false,
+        },
+      }),
+    [t],
+  )
+
   const searchableLinks = [
     ...navMain.flatMap((section) => section.items).filter((item) => item.url),
     ...navSecondary.filter((item) => item.url),
   ]
-  const filteredLinks = searchableLinks.filter((item) =>
-    item.title.toLowerCase().includes(searchQuery.trim().toLowerCase()),
-  )
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -225,16 +126,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>
-      <Sheet
-        modal={!isPinned}
-        open={isSearchOpen}
-        onOpenChange={(open) => {
-          setIsSearchOpen(open)
-          if (!open && !searchQuery.trim()) {
-            setSearchResult(null)
-          }
-        }}
-      >
+      <Sheet modal={!isPinned} open={isSearchOpen} onOpenChange={setIsSearchOpen}>
         <SheetContent
           overlay={!isPinned}
           showCloseButton={false}
@@ -276,148 +168,30 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SheetHeader>
 
           <div className="flex flex-1 flex-col overflow-hidden">
-            <form
-              className="flex shrink-0 flex-col gap-4 border-b p-4 bg-background"
-              onSubmit={handleSearch}
-            >
-              <div className="flex flex-col gap-3">
-                <InputGroup>
-                  <InputGroupAddon>
-                    <Search className="size-4 text-muted-foreground" />
-                  </InputGroupAddon>
-                  <InputGroupInput
-                    value={searchQuery}
-                    onChange={(event) => setSearchQuery(event.target.value)}
-                    placeholder={t('ai.search.placeholder')}
-                    className="h-10"
-                  />
-                  <InputGroupAddon align="inline-end">
-                    <kbd className="pointer-events-none flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-                      <span className="text-xs">⌘</span>K
-                    </kbd>
-                  </InputGroupAddon>
-                  <InputGroupAddon align="inline-end" className="p-0">
-                    <InputGroupButton
-                      type="submit"
-                      disabled={!isOnline || isSearching || !searchQuery.trim()}
-                      variant="default"
-                      className="h-full w-20 rounded-l-none border-l-0 hover:bg-primary/90 transition-all shadow-none"
-                      title={t('ai.search.cta')}
-                    >
-                      {isSearching ? (
-                        <Loader2 className="size-4 animate-spin" />
-                      ) : (
-                        <span className="font-medium">{t('ai.search.cta')}</span>
-                      )}
-                    </InputGroupButton>
-                  </InputGroupAddon>
-                </InputGroup>
-
-                {!isOnline && (
-                  <div className="flex items-center gap-2 text-xs text-destructive">
-                    <WifiOff className="size-3" />
-                    {t('ai.search.offline')}
-                  </div>
-                )}
-                {searchError && (
-                  <div className="flex items-center gap-2 text-xs text-destructive">
-                    <AlertCircle className="size-3" />
-                    {t('ai.search.error')}
-                  </div>
-                )}
+            {!isOnline && (
+              <div className="text-destructive flex shrink-0 items-center gap-2 border-b px-6 py-3 text-xs">
+                <WifiOff className="size-3" />
+                {t('ai.search.offline')}
               </div>
-            </form>
+            )}
 
-            <ScrollArea className="flex-1 min-h-0">
-              <div className="p-6 space-y-8">
-                {/* AI Summary Section */}
-                <section>
-                  <div className="mb-4 flex items-center justify-between">
-                    <h3 className="text-sm font-semibold flex items-center gap-2">
-                      <Sparkles className="size-4 text-primary" />
-                      {t('ai.search.resultsTitle')}
-                    </h3>
-                    {searchResult?.providerId && (
-                      <Badge variant="secondary" className="font-mono text-[10px]">
-                        {searchResult.providerId.toUpperCase()}
-                      </Badge>
-                    )}
-                  </div>
-                  <div className="bg-transparent p-0">
-                    <div className="text-sm leading-relaxed text-foreground/90">
-                      {searchResult?.result ? (
-                        <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:mb-2 [&>ul]:list-disc [&>ul]:pl-4 [&>ol]:list-decimal [&>ol]:pl-4">
-                          <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            components={{
-                              h1: ({ node: _node, children, ...props }) => (
-                                <h1 className="text-xl font-bold mt-4 mb-2" {...props}>
-                                  {children}
-                                </h1>
-                              ),
-                              h2: ({ node: _node, children, ...props }) => (
-                                <h2 className="text-lg font-semibold mt-3 mb-2" {...props}>
-                                  {children}
-                                </h2>
-                              ),
-                              h3: ({ node: _node, children, ...props }) => (
-                                <h3 className="text-base font-medium mt-2 mb-1" {...props}>
-                                  {children}
-                                </h3>
-                              ),
-                              ul: ({ node: _node, ...props }) => (
-                                <ul className="list-disc pl-5 my-2 space-y-1" {...props} />
-                              ),
-                              ol: ({ node: _node, ...props }) => (
-                                <ol className="list-decimal pl-5 my-2 space-y-1" {...props} />
-                              ),
-                              li: ({ node: _node, ...props }) => (
-                                <li className="text-sm leading-relaxed" {...props} />
-                              ),
-                              p: ({ node: _node, ...props }) => (
-                                <p className="text-sm leading-relaxed mb-2" {...props} />
-                              ),
-                              a: ({ node: _node, ...props }) => (
-                                <a
-                                  className="text-primary hover:underline font-medium"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  {...props}
-                                />
-                              ),
-                              code: ({ node: _node, ...props }) => (
-                                <code
-                                  className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono"
-                                  {...props}
-                                />
-                              ),
-                              blockquote: ({ node: _node, ...props }) => (
-                                <blockquote
-                                  className="border-l-2 border-primary/20 pl-4 italic my-2"
-                                  {...props}
-                                />
-                              ),
-                            }}
-                          >
-                            {extractSearchText(searchResult.result)}
-                          </ReactMarkdown>
-                        </div>
-                      ) : (
-                        <div className="flex flex-col items-center justify-center py-4 text-center">
-                          <div className="rounded-full bg-muted p-3 mb-3">
-                            <Search className="size-5 text-muted-foreground" />
-                          </div>
-                          <p className="text-muted-foreground italic">{t('ai.search.empty')}</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </ScrollArea>
+            {/* The panel sizes itself with h-full, so it needs a parent with a
+                resolved height rather than a bare flex child. */}
+            <div className="flex min-h-0 flex-1 flex-col">
+              <AiChatSurface
+                config={searchConfig}
+                layout="panel"
+                className="h-full border-0"
+                hideHeader
+                fallback={
+                  <p className="text-muted-foreground p-6 text-sm">{t('common.loading')}</p>
+                }
+              />
+            </div>
 
-            {/* Suggestions Section inside Command */}
-            <Command className="[&_[data-slot=command-group-heading]]:text-muted-foreground border-t rounded-none bg-muted/10 shrink-0">
+            {/* Suggestions. h-auto overrides Command's own h-full, which would
+                otherwise claim the whole sheet and collapse the panel to 0. */}
+            <Command className="[&_[data-slot=command-group-heading]]:text-muted-foreground border-t rounded-none bg-muted/10 h-auto shrink-0">
               <CommandList className="p-6">
                 <CommandGroup
                   heading={
@@ -429,34 +203,32 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   className="space-y-3"
                 >
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 mt-2">
-                    {(filteredLinks.length ? filteredLinks : searchableLinks)
-                      .slice(0, 4)
-                      .map((item) => (
-                        <CommandItem
-                          key={item.title}
-                          asChild
-                          className="p-0 border hover:border-primary/50 bg-background hover:bg-primary/5"
+                    {searchableLinks.slice(0, 4).map((item) => (
+                      <CommandItem
+                        key={item.title}
+                        asChild
+                        className="p-0 border hover:border-primary/50 bg-background hover:bg-primary/5"
+                      >
+                        <Link
+                          to={item.url as '/dashboard'}
+                          onClick={() => setIsSearchOpen(false)}
+                          className="group flex w-full items-center gap-3 rounded-lg p-3 transition-all"
                         >
-                          <Link
-                            to={item.url as '/dashboard'}
-                            onClick={() => setIsSearchOpen(false)}
-                            className="group flex w-full items-center gap-3 rounded-lg p-3 transition-all"
-                          >
-                            <div className="flex size-8 items-center justify-center rounded-md bg-muted transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                              <item.icon className="size-4" />
-                            </div>
-                            <div className="flex flex-col overflow-hidden">
-                              <span className="truncate text-sm font-medium group-hover:text-primary">
-                                {item.title}
-                              </span>
-                              <span className="truncate text-[10px] text-muted-foreground">
-                                {item.url}
-                              </span>
-                            </div>
-                            <ChevronRight className="ml-auto size-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
-                          </Link>
-                        </CommandItem>
-                      ))}
+                          <div className="flex size-8 items-center justify-center rounded-md bg-muted transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                            <item.icon className="size-4" />
+                          </div>
+                          <div className="flex flex-col overflow-hidden">
+                            <span className="truncate text-sm font-medium group-hover:text-primary">
+                              {item.title}
+                            </span>
+                            <span className="truncate text-[10px] text-muted-foreground">
+                              {item.url}
+                            </span>
+                          </div>
+                          <ChevronRight className="ml-auto size-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-1" />
+                        </Link>
+                      </CommandItem>
+                    ))}
                   </div>
                 </CommandGroup>
               </CommandList>
