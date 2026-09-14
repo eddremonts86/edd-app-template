@@ -333,7 +333,9 @@
       "editDescription": "Actualiza la información de contacto y permisos."
     },
     "confirm": {
-      "delete": "¿Estás seguro de que quieres eliminar este usuario?"
+      "deleteTitle": "¿Eliminar este usuario?",
+      "deleteBody": "{{name}} ({{email}}) se eliminará de forma permanente. Esto no se puede deshacer.",
+      "deleteSelf": "No puedes eliminar la cuenta con la que has iniciado sesión. Pide a otro administrador que la elimine."
     },
     "loadingMore": "Sincronizando...",
     "loadMore": "Cargar más usuarios",

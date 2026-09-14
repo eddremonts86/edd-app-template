@@ -803,7 +803,9 @@
       "department": "Afdeling"
     },
     "confirm": {
-      "delete": "Er du sikker på, at du vil slette denne bruger?"
+      "deleteTitle": "Slet denne bruger?",
+      "deleteBody": "{{name}} ({{email}}) fjernes permanent. Dette kan ikke fortrydes.",
+      "deleteSelf": "Du kan ikke slette den konto, du er logget ind med. Bed en anden administrator om at fjerne den."
     },
     "loadingMore": "Synkroniserer...",
     "loadMore": "Indlæs flere brugere",
