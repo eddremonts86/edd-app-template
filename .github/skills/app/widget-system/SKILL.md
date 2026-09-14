@@ -222,9 +222,7 @@ export function MyWidget() {
   }
 
   // transformar data para el chart
-  const chartData = (data ?? []).map((item) => ({
-    /* ... */
-  }))
+  const chartData = (data ?? []).map((item) => ({/* ... */}))
 
   return (
     <Card>
@@ -407,9 +405,7 @@ export const getMyWidgetDataFn = createServerFn({ method: 'GET' })
   .validator((input: { filters?: Record<string, unknown> }) => input)
   .handler(async ({ data }) => {
     // query a la DB
-    return db.query.myTable.findMany({
-      /* ... */
-    })
+    return db.query.myTable.findMany({/* ... */})
   })
 ```
 

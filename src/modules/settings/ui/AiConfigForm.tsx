@@ -269,7 +269,10 @@ function ProviderStatusCard({
         <div className="flex items-center justify-between text-[10px] text-muted-foreground font-medium">
           <span>{status?.modelCount ? `${status.modelCount} models` : 'No models'}</span>
           {status?.message && !isAvailable && (
-            <span className="text-red-500 max-w-28 truncate" title={status.message}>
+            <span
+              className="text-red-700 dark:text-red-400 max-w-28 truncate"
+              title={status.message}
+            >
               {status.message}
             </span>
           )}
@@ -342,7 +345,9 @@ function ProviderStatusCard({
                 <span
                   className={cn(
                     'block font-mono font-medium',
-                    testResult.ok ? 'text-emerald-500' : 'text-red-500',
+                    testResult.ok
+                      ? 'text-emerald-700 dark:text-emerald-400'
+                      : 'text-red-700 dark:text-red-400',
                   )}
                 >
                   {testResult.message}

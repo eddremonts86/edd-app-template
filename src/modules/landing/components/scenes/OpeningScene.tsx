@@ -114,7 +114,11 @@ export function OpeningScene() {
               className="h-8 w-8 shrink-0 rounded-lg p-0 text-muted-foreground hover:bg-background/80 hover:text-foreground"
               aria-label={t('home.opening.copyCommandAria', 'Copy the install command')}
             >
-              {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+              {copied ? (
+                <Check className="h-4 w-4 text-emerald-700 dark:text-emerald-400" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
             </Button>
           </div>
 

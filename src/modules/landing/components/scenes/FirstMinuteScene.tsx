@@ -93,7 +93,7 @@ export function FirstMinuteScene() {
                   line.startsWith('$')
                     ? 'text-foreground'
                     : line.startsWith('✔')
-                      ? 'text-green-500'
+                      ? 'text-emerald-700 dark:text-emerald-400'
                       : 'text-muted-foreground'
                 }
               >

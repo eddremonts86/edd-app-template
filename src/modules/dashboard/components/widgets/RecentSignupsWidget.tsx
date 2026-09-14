@@ -89,7 +89,7 @@ export function RecentSignupsWidget({ className }: Readonly<RecentSignupsWidgetP
     <Card className={cn('flex flex-col border-border/60', className)}>
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-base">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-emerald-500/10 text-emerald-500">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">
             <IconUserPlus className="h-4 w-4" aria-hidden />
           </span>
           {t('dashboard.overview.recentSignups.title')}

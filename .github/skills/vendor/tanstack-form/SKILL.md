@@ -3,7 +3,6 @@ name: tanstack-form
 description: Headless, performant, and type-safe form state management for TS/JS, React, Vue, Angular, Solid, Lit, and Svelte.
 ---
 
-
 ## Overview
 
 TanStack Form is a headless form library with deep TypeScript integration. It provides field-level and form-level validation (sync/async), array fields, linked/dependent fields, fine-grained reactivity, and schema validation adapter support (Zod, Valibot, Yup).
@@ -107,12 +106,12 @@ function MyForm() {
 
 ### Validation Timing
 
-| Cause | When |
-|-------|------|
+| Cause      | When                     |
+| ---------- | ------------------------ |
 | `onChange` | After every value change |
-| `onBlur` | When field loses focus |
-| `onSubmit` | During submission |
-| `onMount` | When field mounts |
+| `onBlur`   | When field loses focus   |
+| `onSubmit` | During submission        |
+| `onMount`  | When field mounts        |
 
 ### Synchronous Validation
 
@@ -248,12 +247,12 @@ const form = useForm({
 ### Array Methods
 
 ```typescript
-field.pushValue(item)              // Add to end
-field.insertValue(index, item)     // Insert at index
-field.replaceValue(index, item)    // Replace at index
-field.removeValue(index)           // Remove at index
-field.swapValues(indexA, indexB)    // Swap positions
-field.moveValue(from, to)          // Move position
+field.pushValue(item) // Add to end
+field.insertValue(index, item) // Insert at index
+field.replaceValue(index, item) // Replace at index
+field.removeValue(index) // Remove at index
+field.swapValues(indexA, indexB) // Swap positions
+field.moveValue(from, to) // Move position
 ```
 
 ## Listeners (Side Effects)
@@ -275,7 +274,7 @@ field.moveValue(from, to)          // Move position
 
 ```tsx
 // Render-prop subscription (fine-grained)
-<form.Subscribe
+;<form.Subscribe
   selector={(state) => ({ canSubmit: state.canSubmit, isDirty: state.isDirty })}
   children={({ canSubmit, isDirty }) => (
     <div>
@@ -301,7 +300,7 @@ interface FormState {
   errorMap: Record<string, ValidationError>
   isFormValid: boolean
   isFieldsValid: boolean
-  isValid: boolean               // isFormValid && isFieldsValid
+  isValid: boolean // isFormValid && isFieldsValid
   isTouched: boolean
   isPristine: boolean
   isDirty: boolean
@@ -309,7 +308,7 @@ interface FormState {
   isSubmitted: boolean
   isSubmitSuccessful: boolean
   submissionAttempts: number
-  canSubmit: boolean             // isValid && !isSubmitting
+  canSubmit: boolean // isValid && !isSubmitting
 }
 ```
 
@@ -355,7 +354,9 @@ const sharedOpts = formOptions({
 // Reuse across components
 const form = useForm({
   ...sharedOpts,
-  onSubmit: async ({ value }) => { /* ... */ },
+  onSubmit: async ({ value }) => {
+    /* ... */
+  },
 })
 ```
 

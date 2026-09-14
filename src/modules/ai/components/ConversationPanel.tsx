@@ -339,7 +339,7 @@ export function ConversationPanel({
                                       <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="h-6 w-6 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
+                                        className="h-6 w-6 text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
                                         aria-label={t('ai.chat.deleteConversation')}
                                         onClick={(e) => {
                                           e.stopPropagation()
@@ -365,7 +365,7 @@ export function ConversationPanel({
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      className="h-7 w-7 text-muted-foreground hover:text-red-500"
+                                      className="h-7 w-7 text-muted-foreground hover:text-red-700 dark:hover:text-red-400"
                                       aria-label={t('ai.chat.deleteConversation')}
                                       onClick={(e) => {
                                         e.stopPropagation()
@@ -416,7 +416,7 @@ export function ConversationPanel({
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full justify-start text-muted-foreground hover:text-red-500 hover:border-red-200 hover:bg-red-50 dark:hover:border-red-900/30 dark:hover:bg-red-900/10"
+                    className="w-full justify-start text-muted-foreground hover:text-red-700 dark:hover:text-red-400 hover:border-red-200 hover:bg-red-50 dark:hover:border-red-900/30 dark:hover:bg-red-900/10"
                     onClick={() => setConfirmDeleteAll(true)}
                     disabled={filteredConversations.length === 0}
                   >

@@ -150,15 +150,15 @@ Check `package.json` for existing auth libraries:
 
 ## Common Pitfalls
 
-| Level    | Issue                       | Solution                                                                |
+| Level | Issue | Solution |
 | -------- | --------------------------- | ----------------------------------------------------------------------- | ------------------- | ----------------------- |
-| CRITICAL | Missing `await` on `auth()` | In Next.js 15+, `auth()` is async: `const { userId } = await auth()`    |
+| CRITICAL | Missing `await` on `auth()` | In Next.js 15+, `auth()` is async: `const { userId } = await auth()` |
 | CRITICAL | Exposing `CLERK_SECRET_KEY` | Never use secret key in client code; only `NEXT_PUBLIC_*` keys are safe |
-| HIGH     | Missing middleware matcher  | Include API routes: `matcher: ['/((?!._\\.._                            | \_next).\*)', '/']` |
-| HIGH     | ClerkProvider not at root   | Must wrap entire app in root layout/App component                       |
-| HIGH     | Auth routes not public      | Allow `/sign-in`, `/sign-up` in middleware config                       |
-| HIGH     | Landing page requires auth  | To keep "/" public, exclude it: `matcher: ['/((?!._\\.._                | \_next              | ^/$)._)', '/api/(._)']` |
-| MEDIUM   | Wrong import path           | Server code uses `@clerk/nextjs/server`, client uses `@clerk/nextjs`    |
+| HIGH | Missing middleware matcher | Include API routes: `matcher: ['/((?!._\\.._                            | \_next).\*)', '/']` |
+| HIGH | ClerkProvider not at root | Must wrap entire app in root layout/App component |
+| HIGH | Auth routes not public | Allow `/sign-in`, `/sign-up` in middleware config |
+| HIGH | Landing page requires auth | To keep "/" public, exclude it: `matcher: ['/((?!._\\.._                | \_next              | ^/$)._)', '/api/(._)']` |
+| MEDIUM | Wrong import path | Server code uses `@clerk/nextjs/server`, client uses `@clerk/nextjs` |
 
 ## See Also
 

@@ -31,10 +31,11 @@ src/shared/lib/i18n/locales/
 - `dk` — Danish
 
 **Namespace → file mapping:**
-| `useTranslation()` namespace | File |
-|---|---|
-| (default / `'common'`) | `common.json` |
-| `'errors'` | `errors.json` |
+
+| `useTranslation()` namespace | File          |
+| ---------------------------- | ------------- |
+| (default / `'common'`)       | `common.json` |
+| `'errors'`                   | `errors.json` |
 
 ## Key Format
 

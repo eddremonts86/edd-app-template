@@ -143,7 +143,7 @@ export function FiveDaysScene() {
                             className="group flex items-start gap-3 rounded-lg border border-border/40 bg-background/50 p-3 text-left transition-all hover:bg-background"
                           >
                             {isChecked ? (
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-400" />
                             ) : (
                               <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
                             )}

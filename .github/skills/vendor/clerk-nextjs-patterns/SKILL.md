@@ -52,13 +52,13 @@ export default async function Page() {
 
 ## Common Pitfalls
 
-| Symptom                                | Cause                     | Fix                                      |
+| Symptom | Cause | Fix |
 | -------------------------------------- | ------------------------- | ---------------------------------------- | -------------------------- |
-| `undefined` userId in Server Component | Missing `await`           | `await auth()` not `auth()`              |
-| Auth not working on API routes         | Missing matcher           | Add `'/(api                              | trpc)(.\*)'` to middleware |
-| Cache returns wrong user's data        | Missing userId in key     | Include `userId` in `unstable_cache` key |
-| Mutations bypass auth                  | Unprotected Server Action | Check `auth()` at start of action        |
-| Wrong HTTP error code                  | Confused 401/403          | 401 = not signed in, 403 = no permission |
+| `undefined` userId in Server Component | Missing `await` | `await auth()` not `auth()` |
+| Auth not working on API routes | Missing matcher | Add `'/(api                              | trpc)(.\*)'` to middleware |
+| Cache returns wrong user's data | Missing userId in key | Include `userId` in `unstable_cache` key |
+| Mutations bypass auth | Unprotected Server Action | Check `auth()` at start of action |
+| Wrong HTTP error code | Confused 401/403 | 401 = not signed in, 403 = no permission |
 
 ## See Also
 

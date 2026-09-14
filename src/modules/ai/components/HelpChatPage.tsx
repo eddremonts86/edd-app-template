@@ -575,7 +575,11 @@ function MessageBubble({
                 aria-label={t('common.copy')}
                 onClick={() => handleCopy(formatMessage(message))}
               >
-                {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
+                {copied ? (
+                  <Check size={14} className="text-emerald-700 dark:text-emerald-400" />
+                ) : (
+                  <Copy size={14} />
+                )}
               </Button>
             </div>
           )}
