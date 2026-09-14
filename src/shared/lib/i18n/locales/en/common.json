@@ -81,7 +81,10 @@
       "resetPassword": "Reset your password"
     },
     "hero": {
-      "tagline": "Sign in once. Keep moving."
+      "tagline": "Sign in once. Keep moving.",
+      "eyebrow": "Authentication",
+      "subtitle": "Use the method you already use. Same workspace, no extra steps.",
+      "security": "Secure access is encrypted via end-to-end token handshakes. Support response SLA: 24–48h."
     },
     "labels": {
       "email": "Email address",

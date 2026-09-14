@@ -170,16 +170,19 @@ export function AuthPage(): React.JSX.Element {
                       variant="outline"
                       className="mb-4 rounded-full border-primary/20 bg-primary/5 px-3 py-1 text-xs uppercase tracking-[0.22em] text-primary"
                     >
-                      Authentication
+                      {t('auth.hero.eyebrow', 'Authentication')}
                     </Badge>
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-                      Workspace access
+                      {t('auth.workspaceAccess', 'Workspace access')}
                     </h1>
                     <h2 className="text-lg font-bold tracking-tight text-foreground/80 mt-2">
                       {t('auth.hero.tagline', 'Sign in once. Keep moving.')}
                     </h2>
                     <p className="text-sm leading-relaxed text-muted-foreground mt-3">
-                      Use the method you already use. Same workspace, no extra steps.
+                      {t(
+                        'auth.hero.subtitle',
+                        'Use the method you already use. Same workspace, no extra steps.',
+                      )}
                     </p>
                   </div>
 
@@ -189,7 +192,7 @@ export function AuthPage(): React.JSX.Element {
                         <KeyRound className="h-3 w-3" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Use the same account you recognize
+                        {t('auth.pointOne', 'Use the same account you already recognize.')}
                       </p>
                     </div>
 
@@ -198,7 +201,7 @@ export function AuthPage(): React.JSX.Element {
                         <Sparkles className="h-3.5 w-3.5" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Switch methods without changing your destination
+                        {t('auth.pointTwo', 'Switch methods without changing your destination.')}
                       </p>
                     </div>
 
@@ -207,15 +210,17 @@ export function AuthPage(): React.JSX.Element {
                         <ShieldCheck className="h-3 w-3" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Continue right where you need to work
+                        {t('auth.pointThree', 'Sign in and continue right where you need to work.')}
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-border/30 text-xs text-muted-foreground">
-                  Secure access is encrypted via end-to-end token handshakes. Support response SLA:
-                  24–48h.
+                  {t(
+                    'auth.hero.security',
+                    'Secure access is encrypted via end-to-end token handshakes. Support response SLA: 24–48h.',
+                  )}
                 </div>
               </Card>
             </m.div>

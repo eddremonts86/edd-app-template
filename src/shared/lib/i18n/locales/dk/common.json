@@ -81,7 +81,10 @@
       "resetPassword": "Nulstil din adgangskode"
     },
     "hero": {
-      "tagline": "Log ind én gang. Fortsæt fremad."
+      "tagline": "Log ind én gang. Fortsæt fremad.",
+      "eyebrow": "Godkendelse",
+      "subtitle": "Brug den metode, du allerede bruger. Samme arbejdsområde, ingen ekstra trin.",
+      "security": "Sikker adgang krypteres via end-to-end token-handshakes. Svartid fra support: 24–48 t."
     },
     "labels": {
       "email": "E-mailadresse",

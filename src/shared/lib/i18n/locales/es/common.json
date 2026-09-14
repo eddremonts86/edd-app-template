@@ -81,7 +81,10 @@
       "resetPassword": "Restablece tu contraseña"
     },
     "hero": {
-      "tagline": "Inicia sesión una vez. Sigue avanzando."
+      "tagline": "Inicia sesión una vez. Sigue avanzando.",
+      "eyebrow": "Autenticación",
+      "subtitle": "Usa el método que ya usas. El mismo espacio de trabajo, sin pasos extra.",
+      "security": "El acceso seguro se cifra mediante handshakes de token de extremo a extremo. SLA de respuesta de soporte: 24–48 h."
     },
     "labels": {
       "email": "Correo electrónico",
