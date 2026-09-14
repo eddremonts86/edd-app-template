@@ -114,7 +114,7 @@ export function SettingsLayout() {
   return (
     <div className="w-full pb-6">
       <div className="flex flex-col gap-1 mb-8">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground">{t('settings.title')}</h2>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">{t('settings.title')}</h1>
         <p className="text-muted-foreground max-w-2xl">{t('settings.description')}</p>
       </div>
 

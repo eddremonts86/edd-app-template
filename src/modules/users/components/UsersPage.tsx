@@ -62,14 +62,14 @@ export function UsersPage() {
     <div className="flex flex-col h-full gap-5 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0">
         <div className="space-y-1">
-          <h2 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-3xl font-bold tracking-tight">
             {t('users.title')}
             {totalCount > 0 && (
               <span className="ml-2 text-muted-foreground font-normal text-2xl">
                 ({totalCount})
               </span>
             )}
-          </h2>
+          </h1>
           <p className="text-muted-foreground">{t('users.subtitle')}</p>
         </div>
         <Button onClick={() => setIsCreateOpen(true)} className="gap-2">

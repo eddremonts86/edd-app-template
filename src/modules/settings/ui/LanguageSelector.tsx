@@ -19,9 +19,9 @@ export function LanguageSelector({ value, onChange }: LanguageSelectorProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-baseline justify-between">
-        <h4 className="text-sm font-semibold text-foreground">
+        <h2 className="text-sm font-semibold text-foreground">
           {t('settings.language.title', 'Language')}
-        </h4>
+        </h2>
         <span className="text-xs text-muted-foreground">
           {languageNames[value as keyof typeof languageNames] ?? value}
         </span>

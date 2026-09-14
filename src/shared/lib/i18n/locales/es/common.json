@@ -675,6 +675,13 @@
       "pending": "pendientes",
       "title": "Notificaciones",
       "toggle": "Mostrar u ocultar notificaciones"
+    },
+    "starterRoutes": {
+      "label": "Rutas del starter",
+      "architecture": "Guía de arquitectura",
+      "moduleMap": "Mapa de módulos",
+      "designTokens": "Tokens de diseño",
+      "conventions": "Convenciones del proyecto"
     }
   },
   "updates": {

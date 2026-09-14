@@ -253,14 +253,14 @@ export function ContactMessagesPage() {
     <div className="flex h-full flex-col gap-5 animate-in fade-in duration-500">
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="space-y-1">
-          <h2 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-3xl font-bold tracking-tight">
             {t('contactMessages.title')}
             {data && (
               <span className="ml-2 text-2xl font-normal text-muted-foreground">
                 ({data.totalCount})
               </span>
             )}
-          </h2>
+          </h1>
           <p className="text-muted-foreground">{t('contactMessages.subtitle')}</p>
         </div>
 

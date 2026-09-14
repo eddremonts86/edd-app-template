@@ -501,6 +501,13 @@
       "pending": "afventer",
       "title": "Notifikationer",
       "toggle": "Vis eller skjul notifikationer"
+    },
+    "starterRoutes": {
+      "label": "Starter-ruter",
+      "architecture": "Arkitekturguide",
+      "moduleMap": "Moduloversigt",
+      "designTokens": "Designtokens",
+      "conventions": "Projektkonventioner"
     }
   },
   "analytics": {

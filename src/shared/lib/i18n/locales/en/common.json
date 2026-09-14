@@ -501,6 +501,13 @@
       "pending": "pending",
       "title": "Notifications",
       "toggle": "Toggle notifications"
+    },
+    "starterRoutes": {
+      "label": "Starter routes",
+      "architecture": "Architecture guide",
+      "moduleMap": "Module map",
+      "designTokens": "Design tokens",
+      "conventions": "Project conventions"
     }
   },
   "analytics": {
