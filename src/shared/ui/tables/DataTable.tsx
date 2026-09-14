@@ -138,6 +138,7 @@ function downloadCsv(fileName: string, csvContent: string) {
   URL.revokeObjectURL(url)
 }
 
+const EMPTY_GROUPING: GroupingState = []
 const EMPTY_FILTERS: DataTableFilterConfig[] = []
 const EMPTY_BULK_ACTIONS: never[] = []
 
@@ -264,7 +265,7 @@ export function UnifiedDataTable<TData, TValue>({
       globalFilter,
       columnVisibility,
       rowSelection,
-      grouping: enableGrouping ? grouping : [],
+      grouping: enableGrouping ? grouping : EMPTY_GROUPING,
       pagination,
     },
   })
