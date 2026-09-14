@@ -1,0 +1,19 @@
+{
+  "unconfigured": "Billing is not configured. Set STRIPE_SECRET_KEY to enable checkout.",
+  "nav": { "title": "Billing" },
+  "title": "Billing",
+  "description": "Your subscription and payment method.",
+  "status": {
+    "none": "No subscription",
+    "trialing": "Trial",
+    "active": "Active",
+    "past_due": "Payment failed",
+    "canceled": "Cancelled",
+    "unknown": "Unknown"
+  },
+  "renewsOn": "Renews on {{date}}",
+  "endsOn": "Ends on {{date}}",
+  "cancelAtPeriodEnd": "Cancels at the end of the period.",
+  "manage": "Manage billing",
+  "webhookMissing": "Checkout works, but STRIPE_WEBHOOK_SECRET is not set — subscription changes will not be recorded."
+}

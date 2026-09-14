@@ -1,0 +1,19 @@
+{
+  "unconfigured": "Fakturering er ikke konfigureret. Sæt STRIPE_SECRET_KEY for at aktivere betaling.",
+  "nav": { "title": "Fakturering" },
+  "title": "Fakturering",
+  "description": "Dit abonnement og din betalingsmetode.",
+  "status": {
+    "none": "Intet abonnement",
+    "trialing": "Prøveperiode",
+    "active": "Aktiv",
+    "past_due": "Betaling mislykkedes",
+    "canceled": "Annulleret",
+    "unknown": "Ukendt"
+  },
+  "renewsOn": "Fornyes den {{date}}",
+  "endsOn": "Slutter den {{date}}",
+  "cancelAtPeriodEnd": "Annulleres ved periodens udløb.",
+  "manage": "Administrer fakturering",
+  "webhookMissing": "Betaling virker, men STRIPE_WEBHOOK_SECRET er ikke sat — abonnementsændringer registreres ikke."
+}

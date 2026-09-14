@@ -1,5 +1,6 @@
 import { aiModule } from '@/modules/ai/manifest'
 import { authModule } from '@/modules/auth/manifest'
+import { billingModule } from '@/modules/billing/manifest'
 import { contactMessagesModule } from '@/modules/contact-messages/manifest'
 import { dashboardModule } from '@/modules/dashboard/manifest'
 import { databaseAdminModule } from '@/modules/database-admin/manifest'
@@ -19,6 +20,7 @@ export const moduleRegistry: AppModuleManifest[] = [
   dashboardModule,
   aiModule,
   emailModule,
+  billingModule,
   contactMessagesModule,
   usersModule,
   settingsModule,

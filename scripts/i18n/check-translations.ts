@@ -42,6 +42,37 @@ function loadJson(filePath: string): JsonObject {
   return JSON.parse(raw) as JsonObject
 }
 
+const MODULES_DIR = resolve('src/modules')
+
+/**
+ * Translations that ship inside a module rather than in the shared catalogue,
+ * merged under the module id exactly as i18n.ts merges them at runtime
+ * (docs/architecture/integration-conventions.md §7).
+ *
+ * Without this the checker reports every module key as missing, because the
+ * catalogue it reads is only half the catalogue the app builds.
+ */
+function loadModuleCatalogue(lang: string): JsonObject {
+  const merged: JsonObject = {}
+
+  for (const moduleId of readdirSync(MODULES_DIR)) {
+    const file = join(MODULES_DIR, moduleId, 'i18n', `${lang}.json`)
+    try {
+      merged[moduleId] = loadJson(file)
+    } catch {
+      // A module without its own translations is the normal case.
+    }
+  }
+
+  return merged
+}
+
+/** The shared namespace plus every module's, the way the app sees it. */
+function loadCatalogue(lang: string, namespace: string): JsonObject {
+  const shared = loadJson(join(LOCALES_DIR, lang, namespace))
+  return namespace === 'common.json' ? { ...shared, ...loadModuleCatalogue(lang) } : shared
+}
+
 function getNamespaces(): string[] {
   return readdirSync(join(LOCALES_DIR, SOURCE_LANG)).filter((f) => f.endsWith('.json'))
 }
@@ -143,17 +174,14 @@ function main() {
   )
 
   for (const namespace of namespaces) {
-    const sourcePath = join(LOCALES_DIR, SOURCE_LANG, namespace)
-    const sourceData = loadJson(sourcePath)
+    const sourceData = loadCatalogue(SOURCE_LANG, namespace)
     sourceCatalogues.push(sourceData)
     const sourceKeys = new Set(collectKeys(sourceData))
 
     for (const lang of TARGET_LANGS) {
-      const targetPath = join(LOCALES_DIR, lang, namespace)
-
       let targetData: JsonObject
       try {
-        targetData = loadJson(targetPath)
+        targetData = loadCatalogue(lang, namespace)
       } catch {
         console.error(`  ❌  ${lang}/${namespace} — FILE MISSING`)
         totalMissing += sourceKeys.size

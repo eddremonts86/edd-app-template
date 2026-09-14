@@ -224,6 +224,9 @@ importers:
       sileo:
         specifier: ^0.1.5
         version: 0.1.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      stripe:
+        specifier: ^22.6.2
+        version: 22.6.2(@types/node@26.5.1)
       tailwind-merge:
         specifier: ^3.7.0
         version: 3.7.0
@@ -9033,6 +9036,15 @@ packages:
   strip-final-newline@3.0.0:
     resolution: {integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==}
     engines: {node: '>=12'}
+
+  stripe@22.6.2:
+    resolution: {integrity: sha512-PwRE2scocvXqDKPiskMa5vRJEAEkq46W69XyUYmAwrNSLr675lQnfqLwnsndAWizwgihOWw/irLmoFRo3ez7ew==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
 
   strnum@1.1.2:
     resolution: {integrity: sha512-vrN+B7DBIoTTZjnPNewwhx6cBA/H+IS7rfW68n7XxC1y7uoiGQBxaKzqucGUgavX15dJgiGztLJ8vxuEzwqBdA==}
@@ -19254,6 +19266,10 @@ snapshots:
       ansi-regex: 5.0.1
 
   strip-final-newline@3.0.0: {}
+
+  stripe@22.6.2(@types/node@26.5.1):
+    optionalDependencies:
+      '@types/node': 26.5.1
 
   strnum@1.1.2: {}
 

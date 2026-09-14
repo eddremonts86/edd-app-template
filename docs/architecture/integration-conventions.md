@@ -94,6 +94,19 @@ src/modules/billing/
 `index.ts`. Nothing outside `src/modules/billing/` may import
 `billing/server/provider`. This is what makes the directory movable.
 
+### 2.3 `model/` is free of I/O, and that is load-bearing
+
+An integration's barrel necessarily re-exports server code — a webhook handler,
+a server function — and importing it pulls a database connection in at module
+load. That is correct on the server and wrong everywhere else.
+
+So `model/types.ts` holds the domain types and the pure decisions (which
+subscription statuses count as paying, which error codes exist) and imports
+nothing that performs I/O. **Unit tests of domain logic and any browser-side
+code import `model/`, not the barrel.** It is the one sanctioned exception to
+§2's rule, and the reason the split exists rather than one big `types.ts` at the
+module root.
+
 ### 2.1 Moving a module to another app
 
 The procedure, and it must stay this short:
