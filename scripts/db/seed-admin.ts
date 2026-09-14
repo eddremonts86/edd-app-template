@@ -60,6 +60,19 @@ async function main() {
       RETURNING id
     `
 
+    // Better Auth >= 1.7 looks the credential account up by account_id === the
+    // user id. Rows seeded by older versions of this script stored the email
+    // there, which still upserts cleanly but fails every sign-in with
+    // INVALID_EMAIL_OR_PASSWORD. Repoint them before the upsert below, so the
+    // ON CONFLICT target matches instead of inserting a second credential row.
+    await sql`
+      UPDATE auth_accounts
+      SET account_id = user_id, updated_at = now()
+      WHERE user_id = ${user.id}
+        AND provider_id = 'credential'
+        AND account_id <> user_id
+    `
+
     // Upsert the credential account row linked to the user
     await sql`
       INSERT INTO auth_accounts (
@@ -68,7 +81,7 @@ async function main() {
       VALUES (
         ${accountId},
         ${user.id},
-        ${email},
+        ${user.id},
         'credential',
         ${hashedPassword},
         ${now},

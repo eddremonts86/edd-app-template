@@ -1,5 +1,5 @@
 metadata:
-  generatedAt: 2026-03-15
+  generatedAt: 2026-09-14
   source:
     - src/routes
     - src/routeTree.gen.ts
@@ -7,6 +7,21 @@ metadata:
 uiRoutes:
   - path: /
     module: landing
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /auth
+    module: auth
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /auth/sign-in
+    module: sign-in
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /auth/sign-up
+    module: sign-up
     authRequired: false
     nestedUnder: null
     params: []
@@ -20,13 +35,13 @@ uiRoutes:
     authRequired: true
     nestedUnder: /dashboard
     params: []
-  - path: /dashboard/analytics
-    module: analytics
+  - path: /dashboard/admin/database
+    module: database
     authRequired: true
-    nestedUnder: /dashboard
+    nestedUnder: /dashboard/admin
     params: []
-  - path: /dashboard/categories
-    module: categories
+  - path: /dashboard/contact-messages
+    module: contact-messages
     authRequired: true
     nestedUnder: /dashboard
     params: []
@@ -35,11 +50,6 @@ uiRoutes:
     authRequired: true
     nestedUnder: /dashboard
     params: []
-  - path: /dashboard/projects
-    module: projects
-    authRequired: true
-    nestedUnder: /dashboard
-    params: []
   - path: /dashboard/settings
     module: settings
     authRequired: true
@@ -52,8 +62,23 @@ uiRoutes:
     nestedUnder: /dashboard
     params: []
     redirectTo: /dashboard/settings/system
+  - path: /dashboard/settings/ai_logs
+    module: ai-logs
+    authRequired: true
+    nestedUnder: /dashboard/settings
+    params: []
+  - path: /dashboard/settings/dev_tools
+    module: dev-tools
+    authRequired: true
+    nestedUnder: /dashboard/settings
+    params: []
   - path: /dashboard/settings/ia_config
     module: settings-ai
+    authRequired: true
+    nestedUnder: /dashboard/settings
+    params: []
+  - path: /dashboard/settings/site_settings
+    module: site-settings
     authRequired: true
     nestedUnder: /dashboard/settings
     params: []
@@ -62,68 +87,94 @@ uiRoutes:
     authRequired: true
     nestedUnder: /dashboard/settings
     params: []
-  - path: /dashboard/team
-    module: team
-    authRequired: true
-    nestedUnder: /dashboard
-    params: []
-  - path: /dashboard/todos
-    module: todos
-    authRequired: true
-    nestedUnder: /dashboard
-    params: []
-  - path: /dashboard/transactions
-    module: transactions
-    authRequired: true
-    nestedUnder: /dashboard
-    params: []
   - path: /dashboard/users
     module: users
     authRequired: true
     nestedUnder: /dashboard
     params: []
-apiRoutes:
-  - path: /api/ai/audit
-    module: ai-api
-    methods:
-      - GET
-      - POST
+  - path: /docs
+    module: docs
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/chat
-    module: ai-api
-    methods:
-      - POST
+  - path: /legal/cookies
+    module: cookies
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/chat/completions
-    module: ai-api
-    methods:
-      - POST
+  - path: /legal/licenses
+    module: licenses
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/config-store
-    module: ai-api
-    methods:
-      - GET
-      - POST
-      - PUT
+  - path: /legal/privacy
+    module: privacy
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/models
-    module: ai-api
-    methods:
-      - GET
-      - POST
+  - path: /legal/terms
+    module: terms
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/search
-    module: ai-api
-    methods:
-      - POST
+  - path: /product/changelog
+    module: changelog
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/status
-    module: ai-api
-    methods:
-      - GET
+  - path: /product/integrations
+    module: integrations
+    authRequired: false
+    nestedUnder: null
     params: []
-  - path: /api/ai/test-connection
-    module: ai-api
-    methods:
-      - POST
+  - path: /product/release-notes
+    module: release-notes
+    authRequired: false
+    nestedUnder: null
     params: []
+  - path: /product/roadmap
+    module: roadmap
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /starter/architecture
+    module: architecture
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /starter/conventions
+    module: conventions
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /starter/design-tokens
+    module: design-tokens
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /starter/module-map
+    module: module-map
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /support/documentation
+    module: documentation
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /support/examples
+    module: examples
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /support/faq
+    module: faq
+    authRequired: false
+    nestedUnder: null
+    params: []
+  - path: /support/guides
+    module: guides
+    authRequired: false
+    nestedUnder: null
+    params: []
+apiRoutes: []
