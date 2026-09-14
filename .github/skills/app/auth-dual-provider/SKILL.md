@@ -160,8 +160,8 @@ VITE_AUTH_MODE=hybrid
 
 # Better Auth
 BETTER_AUTH_SECRET=your-secret-here
-BETTER_AUTH_URL=http://localhost:3000
-VITE_BETTER_AUTH_URL=http://localhost:3000
+BETTER_AUTH_URL=http://localhost:2999
+VITE_BETTER_AUTH_URL=http://localhost:2999
 
 # Default local admin (used by db:seed:admin and auth-local E2E)
 DEFAULT_ADMIN_EMAIL=edd_admin@local.com
@@ -202,7 +202,7 @@ Always login with the real seeded admin:
 pnpm dev:server
 
 # 2. Open browser and login at:
-#    http://localhost:3000/auth
+#    http://localhost:2999/auth
 #
 # Email:    edd_admin@local.com        (DEFAULT_ADMIN_EMAIL in .env)
 # Password: Passw0rd!234%             (DEFAULT_ADMIN_PASSWORD in .env)

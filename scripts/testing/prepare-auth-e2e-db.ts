@@ -2,9 +2,9 @@ import { spawnSync } from 'node:child_process'
 import { hashPassword } from 'better-auth/crypto'
 import postgres from 'postgres'
 
-const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5432/postgres'
+const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5433/postgres'
 const databaseName = 'tanstack_template_auth_e2e'
-const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5432/${databaseName}`
+const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5433/${databaseName}`
 
 async function waitForPostgresReady() {
   for (let attempt = 0; attempt < 20; attempt += 1) {

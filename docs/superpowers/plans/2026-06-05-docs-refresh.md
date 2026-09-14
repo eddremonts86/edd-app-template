@@ -343,7 +343,7 @@ Find:
 ### 4. Run the dev server
 
 ```bash
-pnpm dev         # http://localhost:3000
+pnpm dev         # http://localhost:2999
 ```
 ````
 
@@ -353,7 +353,7 @@ Replace with:
 ### 4. Run the dev server
 
 ```bash
-pnpm dev         # full bootstrap: db:up + db:migrate + db:seed:admin + AI model check + Vite on :3000
+pnpm dev         # full bootstrap: db:up + db:migrate + db:seed:admin + AI model check + Vite on :2999
 pnpm dev:fast    # skip DB setup — fastest startup (DB assumed already running)
 pnpm dev:e2e     # dev server with VITE_E2E=true for Playwright runs
 ```

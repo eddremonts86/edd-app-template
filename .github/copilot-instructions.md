@@ -16,7 +16,7 @@ For local validation, use the real admin credentials from `.env` — **never use
 - Email: `DEFAULT_ADMIN_EMAIL` (`edd_admin@local.com`)
 - Password: `DEFAULT_ADMIN_PASSWORD` (see `.env`)
 - Start the server with just `pnpm dev:server` (no auth bypass env vars)
-- Login at `http://localhost:3000/sign-in` with the admin credentials above
+- Login at `http://localhost:2999/sign-in` with the admin credentials above
 
 ## Project Overview
 

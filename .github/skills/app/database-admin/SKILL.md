@@ -120,7 +120,7 @@ transitively) from `start.ts`.
 ### Via UI (recommended)
 
 1. Start the server: `pnpm dev:server`
-2. Login as admin: `http://localhost:3000/auth` → `edd_admin@local.com`
+2. Login as admin: `http://localhost:2999/auth` → `edd_admin@local.com`
 3. Navigate to `/dashboard/admin/database`
 4. Click **"New profile"** (button is orange when encryption is available)
 5. Paste a PostgreSQL connection URL or fill fields manually

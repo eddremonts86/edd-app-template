@@ -13,7 +13,7 @@ import * as path from 'path'
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'admin@app.local'
 const ADMIN_NAME = 'Admin'
-const BASE_URL = process.env.BETTER_AUTH_URL ?? process.env.VITE_APP_URL ?? 'http://localhost:3000'
+const BASE_URL = process.env.BETTER_AUTH_URL ?? process.env.VITE_APP_URL ?? 'http://localhost:2999'
 const CREDENTIALS_FILE = path.join(process.cwd(), '.admin-credentials')
 
 function generatePassword(length = 24): string {

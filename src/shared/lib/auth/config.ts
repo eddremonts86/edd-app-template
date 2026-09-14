@@ -1,7 +1,7 @@
 export type AuthMode = 'local' | 'clerk' | 'hybrid'
 
 const DEFAULT_AUTH_MODE: AuthMode = 'hybrid'
-const DEFAULT_BETTER_AUTH_URL = 'http://localhost:3000'
+const DEFAULT_BETTER_AUTH_URL = 'http://localhost:2999'
 const DEFAULT_DEV_BETTER_AUTH_SECRET = 'dev-only-better-auth-secret-change-me-1234567890'
 
 type EnvRecord = Record<string, string | undefined>

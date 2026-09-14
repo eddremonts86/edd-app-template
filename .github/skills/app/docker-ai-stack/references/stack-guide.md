@@ -7,7 +7,7 @@
 services:
   app:
     container_name: tanstack-template-app
-    ports: ['3000:3000']
+    ports: ['2999:2999']
     depends_on: [db, ollama, llama-cpp, lmstudio, chromadb] # ← all must be healthy
 
   db:

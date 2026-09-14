@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const BASE_URL = process.env.APP_URL || 'http://localhost:3000'
+const BASE_URL = process.env.APP_URL || 'http://localhost:2999'
 
 async function runIntegrationTest() {
   console.log('🤖 Starting AI Integration Test...')

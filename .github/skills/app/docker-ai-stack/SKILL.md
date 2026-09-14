@@ -9,7 +9,7 @@ description: Stack Docker con AI local en TanStack Template. Usar cuando se trab
 
 | Service    | Container                     | Port      | Image                             |
 | ---------- | ----------------------------- | --------- | --------------------------------- |
-| App        | `tanstack-template-app`       | 3000      | Local build                       |
+| App        | `tanstack-template-app`       | 2999      | Local build                       |
 | PostgreSQL | `tanstack-template-db`        | 5433→5432 | postgres:15-alpine                |
 | Llama.cpp  | `tanstack-template-llama-cpp` | 8080      | ghcr.io/ggml-org/llama.cpp:server |
 | Ollama     | `tanstack-template-ollama`    | 11434     | ollama/ollama:latest              |

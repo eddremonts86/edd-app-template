@@ -39,7 +39,7 @@ Este plan ha sido adaptado específicamente para el proyecto `tanstack-template`
 
 - **Verificar:** `src/modules/ai/providers/lmstudio` debe tener el adaptador para "LM Studio" apuntando a `http://localhost:1234/v1`.
 - **Modelo:** Cargar Qwen2.5-Coder en LMStudio.
-- **CORS:** Habilitar en LMStudio para permitir peticiones desde `localhost:3000`.
+- **CORS:** Habilitar en LMStudio para permitir peticiones desde `localhost:2999`.
 
 #### Tarea 2.2: Pipeline de Ingesta (ETL)
 

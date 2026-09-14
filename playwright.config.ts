@@ -48,7 +48,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:2999',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -69,7 +69,7 @@ export default defineConfig({
   webServer: {
     command:
       'SKIP_AUTH=true VITE_SKIP_AUTH=true TEST_USER_ID=user_e2e_local VITE_TEST_USER_ID=user_e2e_local VITE_E2E=true npm run dev:server',
-    url: 'http://localhost:3000',
+    url: 'http://localhost:2999',
     reuseExistingServer: false,
     timeout: 120 * 1000,
   },

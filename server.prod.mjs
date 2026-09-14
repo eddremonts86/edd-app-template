@@ -12,7 +12,7 @@ import { createServer } from 'node:http'
 import { extname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const PORT = parseInt(process.env.PORT ?? '3000', 10)
+const PORT = parseInt(process.env.PORT ?? '2999', 10)
 const HOST = process.env.HOST ?? '0.0.0.0'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))

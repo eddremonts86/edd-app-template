@@ -17,9 +17,9 @@ WORKDIR /app
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 2999
 
-CMD ["pnpm", "dev:server", "--host", "0.0.0.0", "--port", "3000"]
+CMD ["pnpm", "dev:server", "--host", "0.0.0.0", "--port", "2999"]
 
 FROM base AS builder
 
@@ -48,6 +48,6 @@ RUN pnpm prune --prod
 COPY --from=builder /app/dist ./dist
 COPY server.prod.mjs ./server.prod.mjs
 
-EXPOSE 3000
+EXPOSE 2999
 
 CMD ["node", "server.prod.mjs"]

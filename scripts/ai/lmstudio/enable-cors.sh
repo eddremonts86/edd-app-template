@@ -12,7 +12,7 @@ docker compose exec -T lmstudio lms server stop || true
 docker compose exec -T lmstudio lms server start --port "$PORT" --cors
 
 echo "[lmstudio] validating CORS headers"
-if ! curl -i -s "http://localhost:${PORT}/v1/models" -H "Origin: http://localhost:3000" | grep -qi 'access-control-allow-origin'; then
+if ! curl -i -s "http://localhost:${PORT}/v1/models" -H "Origin: http://localhost:2999" | grep -qi 'access-control-allow-origin'; then
   echo "[lmstudio] CORS header not detected after restart"
   exit 1
 fi

@@ -21,7 +21,7 @@ const config = defineConfig((configEnv) => {
 
   return {
     server: {
-      port: 3000,
+      port: 2999,
       hmr: {
         protocol: 'ws',
         host: 'localhost',
