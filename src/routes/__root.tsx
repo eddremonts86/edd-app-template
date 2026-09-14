@@ -1,5 +1,6 @@
 import { createRootRoute } from '@tanstack/react-router'
 import { NotFoundPage } from '@/components/composite/NotFoundPage'
+import { resolveLocale } from '@/shared/lib/i18n/resolve-locale'
 import { initSentry } from '@/shared/lib/sentry'
 import appCss from '@/shared/styles/globals.css?url'
 import { RootDocument, RootErrorBoundary } from './-root-components'
@@ -8,6 +9,10 @@ import { RootDocument, RootErrorBoundary } from './-root-components'
 initSentry()
 
 export const Route = createRootRoute({
+  // Read on the server from the request cookie and on the client from
+  // document.cookie — same value either way, so hydration matches.
+  beforeLoad: () => ({ locale: resolveLocale() }),
+
   head: () => ({
     meta: [
       {

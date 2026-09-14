@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { setLocale } from '@/shared/lib/i18n'
 import { useTheme } from '@/shared/providers/theme-context'
 import { DEFAULT_SETTINGS, DEVTOOLS_STORAGE_KEY, type SettingsState, type Theme } from '../model'
 
@@ -53,7 +54,7 @@ export function useSettings() {
 
     // Apply language
     if (pendingLanguage !== i18n.language) {
-      await i18n.changeLanguage(pendingLanguage)
+      await setLocale(pendingLanguage)
     }
 
     // Apply theme

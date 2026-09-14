@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import { HeadContent, Scripts } from '@tanstack/react-router'
+import { HeadContent, Scripts, useRouteContext } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import * as React from 'react'
 import { useDevtoolsVisibility } from '@/modules/settings'
@@ -39,13 +39,15 @@ function DevtoolsWrapper() {
 }
 
 export function RootDocument({ children }: { children: React.ReactNode }) {
+  const { locale } = useRouteContext({ from: '__root__' })
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
       <body className="min-h-screen bg-background font-sans antialiased" suppressHydrationWarning>
-        <AppProviders>
+        <AppProviders locale={locale}>
           {children}
           <DevtoolsWrapper />
         </AppProviders>
