@@ -154,3 +154,99 @@ export {
   CommandItem,
   CommandSeparator,
 } from './command'
+
+// Added by the shadcn CLI. Re-exported here because the app imports from
+// '@/components/ui', not from the individual files.
+
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion'
+export { AspectRatio } from './aspect-ratio'
+export {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+  buttonGroupVariants,
+} from './button-group'
+export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from './carousel'
+export {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuPortal,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from './context-menu'
+export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from './empty'
+export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card'
+export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from './input-otp'
+export {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
+  ItemGroup,
+  ItemHeader,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from './item'
+export { Kbd, KbdGroup } from './kbd'
+export {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarGroup,
+  MenubarItem,
+  MenubarLabel,
+  MenubarMenu,
+  MenubarPortal,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from './menubar'
+export { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from './native-select'
+export {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from './navigation-menu'
+export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from './pagination'
+export { RadioGroup, RadioGroupItem } from './radio-group'
+export { ResizableHandle, ResizablePanel, ResizablePanelGroup } from './resizable'
+export { Slider } from './slider'
+export { Spinner } from './spinner'
