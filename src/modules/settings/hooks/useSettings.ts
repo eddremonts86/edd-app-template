@@ -38,6 +38,24 @@ export function useSettings() {
     [pendingLanguage, pendingTheme, pendingDevtools],
   )
 
+  // Theme and language apply the moment you pick them. Both controls preview the
+  // thing they change — the theme cards literally render a miniature of each
+  // mode — and gating them behind Save meant clicking Dark highlighted a card
+  // and changed nothing, so the control read as broken. Both are client-side and
+  // free to apply; Save is left owning the settings that actually need it.
+  const selectTheme = useCallback(
+    (next: Theme) => {
+      setPendingTheme(next)
+      setTheme(next)
+    },
+    [setTheme],
+  )
+
+  const selectLanguage = useCallback((next: string) => {
+    setPendingLanguage(next)
+    void setLocale(next)
+  }, [])
+
   const hasChanges = useMemo(
     () =>
       pendingLanguage !== currentSettings.language ||
@@ -76,10 +94,10 @@ export function useSettings() {
   }, [pendingLanguage, pendingTheme, pendingDevtools, i18n, theme, setTheme])
 
   const resetToDefaults = useCallback(() => {
-    setPendingLanguage(DEFAULT_SETTINGS.language)
-    setPendingTheme(DEFAULT_SETTINGS.theme)
+    selectLanguage(DEFAULT_SETTINGS.language)
+    selectTheme(DEFAULT_SETTINGS.theme)
     setPendingDevtools(DEFAULT_SETTINGS.devtoolsVisible)
-  }, [])
+  }, [selectLanguage, selectTheme])
 
   return {
     pendingSettings,
@@ -88,6 +106,8 @@ export function useSettings() {
     isSaving,
     setPendingLanguage,
     setPendingTheme,
+    selectLanguage,
+    selectTheme,
     setPendingDevtools,
     saveSettings,
     resetToDefaults,

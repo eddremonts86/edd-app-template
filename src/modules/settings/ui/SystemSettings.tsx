@@ -24,8 +24,8 @@ export function SystemSettings() {
     pendingSettings,
     hasChanges,
     isSaving,
-    setPendingLanguage,
-    setPendingTheme,
+    selectTheme,
+    selectLanguage,
     saveSettings,
     resetToDefaults,
   } = useSettings()
@@ -64,8 +64,8 @@ export function SystemSettings() {
               </div>
             </CardHeader>
             <CardContent className="grid grid-cols-1 gap-8 pt-2 lg:grid-cols-2">
-              <LanguageSelector value={pendingSettings.language} onChange={setPendingLanguage} />
-              <ThemeSelector value={pendingSettings.theme} onChange={setPendingTheme} />
+              <LanguageSelector value={pendingSettings.language} onChange={selectLanguage} />
+              <ThemeSelector value={pendingSettings.theme} onChange={selectTheme} />
             </CardContent>
           </Card>
         </section>
