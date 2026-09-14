@@ -1,15 +1,9 @@
 {
   "app": {
-    "name": "edd App Template",
-    "brand": "edd Starter",
-    "description": "Genbrugeligt startpunkt for alle edd SaaS-, landing- og webapps"
+    "brand": "edd Starter"
   },
   "nav": {
-    "home": "Hjem",
-    "services": "Byggeblokke",
     "timeline": "Køreplan",
-    "contact": "Support",
-    "settings": "Indstillinger",
     "signIn": "Log ind",
     "signOut": "Log ud",
     "docs": "Dokumentation"
@@ -78,37 +72,21 @@
     "cancel": "Annuller",
     "delete": "Slet",
     "edit": "Rediger",
-    "create": "Opret",
     "search": "Søg",
     "filter": "Filter",
-    "sort": "Sorter",
     "actions": {
       "label": "Handlinger",
       "refresh": "Opdater",
       "move": "Flyt"
     },
     "confirm": "Bekræft",
-    "undoWarning": "Denne handling kan ikke fortrydes.",
     "noPermission": "Du har ikke tilladelse til at udføre denne handling.",
-    "noPermissionEdit": "Du kan kun redigere opgaver, du har oprettet eller er tildelt.",
-    "noPermissionDelete": "Du kan kun slette opgaver, du har oprettet eller er tildelt.",
-    "yes": "Ja",
-    "no": "Nej",
-    "submit": "Indsend",
-    "reset": "Nulstil",
-    "back": "Tilbage",
-    "next": "Næste",
-    "previous": "Forrige",
-    "loadMore": "Indlæs flere",
     "openMenu": "Åbn menu",
     "optional": "valgfri",
     "stop": "Stop",
-    "clear": "Ryd",
-    "clearFilters": "Ryd filtre",
     "noResults": "Ingen resultater fundet.",
     "noData": "Ingen data tilgængelig.",
     "clearSearch": "Ryd søgning",
-    "selected": "valgt",
     "send": "Send",
     "backToHome": "Gå til startside",
     "retry": "Prøv igen",
@@ -176,7 +154,6 @@
       "settings": "Indstillinger"
     },
     "secondary": {
-      "settings": "Indstillinger",
       "help": "Hjælp",
       "search": "Søg"
     },
@@ -189,10 +166,7 @@
       "title": "AI-søgning",
       "description": "Spørg assistenten eller hop til en sektion.",
       "placeholder": "Søg i dashboardet...",
-      "providerAuto": "Automatisk udbyder",
       "cta": "Søg",
-      "searching": "Søger...",
-      "shortcut": "⌘K / Ctrl+K",
       "offline": "Du er offline. Søgning er ikke tilgængelig.",
       "error": "Vi kunne ikke gennemføre søgningen.",
       "resultsTitle": "Oversigt",
@@ -201,7 +175,6 @@
     },
     "chat": {
       "title": "AI-hjælp",
-      "description": "Spørg om dashboardet, arbejdsgange eller data.",
       "placeholder": "Skriv dit spørgsmål...",
       "send": "Send",
       "typing": "AI skriver...",
@@ -388,9 +361,6 @@
       "stats": {
         "totalUsers": "Brugere i alt",
         "registeredUsers": "Registrerede brugere",
-        "newUsersThisWeek": "Nye brugere · 7d",
-        "lastSevenDays": "Sidste 7 dage",
-        "vsPreviousWeekShort": "ift. forrige uge",
         "activeSessions": "Aktive sessioner",
         "activeSessionsHint": "Logget ind nu",
         "unreadMessages": "Ulæste beskeder",
@@ -474,23 +444,6 @@
       "amount": "Beløb"
     },
     "widgets": {
-      "projectsStatus": "Projektstatus",
-      "projectsStatusDesc": "Oversigt over projekter efter aktuel status.",
-      "totalProjects": "Projekter i alt",
-      "pendingApprovals": "Afventende Godkendelser",
-      "pendingApprovalsDesc": "Transaktioner der afventer gennemgang.",
-      "awaitingReview": "afventer gennemgang",
-      "reviewTransactions": "Gennemse transaktioner →",
-      "recentTransactions": "Seneste Transaktioner",
-      "recentTransactionsDesc": "Nyeste finansielle aktivitet.",
-      "teamOverview": "Teamoversigt",
-      "teamOverviewDesc": "Alle teams og deres antal medlemmer.",
-      "totalTeams": "Teams",
-      "totalMembers": "Medlemmer",
-      "avgTeamSize": "Gns. størrelse",
-      "largestTeams": "Største teams",
-      "noDescription": "Ingen beskrivelse",
-      "members": "medlemmer",
       "userStats": "Brugermappe",
       "userStatsDesc": "Samlet antal medarbejdere og topafdelinger.",
       "totalUsers": "Brugere i alt",
@@ -501,29 +454,14 @@
       "aiStatusDesc": "Forbindelsesstatus for konfigurerede AI-udbydere.",
       "aiOnline": "online",
       "models": "modeller",
-      "categoriesList": "Kategorier",
-      "categoriesListDesc": "Alle tilgængelige kategorier på et øjekast.",
-      "totalCategories": "i alt",
       "quickLinks": "Hurtige Links",
       "quickLinksDesc": "Hurtig adgang til vigtige sektioner i arbejdsrummet.",
-      "linkProjects": "Projekter",
-      "linkTransactions": "Transaktioner",
-      "linkTasks": "Opgaver",
-      "linkTeam": "Team",
       "linkSettings": "Indstillinger",
       "linkHelp": "Hjælp"
     },
     "actions": {
-      "refreshProjectsStatus": "Opdater projektstatus",
-      "refreshPendingApprovals": "Opdater afventende godkendelser",
-      "refreshRecentTransactions": "Opdater transaktioner",
-      "refreshTeamOverview": "Opdater teams",
       "refreshUserStats": "Opdater brugerstatistik",
-      "refreshAiStatus": "Opdater AI-status",
-      "refreshCategories": "Opdater kategorier",
-      "refreshUpcomingTasks": "Opdater kommende opgaver",
-      "refreshExpenseDistribution": "Opdater udgiftsfordeling",
-      "refreshWorkload": "Opdater arbejdsbelastning"
+      "refreshAiStatus": "Opdater AI-status"
     },
     "title": "Dashboard",
     "description": "Velkommen til dit dashboard.",
@@ -636,72 +574,24 @@
     }
   },
   "categories": {
-    "title": "Kategorier",
-    "add": "Tilføj kategori",
     "nameLabel": "Navn",
     "namePlaceholder": "Kategorinavn",
     "colorLabel": "Farve",
     "save": "Gem kategori",
-    "summary": "Viser {{shown}} af {{total}} kategorier",
-    "columns": {
-      "name": "Navn",
-      "color": "Farve"
-    },
-    "description": {
-      "create": "Tilføj en ny kategori til dine transaktioner.",
-      "edit": "Opdater kategoridetaljerne."
-    },
-    "confirm": {
-      "delete": "Er du sikker på, at du vil slette denne kategori?"
-    },
-    "error": {
-      "title": "Fejl",
-      "description": "Der opstod en fejl ved indlæsning af kategorier."
-    },
-    "mutations": {
-      "created": "Kategori oprettet",
-      "updated": "Kategori opdateret",
-      "deleted": "Kategori slettet"
-    }
+    "summary": "Viser {{shown}} af {{total}} kategorier"
   },
   "projects": {
-    "title": "Projekter",
     "actions": {
-      "create": "Opret nyt projekt",
       "new": "Nyt projekt",
       "edit": "Rediger projekt",
-      "delete": "Slet projekt",
-      "createAnother": "Opret et andet projekt"
+      "delete": "Slet projekt"
     },
     "form": {
-      "nameLabel": "Projektnavn",
-      "namePlaceholder": "Indtast projektnavn",
-      "descriptionLabel": "Beskrivelse",
-      "descriptionPlaceholder": "Beskriv projektets mål...",
-      "statusLabel": "Status",
       "statusPlaceholder": "Vælg status",
-      "typeLabel": "Projekttype",
       "typePlaceholder": "Vælg type",
-      "startDateLabel": "Startdato",
-      "endDateLabel": "Slutdato",
-      "technologiesLabel": "Teknologier",
-      "technologiesPlaceholder": "React, TypeScript, Tailwind...",
-      "skillsLabel": "Kompetencer",
-      "skillsPlaceholder": "Søg kompetencer...",
-      "skillsEmpty": "Ingen kompetencer fundet.",
-      "budgetLabel": "Budget",
-      "budgetPlaceholder": "0",
-      "priorityLabel": "Prioritet",
       "priorityPlaceholder": "Vælg prioritet",
       "departmentLabel": "Afdeling",
       "departmentPlaceholder": "Vælg afdeling",
-      "teamLabel": "Teammedlemmer",
-      "teamPlaceholder": "Vælg teammedlemmer",
-      "createTitle": "Opret projekt",
-      "createDescription": "Tilføj et nyt projekt til dit arbejdsområde. Udfyld detaljerne nedenfor.",
-      "editTitle": "Rediger projekt",
-      "editDescription": "Opdater projektdetaljer og konfiguration.",
-      "confirmationDescription": "Dit projekt er blevet oprettet. Du kan nu begynde at tilføje opgaver og teammedlemmer.",
       "teamEmpty": "Ingen brugere fundet.",
       "tabs": {
         "general": "Generelt",
@@ -709,13 +599,6 @@
       },
       "datesLabel": "Datoer",
       "addNewUser": "Tilføj ny bruger"
-    },
-    "status": {
-      "active": "Aktiv",
-      "completed": "Afsluttet",
-      "on_hold": "På vent",
-      "planning": "Planlægning",
-      "cancelled": "Annulleret"
     },
     "type": {
       "internal": "Intern",
@@ -728,23 +611,11 @@
       "medium": "Mellem",
       "high": "Høj"
     },
-    "success": {
-      "created": "Projektet blev oprettet korrekt",
-      "updated": "Projektet blev opdateret korrekt",
-      "deleted": "Projektet blev slettet korrekt"
-    },
     "error": {
       "create": "Kunne ikke oprette projektet",
-      "update": "Kunne ikke opdatere projektet",
-      "delete": "Kunne ikke slette projektet",
-      "hasTasks": "Kan ikke slette projektet '{{name}}', fordi det har tilknyttede opgaver.",
       "fetch": "Kunne ikke indlæse projekter."
     },
-    "confirm": {
-      "delete": "Er du sikker på, at du vil slette projektet '{{name}}'?"
-    },
     "members": {
-      "removeConfirm": "Er du sikker på, at du vil fjerne {{name}} fra dette projekt?",
       "title": "Teammedlemmer",
       "description": "Administrer hvem der har adgang til dette projekt og deres roller.",
       "add": "Tilføj medlem",
@@ -806,58 +677,8 @@
       "deleted": "Projekt slettet korrekt"
     }
   },
-  "team": {
-    "title": "Team",
-    "actions": {
-      "new": "Nyt team",
-      "create": "Opret team",
-      "edit": "Rediger team"
-    },
-    "members": "Medlemmer",
-    "emptyMembers": "Ingen medlemmer tildelt.",
-    "emptyUsers": "Ingen brugere tilgængelige.",
-    "confirm": {
-      "delete": "Er du sikker på, at du vil slette \"{{name}}\"?"
-    },
-    "toast": {
-      "created": "Team oprettet",
-      "updated": "Team opdateret",
-      "deleted": "Team slettet"
-    }
-  },
   "todos": {
-    "title": "Opgaver",
-    "subtitlePrefix": "Administrer din arbejdsgang. Du har ",
-    "subtitleSuffix": " aktive opgaver.",
-    "actions": {
-      "new": "Ny opgave",
-      "create": "Opret opgave",
-      "update": "Opdater opgave",
-      "edit": "Rediger opgave",
-      "delete": "Slet"
-    },
     "form": {
-      "headerTitle": "Opgavedetaljer",
-      "headerSubtitle": "Definer mål og deadlines.",
-      "titleLabel": "Projekt titel",
-      "titlePlaceholder": "Fx: Dashboard redesign",
-      "descriptionLabel": "Detaljeret beskrivelse",
-      "descriptionPlaceholder": "Beskriv de næste skridt...",
-      "statusLabel": "Nuværende status",
-      "statusPlaceholder": "Vælg status",
-      "statusPending": "Afventer",
-      "statusInProgress": "I gang",
-      "statusCompleted": "Gennemført",
-      "priorityLabel": "Prioritet",
-      "priorityPlaceholder": "Vælg prioritet",
-      "priorityLow": "Lav",
-      "priorityMedium": "Mellem",
-      "priorityHigh": "Høj",
-      "dueDateLabel": "Forfaldsdato",
-      "dueDatePlaceholder": "Vælg dato",
-      "assignedToLabel": "Tildelt til",
-      "assignedToPlaceholder": "Vælg bruger",
-      "assignedToSelf": "Mig",
       "projectLabel": "Projekt",
       "projectPlaceholder": "Vælg projekt",
       "complexityLabel": "Kompleksitet",
@@ -892,83 +713,21 @@
       "statusOnHold": "På hold",
       "statusBlocked": "Blokeret",
       "statusCancelled": "Annulleret"
-    },
-    "status": {
-      "pending": "Afventer",
-      "inProgress": "I gang",
-      "in_progress": "I gang",
-      "completed": "Gennemført",
-      "on_hold": "På hold",
-      "testing": "Afprøvning",
-      "blocked": "Blokeret",
-      "cancelled": "Annulleret"
-    },
-    "filters": {
-      "label": "Filtre",
-      "onlyMyTasks": "Kun mine opgaver",
-      "allStatuses": "Alle statusser",
-      "allUsers": "Alle brugere",
-      "myTasks": "Mine opgaver"
-    },
-    "priority": {
-      "low": "Lav",
-      "medium": "Mellem",
-      "high": "Høj"
-    },
-    "table": {
-      "title": "Opgave",
-      "status": "Status",
-      "priority": "Prioritet",
-      "assignedTo": "Tildelt til",
-      "createdAt": "Oprettet",
-      "dueDate": "Forfaldsdato"
-    },
-    "confirm": {
-      "delete": "Er du sikker på, at du vil slette denne opgave?"
-    },
-    "searchPlaceholder": "Søg opgaver...",
-    "noSearchResults": "Ingen opgaver matcher din søgning",
-    "empty": "Ingen opgaver fundet",
-    "clearSearch": "Ryd søgning",
-    "loadingMore": "Indlæser flere opgaver...",
-    "error": {
-      "title": "Indlæsningsfejl",
-      "description": "Vi kunne ikke hente dine opgaver. Tjek din forbindelse og prøv igen.",
-      "retry": "Prøv igen"
-    },
-    "sheet": {
-      "createTitle": "Opret opgave",
-      "createDescription": "Tilføj en ny opgave til din liste. Udfyld detaljerne nedenfor.",
-      "editTitle": "Rediger opgave",
-      "editDescription": "Opdater dine opgavedetaljer. Ændringer gemmes straks."
-    },
-    "toast": {
-      "created": "Opgave oprettet",
-      "updated": "Opgave opdateret",
-      "deleted": "Opgave slettet"
     }
   },
   "users": {
     "title": "Brugere",
     "subtitle": "Administrer teammedlemmer, roller og tilladelser.",
-    "subtitlePrefix": "Administrer adgangsniveauer for ",
-    "subtitleSuffix": " teammedlemmer.",
     "filters": {
-      "search": "Soeg brugere efter navn eller e-mail",
       "provider": "Udbyder",
       "role": "Rolle"
     },
     "actions": {
-      "new": "Ny bruger",
-      "save": "Gem bruger",
-      "editProfile": "Rediger profil",
-      "deleteAccount": "Slet konto"
+      "new": "Ny bruger"
     },
     "form": {
       "nameLabel": "Navn",
-      "namePlaceholder": "Brugernavn",
       "emailLabel": "E-mail",
-      "emailPlaceholder": "Bruger e-mail",
       "roleLabel": "Rolle",
       "rolePlaceholder": "Vælg rolle",
       "roleUser": "Bruger",
@@ -982,9 +741,7 @@
       "passwordHelpEdit": "Valgfrit. Hvis du angiver en værdi, erstattes den nuværende adgangskode.",
       "passwordTooShort": "Adgangskoden skal være mindst 8 tegn lang.",
       "avatarLabel": "Avatar-URL",
-      "avatarPlaceholder": "Avatar-URL",
       "avatarRandom": "Tilfældig",
-      "avatarHelp": "Indsæt en URL eller generer en tilfældig avatar",
       "roleHelp": "Rollen definerer brugerens tilladelser.",
       "jobTitleLabel": "Jobtitel",
       "jobTitlePlaceholder": "f.eks. Senior Udvikler",
@@ -1040,11 +797,6 @@
       "editTitle": "Brugerprofil",
       "editDescription": "Opdater kontaktinfo og tilladelser."
     },
-    "toast": {
-      "created": "Bruger oprettet",
-      "updated": "Bruger opdateret",
-      "deleted": "Bruger slettet"
-    },
     "description": "Administrer platformsbrugere.",
     "create": "Ny Bruger",
     "edit": "Rediger Bruger",
@@ -1063,9 +815,7 @@
     "subtitle": "Gennemgå briefs sendt fra landingssiden og hold opfølgningskøen ryddelig.",
     "unreadBadge": "{{count}} ulæste",
     "filters": {
-      "search": "Søg efter e-mail eller indhold",
       "status": "Status",
-      "statusAll": "Alle",
       "statusNew": "Ny",
       "statusRead": "Læst"
     },
@@ -1096,13 +846,11 @@
       "markError": "Vi kunne ikke opdatere denne besked"
     },
     "empty": {
-      "noData": "Ingen kontakt-briefs endnu.",
-      "noResults": "Ingen briefs matcher dine filtre."
+      "noData": "Ingen kontakt-briefs endnu."
     },
     "error": {
       "title": "Kunne ikke indlæse kontaktbeskeder",
       "description": "Prøv igen om få sekunder.",
-      "retry": "Prøv igen",
       "architectureLink": "Manual om arkitektur og roller →",
       "item1": "Kontrollér, at du har de rette tilladelser (administratorrolle kræves).",
       "item2": "Kontrollér, at du er logget ind i arbejdsområdet.",
@@ -1138,7 +886,6 @@
       "statusPending": "Afventer",
       "statusRejected": "Afvist",
       "amountLabel": "Beløb",
-      "amountPlaceholder": "0.00",
       "dateLabel": "Dato",
       "userLabel": "Bruger",
       "userPlaceholder": "Vælg Bruger",
@@ -1162,7 +909,6 @@
       "delete": "Er du sikker på, at du vil slette denne transaktion?"
     },
     "error": {
-      "title": "Fejl",
       "description": "Der opstod en fejl ved indlæsning af transaktioner."
     },
     "toast": {
@@ -1183,10 +929,7 @@
   },
   "validation": {
     "required": "Dette felt er påkrævet",
-    "minLength": "Skal være mindst {{min}} tegn",
-    "maxLength": "Skal være højst {{max}} tegn",
     "invalidEmail": "Ugyldig e-mailadresse",
-    "invalidUrl": "Ugyldig URL",
     "invalidColor": "Ugyldig farve",
     "invalidDate": "Ugyldig dato",
     "futureDate": "Dato skal være i fremtiden",
@@ -1199,7 +942,6 @@
       "description": "Auth, database, AI, oversættelser og tests er koblet til fra start. Du begynder på dit produkt, ikke på grundarbejdet.",
       "ariaLabel": "Introduktion: produktionsklar SaaS-skabelon",
       "copyCommandAria": "Kopiér installationskommandoen",
-      "copiedFeedback": "Kopieret",
       "ctaSecondary": "Se hvad der følger med",
       "scrollCue": "Scroll videre",
       "arc": {
@@ -1518,272 +1260,22 @@
     }
   },
   "budgets": {
-    "title": "Budgetter",
-    "description": "Administrer og følg dine finansielle budgetter.",
-    "empty": {
-      "title": "Ingen budgetter endnu",
-      "description": "Opret dit første budget for at begynde at spore indtægter og udgifter."
-    },
-    "actions": {
-      "create": "Nyt Budget",
-      "edit": "Rediger Budget",
-      "save": "Gem Budget",
-      "delete": "Slet Budget",
-      "deleteConfirm": "Er du sikker på, at du vil slette dette budget?"
-    },
-    "create": {
-      "title": "Nyt Budget",
-      "description": "Opret et nyt budget for at spore dine indtægter og udgifter."
-    },
-    "edit": {
-      "title": "Rediger Budget",
-      "description": "Opdater dine budgetdetaljer."
-    },
-    "fields": {
-      "name": "Budgetnavn",
-      "namePlaceholder": "f.eks. Marketing K1",
-      "description": "Beskrivelse",
-      "descriptionPlaceholder": "Hvad er dette budget til?",
-      "scope": "Omfang",
-      "project": "Projekt",
-      "projectPlaceholder": "Vælg projekt",
-      "targetAmount": "Forbrugsgrænse",
-      "noLimit": "Ingen grænse",
-      "currency": "Valuta",
-      "periodType": "Periode",
-      "startDate": "Startdato",
-      "endDate": "Slutdato (valgfri)"
-    },
     "scopes": {
-      "personal": "Personlig",
-      "project": "Projekt",
-      "department": "Afdeling",
-      "company": "Virksomhed"
-    },
-    "periods": {
-      "monthly": "Månedlig",
-      "quarterly": "Kvartalsvis",
-      "semiannual": "Halvårlig",
-      "annual": "Årlig",
-      "one_time": "Engangsbetaling"
-    },
-    "health": {
-      "healthy": "Sund",
-      "on_track": "På sporet",
-      "warning": "Advarsel",
-      "approaching": "Nærmer sig grænse",
-      "overBudget": "Over budget",
-      "noLimit": "Ingen grænse"
+      "personal": "Personlig"
     },
     "summary": {
-      "income": "Indtægt",
-      "expenses": "Udgifter",
-      "balance": "Saldo",
-      "remaining": "Resterende",
-      "overBy": "Overskredet med",
-      "noLimit": "Ingen grænse",
-      "used": "brugt"
+      "balance": "Saldo"
     },
     "detail": {
-      "notFound": "Budget ikke fundet.",
-      "overBudget": "Over budget",
-      "spent": "brugt",
-      "overBy": "Over med {{amount}}",
-      "totalSpent": "Samlet forbrug",
-      "balance": "Saldo",
-      "tabs": {
-        "transactions": "Transaktioner",
-        "categories": "Kategorier",
-        "members": "Medlemmer",
-        "recurring": "Tilbagevendende",
-        "report": "Rapport"
-      }
+      "balance": "Saldo"
     },
     "report": {
-      "title": "Årsrapport",
-      "subtitle": "Udgifter og indtægter efter kategori på tværs af måneder",
-      "item": "Transaktioner",
-      "year": "År",
-      "category": "Kategori",
-      "totalExpenses": "Samlede udgifter",
-      "totalIncome": "Samlede indtægter",
-      "expensesTable": "Udgifter efter kategori",
-      "incomeTable": "Indtægter efter kategori",
-      "balance": "Saldo",
-      "total": "Total",
-      "month": "Måned",
-      "accumExpenses": "Akk. udgifter",
-      "summarySection": "Oversigt",
-      "noData": "Ingen transaktioner fundet for {{year}}",
-      "showIncome": "Vis indtægtsrækker",
-      "hideIncome": "Skjul indtægtsrækker",
-      "directLabel": "ikke planlagt",
-      "directExpenseLabel": "ikke planlagt"
-    },
-    "alerts": {
-      "overBudget": "budget(ter) over grænsen"
-    },
-    "toast": {
-      "created": "Budget oprettet",
-      "updated": "Budget opdateret",
-      "deleted": "Budget slettet"
-    },
-    "messages": {
-      "created": "Budget oprettet",
-      "updated": "Budget opdateret",
-      "deleted": "Budget slettet",
-      "memberAdded": "Medlem tilføjet til budget",
-      "memberRemoved": "Medlem fjernet fra budget",
-      "limitSet": "Kategorigrænse gemt",
-      "recurrenceCreated": "Tilbagevendende transaktion oprettet",
-      "recurrenceDeleted": "Tilbagevendende transaktion slettet"
-    },
-    "transactions": {
-      "count": "transaktioner",
-      "add": "Tilføj transaktion",
-      "addTitle": "Tilføj transaktion til budget",
-      "editTitle": "Rediger transaktion",
-      "deleteConfirm": "Slet denne transaktion?",
-      "empty": "Ingen transaktioner knyttet til dette budget.",
-      "noDescription": "Ingen beskrivelse",
-      "type": "Type",
-      "expense": "Udgift",
-      "income": "Indtægt",
-      "description": "Beskrivelse",
-      "descriptionPlaceholder": "Hvad er dette til?",
-      "amount": "Beløb",
-      "date": "Dato",
-      "category": "Kategori",
-      "categoryPlaceholder": "Vælg kategori"
-    },
-    "limits": {
-      "count": "kategorigrænser",
-      "add": "Tilføj grænse",
-      "addTitle": "Sæt kategorigrænse",
-      "editTitle": "Rediger kategorigrænse",
-      "empty": "Ingen kategorigrænser konfigureret.",
-      "category": "Kategori",
-      "selectCategory": "Vælg kategori",
-      "amount": "Grænsebeløb",
-      "spent": "Brugt",
-      "allocated": "grænse",
-      "toast": {
-        "upserted": "Kategorigrænse gemt",
-        "deleted": "Kategorigrænse fjernet"
-      }
-    },
-    "members": {
-      "count": "medlemmer",
-      "add": "Tilføj medlem",
-      "addTitle": "Tilføj medlem til budget",
-      "empty": "Ingen medlemmer endnu.",
-      "owner": "Ejer",
-      "role": "Rolle",
-      "searchUser": "Søg brugere",
-      "searchPlaceholder": "Skriv et navn eller email...",
-      "selectUser": "Vælg bruger",
-      "userPlaceholder": "Vælg en bruger",
-      "addBtn": "Tilføj Medlem",
-      "toast": {
-        "added": "Medlem tilføjet",
-        "roleUpdated": "Rolle opdateret",
-        "removed": "Medlem fjernet"
-      }
-    },
-    "roles": {
-      "admin": "Administrator",
-      "contributor": "Bidragyder",
-      "viewer": "Læser"
+      "balance": "Saldo"
     },
     "recurrences": {
-      "count": "regler",
-      "add": "Tilføj regel",
-      "createTitle": "Opret tilbagevendende regel",
-      "empty": "Ingen tilbagevendende regler endnu.",
-      "noDescription": "Unavngiven regel",
-      "description": "Beskrivelse",
-      "descriptionPlaceholder": "f.eks. Månedlig husleje",
-      "amount": "Beløb",
-      "frequencyLabel": "Frekvens",
-      "interval": "Hver (n)",
-      "startDate": "Startdato",
-      "category": "Kategori",
-      "categoryPlaceholder": "Ingen kategori",
-      "nextOn": "næste",
-      "pause": "Pause",
-      "resume": "Genoptag",
-      "manualPause": "Manuelt sat på pause",
       "type": "Type",
       "typeExpense": "Udgift",
-      "typeIncome": "Indtægt",
-      "status": {
-        "active": "Aktiv",
-        "paused": "På pause",
-        "completed": "Afsluttet"
-      },
-      "frequency": {
-        "daily": "Daglig",
-        "weekly": "Ugentlig",
-        "monthly": "Månedlig",
-        "quarterly": "Kvartalsvis",
-        "semiannual": "Halvårlig",
-        "annual": "Årlig"
-      },
-      "toast": {
-        "created": "Tilbagevendende regel oprettet",
-        "updated": "Tilbagevendende regel opdateret",
-        "deleted": "Tilbagevendende regel slettet"
-      }
-    },
-    "categories": {
-      "uncategorized": "Ukategoriseret"
-    },
-    "widgets": {
-      "refreshBalance": "Opdater balance",
-      "refreshOverview": "Opdater oversigt",
-      "refreshCategories": "Opdater kategorier"
-    },
-    "import": {
-      "title": "Importer Budget",
-      "description": "Upload et kontoudtog for at analysere og oprette et budget med rigtige data.",
-      "upload": {
-        "dropLabel": "Slip filen her, eller klik for at vælge",
-        "dropSub": "Understøttet: CSV, XLSX, PDF kontoudtog",
-        "maxSize": "Maks {{size}}",
-        "supportedHint": "Kompatibel med alle bankformater",
-        "supportedDesc": "Kolonner registreres automatisk på engelsk, spansk og dansk. Datoer og beløb håndteres automatisk."
-      },
-      "analysis": {
-        "title": "Analyseresultater",
-        "processing": "Analyserer transaktioner…",
-        "parsed": "Behandlet",
-        "transactions": "transaktioner",
-        "recurringFound": "{{count}} tilbagevendende transaktioner fundet",
-        "confidence": "Sikkerhed",
-        "noRecurring": "Ingen tilbagevendende transaktioner fundet.",
-        "dateRange": "Periode: {{from}} til {{to}}"
-      },
-      "confirm": {
-        "title": "Klar til at oprette budget",
-        "readyTitle": "Import klar",
-        "readyDesc": "{{recurrences}} tilbagevendende regler og {{transactions}} transaktioner i alt. Opret budgettet for at anvende dem.",
-        "incomeRecurrences": "Tilbagevendende indkomst",
-        "expenseRecurrences": "Tilbagevendende udgifter",
-        "nextStepHint": "Tilbagevendende regler tilføjes til det nye budget. Du kan gennemgå og justere dem efter oprettelsen."
-      },
-      "actions": {
-        "import": "Importer",
-        "next": "Fortsæt",
-        "back": "Tilbage",
-        "retry": "Prøv igen",
-        "createBudget": "Opret Budget",
-        "downloadOriginal": "Download original fil"
-      },
-      "errors": {
-        "fileTooLarge": "Filen overstiger grænsen på 10 MB.",
-        "unsupportedType": "Kun CSV, XLSX og PDF-filer er understøttet.",
-        "parseFailed": "Kunne ikke læse filen. Kontroller at det er et gyldigt kontoudtog."
-      }
+      "typeIncome": "Indtægt"
     }
   },
   "breadcrumb": {
@@ -1842,8 +1334,6 @@
     "export": "Eksportér",
     "selectAllRows": "Vælg alle rækker",
     "selectRow": "Vælg række",
-    "noResults": "Ingen resultater fundet",
-    "clearFilters": "Ryd filtre",
     "all": "Alle",
     "filterBy": "Filtrér efter ",
     "columns": "Kolonner"

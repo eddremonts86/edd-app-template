@@ -1,15 +1,9 @@
 {
   "app": {
-    "name": "edd App Template",
-    "brand": "edd Starter",
-    "description": "A reusable starting point for every edd SaaS, landing, and web app"
+    "brand": "edd Starter"
   },
   "nav": {
-    "home": "Home",
-    "services": "Building Blocks",
     "timeline": "Roadmap",
-    "contact": "Support",
-    "settings": "Settings",
     "signIn": "Sign In",
     "signOut": "Sign Out",
     "docs": "Docs"
@@ -78,40 +72,24 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "edit": "Edit",
-    "create": "Create",
     "search": "Search",
     "filter": "Filter",
-    "sort": "Sort",
     "actions": {
       "label": "Actions",
       "refresh": "Refresh",
       "move": "Move"
     },
     "confirm": "Confirm",
-    "undoWarning": "This action cannot be undone.",
     "noPermission": "You don't have permission to perform this action.",
-    "noPermissionEdit": "You can only edit tasks you created or are assigned to.",
-    "noPermissionDelete": "You can only delete tasks you created or are assigned to.",
-    "yes": "Yes",
-    "no": "No",
-    "submit": "Submit",
-    "reset": "Reset",
-    "back": "Back",
-    "next": "Next",
-    "previous": "Previous",
-    "loadMore": "Load More",
     "openMenu": "Open menu",
     "optional": "optional",
     "pin": "Pin",
     "unpin": "Unpin",
     "pinVisible": "Pin visible",
     "stop": "Stop",
-    "clear": "Clear",
-    "clearFilters": "Clear filters",
     "noResults": "No results found.",
     "noData": "No data available.",
     "clearSearch": "Clear search",
-    "selected": "selected",
     "send": "Send",
     "backToHome": "Go to Homepage",
     "retry": "Retry",
@@ -176,7 +154,6 @@
       "settings": "Settings"
     },
     "secondary": {
-      "settings": "Settings",
       "help": "Get Help",
       "search": "Search"
     },
@@ -189,10 +166,7 @@
       "title": "AI Search",
       "description": "Ask the assistant or jump to a section.",
       "placeholder": "Search the dashboard...",
-      "providerAuto": "Auto provider",
       "cta": "Search",
-      "searching": "Searching...",
-      "shortcut": "⌘K / Ctrl+K",
       "offline": "You're offline. Search is unavailable.",
       "error": "We couldn't complete the search.",
       "resultsTitle": "Summary",
@@ -201,7 +175,6 @@
     },
     "chat": {
       "title": "AI Help",
-      "description": "Ask about the dashboard, workflows, or data.",
       "placeholder": "Type your question...",
       "send": "Send",
       "typing": "AI is typing...",
@@ -390,9 +363,6 @@
       "stats": {
         "totalUsers": "Total users",
         "registeredUsers": "Registered users",
-        "newUsersThisWeek": "New users · 7d",
-        "lastSevenDays": "Last 7 days",
-        "vsPreviousWeekShort": "vs prev. week",
         "activeSessions": "Active sessions",
         "activeSessionsHint": "Currently signed in",
         "unreadMessages": "Unread messages",
@@ -476,23 +446,6 @@
       "noFilteredResults": "No tasks found for selected filters."
     },
     "widgets": {
-      "projectsStatus": "Project Status",
-      "projectsStatusDesc": "Overview of projects by current status.",
-      "totalProjects": "Total Projects",
-      "pendingApprovals": "Pending Approvals",
-      "pendingApprovalsDesc": "Transactions awaiting review.",
-      "awaitingReview": "awaiting review",
-      "reviewTransactions": "Review transactions →",
-      "recentTransactions": "Recent Transactions",
-      "recentTransactionsDesc": "Latest financial activity.",
-      "teamOverview": "Team Overview",
-      "teamOverviewDesc": "All teams and their member counts.",
-      "totalTeams": "Teams",
-      "totalMembers": "Members",
-      "avgTeamSize": "Avg size",
-      "largestTeams": "Largest teams",
-      "noDescription": "No description",
-      "members": "members",
       "userStats": "User Directory",
       "userStatsDesc": "Team headcount and top departments.",
       "totalUsers": "Total users",
@@ -503,29 +456,14 @@
       "aiStatusDesc": "Connection status of configured AI providers.",
       "aiOnline": "online",
       "models": "models",
-      "categoriesList": "Categories",
-      "categoriesListDesc": "All available categories at a glance.",
-      "totalCategories": "total",
       "quickLinks": "Quick Links",
       "quickLinksDesc": "Fast access to key workspace sections.",
-      "linkProjects": "Projects",
-      "linkTransactions": "Transactions",
-      "linkTasks": "Tasks",
-      "linkTeam": "Team",
       "linkSettings": "Settings",
       "linkHelp": "Help"
     },
     "actions": {
-      "refreshProjectsStatus": "Refresh project status",
-      "refreshPendingApprovals": "Refresh pending approvals",
-      "refreshRecentTransactions": "Refresh transactions",
-      "refreshTeamOverview": "Refresh teams",
       "refreshUserStats": "Refresh user stats",
-      "refreshAiStatus": "Refresh AI status",
-      "refreshCategories": "Refresh categories",
-      "refreshUpcomingTasks": "Refresh upcoming tasks",
-      "refreshExpenseDistribution": "Refresh expense distribution",
-      "refreshWorkload": "Refresh workload"
+      "refreshAiStatus": "Refresh AI status"
     },
     "recentTransactions": "Recent transactions",
     "recentSummary": "You have made {{count}} sales this month.",
@@ -636,73 +574,25 @@
     }
   },
   "categories": {
-    "title": "Categories",
-    "add": "Add Category",
     "nameLabel": "Name",
     "namePlaceholder": "Category name",
     "colorLabel": "Color",
     "save": "Save Category",
-    "summary": "Showing {{shown}} of {{total}} categories",
-    "columns": {
-      "name": "Name",
-      "color": "Color"
-    },
-    "description": {
-      "create": "Add a new category for your transactions.",
-      "edit": "Update category details."
-    },
-    "confirm": {
-      "delete": "Are you sure you want to delete this category?"
-    },
-    "error": {
-      "title": "Error",
-      "description": "An error occurred while loading categories."
-    },
-    "mutations": {
-      "created": "Category created successfully",
-      "updated": "Category updated successfully",
-      "deleted": "Category deleted successfully"
-    }
+    "summary": "Showing {{shown}} of {{total}} categories"
   },
   "projects": {
-    "title": "Projects",
     "actions": {
-      "create": "Create New Project",
       "new": "New Project",
       "edit": "Edit Project",
-      "delete": "Delete Project",
-      "createAnother": "Create Another Project"
+      "delete": "Delete Project"
     },
     "form": {
-      "nameLabel": "Project Name",
-      "namePlaceholder": "Enter project name",
-      "descriptionLabel": "Description",
-      "descriptionPlaceholder": "Describe the project objectives...",
-      "statusLabel": "Status",
       "statusPlaceholder": "Select status",
-      "typeLabel": "Project Type",
       "typePlaceholder": "Select type",
-      "startDateLabel": "Start Date",
-      "endDateLabel": "End Date",
-      "technologiesLabel": "Technologies",
-      "technologiesPlaceholder": "React, TypeScript, Tailwind...",
-      "skillsLabel": "Skills",
-      "skillsPlaceholder": "Search skills...",
-      "skillsEmpty": "No skills found.",
-      "budgetLabel": "Budget",
-      "budgetPlaceholder": "0",
-      "priorityLabel": "Priority",
       "priorityPlaceholder": "Select priority",
       "departmentLabel": "Department",
       "departmentPlaceholder": "Select department",
-      "teamLabel": "Team Members",
-      "teamPlaceholder": "Search users...",
       "teamEmpty": "No users found.",
-      "createTitle": "Create Project",
-      "createDescription": "Add a new project to your workspace. Fill in the details below.",
-      "editTitle": "Edit Project",
-      "editDescription": "Update project details and configuration.",
-      "confirmationDescription": "Your project has been successfully created. You can now start adding tasks and team members.",
       "tabs": {
         "general": "General",
         "team": "Team"
@@ -720,7 +610,6 @@
       "searchMembers": "Search team members...",
       "noAvailableUsers": "No more users available.",
       "empty": "No members in this project.",
-      "removeConfirm": "Are you sure you want to remove {{name}} from this project?",
       "success": {
         "added": "Member added successfully",
         "updated": "Role updated successfully",
@@ -729,13 +618,6 @@
       "projectPlaceholder": "Select project...",
       "selectProjectFirst": "Select a project first to view members.",
       "noMembers": "No members in this project."
-    },
-    "status": {
-      "active": "Active",
-      "completed": "Completed",
-      "on_hold": "On Hold",
-      "planning": "Planning",
-      "cancelled": "Cancelled"
     },
     "type": {
       "internal": "Internal",
@@ -748,20 +630,9 @@
       "medium": "Medium",
       "high": "High"
     },
-    "success": {
-      "created": "Project created successfully",
-      "updated": "Project updated successfully",
-      "deleted": "Project deleted successfully"
-    },
     "error": {
       "create": "Failed to create project",
-      "update": "Failed to update project",
-      "delete": "Failed to delete project",
-      "hasTasks": "Cannot delete project '{{name}}' because it has associated tasks.",
       "fetch": "Failed to load projects."
-    },
-    "confirm": {
-      "delete": "Are you sure you want to delete project '{{name}}'?"
     },
     "member": {
       "role": "Role",
@@ -806,58 +677,8 @@
       "deleted": "Project deleted successfully"
     }
   },
-  "team": {
-    "title": "Team",
-    "actions": {
-      "new": "New Team",
-      "create": "Create Team",
-      "edit": "Edit Team"
-    },
-    "members": "Members",
-    "emptyMembers": "No members assigned.",
-    "emptyUsers": "No users available.",
-    "confirm": {
-      "delete": "Are you sure you want to delete \"{{name}}\"?"
-    },
-    "toast": {
-      "created": "Team created successfully",
-      "updated": "Team updated successfully",
-      "deleted": "Team deleted successfully"
-    }
-  },
   "todos": {
-    "title": "Todos",
-    "subtitlePrefix": "Manage your workflow. You have ",
-    "subtitleSuffix": " active tasks.",
-    "actions": {
-      "new": "New Task",
-      "create": "Create Task",
-      "update": "Update Task",
-      "edit": "Edit Task",
-      "delete": "Delete"
-    },
     "form": {
-      "headerTitle": "Task Details",
-      "headerSubtitle": "Define objectives and delivery dates.",
-      "titleLabel": "Project Title",
-      "titlePlaceholder": "Ex: Dashboard redesign",
-      "descriptionLabel": "Detailed Description",
-      "descriptionPlaceholder": "Describe the steps to follow...",
-      "statusLabel": "Current Status",
-      "statusPlaceholder": "Select status",
-      "statusPending": "Pending",
-      "statusInProgress": "In Progress",
-      "statusCompleted": "Completed",
-      "priorityLabel": "Priority",
-      "priorityPlaceholder": "Select priority",
-      "priorityLow": "Low",
-      "priorityMedium": "Medium",
-      "priorityHigh": "High",
-      "dueDateLabel": "Due Date",
-      "dueDatePlaceholder": "Select date",
-      "assignedToLabel": "Assigned To",
-      "assignedToPlaceholder": "Select user",
-      "assignedToSelf": "Me",
       "projectLabel": "Project",
       "projectPlaceholder": "Select project",
       "complexityLabel": "Complexity",
@@ -892,83 +713,21 @@
       "statusOnHold": "On Hold",
       "statusBlocked": "Blocked",
       "statusCancelled": "Cancelled"
-    },
-    "status": {
-      "pending": "Pending",
-      "inProgress": "In Progress",
-      "in_progress": "In Progress",
-      "completed": "Completed",
-      "on_hold": "On Hold",
-      "testing": "Testing",
-      "blocked": "Blocked",
-      "cancelled": "Cancelled"
-    },
-    "filters": {
-      "label": "Filters",
-      "onlyMyTasks": "Only my tasks",
-      "allStatuses": "All statuses",
-      "allUsers": "All users",
-      "myTasks": "My tasks"
-    },
-    "priority": {
-      "low": "Low",
-      "medium": "Medium",
-      "high": "High"
-    },
-    "table": {
-      "title": "Task",
-      "status": "Status",
-      "priority": "Priority",
-      "assignedTo": "Assigned To",
-      "createdAt": "Created",
-      "dueDate": "Due Date"
-    },
-    "confirm": {
-      "delete": "Are you sure you want to delete this task?"
-    },
-    "searchPlaceholder": "Search tasks...",
-    "noSearchResults": "No tasks match your search",
-    "empty": "No tasks found",
-    "clearSearch": "Clear search",
-    "loadingMore": "Loading more tasks...",
-    "error": {
-      "title": "Load Error",
-      "description": "We couldn't fetch your tasks. Check your connection and try again.",
-      "retry": "Retry"
-    },
-    "sheet": {
-      "createTitle": "Create Task",
-      "createDescription": "Add a new task to your list. Complete the details below.",
-      "editTitle": "Edit Task",
-      "editDescription": "Update your task details. Changes are saved immediately."
-    },
-    "toast": {
-      "created": "Task created successfully",
-      "updated": "Task updated successfully",
-      "deleted": "Task deleted successfully"
     }
   },
   "users": {
     "title": "Users",
     "subtitle": "Manage your team members, roles and permissions.",
-    "subtitlePrefix": "Manage access levels for ",
-    "subtitleSuffix": " team members.",
     "filters": {
-      "search": "Search users by name or email",
       "provider": "Provider",
       "role": "Role"
     },
     "actions": {
-      "new": "New User",
-      "save": "Save User",
-      "editProfile": "Edit Profile",
-      "deleteAccount": "Delete Account"
+      "new": "New User"
     },
     "form": {
       "nameLabel": "Name",
-      "namePlaceholder": "User name",
       "emailLabel": "Email",
-      "emailPlaceholder": "User email",
       "roleLabel": "Role",
       "rolePlaceholder": "Select role",
       "roleHelp": "The role defines the user's permissions.",
@@ -983,9 +742,7 @@
       "roleAdmin": "Admin",
       "roleSuperAdmin": "Super Admin",
       "avatarLabel": "Avatar URL",
-      "avatarPlaceholder": "Avatar URL",
       "avatarRandom": "Random",
-      "avatarHelp": "Paste a URL or generate a random avatar",
       "jobTitleLabel": "Job Title",
       "jobTitlePlaceholder": "e.g. Senior Developer",
       "departmentLabel": "Department",
@@ -1040,11 +797,6 @@
       "editTitle": "User Profile",
       "editDescription": "Update contact information and permissions."
     },
-    "toast": {
-      "created": "User created successfully",
-      "updated": "User updated successfully",
-      "deleted": "User deleted successfully"
-    },
     "description": "Manage platform users.",
     "create": "New User",
     "edit": "Edit User",
@@ -1063,9 +815,7 @@
     "subtitle": "Review briefs submitted from the landing page and keep the follow-up queue clean.",
     "unreadBadge": "{{count}} unread",
     "filters": {
-      "search": "Search by email or content",
       "status": "Status",
-      "statusAll": "All",
       "statusNew": "New",
       "statusRead": "Read"
     },
@@ -1096,13 +846,11 @@
       "markError": "We couldn't update this message"
     },
     "empty": {
-      "noData": "No contact briefs yet.",
-      "noResults": "No briefs match your filters."
+      "noData": "No contact briefs yet."
     },
     "error": {
       "title": "Failed to load contact messages",
       "description": "Try again in a few seconds.",
-      "retry": "Retry",
       "architectureLink": "Architecture & Roles Manual →",
       "item1": "Make sure you have the correct permissions (administrator role required).",
       "item2": "Make sure you are authenticated in the workspace.",
@@ -1138,7 +886,6 @@
       "statusPending": "Pending",
       "statusRejected": "Rejected",
       "amountLabel": "Amount",
-      "amountPlaceholder": "0.00",
       "dateLabel": "Date",
       "userLabel": "User",
       "userPlaceholder": "Select User",
@@ -1162,7 +909,6 @@
       "delete": "Are you sure you want to delete this transaction?"
     },
     "error": {
-      "title": "Error",
       "description": "An error occurred while loading transactions."
     },
     "toast": {
@@ -1183,10 +929,7 @@
   },
   "validation": {
     "required": "This field is required",
-    "minLength": "Must be at least {{min}} characters",
-    "maxLength": "Must be at most {{max}} characters",
     "invalidEmail": "Invalid email address",
-    "invalidUrl": "Invalid URL",
     "invalidColor": "Invalid color",
     "invalidDate": "Invalid date",
     "futureDate": "Date must be in the future",
@@ -1199,7 +942,6 @@
       "description": "Auth, database, AI, translations and tests come wired. You start on your product, not on groundwork.",
       "ariaLabel": "Introduction: production-ready SaaS template",
       "copyCommandAria": "Copy the install command",
-      "copiedFeedback": "Copied",
       "ctaSecondary": "See what's inside",
       "scrollCue": "Keep scrolling",
       "arc": {
@@ -1518,272 +1260,22 @@
     }
   },
   "budgets": {
-    "title": "Budgets",
-    "description": "Manage and track your financial budgets.",
-    "empty": {
-      "title": "No budgets yet",
-      "description": "Create your first budget to start tracking income and expenses."
-    },
-    "actions": {
-      "create": "New Budget",
-      "edit": "Edit Budget",
-      "save": "Save Budget",
-      "delete": "Delete Budget",
-      "deleteConfirm": "Are you sure you want to delete this budget?"
-    },
-    "create": {
-      "title": "New Budget",
-      "description": "Create a new budget to track your income and spending."
-    },
-    "edit": {
-      "title": "Edit Budget",
-      "description": "Update your budget details."
-    },
-    "fields": {
-      "name": "Budget Name",
-      "namePlaceholder": "e.g. Marketing Q1",
-      "description": "Description",
-      "descriptionPlaceholder": "What is this budget for?",
-      "scope": "Scope",
-      "project": "Project",
-      "projectPlaceholder": "Select project",
-      "targetAmount": "Spending Limit",
-      "noLimit": "No limit",
-      "currency": "Currency",
-      "periodType": "Period",
-      "startDate": "Start Date",
-      "endDate": "End Date (optional)"
-    },
     "scopes": {
-      "personal": "Personal",
-      "project": "Project",
-      "department": "Department",
-      "company": "Company"
-    },
-    "periods": {
-      "monthly": "Monthly",
-      "quarterly": "Quarterly",
-      "semiannual": "Semiannual",
-      "annual": "Annual",
-      "one_time": "One-time"
-    },
-    "health": {
-      "healthy": "Healthy",
-      "on_track": "On Track",
-      "warning": "Warning",
-      "approaching": "Approaching",
-      "overBudget": "Over Budget",
-      "noLimit": "No Limit"
+      "personal": "Personal"
     },
     "summary": {
-      "income": "Income",
-      "expenses": "Expenses",
-      "balance": "Balance",
-      "remaining": "Remaining",
-      "overBy": "Over by",
-      "noLimit": "No limit",
-      "used": "used"
+      "balance": "Balance"
     },
     "detail": {
-      "notFound": "Budget not found.",
-      "overBudget": "Over Budget",
-      "spent": "spent",
-      "overBy": "Over by {{amount}}",
-      "totalSpent": "Total Spent",
-      "balance": "Balance",
-      "tabs": {
-        "transactions": "Transactions",
-        "categories": "Categories",
-        "members": "Members",
-        "recurring": "Recurring",
-        "report": "Report"
-      }
+      "balance": "Balance"
     },
     "report": {
-      "title": "Annual Report",
-      "subtitle": "Expenses and income by category across months",
-      "item": "Transactions",
-      "year": "Year",
-      "category": "Category",
-      "totalExpenses": "Total Expenses",
-      "totalIncome": "Total Income",
-      "expensesTable": "Expenses by Category",
-      "incomeTable": "Income by Category",
-      "balance": "Balance",
-      "total": "Total",
-      "month": "Month",
-      "accumExpenses": "Acum. Expenses",
-      "summarySection": "Summary",
-      "noData": "No transactions found for {{year}}",
-      "showIncome": "Show income rows",
-      "hideIncome": "Hide income rows",
-      "directLabel": "unplanned",
-      "directExpenseLabel": "unplanned"
-    },
-    "alerts": {
-      "overBudget": "budget(s) over limit"
-    },
-    "toast": {
-      "created": "Budget created successfully",
-      "updated": "Budget updated successfully",
-      "deleted": "Budget deleted successfully"
-    },
-    "messages": {
-      "created": "Budget created successfully",
-      "updated": "Budget updated successfully",
-      "deleted": "Budget deleted successfully",
-      "memberAdded": "Member added to budget",
-      "memberRemoved": "Member removed from budget",
-      "limitSet": "Category limit saved",
-      "recurrenceCreated": "Recurring transaction created",
-      "recurrenceDeleted": "Recurring transaction deleted"
-    },
-    "transactions": {
-      "count": "transactions",
-      "add": "Add Transaction",
-      "addTitle": "Add Transaction to Budget",
-      "editTitle": "Edit Transaction",
-      "deleteConfirm": "Delete this transaction?",
-      "empty": "No transactions linked to this budget.",
-      "noDescription": "No description",
-      "type": "Type",
-      "expense": "Expense",
-      "income": "Income",
-      "description": "Description",
-      "descriptionPlaceholder": "What is this for?",
-      "amount": "Amount",
-      "date": "Date",
-      "category": "Category",
-      "categoryPlaceholder": "Select category"
-    },
-    "limits": {
-      "count": "category limits",
-      "add": "Add Limit",
-      "addTitle": "Set Category Limit",
-      "editTitle": "Edit Category Limit",
-      "empty": "No category limits set.",
-      "category": "Category",
-      "selectCategory": "Select category",
-      "amount": "Limit Amount",
-      "spent": "Spent",
-      "allocated": "limit",
-      "toast": {
-        "upserted": "Category limit saved",
-        "deleted": "Category limit removed"
-      }
-    },
-    "members": {
-      "count": "members",
-      "add": "Add Member",
-      "addTitle": "Add Member to Budget",
-      "empty": "No members yet.",
-      "owner": "Owner",
-      "role": "Role",
-      "searchUser": "Search users",
-      "searchPlaceholder": "Type a name or email...",
-      "selectUser": "Select user",
-      "userPlaceholder": "Choose a user",
-      "addBtn": "Add Member",
-      "toast": {
-        "added": "Member added",
-        "roleUpdated": "Role updated",
-        "removed": "Member removed"
-      }
-    },
-    "roles": {
-      "admin": "Admin",
-      "contributor": "Contributor",
-      "viewer": "Viewer"
+      "balance": "Balance"
     },
     "recurrences": {
-      "count": "rules",
-      "add": "Add Rule",
-      "createTitle": "Create Recurrence Rule",
-      "empty": "No recurring rules yet.",
-      "noDescription": "Unnamed rule",
-      "description": "Description",
-      "descriptionPlaceholder": "e.g. Monthly rent",
-      "amount": "Amount",
-      "frequencyLabel": "Frequency",
-      "interval": "Every (n)",
-      "startDate": "Start Date",
-      "category": "Category",
-      "categoryPlaceholder": "No category",
-      "nextOn": "next",
-      "pause": "Pause",
-      "resume": "Resume",
-      "manualPause": "Manually paused",
       "type": "Type",
       "typeExpense": "Expense",
-      "typeIncome": "Income",
-      "status": {
-        "active": "Active",
-        "paused": "Paused",
-        "completed": "Completed"
-      },
-      "frequency": {
-        "daily": "Daily",
-        "weekly": "Weekly",
-        "monthly": "Monthly",
-        "quarterly": "Quarterly",
-        "semiannual": "Semiannual",
-        "annual": "Annual"
-      },
-      "toast": {
-        "created": "Recurrence rule created",
-        "updated": "Recurrence rule updated",
-        "deleted": "Recurrence rule deleted"
-      }
-    },
-    "categories": {
-      "uncategorized": "Uncategorized"
-    },
-    "widgets": {
-      "refreshBalance": "Refresh balance",
-      "refreshOverview": "Refresh overview",
-      "refreshCategories": "Refresh categories"
-    },
-    "import": {
-      "title": "Import Budget",
-      "description": "Upload a bank statement to analyze and create a budget from real data.",
-      "upload": {
-        "dropLabel": "Drop your file here, or click to browse",
-        "dropSub": "Supported: CSV, XLSX, PDF bank statements",
-        "maxSize": "Max {{size}}",
-        "supportedHint": "Compatible with any bank format",
-        "supportedDesc": "Columns are auto-detected in English, Spanish, and Danish. Date and amount formats are handled automatically."
-      },
-      "analysis": {
-        "title": "Analysis Results",
-        "processing": "Parsing and analysing transactions…",
-        "parsed": "Parsed",
-        "transactions": "transactions",
-        "recurringFound": "{{count}} recurring transactions detected",
-        "confidence": "Confidence",
-        "noRecurring": "No recurring transactions detected.",
-        "dateRange": "Period: {{from}} to {{to}}"
-      },
-      "confirm": {
-        "title": "Ready to Create Budget",
-        "readyTitle": "Import ready",
-        "readyDesc": "{{recurrences}} recurring rules and {{transactions}} total transactions found. Create the budget to apply them.",
-        "incomeRecurrences": "Recurring income",
-        "expenseRecurrences": "Recurring expenses",
-        "nextStepHint": "Recurring rules will be added to the new budget. You can review and adjust them after creation."
-      },
-      "actions": {
-        "import": "Import",
-        "next": "Continue",
-        "back": "Back",
-        "retry": "Try again",
-        "createBudget": "Create Budget",
-        "downloadOriginal": "Download original file"
-      },
-      "errors": {
-        "fileTooLarge": "File exceeds the 10 MB limit.",
-        "unsupportedType": "Only CSV, XLSX, and PDF files are supported.",
-        "parseFailed": "Could not read the file. Make sure it's a valid bank statement."
-      }
+      "typeIncome": "Income"
     }
   },
   "breadcrumb": {
@@ -1842,8 +1334,6 @@
     "export": "Export",
     "selectAllRows": "Select all rows",
     "selectRow": "Select row",
-    "noResults": "No results found",
-    "clearFilters": "Clear filters",
     "all": "All",
     "filterBy": "Filter by ",
     "columns": "Columns"
