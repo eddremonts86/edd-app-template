@@ -437,7 +437,7 @@ export function UnifiedDataTable<TData, TValue>({
                     className="h-11 px-4 gap-2 border-dashed border-border/60 hover:border-primary/30 rounded-2xl"
                   >
                     <SlidersHorizontal className="w-4 h-4" />
-                    Columnas
+                    {t('dataTable.columns')}
                     <ChevronDown className="w-4 h-4 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>

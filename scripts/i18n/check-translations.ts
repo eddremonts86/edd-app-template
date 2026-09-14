@@ -47,11 +47,16 @@ function getNamespaces(): string[] {
 }
 
 /**
- * Resolve a dot-notation key against a loaded namespace.
+ * Resolve a dot-notation key against a loaded namespace. Numeric segments index
+ * into arrays, the way i18next itself resolves `some.list.0`.
  */
 function resolveKey(data: JsonObject, key: string): JsonNode | undefined {
   return key.split('.').reduce<JsonNode | undefined>((node, segment) => {
-    if (typeof node !== 'object' || node === null || Array.isArray(node)) return undefined
+    if (typeof node !== 'object' || node === null) return undefined
+    if (Array.isArray(node)) {
+      const index = Number(segment)
+      return Number.isInteger(index) ? node[index] : undefined
+    }
     return (node as JsonObject)[segment]
   }, data)
 }
@@ -73,8 +78,9 @@ function collectSourceFiles(dir: string): string[] {
  *   - the key resolves to an object and was not requested with
  *     `returnObjects` → i18next renders an error string
  *
- * A key that is absent but has an inline default only degrades to English for
- * es/dk readers, so it is reported as a warning.
+ * A key that is absent but has an inline default does not break the UI, but it
+ * silently ships English to es/dk readers — which is how 65 of them accumulated
+ * unnoticed. It counts as an error too: add the key to all three locales.
  *
  * Returns the number of errors found.
  */
@@ -117,17 +123,14 @@ function checkUsage(catalogues: JsonObject[]): number {
     console.error(`  ❌  ${key} — resolves to an object, used as a string`)
     console.error(`       ${file}`)
   }
-  if (untranslated.size > 0) {
-    console.warn(
-      `  ⚠️   ${untranslated.size} key(s) missing from the catalogue but given an inline default —`,
-    )
-    console.warn(`       es/dk readers see English. Add them to keep the UI translated.`)
+  for (const key of untranslated) {
+    console.error(`  ❌  ${key} — missing, inline default only: es/dk readers see English`)
   }
-  if (rawKeys.length === 0 && objectKeys.length === 0) {
-    console.log(`  ✅  every t('…') key resolves to a string`)
+  if (rawKeys.length === 0 && objectKeys.length === 0 && untranslated.size === 0) {
+    console.log(`  ✅  every t('…') key resolves to a translated string`)
   }
 
-  return rawKeys.length + objectKeys.length
+  return rawKeys.length + objectKeys.length + untranslated.size
 }
 
 function main() {

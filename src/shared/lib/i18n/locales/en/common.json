@@ -11,7 +11,8 @@
     "contact": "Support",
     "settings": "Settings",
     "signIn": "Sign In",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "docs": "Docs"
   },
   "auth": {
     "topbarCta": "Sign in",
@@ -57,7 +58,51 @@
     "goDashboard": "Go to dashboard",
     "sessionVerificationError": "Your sign-in was not confirmed by the server yet. Try again in a moment.",
     "nameRequiredError": "Enter your full name to create an account.",
-    "passwordWeakError": "Use at least {{min}} characters with letters, numbers, and a symbol."
+    "passwordWeakError": "Use at least {{min}} characters with letters, numbers, and a symbol.",
+    "actions": {
+      "backToSignIn": "Back to Sign in",
+      "continueClerkSSO": "Continue with Clerk SSO",
+      "enterWorkspace": "Enter workspace",
+      "forgotPassword": "Forgot password?",
+      "sendResetLink": "Send reset link",
+      "signIn": "Sign in",
+      "signUp": "Create account"
+    },
+    "anotherWay": "Another way to sign in",
+    "descriptions": {
+      "resetPassword": "Enter your email address and we'll send you a recovery link.",
+      "signIn": "Sign in with the account you use every day."
+    },
+    "forgotPassword": {
+      "checkEmail": "Check your email"
+    },
+    "headings": {
+      "emailPassword": "Email and password",
+      "resetPassword": "Reset your password"
+    },
+    "hero": {
+      "tagline": "Sign in once. Keep moving."
+    },
+    "labels": {
+      "email": "Email address",
+      "fullName": "Full name",
+      "password": "Password"
+    },
+    "localAuthDisabled": {
+      "body": "Credentials database is currently off. Please use dynamic identity logins.",
+      "otherMethods": "Other methods are temporarily unavailable.",
+      "title": "Local Auth Disabled"
+    },
+    "placeholders": {
+      "accountPassword": "Your account password",
+      "createPassword": "Create a strong password",
+      "email": "you@company.com",
+      "fullName": "Jane Doe",
+      "minChars": "Must contain at least {{min}} characters."
+    },
+    "tablist": {
+      "label": "Access modes selector"
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -124,7 +169,16 @@
     },
     "placeholders": {
       "url": "https://"
-    }
+    },
+    "autoOs": "Auto (OS Detected)",
+    "confirmDialog": {
+      "title": "Are you sure?",
+      "devtoolsReset": "This action will restore all display settings back to default values.",
+      "settingsReset": "This action will restore all display settings back to default values."
+    },
+    "langDanish": "Danish (dk)",
+    "langEnglish": "English (en)",
+    "langSpanish": "Spanish (es)"
   },
   "theme": {
     "light": "Light",
@@ -227,7 +281,12 @@
       "attachFile": "Attach file",
       "closePreview": "Close preview",
       "preview": "Preview",
-      "disclaimer": "AI can make mistakes. Verify important information."
+      "disclaimer": "AI can make mistakes. Verify important information.",
+      "allChats": "All Chats",
+      "data": "Data:",
+      "flow": "Flow:",
+      "myChats": "My Chats",
+      "searchPlaceholder": "Search chats..."
     }
   },
   "settings": {
@@ -258,7 +317,8 @@
     },
     "theme": {
       "title": "Theme",
-      "description": "Choose your preferred color scheme for the interface."
+      "description": "Choose your preferred color scheme for the interface.",
+      "label": "Theme"
     },
     "devtools": {
       "title": "Developer Tools",
@@ -319,7 +379,10 @@
         "downloadEndpoint": "Download Endpoint",
         "statusEndpoint": "Status Endpoint",
         "timeout": "Timeout (ms)",
-        "additionalParams": "Additional Params (JSON)"
+        "additionalParams": "Additional Params (JSON)",
+        "activeModel": "Active model",
+        "apiUrl": "API URL",
+        "testResult": "Test result"
       },
       "actions": {
         "save": "Save Configuration",
@@ -507,7 +570,12 @@
     },
     "acmeInc": "Acme Inc.",
     "unpin": "Unpin",
-    "pinToRight": "Pin to right"
+    "pinToRight": "Pin to right",
+    "notifications": {
+      "pending": "pending",
+      "title": "Notifications",
+      "toggle": "Toggle notifications"
+    }
   },
   "analytics": {
     "title": "Analytics",
@@ -919,7 +987,9 @@
     "subtitlePrefix": "Manage access levels for ",
     "subtitleSuffix": " team members.",
     "filters": {
-      "search": "Search users by name or email"
+      "search": "Search users by name or email",
+      "provider": "Provider",
+      "role": "Role"
     },
     "actions": {
       "new": "New User",
@@ -1015,6 +1085,10 @@
     "roles": {
       "admin": "Administrator",
       "user": "User"
+    },
+    "stats": {
+      "recent": "Joined This Week",
+      "total": "Total Users"
     }
   },
   "contactMessages": {
@@ -1061,7 +1135,11 @@
     "error": {
       "title": "Failed to load contact messages",
       "description": "Try again in a few seconds.",
-      "retry": "Retry"
+      "retry": "Retry",
+      "architectureLink": "Architecture & Roles Manual →",
+      "item1": "Make sure you have the correct permissions (administrator role required).",
+      "item2": "Make sure you are authenticated in the workspace.",
+      "item3": "Consult the technical guide on role management."
     },
     "widget": {
       "title": "Unread contact messages",
@@ -1801,7 +1879,10 @@
     "selectAllRows": "Select all rows",
     "selectRow": "Select row",
     "noResults": "No results found",
-    "clearFilters": "Clear filters"
+    "clearFilters": "Clear filters",
+    "all": "All",
+    "filterBy": "Filter by ",
+    "columns": "Columns"
   },
   "databaseAdmin": {
     "title": "Database administration",
@@ -1902,6 +1983,25 @@
       "result": "Result",
       "details": "Details",
       "empty": "No audit entries yet"
+    }
+  },
+  "aiLanguageAudit": {
+    "filters": {
+      "locale": "Locale",
+      "provider": "Provider"
+    },
+    "table": {
+      "locale": "Locale",
+      "provider": "Provider",
+      "querySnippet": "Query Snippet",
+      "timestamp": "Timestamp"
+    }
+  },
+  "widgets": {
+    "configure": "Widgets",
+    "configurator": {
+      "reset": "Reset",
+      "title": "Manage Widgets"
     }
   }
 }

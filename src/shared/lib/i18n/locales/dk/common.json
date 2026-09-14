@@ -11,7 +11,8 @@
     "contact": "Support",
     "settings": "Indstillinger",
     "signIn": "Log ind",
-    "signOut": "Log ud"
+    "signOut": "Log ud",
+    "docs": "Dokumentation"
   },
   "auth": {
     "topbarCta": "Log ind",
@@ -57,7 +58,51 @@
     "goDashboard": "Gå til dashboard",
     "sessionVerificationError": "Serveren har endnu ikke bekræftet din session. Prøv igen om et øjeblik.",
     "nameRequiredError": "Indtast dit fulde navn for at oprette en konto.",
-    "passwordWeakError": "Brug mindst {{min}} tegn med bogstaver, tal og et symbol."
+    "passwordWeakError": "Brug mindst {{min}} tegn med bogstaver, tal og et symbol.",
+    "actions": {
+      "backToSignIn": "Tilbage til log ind",
+      "continueClerkSSO": "Fortsæt med Clerk SSO",
+      "enterWorkspace": "Gå til arbejdsområdet",
+      "forgotPassword": "Glemt adgangskode?",
+      "sendResetLink": "Send nulstillingslink",
+      "signIn": "Log ind",
+      "signUp": "Opret konto"
+    },
+    "anotherWay": "En anden måde at logge ind på",
+    "descriptions": {
+      "resetPassword": "Indtast din e-mailadresse, så sender vi dig et gendannelseslink.",
+      "signIn": "Log ind med den konto, du bruger hver dag."
+    },
+    "forgotPassword": {
+      "checkEmail": "Tjek din e-mail"
+    },
+    "headings": {
+      "emailPassword": "E-mail og adgangskode",
+      "resetPassword": "Nulstil din adgangskode"
+    },
+    "hero": {
+      "tagline": "Log ind én gang. Fortsæt fremad."
+    },
+    "labels": {
+      "email": "E-mailadresse",
+      "fullName": "Fulde navn",
+      "password": "Adgangskode"
+    },
+    "localAuthDisabled": {
+      "body": "Databasen med legitimationsoplysninger er slået fra. Brug dynamiske identitetslogins.",
+      "otherMethods": "Andre metoder er midlertidigt utilgængelige.",
+      "title": "Lokal godkendelse er slået fra"
+    },
+    "placeholders": {
+      "accountPassword": "Din kontoadgangskode",
+      "createPassword": "Opret en stærk adgangskode",
+      "email": "dig@virksomhed.com",
+      "fullName": "Jens Jensen",
+      "minChars": "Skal indeholde mindst {{min}} tegn."
+    },
+    "tablist": {
+      "label": "Vælger for adgangstilstande"
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -124,7 +169,16 @@
     },
     "placeholders": {
       "url": "https://"
-    }
+    },
+    "autoOs": "Automatisk (registreret af systemet)",
+    "confirmDialog": {
+      "title": "Er du sikker?",
+      "devtoolsReset": "Denne handling gendanner alle visningsindstillinger til standardværdierne.",
+      "settingsReset": "Denne handling gendanner alle visningsindstillinger til standardværdierne."
+    },
+    "langDanish": "Dansk (dk)",
+    "langEnglish": "Engelsk (en)",
+    "langSpanish": "Spansk (es)"
   },
   "theme": {
     "light": "Lys",
@@ -227,7 +281,12 @@
       "attachFile": "Attach file",
       "closePreview": "Close preview",
       "preview": "Preview",
-      "disclaimer": "AI can make mistakes. Verify important information."
+      "disclaimer": "AI can make mistakes. Verify important information.",
+      "allChats": "Alle chats",
+      "data": "Data:",
+      "flow": "Flow:",
+      "myChats": "Mine chats",
+      "searchPlaceholder": "Søg i chats..."
     }
   },
   "settings": {
@@ -258,7 +317,8 @@
     },
     "theme": {
       "title": "Theme",
-      "description": "Vælg dit foretrukne farveskema til grænsefladen."
+      "description": "Vælg dit foretrukne farveskema til grænsefladen.",
+      "label": "Tema"
     },
     "devtools": {
       "title": "Udviklerværktøjer",
@@ -319,7 +379,10 @@
         "downloadEndpoint": "Download-endpoint",
         "statusEndpoint": "Status-endpoint",
         "timeout": "Timeout (ms)",
-        "additionalParams": "Yderligere parametre (JSON)"
+        "additionalParams": "Yderligere parametre (JSON)",
+        "activeModel": "Aktiv model",
+        "apiUrl": "API-URL",
+        "testResult": "Testresultat"
       },
       "actions": {
         "save": "Gem konfiguration",
@@ -507,7 +570,12 @@
     },
     "acmeInc": "Acme Inc.",
     "unpin": "Unpin",
-    "pinToRight": "Pin to right"
+    "pinToRight": "Pin to right",
+    "notifications": {
+      "pending": "afventer",
+      "title": "Notifikationer",
+      "toggle": "Vis eller skjul notifikationer"
+    }
   },
   "analytics": {
     "title": "Analyse",
@@ -919,7 +987,9 @@
     "subtitlePrefix": "Administrer adgangsniveauer for ",
     "subtitleSuffix": " teammedlemmer.",
     "filters": {
-      "search": "Soeg brugere efter navn eller e-mail"
+      "search": "Soeg brugere efter navn eller e-mail",
+      "provider": "Udbyder",
+      "role": "Rolle"
     },
     "actions": {
       "new": "Ny bruger",
@@ -1015,6 +1085,10 @@
     "roles": {
       "admin": "Administrator",
       "user": "Bruger"
+    },
+    "stats": {
+      "recent": "Tilmeldt denne uge",
+      "total": "Brugere i alt"
     }
   },
   "contactMessages": {
@@ -1061,7 +1135,11 @@
     "error": {
       "title": "Kunne ikke indlæse kontaktbeskeder",
       "description": "Prøv igen om få sekunder.",
-      "retry": "Prøv igen"
+      "retry": "Prøv igen",
+      "architectureLink": "Manual om arkitektur og roller →",
+      "item1": "Kontrollér, at du har de rette tilladelser (administratorrolle kræves).",
+      "item2": "Kontrollér, at du er logget ind i arbejdsområdet.",
+      "item3": "Se den tekniske vejledning om rollestyring."
     },
     "widget": {
       "title": "Ulæste kontaktbeskeder",
@@ -1801,7 +1879,10 @@
     "selectAllRows": "Vælg alle rækker",
     "selectRow": "Vælg række",
     "noResults": "Ingen resultater fundet",
-    "clearFilters": "Ryd filtre"
+    "clearFilters": "Ryd filtre",
+    "all": "Alle",
+    "filterBy": "Filtrér efter ",
+    "columns": "Kolonner"
   },
   "databaseAdmin": {
     "title": "Databaseadministration",
@@ -1902,6 +1983,25 @@
       "result": "Resultat",
       "details": "Detaljer",
       "empty": "Ingen revisionsindgange endnu"
+    }
+  },
+  "aiLanguageAudit": {
+    "filters": {
+      "locale": "Sprog",
+      "provider": "Udbyder"
+    },
+    "table": {
+      "locale": "Sprog",
+      "provider": "Udbyder",
+      "querySnippet": "Forespørgselsuddrag",
+      "timestamp": "Tidsstempel"
+    }
+  },
+  "widgets": {
+    "configure": "Widgets",
+    "configurator": {
+      "reset": "Nulstil",
+      "title": "Administrér widgets"
     }
   }
 }

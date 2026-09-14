@@ -11,7 +11,8 @@
     "contact": "Soporte",
     "settings": "Configuración",
     "signIn": "Iniciar Sesión",
-    "signOut": "Cerrar Sesión"
+    "signOut": "Cerrar Sesión",
+    "docs": "Documentación"
   },
   "auth": {
     "topbarCta": "Entrar",
@@ -57,7 +58,51 @@
     "goDashboard": "Ir al dashboard",
     "sessionVerificationError": "El servidor aún no confirmó tu sesión. Inténtalo de nuevo en un momento.",
     "nameRequiredError": "Escribe tu nombre completo para crear una cuenta.",
-    "passwordWeakError": "Usa al menos {{min}} caracteres con letras, números y un símbolo."
+    "passwordWeakError": "Usa al menos {{min}} caracteres con letras, números y un símbolo.",
+    "actions": {
+      "backToSignIn": "Volver a iniciar sesión",
+      "continueClerkSSO": "Continuar con Clerk SSO",
+      "enterWorkspace": "Entrar al espacio de trabajo",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "sendResetLink": "Enviar enlace de recuperación",
+      "signIn": "Iniciar sesión",
+      "signUp": "Crear cuenta"
+    },
+    "anotherWay": "Otra forma de iniciar sesión",
+    "descriptions": {
+      "resetPassword": "Introduce tu correo y te enviaremos un enlace de recuperación.",
+      "signIn": "Inicia sesión con la cuenta que usas cada día."
+    },
+    "forgotPassword": {
+      "checkEmail": "Revisa tu correo"
+    },
+    "headings": {
+      "emailPassword": "Correo y contraseña",
+      "resetPassword": "Restablece tu contraseña"
+    },
+    "hero": {
+      "tagline": "Inicia sesión una vez. Sigue avanzando."
+    },
+    "labels": {
+      "email": "Correo electrónico",
+      "fullName": "Nombre completo",
+      "password": "Contraseña"
+    },
+    "localAuthDisabled": {
+      "body": "La base de datos de credenciales está desactivada. Usa los inicios de sesión de identidad dinámica.",
+      "otherMethods": "Los demás métodos no están disponibles temporalmente.",
+      "title": "Autenticación local desactivada"
+    },
+    "placeholders": {
+      "accountPassword": "La contraseña de tu cuenta",
+      "createPassword": "Crea una contraseña segura",
+      "email": "tu@empresa.com",
+      "fullName": "Juan Pérez",
+      "minChars": "Debe tener al menos {{min}} caracteres."
+    },
+    "tablist": {
+      "label": "Selector de modos de acceso"
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -124,7 +169,16 @@
     },
     "placeholders": {
       "url": "https://"
-    }
+    },
+    "autoOs": "Automático (detectado del sistema)",
+    "confirmDialog": {
+      "title": "¿Estás seguro?",
+      "devtoolsReset": "Esta acción restaurará todos los ajustes de visualización a sus valores por defecto.",
+      "settingsReset": "Esta acción restaurará todos los ajustes de visualización a sus valores por defecto."
+    },
+    "langDanish": "Danés (dk)",
+    "langEnglish": "Inglés (en)",
+    "langSpanish": "Español (es)"
   },
   "theme": {
     "light": "Claro",
@@ -283,7 +337,9 @@
     "subtitlePrefix": "Gestiona los niveles de acceso para ",
     "subtitleSuffix": " miembros del equipo.",
     "filters": {
-      "search": "Buscar usuarios por nombre o email"
+      "search": "Buscar usuarios por nombre o email",
+      "provider": "Proveedor",
+      "role": "Rol"
     },
     "description": "Gestiona los usuarios de la plataforma.",
     "create": "Nuevo Usuario",
@@ -379,6 +435,10 @@
       "title": "Error de conexión",
       "description": "No pudimos sincronizar la lista de usuarios. Por favor, inténtalo de nuevo.",
       "retry": "Reintentar"
+    },
+    "stats": {
+      "recent": "Se unieron esta semana",
+      "total": "Usuarios totales"
     }
   },
   "contactMessages": {
@@ -425,7 +485,11 @@
     "error": {
       "title": "No se pudieron cargar los mensajes de contacto",
       "description": "Vuelve a intentarlo en unos segundos.",
-      "retry": "Reintentar"
+      "retry": "Reintentar",
+      "architectureLink": "Manual de arquitectura y roles →",
+      "item1": "Comprueba que tienes los permisos correctos (se requiere rol de administrador).",
+      "item2": "Comprueba que has iniciado sesión en el espacio de trabajo.",
+      "item3": "Consulta la guía técnica sobre gestión de roles."
     },
     "widget": {
       "title": "Mensajes de contacto sin leer",
@@ -542,7 +606,12 @@
       "attachFile": "Attach file",
       "closePreview": "Close preview",
       "preview": "Preview",
-      "disclaimer": "AI can make mistakes. Verify important information."
+      "disclaimer": "AI can make mistakes. Verify important information.",
+      "allChats": "Todos los chats",
+      "data": "Datos:",
+      "flow": "Flujo:",
+      "myChats": "Mis chats",
+      "searchPlaceholder": "Buscar chats..."
     }
   },
   "validation": {
@@ -841,7 +910,12 @@
     },
     "acmeInc": "Acme Inc.",
     "unpin": "Unpin",
-    "pinToRight": "Pin to right"
+    "pinToRight": "Pin to right",
+    "notifications": {
+      "pending": "pendientes",
+      "title": "Notificaciones",
+      "toggle": "Mostrar u ocultar notificaciones"
+    }
   },
   "updates": {
     "subscribe": {
@@ -1501,7 +1575,8 @@
     },
     "theme": {
       "title": "Theme",
-      "description": "Elige tu esquema de color preferido para la interfaz."
+      "description": "Elige tu esquema de color preferido para la interfaz.",
+      "label": "Tema"
     },
     "devtools": {
       "title": "Herramientas de desarrollador",
@@ -1562,7 +1637,10 @@
         "downloadEndpoint": "Endpoint de descarga",
         "statusEndpoint": "Endpoint de estado",
         "timeout": "Tiempo de espera (ms)",
-        "additionalParams": "Parámetros adicionales (JSON)"
+        "additionalParams": "Parámetros adicionales (JSON)",
+        "activeModel": "Modelo activo",
+        "apiUrl": "URL de la API",
+        "testResult": "Resultado de la prueba"
       },
       "actions": {
         "save": "Guardar configuración",
@@ -1801,7 +1879,10 @@
     "selectAllRows": "Seleccionar todas las filas",
     "selectRow": "Seleccionar fila",
     "noResults": "No se encontraron resultados",
-    "clearFilters": "Limpiar filtros"
+    "clearFilters": "Limpiar filtros",
+    "all": "Todos",
+    "filterBy": "Filtrar por ",
+    "columns": "Columnas"
   },
   "databaseAdmin": {
     "title": "Administración de base de datos",
@@ -1902,6 +1983,25 @@
       "result": "Resultado",
       "details": "Detalles",
       "empty": "Sin entradas de auditoría aún"
+    }
+  },
+  "aiLanguageAudit": {
+    "filters": {
+      "locale": "Idioma",
+      "provider": "Proveedor"
+    },
+    "table": {
+      "locale": "Idioma",
+      "provider": "Proveedor",
+      "querySnippet": "Fragmento de consulta",
+      "timestamp": "Fecha y hora"
+    }
+  },
+  "widgets": {
+    "configure": "Widgets",
+    "configurator": {
+      "reset": "Restablecer",
+      "title": "Gestionar widgets"
     }
   }
 }
