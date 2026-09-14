@@ -1,5 +1,5 @@
 import { ClerkProvider } from '@clerk/tanstack-react-start'
-import { LazyMotion, domAnimation } from 'framer-motion'
+import { LazyMotion, MotionConfig, domAnimation } from 'framer-motion'
 import { NuqsAdapter } from 'nuqs/adapters/tanstack-router'
 import type { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/toaster'
@@ -23,16 +23,19 @@ function ProvidersContent({ locale, children }: AppProvidersProps) {
   return (
     <NuqsAdapter>
       <LazyMotion features={domAnimation}>
-        <I18nProvider locale={locale}>
-          <ThemeProvider defaultTheme="system">
-            <QueryProvider>
-              <AppAuthProvider>
-                <TooltipProvider>{children}</TooltipProvider>
-                <Toaster />
-              </AppAuthProvider>
-            </QueryProvider>
-          </ThemeProvider>
-        </I18nProvider>
+        {/* Honour the OS reduced-motion setting across every Motion animation. */}
+        <MotionConfig reducedMotion="user">
+          <I18nProvider locale={locale}>
+            <ThemeProvider defaultTheme="system">
+              <QueryProvider>
+                <AppAuthProvider>
+                  <TooltipProvider>{children}</TooltipProvider>
+                  <Toaster />
+                </AppAuthProvider>
+              </QueryProvider>
+            </ThemeProvider>
+          </I18nProvider>
+        </MotionConfig>
       </LazyMotion>
     </NuqsAdapter>
   )

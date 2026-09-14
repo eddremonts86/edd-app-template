@@ -294,7 +294,25 @@
   animation: typing-dot 1.2s ease-in-out infinite;
 }
 
+/* Reduced motion.
+   Deliberately not a blanket `* { animation-duration: 0.01ms }` kill: the 20
+   `animate-spin` loaders in this app are the only signal that a request is in
+   flight, and removing them would destroy feedback rather than calm it. So
+   entrances and exits land on their final state immediately (the state change
+   survives, the travel does not), attention loops stop, and spinners keep
+   spinning. Framer Motion is handled separately by MotionConfig in AppProviders. */
 @media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-out {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+
+  .animate-pulse,
+  .animate-bounce {
+    animation: none;
+  }
+
   .typing-dot {
     animation: none;
     opacity: 0.6;
