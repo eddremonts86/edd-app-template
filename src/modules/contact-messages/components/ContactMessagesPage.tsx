@@ -31,7 +31,7 @@ export function ContactMessagesPage() {
   const { data, error, isLoading, isError, isFetching, refetch } = useContactMessages(100)
   const markReadMutation = useMarkContactMessageRead()
 
-  const rows = data?.data ?? []
+  const rows = React.useMemo(() => data?.data ?? [], [data])
 
   const isForbiddenError = React.useMemo(() => {
     if (!error) return false

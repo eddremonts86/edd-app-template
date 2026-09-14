@@ -17,21 +17,25 @@ export function UsersPage() {
   const [editingUser, setEditingUser] = React.useState<User | null>(null)
 
   const { data: allUsers, isLoading, isError } = useUsers(1000)
+  const users = React.useMemo(() => allUsers ?? [], [allUsers])
 
   const createMutation = useCreateUser()
   const updateMutation = useUpdateUser()
   const deleteMutation = useDeleteUser()
 
-  const handleDelete = (user: User) => {
-    toast.error(t('users.confirm.delete'), {
-      description: t('common.confirm'),
-      action: {
-        label: t('common.delete'),
-        onClick: () => deleteMutation.mutate(user.id),
-      },
-      duration: 10000,
-    })
-  }
+  const handleDelete = React.useCallback(
+    (user: User) => {
+      toast.error(t('users.confirm.delete'), {
+        description: t('common.confirm'),
+        action: {
+          label: t('common.delete'),
+          onClick: () => deleteMutation.mutate(user.id),
+        },
+        duration: 10000,
+      })
+    },
+    [t, deleteMutation],
+  )
 
   if (isError) {
     return (
@@ -70,7 +74,7 @@ export function UsersPage() {
       ) : totalCount === 0 ? (
         <TableEmptyState isSearchActive={false} onClearSearch={() => {}} />
       ) : (
-        <UserTable users={allUsers || []} onEdit={setEditingUser} onDelete={handleDelete} />
+        <UserTable users={users} onEdit={setEditingUser} onDelete={handleDelete} />
       )}
 
       <Sheet open={isCreateOpen} onOpenChange={setIsCreateOpen}>
