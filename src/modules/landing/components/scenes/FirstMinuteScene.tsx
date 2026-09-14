@@ -13,7 +13,7 @@ const TERMINAL_LINES = [
   '  ├─ drizzle/           migrations ready',
   '  ├─ e2e/               playwright configured',
   '  └─ .env.example       34 variables documented',
-  '✔ Done in 58s — pnpm dev to start',
+  '✔ Done in 58s. Run pnpm dev to start',
 ] as const
 
 const terminalContainer: Variants = {
@@ -60,7 +60,7 @@ export function FirstMinuteScene() {
           title={t('home.firstMinute.title', 'One command. A real codebase.')}
           description={t(
             'home.firstMinute.description',
-            'Not an empty folder — a typed monolith with twelve modules, migrations and CI hooks, named after your product.',
+            'Not an empty folder. A typed monolith with twelve modules, migrations and CI hooks, named after your product.',
           )}
         />
 

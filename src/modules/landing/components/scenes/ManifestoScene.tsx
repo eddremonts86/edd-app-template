@@ -11,16 +11,6 @@ export function ManifestoScene() {
   return (
     <section className="px-6 py-28 md:py-40">
       <div className="mx-auto max-w-5xl">
-        <m.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.25em] text-primary"
-        >
-          {t('home.manifesto.eyebrow', 'Why it holds up')}
-        </m.p>
-
         <div className="divide-y divide-border/40">
           {ITEMS.map((id, index) => (
             <m.div

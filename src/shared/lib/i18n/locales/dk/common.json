@@ -1227,10 +1227,9 @@
   },
   "home": {
     "opening": {
-      "badge": "Modulær · Typet · Testet",
       "title": "Den første uge af enhver SaaS,",
       "titleHighlight": "allerede bygget.",
-      "description": "Auth, database, AI, oversættelser og tests er koblet til fra start. Generér projektet på et minut, log ind på dit eget dashboard inden for en time, og brug ugen på dit produkt — ikke på grundarbejdet.",
+      "description": "Auth, database, AI, oversættelser og tests er koblet til fra start. Du begynder på dit produkt, ikke på grundarbejdet.",
       "ariaLabel": "Introduktion: produktionsklar SaaS-skabelon",
       "copyCommandAria": "Kopiér installationskommandoen",
       "copiedFeedback": "Kopieret",
@@ -1253,7 +1252,6 @@
       }
     },
     "friction": {
-      "eyebrow": "Den skjulte pris",
       "title": "De første uger forsvinder altid i det samme arbejde",
       "description": "Login-flows, mappestruktur, testrunnere, Docker. Intet af det gør dit produkt anderledes, og det hele kan gå galt. Her er, hvad skabelonen klarer for dig.",
       "withStarter": "Med skabelonen",
@@ -1267,7 +1265,7 @@
         "architecture": {
           "name": "Arkitektur",
           "starter": "Selvstændige moduler bag én samlet import. Ny kode vikler sig ikke ind i gammel.",
-          "scratch": "En mappestruktur improviseret under deadline — og smertefuldt refaktoreret et halvt år senere."
+          "scratch": "En mappestruktur improviseret under deadline, og smertefuldt refaktoreret et halvt år senere."
         },
         "tests": {
           "name": "Test",
@@ -1281,15 +1279,15 @@
         },
         "docker": {
           "name": "Deployment",
-          "starter": "Docker Compose med flere profiler til app, Postgres og ChromaDB — klar til enhver VPS.",
-          "scratch": "Dockerfiles og compose-filer skrevet i hånden — og fejlsøgt i produktion."
+          "starter": "Docker Compose med flere profiler til app, Postgres og ChromaDB, klar til enhver VPS.",
+          "scratch": "Dockerfiles og compose-filer skrevet i hånden, og fejlsøgt i produktion."
         }
       }
     },
     "firstMinute": {
       "eyebrow": "Det første minut",
       "title": "Én kommando. En rigtig kodebase.",
-      "description": "Ikke en tom mappe — en typet monolit med tolv moduler, migreringer og CI-hooks, opkaldt efter dit produkt.",
+      "description": "Ikke en tom mappe. En typet monolit med tolv moduler, migreringer og CI-hooks, opkaldt efter dit produkt.",
       "terminalAria": "Terminaloutput fra scaffolding-kommandoen",
       "boxes": {
         "appShell": {
@@ -1300,19 +1298,19 @@
         "modules": {
           "title": "Domænemoduler",
           "tag": "isoleret",
-          "description": "Brugere, indstillinger, dashboard-widgets og en streamende AI-chat — hver for sig isoleret."
+          "description": "Brugere, indstillinger, dashboard-widgets og en streamende AI-chat. Hver for sig isoleret."
         },
         "integrations": {
           "title": "Integrationer & QA",
           "tag": "testet",
-          "description": "Better Auth, Drizzle ORM, Playwright og Vitest — konfigureret og forbundet med hinanden."
+          "description": "Better Auth, Drizzle ORM, Playwright og Vitest, konfigureret og forbundet med hinanden."
         }
       }
     },
     "firstHour": {
       "eyebrow": "Den første time",
       "title": "Log ind på et produkt, der allerede virker",
-      "description": "Inden timen er omme, klikker du rundt i din egen app: rigtigt login, et levende dashboard og en AI-chat, der svarer over SSE. Skærmene herunder er skabelonen — urørt.",
+      "description": "Inden timen er omme, klikker du rundt i din egen app: rigtigt login, et levende dashboard og en AI-chat, der svarer over SSE. Skærmene herunder er skabelonen, urørt.",
       "tabs": {
         "auth": "Login",
         "dashboard": "Dashboard"
@@ -1348,15 +1346,15 @@
       },
       "stack": {
         "title": "Hvad der følger med",
-        "description": "Seks dele, du ellers selv skulle bygge — allerede forbundet med hinanden.",
+        "description": "Seks dele, du ellers selv skulle bygge, allerede forbundet med hinanden.",
         "items": {
           "landing": {
             "title": "Landing & marketing",
-            "description": "Denne side: hero, scener, kontaktformular og footer — alt sammen bag oversættelsesnøgler."
+            "description": "Denne side: hero, scener, kontaktformular og footer, alt sammen bag oversættelsesnøgler."
           },
           "shell": {
             "title": "App shell",
-            "description": "Sammenklappelig sidebar, topbar, temaer og toasts — responsivt fra start."
+            "description": "Sammenklappelig sidebar, topbar, temaer og toasts, responsivt fra start."
           },
           "auth": {
             "title": "Autentificering",
@@ -1368,7 +1366,7 @@
           },
           "ai": {
             "title": "AI-modul",
-            "description": "Fem udbydere, én klient: OpenAI, Anthropic, Ollama, LM Studio og llama.cpp — med RAG via ChromaDB."
+            "description": "Fem udbydere, én klient: OpenAI, Anthropic, Ollama, LM Studio og llama.cpp, med RAG via ChromaDB."
           },
           "quality": {
             "title": "Kvalitetstjek",
@@ -1438,7 +1436,6 @@
       }
     },
     "manifesto": {
-      "eyebrow": "Derfor holder det",
       "items": {
         "structure": {
           "title": "Struktur",
@@ -1447,7 +1444,7 @@
         },
         "security": {
           "title": "Sikkerhed",
-          "statement": "Auth, roller og konfiguration afgøres før din første funktion — ikke efter dit første uheld.",
+          "statement": "Auth, roller og konfiguration afgøres før din første funktion, ikke efter dit første uheld.",
           "proof": "Better Auth-sessioner, RBAC og typet adgang til miljøvariabler er koblet til fra start."
         },
         "longevity": {
@@ -1459,7 +1456,7 @@
     },
     "contact": {
       "title": "Spørgsmål, før du kloner?",
-      "description": "Skriv til os om skabelonen — et opsætningsproblem, en funktion du savner, eller tvivl om arkitekturen. Din besked lander i det samme contact-messages-modul, som følger med starteren.",
+      "description": "Skriv til os om skabelonen: et opsætningsproblem, en funktion du savner, eller tvivl om arkitekturen. Din besked lander i det samme contact-messages-modul, som følger med starteren.",
       "responseNote": "Vi svarer som regel inden for et par dage.",
       "form": {
         "email": {
@@ -1482,7 +1479,7 @@
         "submit": "Send besked",
         "messages": {
           "successTitle": "Besked sendt",
-          "successDescription": "Tak for din besked. Den ligger i vores indbakke — og i demo-dashboardet.",
+          "successDescription": "Tak for din besked. Den ligger i vores indbakke, og i demo-dashboardet.",
           "errorTitle": "Kunne ikke sendes",
           "errorDescription": "Prøv igen om et øjeblik."
         }
@@ -1495,7 +1492,7 @@
         },
         "async": {
           "title": "Asynkront som udgangspunkt",
-          "description": "Ingen opkald, ingen møder. Skriv når det passer dig — vi svarer på samme måde."
+          "description": "Ingen opkald, ingen møder. Skriv når det passer dig, og vi svarer på samme måde."
         },
         "updates": {
           "title": "Opdateringer uden støj",
@@ -1797,7 +1794,7 @@
         "recurringFound": "{{count}} tilbagevendende transaktioner fundet",
         "confidence": "Sikkerhed",
         "noRecurring": "Ingen tilbagevendende transaktioner fundet.",
-        "dateRange": "Periode: {{from}} — {{to}}"
+        "dateRange": "Periode: {{from}} til {{to}}"
       },
       "confirm": {
         "title": "Klar til at oprette budget",
@@ -1965,7 +1962,7 @@
       "applied": "Anvendt",
       "pending": "Afventer",
       "empty": "Ingen migrationer på disken",
-      "dryRunOk": "Tørtest OK — {{n}} ventende fil(er)",
+      "dryRunOk": "Tørtest OK: {{n}} ventende fil(er)",
       "dryRunFail": "Tørtest fejlede",
       "confirmTitle": "Anvend migrationer på {{label}}?",
       "confirmBody": "Skrivninger commit'es per fil. Fejlede filer rulles tilbage og afbryder kørslen.",

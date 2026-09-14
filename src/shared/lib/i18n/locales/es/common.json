@@ -1179,7 +1179,7 @@
         "recurringFound": "{{count}} transacciones recurrentes detectadas",
         "confidence": "Confianza",
         "noRecurring": "No se detectaron transacciones recurrentes.",
-        "dateRange": "Período: {{from}} — {{to}}"
+        "dateRange": "Período: {{from}} a {{to}}"
       },
       "confirm": {
         "title": "Listo para Crear Presupuesto",
@@ -1235,10 +1235,9 @@
   },
   "home": {
     "opening": {
-      "badge": "Modular · Tipado · Probado",
       "title": "La primera semana de cualquier SaaS,",
       "titleHighlight": "ya construida.",
-      "description": "La autenticación, la base de datos, la IA, las traducciones y los tests ya vienen conectados. Genere el proyecto en un minuto, entre en su propio dashboard en menos de una hora y dedique la semana a su producto, no a los cimientos.",
+      "description": "Auth, base de datos, IA, traducciones y tests vienen cableados. Empiezas por tu producto, no por los cimientos.",
       "ariaLabel": "Introducción: plantilla SaaS lista para producción",
       "copyCommandAria": "Copiar el comando de instalación",
       "copiedFeedback": "Copiado",
@@ -1261,7 +1260,6 @@
       }
     },
     "friction": {
-      "eyebrow": "El costo oculto",
       "title": "Las primeras semanas desaparecen siempre en el mismo trabajo",
       "description": "Flujos de acceso, estructura de carpetas, runners de tests, Docker. Nada de eso diferencia su producto y todo puede salir mal. Esto es lo que la plantilla le quita de encima.",
       "withStarter": "Con la plantilla",
@@ -1446,7 +1444,6 @@
       }
     },
     "manifesto": {
-      "eyebrow": "Por qué se sostiene",
       "items": {
         "structure": {
           "title": "Estructura",
@@ -1965,7 +1962,7 @@
       "applied": "Aplicado",
       "pending": "Pendiente",
       "empty": "Sin migraciones en disco",
-      "dryRunOk": "Simulación OK — {{n}} archivo(s) pendiente(s)",
+      "dryRunOk": "Simulación OK: {{n}} archivo(s) pendiente(s)",
       "dryRunFail": "Simulación fallida",
       "confirmTitle": "¿Aplicar migraciones en {{label}}?",
       "confirmBody": "Cada archivo se confirmará por separado. Si falla, hace rollback y aborta la ejecución.",

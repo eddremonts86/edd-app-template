@@ -1227,10 +1227,9 @@
   },
   "home": {
     "opening": {
-      "badge": "Modular · Typed · Tested",
       "title": "The first week of every SaaS,",
       "titleHighlight": "already built.",
-      "description": "Auth, database, AI, translations and tests come wired. Scaffold a project in a minute, sign into your own dashboard within the hour, and spend the week on your product — not on groundwork.",
+      "description": "Auth, database, AI, translations and tests come wired. You start on your product, not on groundwork.",
       "ariaLabel": "Introduction: production-ready SaaS template",
       "copyCommandAria": "Copy the install command",
       "copiedFeedback": "Copied",
@@ -1253,7 +1252,6 @@
       }
     },
     "friction": {
-      "eyebrow": "The trade-off",
       "title": "The first weeks always disappear into the same work",
       "description": "Sign-in flows, folder structure, test runners, Docker. None of it makes your product different, and all of it can go wrong. Here is what the template takes off your plate.",
       "withStarter": "With the template",
@@ -1289,7 +1287,7 @@
     "firstMinute": {
       "eyebrow": "Minute one",
       "title": "One command. A real codebase.",
-      "description": "Not an empty folder — a typed monolith with twelve modules, migrations and CI hooks, named after your product.",
+      "description": "Not an empty folder. A typed monolith with twelve modules, migrations and CI hooks, named after your product.",
       "terminalAria": "Terminal output of the scaffolding command",
       "boxes": {
         "appShell": {
@@ -1300,7 +1298,7 @@
         "modules": {
           "title": "Domain Modules",
           "tag": "isolated",
-          "description": "Users, settings, dashboard widgets and a streaming AI chat — each one isolated."
+          "description": "Users, settings, dashboard widgets and a streaming AI chat. Each one isolated."
         },
         "integrations": {
           "title": "Integrations & QA",
@@ -1368,7 +1366,7 @@
           },
           "ai": {
             "title": "AI module",
-            "description": "Five providers, one client: OpenAI, Anthropic, Ollama, LM Studio and llama.cpp — with RAG via ChromaDB."
+            "description": "Five providers, one client: OpenAI, Anthropic, Ollama, LM Studio and llama.cpp, with RAG via ChromaDB."
           },
           "quality": {
             "title": "Quality gates",
@@ -1438,7 +1436,6 @@
       }
     },
     "manifesto": {
-      "eyebrow": "Why it holds up",
       "items": {
         "structure": {
           "title": "Structure",
@@ -1447,7 +1444,7 @@
         },
         "security": {
           "title": "Security",
-          "statement": "Auth, roles and configuration are decided before your first feature — not after your first incident.",
+          "statement": "Auth, roles and configuration are decided before your first feature, not after your first incident.",
           "proof": "Better Auth sessions, RBAC and typed env access come wired."
         },
         "longevity": {
@@ -1459,7 +1456,7 @@
     },
     "contact": {
       "title": "Questions before you clone?",
-      "description": "Write to us about the template — a setup problem, a missing feature, an architectural doubt. Your message lands in the same contact-messages module that ships with the starter.",
+      "description": "Write to us about the template: a setup problem, a missing feature, an architectural doubt. Your message lands in the same contact-messages module that ships with the starter.",
       "responseNote": "We usually answer within a couple of days.",
       "form": {
         "email": {
@@ -1482,7 +1479,7 @@
         "submit": "Send message",
         "messages": {
           "successTitle": "Message sent",
-          "successDescription": "Thanks for writing. It's in our inbox — and in the demo dashboard.",
+          "successDescription": "Thanks for writing. It's in our inbox, and in the demo dashboard.",
           "errorTitle": "Could not send",
           "errorDescription": "Please try again in a moment."
         }
@@ -1797,7 +1794,7 @@
         "recurringFound": "{{count}} recurring transactions detected",
         "confidence": "Confidence",
         "noRecurring": "No recurring transactions detected.",
-        "dateRange": "Period: {{from}} — {{to}}"
+        "dateRange": "Period: {{from}} to {{to}}"
       },
       "confirm": {
         "title": "Ready to Create Budget",
@@ -1965,7 +1962,7 @@
       "applied": "Applied",
       "pending": "Pending",
       "empty": "No migrations on disk",
-      "dryRunOk": "Dry-run OK — {{n}} pending file(s)",
+      "dryRunOk": "Dry-run OK: {{n}} pending file(s)",
       "dryRunFail": "Dry-run failed",
       "confirmTitle": "Apply migrations on {{label}}?",
       "confirmBody": "Writes will be committed per file. Failed files roll back and abort the run.",

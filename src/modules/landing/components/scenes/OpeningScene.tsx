@@ -1,7 +1,7 @@
 'use client'
 
 import { m, useReducedMotion, type Variants } from 'framer-motion'
-import { ArrowRight, Check, ChevronDown, Copy, Sparkles } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Copy } from 'lucide-react'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui'
@@ -67,16 +67,6 @@ export function OpeningScene() {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center md:px-8">
-        <m.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md dark:border-border/60 dark:bg-background/80"
-        >
-          <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-          <span>{t('home.opening.badge', 'Modular · Typed · Tested')}</span>
-        </m.div>
-
         <m.h1
           variants={headlineContainer}
           initial="hidden"
@@ -103,7 +93,7 @@ export function OpeningScene() {
         >
           {t(
             'home.opening.description',
-            'Auth, database, AI, translations and tests come wired. Scaffold a project in a minute, sign into your own dashboard within the hour, and spend the week on your product — not on groundwork.',
+            'Auth, database, AI, translations and tests come wired. You start on your product, not on groundwork.',
           )}
         </m.p>
 

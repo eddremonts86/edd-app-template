@@ -19,7 +19,6 @@ export function FrictionScene() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <SceneHeader
             align="left"
-            eyebrow={t('home.friction.eyebrow', 'The trade-off')}
             title={t('home.friction.title', 'The first weeks always disappear into the same work')}
             description={t(
               'home.friction.description',
