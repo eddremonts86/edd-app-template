@@ -659,6 +659,7 @@ export function UnifiedDataTable<TData, TValue>({
               size="icon"
               variant="outline"
               className="h-9 w-9"
+              aria-label={t('common.previous')}
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
@@ -671,6 +672,7 @@ export function UnifiedDataTable<TData, TValue>({
               size="icon"
               variant="outline"
               className="h-9 w-9"
+              aria-label={t('common.next')}
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >

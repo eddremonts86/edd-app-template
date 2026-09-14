@@ -144,7 +144,8 @@
     "loadMore": "Cargar más",
     "clear": "Limpiar",
     "clearFilters": "Limpiar filtros",
-    "selected": "seleccionado(s)"
+    "selected": "seleccionado(s)",
+    "copy": "Copiar"
   },
   "theme": {
     "light": "Claro",

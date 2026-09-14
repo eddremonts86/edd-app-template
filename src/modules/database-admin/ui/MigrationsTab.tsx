@@ -163,7 +163,12 @@ export function MigrationsTab() {
               </SelectContent>
             </Select>
           </div>
-          <Button variant="outline" onClick={() => refetch()} size="icon">
+          <Button
+            variant="outline"
+            size="icon"
+            aria-label={t('common.actions.refresh')}
+            onClick={() => refetch()}
+          >
             <IconRefresh className="h-4 w-4" />
           </Button>
         </div>

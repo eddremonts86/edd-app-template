@@ -144,7 +144,8 @@
     "loadMore": "Indlæs flere",
     "clear": "Ryd",
     "clearFilters": "Ryd filtre",
-    "selected": "valgt"
+    "selected": "valgt",
+    "copy": "Kopiér"
   },
   "theme": {
     "light": "Lys",

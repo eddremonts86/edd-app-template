@@ -196,10 +196,22 @@ export function ConversationPanel({
                   )}
                 </div>
                 <div className="flex items-center gap-1">
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onNew}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    aria-label={t('ai.chat.newConversation')}
+                    onClick={onNew}
+                  >
                     <MessageSquarePlus size={18} />
                   </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onToggle}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    aria-label={t('ai.chat.conversations')}
+                    onClick={onToggle}
+                  >
                     <X size={18} />
                   </Button>
                 </div>
@@ -328,6 +340,7 @@ export function ConversationPanel({
                                         variant="ghost"
                                         size="icon"
                                         className="h-6 w-6 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
+                                        aria-label={t('ai.chat.deleteConversation')}
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           handleDelete(conv.id)
@@ -339,6 +352,7 @@ export function ConversationPanel({
                                         variant="ghost"
                                         size="icon"
                                         className="h-6 w-6"
+                                        aria-label={t('common.cancel')}
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           setConfirmDeleteId(null)
@@ -352,6 +366,7 @@ export function ConversationPanel({
                                       variant="ghost"
                                       size="icon"
                                       className="h-7 w-7 text-muted-foreground hover:text-red-500"
+                                      aria-label={t('ai.chat.deleteConversation')}
                                       onClick={(e) => {
                                         e.stopPropagation()
                                         setConfirmDeleteId(conv.id)

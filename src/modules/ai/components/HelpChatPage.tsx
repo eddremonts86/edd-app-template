@@ -468,6 +468,7 @@ function MessageBubble({
                                     variant="ghost"
                                     size="icon"
                                     className="h-6 w-6 rounded hover:bg-white/10 text-zinc-400"
+                                    aria-label={t('common.copy')}
                                     onClick={() => navigator.clipboard.writeText(String(children))}
                                   >
                                     <Copy size={12} />
@@ -571,6 +572,7 @@ function MessageBubble({
                 variant="ghost"
                 size="icon"
                 className="h-7 w-7 rounded-full bg-background/80 shadow-sm backdrop-blur-sm hover:bg-background hover:text-primary"
+                aria-label={t('common.copy')}
                 onClick={() => handleCopy(formatMessage(message))}
               >
                 {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
@@ -1257,6 +1259,7 @@ export function HelpChatPage() {
                     <InputGroupButton
                       variant="destructive"
                       size="icon-sm"
+                      aria-label={t('ai.chat.stop')}
                       onClick={() => stop()}
                       className="h-11 w-11 shrink-0 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all"
                     >
@@ -1264,6 +1267,7 @@ export function HelpChatPage() {
                     </InputGroupButton>
                   ) : (
                     <InputGroupButton
+                      aria-label={t('ai.chat.send')}
                       onClick={() => handleSend()}
                       disabled={
                         (!input.trim() && attachments.length === 0) || !isOnline || !isAgentActive
