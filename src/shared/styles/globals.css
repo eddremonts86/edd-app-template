@@ -161,11 +161,14 @@
   --border: oklch(0.92 0.008 240);
   --input: oklch(0.92 0.008 240);
   --ring: oklch(0.6 0.2 35);
+  /* Categorical ramp, hue 25-80 — one warm family, separated by lightness and
+     chroma so the steps stay distinguishable without leaving the palette.
+     Replaces a set that mixed a near-black at hue 240 and a cool blue. */
   --chart-1: oklch(0.6 0.2 35);
-  --chart-2: oklch(0.15 0.01 240);
-  --chart-3: oklch(0.4 0.07 227.18);
-  --chart-4: oklch(0.83 0.17 81.03);
-  --chart-5: oklch(0.77 0.17 65.36);
+  --chart-2: oklch(0.7 0.15 55);
+  --chart-3: oklch(0.5 0.12 25);
+  --chart-4: oklch(0.78 0.11 80);
+  --chart-5: oklch(0.45 0.05 40);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.15 0.01 240);
   --sidebar-primary: oklch(0.6 0.2 35);
@@ -217,11 +220,13 @@
   --border: oklch(0.21 0.01 30);
   --input: oklch(0.21 0.01 30);
   --ring: oklch(0.68 0.22 35);
+  /* Same ramp lifted for a near-black ground. The previous --chart-4 was
+     oklch(… 305), a purple — PRODUCT.md lists purple as an anti-reference. */
   --chart-1: oklch(0.68 0.22 35);
-  --chart-2: oklch(0.96 0.005 30);
-  --chart-3: oklch(0.77 0.17 65.36);
-  --chart-4: oklch(0.62 0.26 305.32);
-  --chart-5: oklch(0.64 0.25 16.51);
+  --chart-2: oklch(0.78 0.16 55);
+  --chart-3: oklch(0.6 0.14 25);
+  --chart-4: oklch(0.85 0.12 80);
+  --chart-5: oklch(0.58 0.06 40);
   --sidebar: oklch(0.2 0.01 30);
   --sidebar-foreground: oklch(0.96 0.005 30);
   --sidebar-primary: oklch(0.68 0.22 35);

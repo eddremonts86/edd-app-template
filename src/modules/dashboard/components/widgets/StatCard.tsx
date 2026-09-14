@@ -14,13 +14,17 @@ interface StatCardProps {
   className?: string
 }
 
+// Decorative card accents come from the theme's chart ramp, not from arbitrary
+// Tailwind hues. `violet` and `sky` previously pulled the dashboard straight
+// into two of PRODUCT.md's anti-references; they are kept as names so call sites
+// do not change, but they now resolve inside the warm family.
 const ACCENT_BG: Record<NonNullable<StatCardProps['accent']>, string> = {
   primary: 'bg-primary/10 text-primary',
-  emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 dark:bg-emerald-500/20',
-  amber: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 dark:bg-amber-500/20',
-  rose: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 dark:bg-rose-500/20',
-  violet: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 dark:bg-violet-500/20',
-  sky: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 dark:bg-sky-500/20',
+  emerald: 'bg-[var(--chart-2)]/10 text-[var(--chart-2)]',
+  amber: 'bg-[var(--chart-4)]/15 text-[var(--chart-4)]',
+  rose: 'bg-[var(--chart-3)]/10 text-[var(--chart-3)]',
+  violet: 'bg-[var(--chart-3)]/10 text-[var(--chart-3)]',
+  sky: 'bg-[var(--chart-2)]/10 text-[var(--chart-2)]',
 }
 
 export function StatCard({
