@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import { buildModuleResources } from '@/modules/core/module-i18n'
 import { readLocaleCookie, writeLocaleCookie } from './locale-cookie'
 import { defaultLocale, normalizeLocale, supportedLanguages } from './locales'
 import dkCommon from './locales/dk/common.json'
@@ -19,17 +20,19 @@ export {
 } from './locales'
 export type { SupportedLanguage } from './locales'
 
+// Modules keep their own strings so they can be copied to another app without
+// hand-picking a subtree out of common.json. They land under their module id.
 const resources = {
   en: {
-    common: enCommon,
+    common: { ...enCommon, ...buildModuleResources('en') },
     errors: enErrors,
   },
   es: {
-    common: esCommon,
+    common: { ...esCommon, ...buildModuleResources('es') },
     errors: esErrors,
   },
   dk: {
-    common: dkCommon,
+    common: { ...dkCommon, ...buildModuleResources('dk') },
     errors: dkErrors,
   },
 }

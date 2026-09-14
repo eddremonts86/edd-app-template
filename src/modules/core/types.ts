@@ -56,6 +56,24 @@ export interface AppModuleNavigationSection {
   items: AppModuleNavigationItem[]
 }
 
+/**
+ * What a module needs from the environment before it can do its job.
+ *
+ * A module can be enabled and unconfigured at the same time, and the two are
+ * different states (docs/architecture/integration-conventions.md §1): disabled
+ * means the surface does not exist, unconfigured means it exists and says so.
+ * Only modules that talk to a third party declare this; everything else is
+ * always configured.
+ */
+export interface AppModuleCapability {
+  /** Every one of these must be present and non-empty for the module to count as configured. */
+  requires: string[]
+  /** Unlocks extra behaviour, but the module works without it. */
+  optional?: string[]
+  /** i18n key for the sentence shown when the module is on but unconfigured. */
+  unconfiguredKey: string
+}
+
 export interface AppModuleManifest {
   id: string
   title: string
@@ -67,6 +85,8 @@ export interface AppModuleManifest {
   routes: AppModuleRouteDefinition[]
   navigation?: AppModuleNavigationSection[]
   widgets?: WidgetDefinition[]
+  /** Omit for modules with no third-party dependency — they are always configured. */
+  capability?: AppModuleCapability
 }
 
 export interface SidebarRuntimeItem {

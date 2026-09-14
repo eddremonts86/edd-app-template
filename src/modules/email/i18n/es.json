@@ -1,0 +1,17 @@
+{
+  "unconfigured": "El correo no está configurado. Define RESEND_API_KEY y EMAIL_FROM para enviar verificaciones y restablecimientos de contraseña.",
+  "verification": {
+    "subject": "Confirma tu dirección de correo",
+    "heading": "Confirma tu dirección de correo",
+    "body": "Usa el botón de abajo para terminar de crear tu cuenta. El enlace funciona durante una hora.",
+    "cta": "Confirmar correo",
+    "footer": "Si no creaste ninguna cuenta, puedes ignorar este mensaje."
+  },
+  "passwordReset": {
+    "subject": "Restablece tu contraseña",
+    "heading": "Restablece tu contraseña",
+    "body": "Usa el botón de abajo para elegir una contraseña nueva. El enlace funciona durante una hora y solo se puede usar una vez.",
+    "cta": "Elegir contraseña nueva",
+    "footer": "Si no lo has pedido tú, no ha cambiado nada y puedes ignorar este mensaje."
+  }
+}

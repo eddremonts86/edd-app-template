@@ -1,0 +1,17 @@
+{
+  "unconfigured": "E-mail er ikke konfigureret. Sæt RESEND_API_KEY og EMAIL_FROM for at sende bekræftelser og nulstilling af adgangskode.",
+  "verification": {
+    "subject": "Bekræft din e-mailadresse",
+    "heading": "Bekræft din e-mailadresse",
+    "body": "Brug knappen nedenfor for at færdiggøre din konto. Linket virker i én time.",
+    "cta": "Bekræft e-mail",
+    "footer": "Hvis du ikke har oprettet en konto, kan du se bort fra denne besked."
+  },
+  "passwordReset": {
+    "subject": "Nulstil din adgangskode",
+    "heading": "Nulstil din adgangskode",
+    "body": "Brug knappen nedenfor for at vælge en ny adgangskode. Linket virker i én time og kan bruges én gang.",
+    "cta": "Vælg ny adgangskode",
+    "footer": "Hvis du ikke har bedt om det, er intet ændret, og du kan se bort fra denne besked."
+  }
+}

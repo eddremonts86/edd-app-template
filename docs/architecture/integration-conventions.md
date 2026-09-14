@@ -316,8 +316,12 @@ Add `pnpm env:check` to `pnpm validate`, modelled on the existing
 `i18n:check`. It fails when:
 
 - a key is read in code (`process.env.X`) and is absent from `.env.example`;
-- a key is in `.env.example` and read nowhere;
-- a `capability.requires` entry is absent from `.env.example`.
+- a `capability.requires` entry is absent from `.env.example`;
+- a documented server-only secret has a documented `VITE_` twin.
+
+It deliberately does **not** flag a documented key that nothing in `src/` reads:
+plenty are consumed by `docker-compose`, `scripts/` or the deployment, and that
+rule would be false positives all the way down.
 
 The first rule alone would have caught geoLocal and novelaudio, where
 `RESEND_API_KEY` is read and undocumented, and email is off in every fresh clone
