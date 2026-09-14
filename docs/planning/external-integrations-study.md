@@ -147,6 +147,11 @@ redo. Each is independently shippable.
 
 ### Tier 0 — Decide the conventions (no code)
 
+> **Resolved.** See [`docs/architecture/integration-conventions.md`](../architecture/integration-conventions.md),
+> which decides everything below and closes the three open questions at the
+> foot of this document. The sketch that follows is kept as the record of what
+> was proposed before it was settled.
+
 The divergences above are decisions, not accidents waiting to be merged. Write
 them into `DESIGN.md` or a new `docs/architecture/integration-conventions.md`
 first, because every tier below depends on them:
