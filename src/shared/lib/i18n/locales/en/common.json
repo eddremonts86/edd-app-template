@@ -1,12 +1,17 @@
 {
   "app": {
-    "brand": "edd Starter"
+    "brand": "edd Starter",
+    "name": "edd App Template",
+    "description": "A reusable starting point for every edd SaaS, landing, and web app"
   },
   "nav": {
     "timeline": "Roadmap",
     "signIn": "Sign In",
     "signOut": "Sign Out",
-    "docs": "Docs"
+    "docs": "Docs",
+    "home": "Home",
+    "contact": "Support",
+    "settings": "Settings"
   },
   "auth": {
     "workspaceAccess": "Workspace access",
@@ -123,7 +128,23 @@
     },
     "langDanish": "Danish (dk)",
     "langEnglish": "English (en)",
-    "langSpanish": "Spanish (es)"
+    "langSpanish": "Spanish (es)",
+    "create": "Create",
+    "sort": "Sort",
+    "undoWarning": "This action cannot be undone.",
+    "noPermissionEdit": "You can only edit tasks you created or are assigned to.",
+    "noPermissionDelete": "You can only delete tasks you created or are assigned to.",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "reset": "Reset",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loadMore": "Load More",
+    "clear": "Clear",
+    "clearFilters": "Clear filters",
+    "selected": "selected"
   },
   "theme": {
     "light": "Light",
@@ -933,7 +954,10 @@
     "invalidColor": "Invalid color",
     "invalidDate": "Invalid date",
     "futureDate": "Date must be in the future",
-    "minAmount": "Must be greater than 0"
+    "minAmount": "Must be greater than 0",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must be at most {{max}} characters",
+    "invalidUrl": "Invalid URL"
   },
   "home": {
     "opening": {

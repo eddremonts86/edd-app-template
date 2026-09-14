@@ -1,12 +1,17 @@
 {
   "app": {
-    "brand": "edd Starter"
+    "brand": "edd Starter",
+    "name": "edd App Template",
+    "description": "Genbrugeligt startpunkt for alle edd SaaS-, landing- og webapps"
   },
   "nav": {
     "timeline": "Køreplan",
     "signIn": "Log ind",
     "signOut": "Log ud",
-    "docs": "Dokumentation"
+    "docs": "Dokumentation",
+    "home": "Hjem",
+    "contact": "Support",
+    "settings": "Indstillinger"
   },
   "auth": {
     "workspaceAccess": "Workspace-adgang",
@@ -123,7 +128,23 @@
     },
     "langDanish": "Dansk (dk)",
     "langEnglish": "Engelsk (en)",
-    "langSpanish": "Spansk (es)"
+    "langSpanish": "Spansk (es)",
+    "create": "Opret",
+    "sort": "Sorter",
+    "undoWarning": "Denne handling kan ikke fortrydes.",
+    "noPermissionEdit": "Du kan kun redigere opgaver, du har oprettet eller er tildelt.",
+    "noPermissionDelete": "Du kan kun slette opgaver, du har oprettet eller er tildelt.",
+    "yes": "Ja",
+    "no": "Nej",
+    "submit": "Indsend",
+    "reset": "Nulstil",
+    "back": "Tilbage",
+    "next": "Næste",
+    "previous": "Forrige",
+    "loadMore": "Indlæs flere",
+    "clear": "Ryd",
+    "clearFilters": "Ryd filtre",
+    "selected": "valgt"
   },
   "theme": {
     "light": "Lys",
@@ -933,7 +954,10 @@
     "invalidColor": "Ugyldig farve",
     "invalidDate": "Ugyldig dato",
     "futureDate": "Dato skal være i fremtiden",
-    "minAmount": "Skal være større end 0"
+    "minAmount": "Skal være større end 0",
+    "minLength": "Skal være mindst {{min}} tegn",
+    "maxLength": "Skal være højst {{max}} tegn",
+    "invalidUrl": "Ugyldig URL"
   },
   "home": {
     "opening": {
