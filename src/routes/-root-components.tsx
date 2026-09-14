@@ -55,9 +55,12 @@ export function RootDocument({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function RootErrorBoundary({ error }: { error: Error }) {
-  // Log error to Sentry
-  Sentry.captureException(error)
+// TanStack Router types `error` as `unknown` — normalize before we use it.
+export function RootErrorBoundary({ error }: { error: unknown }) {
+  const normalized = error instanceof Error ? error : new Error(String(error))
 
-  return <RootErrorContent error={error} />
+  // Log error to Sentry
+  Sentry.captureException(normalized)
+
+  return <RootErrorContent error={normalized} />
 }
