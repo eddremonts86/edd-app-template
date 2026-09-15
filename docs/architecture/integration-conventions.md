@@ -500,13 +500,15 @@ proposals.
 
 Not a `src/modules/` entry: it is CI configuration.
 
-| Question | Decision                                                                                         |
-| -------- | ------------------------------------------------------------------------------------------------ |
-| Target   | Coolify, triggered by a `POST` from GitHub Actions. Five apps already do exactly this.           |
-| Secrets  | `COOLIFY_API_URL`, `COOLIFY_API_TOKEN`, `COOLIFY_APP_UUID` — the same three names in every app.  |
-| Shape    | `deploy.yml` ships in the template beside the existing `quality.yml`, documented in the README.  |
-| Env sync | A step that pushes new keys to Coolify, so adding a variable does not require a dashboard visit. |
-| Gate     | Deployment runs only after the existing quality gate passes.                                     |
+| Question     | Decision                                                                                                                                                                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Target       | Coolify, triggered by `GET /api/v1/deploy?uuid=<uuid>&force=false` from GitHub Actions. That is what the fleet uses; an earlier draft of this table said `POST` and was wrong.                                                              |
+| Secrets      | `COOLIFY_API_URL`, `COOLIFY_API_TOKEN`, `COOLIFY_APP_UUID` — the same three names in every app, and what the values are called in the credential store. Resolve the UUID by name at setup; a stored one points at the last app provisioned. |
+| Shape        | `deploy.yml` beside `quality.yml`, documented in the README.                                                                                                                                                                                |
+| Waiting      | Poll `GET /api/v1/deployments/<uuid>` until `finished`; fail on `failed` or `cancelled-by-user`. With `queued` and `in_progress` those are the whole set. A workflow that only queues reports green while production breaks.                |
+| Gate         | `quality.yml` runs on `main` and `dev` and **builds the production image**. Coolify builds the Dockerfile, not `pnpm build`; nothing else catches a drifted lockfile.                                                                       |
+| Unconfigured | Skips with a notice. A clone with no Coolify secrets should not have a red Actions tab on day one — the same rule §1 applies to every integration.                                                                                          |
+| Env sync     | **Not built.** It writes to production configuration, and there is no Coolify instance here to verify it against; shipping an unverified writer of deployed config is the wrong trade. Secrets are set by hand until it can be tested.      |
 
 ### 9.5 Notifications — `src/modules/notifications/`, later
 

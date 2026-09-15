@@ -1,5 +1,6 @@
 {
   "name": "edd-app-template",
+  "packageManager": "pnpm@11.10.0",
   "description": "Production-ready SaaS starter built on TanStack Start with auth, AI, and modular architecture.",
   "keywords": [
     "starter",

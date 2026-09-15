@@ -43,7 +43,11 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml .npmrc ./
 
 # Reuse compiled node_modules from base — avoids re-running native binary builds
 COPY --from=base /app/node_modules ./node_modules
-RUN pnpm prune --prod
+# --ignore-scripts because prune removes devDependencies and then runs the
+# `prepare` lifecycle, which is `husky` — now uninstalled. `sh: 1: husky: not
+# found` failed every production image build, and nothing noticed because no
+# workflow built one. Nothing here needs a lifecycle script to run.
+RUN pnpm prune --prod --ignore-scripts
 
 COPY --from=builder /app/dist ./dist
 COPY server.prod.mjs ./server.prod.mjs

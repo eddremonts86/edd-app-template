@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - master
+      - dev
   push:
     branches:
       - main
       - master
+      - dev
 
 jobs:
   quality:
@@ -20,10 +22,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # No version pin: pnpm/action-setup reads `packageManager` from
+      # package.json, so CI uses the version that wrote pnpm-lock.yaml. Pinning
+      # it here is how a lockfile passes locally and fails only in CI.
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -43,5 +46,18 @@ jobs:
       - name: Prettier
         run: pnpm format:check
 
+      - name: Environment contract
+        run: pnpm env:check
+
       - name: Translation completeness
         run: pnpm i18n:check
+
+      - name: Unit tests
+        run: pnpm test
+
+      # The one that matters, and the one everybody forgets: Coolify does not
+      # run `pnpm build`, it builds this Dockerfile. A lockfile that drifted or
+      # a dependency added without committing the lock passes every step above
+      # and fails the deploy. Built, not pushed.
+      - name: Build the image Coolify will build
+        run: docker build --target prod -t edd-app-template:ci .

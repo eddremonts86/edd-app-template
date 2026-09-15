@@ -263,6 +263,57 @@ apps/edd-app-template/
 
 ---
 
+## Deployment
+
+Coolify, triggered from GitHub Actions. Two workflows:
+
+| Workflow      | Runs on                              | Does                                                                                            |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `quality.yml` | PRs and pushes to `main`/`dev`       | type-check, lint, format, `env:check`, `i18n:check`, tests, **and builds the production image** |
+| `deploy.yml`  | pushes to `main`, or manual dispatch | triggers Coolify, then waits for the deployment to finish                                       |
+
+The image build is the step that matters. Coolify does not run `pnpm build` — it
+builds this `Dockerfile`. A lockfile that drifted or a dependency added without
+committing the lock passes every other check and fails the deploy.
+
+### Enabling it
+
+Three repository secrets. Without them `deploy.yml` skips with a notice rather
+than failing, so a fresh clone's Actions tab is not red on day one.
+
+```bash
+# Resolve the UUID by name — a stored one points at whichever app was
+# provisioned last, and deploying to the wrong app succeeds silently.
+curl -s -H "Authorization: Bearer $COOLIFY_API_TOKEN" \
+  "$COOLIFY_API_URL/api/v1/applications" | jq -r '.[] | "\(.uuid) \(.name)"'
+```
+
+```bash
+gh secret set COOLIFY_API_URL
+gh secret set COOLIFY_API_TOKEN
+gh secret set COOLIFY_APP_UUID
+```
+
+The names are not free choices — they are what the values are called in
+`ai-os/dev-env/env-config/.env` and in every other app's workflow.
+
+### The rest of the pipeline
+
+`deploy.yml` covers production. The full shape — a `dev` branch, a local replica
+on the Mac tracking it, and branch protection — is per-app setup rather than
+template content:
+
+1. Create a `dev` branch from `main`.
+2. Point a local Coolify resource at it, domain `http://<app>.localhost`.
+3. Point the production resource at `main`.
+4. Set the three secrets above to **production's** UUID.
+5. Make `quality` a required status check on both branches, or it is decoration.
+6. Add the app to the local deploy poller — a GitHub-hosted runner cannot reach
+   your Mac, so nothing will ever trigger the local Coolify from a workflow.
+
+Verify the chain end to end once before trusting it: push to `dev`, watch the
+replica change, open a PR, watch the guardian, merge, watch production.
+
 ## Releasing the create-edd-app CLI
 
 The `@edd_remonts/create-edd-app` npm package lives in `tools/create-edd-app/`.
