@@ -9,149 +9,101 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AuthRouteRouteImport } from './routes/auth/route'
-import { Route as LandingRouteRouteImport } from './routes/_landing/route'
 import { Route as DashboardRouteRouteImport } from './routes/_dashboard/route'
-import { Route as LandingIndexRouteImport } from './routes/_landing/index'
-import { Route as AuthSignUpRouteImport } from './routes/auth/sign-up'
-import { Route as AuthSignInRouteImport } from './routes/auth/sign-in'
-import { Route as ApiHealthRouteImport } from './routes/api/health'
-import { Route as LandingDocsRouteImport } from './routes/_landing/_docs'
+import { Route as LandingRouteRouteImport } from './routes/_landing/route'
+import { Route as AuthRouteRouteImport } from './routes/auth/route'
 import { Route as DashboardDashboardRouteRouteImport } from './routes/_dashboard/dashboard/route'
+import { Route as LandingIndexRouteImport } from './routes/_landing/index'
+import { Route as LandingDocsRouteImport } from './routes/_landing/_docs'
+import { Route as ApiHealthRouteImport } from './routes/api/health'
+import { Route as AuthSignInRouteImport } from './routes/auth/sign-in'
+import { Route as AuthSignUpRouteImport } from './routes/auth/sign-up'
 import { Route as DashboardDashboardIndexRouteImport } from './routes/_dashboard/dashboard/index'
-import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
-import { Route as ApiAiTestConnectionRouteImport } from './routes/api/ai/test-connection'
-import { Route as ApiAiStatusRouteImport } from './routes/api/ai/status'
-import { Route as ApiAiSearchRouteImport } from './routes/api/ai/search'
-import { Route as ApiAiModelsRouteImport } from './routes/api/ai/models'
-import { Route as ApiAiConfigStoreRouteImport } from './routes/api/ai/config-store'
-import { Route as ApiAiAuditRouteImport } from './routes/api/ai/audit'
-import { Route as LandingDocsDocsRouteImport } from './routes/_landing/_docs/docs'
-import { Route as DashboardDashboardUsersRouteImport } from './routes/_dashboard/dashboard/users'
-import { Route as DashboardDashboardHelpRouteImport } from './routes/_dashboard/dashboard/help'
 import { Route as DashboardDashboardContactMessagesRouteImport } from './routes/_dashboard/dashboard/contact-messages'
-import { Route as ApiAiChatRouteRouteImport } from './routes/api/ai/chat/route'
+import { Route as DashboardDashboardHelpRouteImport } from './routes/_dashboard/dashboard/help'
 import { Route as DashboardDashboardSettingsRouteRouteImport } from './routes/_dashboard/dashboard/settings/route'
+import { Route as DashboardDashboardUsersRouteImport } from './routes/_dashboard/dashboard/users'
+import { Route as LandingDocsDocsRouteImport } from './routes/_landing/_docs/docs'
+import { Route as ApiAiAuditRouteImport } from './routes/api/ai/audit'
+import { Route as ApiAiChatRouteRouteImport } from './routes/api/ai/chat/route'
+import { Route as ApiAiConfigStoreRouteImport } from './routes/api/ai/config-store'
+import { Route as ApiAiModelsRouteImport } from './routes/api/ai/models'
+import { Route as ApiAiSearchRouteImport } from './routes/api/ai/search'
+import { Route as ApiAiStatusRouteImport } from './routes/api/ai/status'
+import { Route as ApiAiTestConnectionRouteImport } from './routes/api/ai/test-connection'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiBillingWebhookRouteImport } from './routes/api/billing/webhook'
 import { Route as DashboardDashboardSettingsIndexRouteImport } from './routes/_dashboard/dashboard/settings/index'
-import { Route as ApiAiChatCompletionsRouteImport } from './routes/api/ai/chat/completions'
-import { Route as LandingDocsSupportGuidesRouteImport } from './routes/_landing/_docs/support/guides'
-import { Route as LandingDocsSupportFaqRouteImport } from './routes/_landing/_docs/support/faq'
-import { Route as LandingDocsSupportExamplesRouteImport } from './routes/_landing/_docs/support/examples'
-import { Route as LandingDocsSupportDocumentationRouteImport } from './routes/_landing/_docs/support/documentation'
-import { Route as LandingDocsStarterModuleMapRouteImport } from './routes/_landing/_docs/starter/module-map'
-import { Route as LandingDocsStarterDesignTokensRouteImport } from './routes/_landing/_docs/starter/design-tokens'
-import { Route as LandingDocsStarterConventionsRouteImport } from './routes/_landing/_docs/starter/conventions'
-import { Route as LandingDocsStarterArchitectureRouteImport } from './routes/_landing/_docs/starter/architecture'
-import { Route as LandingDocsProductRoadmapRouteImport } from './routes/_landing/_docs/product/roadmap'
-import { Route as LandingDocsProductReleaseNotesRouteImport } from './routes/_landing/_docs/product/release-notes'
-import { Route as LandingDocsProductIntegrationsRouteImport } from './routes/_landing/_docs/product/integrations'
-import { Route as LandingDocsProductChangelogRouteImport } from './routes/_landing/_docs/product/changelog'
-import { Route as LandingDocsLegalTermsRouteImport } from './routes/_landing/_docs/legal/terms'
-import { Route as LandingDocsLegalPrivacyRouteImport } from './routes/_landing/_docs/legal/privacy'
-import { Route as LandingDocsLegalLicensesRouteImport } from './routes/_landing/_docs/legal/licenses'
-import { Route as LandingDocsLegalCookiesRouteImport } from './routes/_landing/_docs/legal/cookies'
-import { Route as DashboardDashboardSettingsSystemRouteImport } from './routes/_dashboard/dashboard/settings/system'
-import { Route as DashboardDashboardSettingsSite_settingsRouteImport } from './routes/_dashboard/dashboard/settings/site_settings'
-import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
-import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
 import { Route as DashboardDashboardSettingsAi_logsRouteImport } from './routes/_dashboard/dashboard/settings/ai_logs'
-import { Route as DashboardDashboardAdminDatabaseRouteImport } from './routes/_dashboard/dashboard/admin/database'
+import { Route as DashboardDashboardSettingsBillingRouteImport } from './routes/_dashboard/dashboard/settings/billing'
+import { Route as DashboardDashboardSettingsDatabaseRouteImport } from './routes/_dashboard/dashboard/settings/database'
+import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
+import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
+import { Route as DashboardDashboardSettingsSite_settingsRouteImport } from './routes/_dashboard/dashboard/settings/site_settings'
+import { Route as DashboardDashboardSettingsSystemRouteImport } from './routes/_dashboard/dashboard/settings/system'
+import { Route as LandingDocsLegalCookiesRouteImport } from './routes/_landing/_docs/legal/cookies'
+import { Route as LandingDocsLegalLicensesRouteImport } from './routes/_landing/_docs/legal/licenses'
+import { Route as LandingDocsLegalPrivacyRouteImport } from './routes/_landing/_docs/legal/privacy'
+import { Route as LandingDocsLegalTermsRouteImport } from './routes/_landing/_docs/legal/terms'
+import { Route as LandingDocsProductChangelogRouteImport } from './routes/_landing/_docs/product/changelog'
+import { Route as LandingDocsProductIntegrationsRouteImport } from './routes/_landing/_docs/product/integrations'
+import { Route as LandingDocsProductReleaseNotesRouteImport } from './routes/_landing/_docs/product/release-notes'
+import { Route as LandingDocsProductRoadmapRouteImport } from './routes/_landing/_docs/product/roadmap'
+import { Route as LandingDocsStarterArchitectureRouteImport } from './routes/_landing/_docs/starter/architecture'
+import { Route as LandingDocsStarterConventionsRouteImport } from './routes/_landing/_docs/starter/conventions'
+import { Route as LandingDocsStarterDesignTokensRouteImport } from './routes/_landing/_docs/starter/design-tokens'
+import { Route as LandingDocsStarterModuleMapRouteImport } from './routes/_landing/_docs/starter/module-map'
+import { Route as LandingDocsSupportDocumentationRouteImport } from './routes/_landing/_docs/support/documentation'
+import { Route as LandingDocsSupportExamplesRouteImport } from './routes/_landing/_docs/support/examples'
+import { Route as LandingDocsSupportFaqRouteImport } from './routes/_landing/_docs/support/faq'
+import { Route as LandingDocsSupportGuidesRouteImport } from './routes/_landing/_docs/support/guides'
+import { Route as ApiAiChatCompletionsRouteImport } from './routes/api/ai/chat/completions'
 
-const AuthRouteRoute = AuthRouteRouteImport.update({
-  id: '/auth',
-  path: '/auth',
+const DashboardRouteRoute = DashboardRouteRouteImport.update({
+  id: '/_dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LandingRouteRoute = LandingRouteRouteImport.update({
   id: '/_landing',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRouteRoute = DashboardRouteRouteImport.update({
-  id: '/_dashboard',
+const AuthRouteRoute = AuthRouteRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
-} as any)
-const LandingIndexRoute = LandingIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => LandingRouteRoute,
-} as any)
-const AuthSignUpRoute = AuthSignUpRouteImport.update({
-  id: '/sign-up',
-  path: '/sign-up',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const AuthSignInRoute = AuthSignInRouteImport.update({
-  id: '/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => AuthRouteRoute,
-} as any)
-const ApiHealthRoute = ApiHealthRouteImport.update({
-  id: '/api/health',
-  path: '/api/health',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LandingDocsRoute = LandingDocsRouteImport.update({
-  id: '/_docs',
-  getParentRoute: () => LandingRouteRoute,
 } as any)
 const DashboardDashboardRouteRoute = DashboardDashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const LandingIndexRoute = LandingIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LandingRouteRoute,
+} as any)
+const LandingDocsRoute = LandingDocsRouteImport.update({
+  id: '/_docs',
+  getParentRoute: () => LandingRouteRoute,
+} as any)
+const ApiHealthRoute = ApiHealthRouteImport.update({
+  id: '/api/health',
+  path: '/api/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthSignInRoute = AuthSignInRouteImport.update({
+  id: '/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthSignUpRoute = AuthSignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
 const DashboardDashboardIndexRoute = DashboardDashboardIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => DashboardDashboardRouteRoute,
-} as any)
-const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
-  id: '/api/auth/$',
-  path: '/api/auth/$',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiTestConnectionRoute = ApiAiTestConnectionRouteImport.update({
-  id: '/api/ai/test-connection',
-  path: '/api/ai/test-connection',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiStatusRoute = ApiAiStatusRouteImport.update({
-  id: '/api/ai/status',
-  path: '/api/ai/status',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiSearchRoute = ApiAiSearchRouteImport.update({
-  id: '/api/ai/search',
-  path: '/api/ai/search',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiModelsRoute = ApiAiModelsRouteImport.update({
-  id: '/api/ai/models',
-  path: '/api/ai/models',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiConfigStoreRoute = ApiAiConfigStoreRouteImport.update({
-  id: '/api/ai/config-store',
-  path: '/api/ai/config-store',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAiAuditRoute = ApiAiAuditRouteImport.update({
-  id: '/api/ai/audit',
-  path: '/api/ai/audit',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LandingDocsDocsRoute = LandingDocsDocsRouteImport.update({
-  id: '/docs',
-  path: '/docs',
-  getParentRoute: () => LandingDocsRoute,
-} as any)
-const DashboardDashboardUsersRoute = DashboardDashboardUsersRouteImport.update({
-  id: '/users',
-  path: '/users',
-  getParentRoute: () => DashboardDashboardRouteRoute,
-} as any)
-const DashboardDashboardHelpRoute = DashboardDashboardHelpRouteImport.update({
-  id: '/help',
-  path: '/help',
   getParentRoute: () => DashboardDashboardRouteRoute,
 } as any)
 const DashboardDashboardContactMessagesRoute =
@@ -160,10 +112,10 @@ const DashboardDashboardContactMessagesRoute =
     path: '/contact-messages',
     getParentRoute: () => DashboardDashboardRouteRoute,
   } as any)
-const ApiAiChatRouteRoute = ApiAiChatRouteRouteImport.update({
-  id: '/api/ai/chat',
-  path: '/api/ai/chat',
-  getParentRoute: () => rootRouteImport,
+const DashboardDashboardHelpRoute = DashboardDashboardHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => DashboardDashboardRouteRoute,
 } as any)
 const DashboardDashboardSettingsRouteRoute =
   DashboardDashboardSettingsRouteRouteImport.update({
@@ -171,131 +123,65 @@ const DashboardDashboardSettingsRouteRoute =
     path: '/settings',
     getParentRoute: () => DashboardDashboardRouteRoute,
   } as any)
+const DashboardDashboardUsersRoute = DashboardDashboardUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => DashboardDashboardRouteRoute,
+} as any)
+const LandingDocsDocsRoute = LandingDocsDocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const ApiAiAuditRoute = ApiAiAuditRouteImport.update({
+  id: '/api/ai/audit',
+  path: '/api/ai/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiChatRouteRoute = ApiAiChatRouteRouteImport.update({
+  id: '/api/ai/chat',
+  path: '/api/ai/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiConfigStoreRoute = ApiAiConfigStoreRouteImport.update({
+  id: '/api/ai/config-store',
+  path: '/api/ai/config-store',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiModelsRoute = ApiAiModelsRouteImport.update({
+  id: '/api/ai/models',
+  path: '/api/ai/models',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiSearchRoute = ApiAiSearchRouteImport.update({
+  id: '/api/ai/search',
+  path: '/api/ai/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiStatusRoute = ApiAiStatusRouteImport.update({
+  id: '/api/ai/status',
+  path: '/api/ai/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAiTestConnectionRoute = ApiAiTestConnectionRouteImport.update({
+  id: '/api/ai/test-connection',
+  path: '/api/ai/test-connection',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBillingWebhookRoute = ApiBillingWebhookRouteImport.update({
+  id: '/api/billing/webhook',
+  path: '/api/billing/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardDashboardSettingsIndexRoute =
   DashboardDashboardSettingsIndexRouteImport.update({
     id: '/',
     path: '/',
-    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
-  } as any)
-const ApiAiChatCompletionsRoute = ApiAiChatCompletionsRouteImport.update({
-  id: '/completions',
-  path: '/completions',
-  getParentRoute: () => ApiAiChatRouteRoute,
-} as any)
-const LandingDocsSupportGuidesRoute =
-  LandingDocsSupportGuidesRouteImport.update({
-    id: '/support/guides',
-    path: '/support/guides',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsSupportFaqRoute = LandingDocsSupportFaqRouteImport.update({
-  id: '/support/faq',
-  path: '/support/faq',
-  getParentRoute: () => LandingDocsRoute,
-} as any)
-const LandingDocsSupportExamplesRoute =
-  LandingDocsSupportExamplesRouteImport.update({
-    id: '/support/examples',
-    path: '/support/examples',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsSupportDocumentationRoute =
-  LandingDocsSupportDocumentationRouteImport.update({
-    id: '/support/documentation',
-    path: '/support/documentation',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsStarterModuleMapRoute =
-  LandingDocsStarterModuleMapRouteImport.update({
-    id: '/starter/module-map',
-    path: '/starter/module-map',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsStarterDesignTokensRoute =
-  LandingDocsStarterDesignTokensRouteImport.update({
-    id: '/starter/design-tokens',
-    path: '/starter/design-tokens',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsStarterConventionsRoute =
-  LandingDocsStarterConventionsRouteImport.update({
-    id: '/starter/conventions',
-    path: '/starter/conventions',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsStarterArchitectureRoute =
-  LandingDocsStarterArchitectureRouteImport.update({
-    id: '/starter/architecture',
-    path: '/starter/architecture',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsProductRoadmapRoute =
-  LandingDocsProductRoadmapRouteImport.update({
-    id: '/product/roadmap',
-    path: '/product/roadmap',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsProductReleaseNotesRoute =
-  LandingDocsProductReleaseNotesRouteImport.update({
-    id: '/product/release-notes',
-    path: '/product/release-notes',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsProductIntegrationsRoute =
-  LandingDocsProductIntegrationsRouteImport.update({
-    id: '/product/integrations',
-    path: '/product/integrations',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsProductChangelogRoute =
-  LandingDocsProductChangelogRouteImport.update({
-    id: '/product/changelog',
-    path: '/product/changelog',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsLegalTermsRoute = LandingDocsLegalTermsRouteImport.update({
-  id: '/legal/terms',
-  path: '/legal/terms',
-  getParentRoute: () => LandingDocsRoute,
-} as any)
-const LandingDocsLegalPrivacyRoute = LandingDocsLegalPrivacyRouteImport.update({
-  id: '/legal/privacy',
-  path: '/legal/privacy',
-  getParentRoute: () => LandingDocsRoute,
-} as any)
-const LandingDocsLegalLicensesRoute =
-  LandingDocsLegalLicensesRouteImport.update({
-    id: '/legal/licenses',
-    path: '/legal/licenses',
-    getParentRoute: () => LandingDocsRoute,
-  } as any)
-const LandingDocsLegalCookiesRoute = LandingDocsLegalCookiesRouteImport.update({
-  id: '/legal/cookies',
-  path: '/legal/cookies',
-  getParentRoute: () => LandingDocsRoute,
-} as any)
-const DashboardDashboardSettingsSystemRoute =
-  DashboardDashboardSettingsSystemRouteImport.update({
-    id: '/system',
-    path: '/system',
-    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
-  } as any)
-const DashboardDashboardSettingsSite_settingsRoute =
-  DashboardDashboardSettingsSite_settingsRouteImport.update({
-    id: '/site_settings',
-    path: '/site_settings',
-    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
-  } as any)
-const DashboardDashboardSettingsIa_configRoute =
-  DashboardDashboardSettingsIa_configRouteImport.update({
-    id: '/ia_config',
-    path: '/ia_config',
-    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
-  } as any)
-const DashboardDashboardSettingsDev_toolsRoute =
-  DashboardDashboardSettingsDev_toolsRouteImport.update({
-    id: '/dev_tools',
-    path: '/dev_tools',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
 const DashboardDashboardSettingsAi_logsRoute =
@@ -304,12 +190,139 @@ const DashboardDashboardSettingsAi_logsRoute =
     path: '/ai_logs',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
-const DashboardDashboardAdminDatabaseRoute =
-  DashboardDashboardAdminDatabaseRouteImport.update({
-    id: '/admin/database',
-    path: '/admin/database',
-    getParentRoute: () => DashboardDashboardRouteRoute,
+const DashboardDashboardSettingsBillingRoute =
+  DashboardDashboardSettingsBillingRouteImport.update({
+    id: '/billing',
+    path: '/billing',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
+const DashboardDashboardSettingsDatabaseRoute =
+  DashboardDashboardSettingsDatabaseRouteImport.update({
+    id: '/database',
+    path: '/database',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsDev_toolsRoute =
+  DashboardDashboardSettingsDev_toolsRouteImport.update({
+    id: '/dev_tools',
+    path: '/dev_tools',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsIa_configRoute =
+  DashboardDashboardSettingsIa_configRouteImport.update({
+    id: '/ia_config',
+    path: '/ia_config',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsSite_settingsRoute =
+  DashboardDashboardSettingsSite_settingsRouteImport.update({
+    id: '/site_settings',
+    path: '/site_settings',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsSystemRoute =
+  DashboardDashboardSettingsSystemRouteImport.update({
+    id: '/system',
+    path: '/system',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const LandingDocsLegalCookiesRoute = LandingDocsLegalCookiesRouteImport.update({
+  id: '/legal/cookies',
+  path: '/legal/cookies',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsLegalLicensesRoute =
+  LandingDocsLegalLicensesRouteImport.update({
+    id: '/legal/licenses',
+    path: '/legal/licenses',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsLegalPrivacyRoute = LandingDocsLegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsLegalTermsRoute = LandingDocsLegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsProductChangelogRoute =
+  LandingDocsProductChangelogRouteImport.update({
+    id: '/product/changelog',
+    path: '/product/changelog',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductIntegrationsRoute =
+  LandingDocsProductIntegrationsRouteImport.update({
+    id: '/product/integrations',
+    path: '/product/integrations',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductReleaseNotesRoute =
+  LandingDocsProductReleaseNotesRouteImport.update({
+    id: '/product/release-notes',
+    path: '/product/release-notes',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsProductRoadmapRoute =
+  LandingDocsProductRoadmapRouteImport.update({
+    id: '/product/roadmap',
+    path: '/product/roadmap',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterArchitectureRoute =
+  LandingDocsStarterArchitectureRouteImport.update({
+    id: '/starter/architecture',
+    path: '/starter/architecture',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterConventionsRoute =
+  LandingDocsStarterConventionsRouteImport.update({
+    id: '/starter/conventions',
+    path: '/starter/conventions',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterDesignTokensRoute =
+  LandingDocsStarterDesignTokensRouteImport.update({
+    id: '/starter/design-tokens',
+    path: '/starter/design-tokens',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsStarterModuleMapRoute =
+  LandingDocsStarterModuleMapRouteImport.update({
+    id: '/starter/module-map',
+    path: '/starter/module-map',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsSupportDocumentationRoute =
+  LandingDocsSupportDocumentationRouteImport.update({
+    id: '/support/documentation',
+    path: '/support/documentation',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsSupportExamplesRoute =
+  LandingDocsSupportExamplesRouteImport.update({
+    id: '/support/examples',
+    path: '/support/examples',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const LandingDocsSupportFaqRoute = LandingDocsSupportFaqRouteImport.update({
+  id: '/support/faq',
+  path: '/support/faq',
+  getParentRoute: () => LandingDocsRoute,
+} as any)
+const LandingDocsSupportGuidesRoute =
+  LandingDocsSupportGuidesRouteImport.update({
+    id: '/support/guides',
+    path: '/support/guides',
+    getParentRoute: () => LandingDocsRoute,
+  } as any)
+const ApiAiChatCompletionsRoute = ApiAiChatCompletionsRouteImport.update({
+  id: '/completions',
+  path: '/completions',
+  getParentRoute: () => ApiAiChatRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof LandingIndexRoute
@@ -331,9 +344,11 @@ export interface FileRoutesByFullPath {
   '/api/ai/status': typeof ApiAiStatusRoute
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/dashboard/': typeof DashboardDashboardIndexRoute
-  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -375,9 +390,11 @@ export interface FileRoutesByTo {
   '/api/ai/status': typeof ApiAiStatusRoute
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/dashboard': typeof DashboardDashboardIndexRoute
-  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -425,9 +442,11 @@ export interface FileRoutesById {
   '/api/ai/status': typeof ApiAiStatusRoute
   '/api/ai/test-connection': typeof ApiAiTestConnectionRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/_dashboard/dashboard/': typeof DashboardDashboardIndexRoute
-  '/_dashboard/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/_dashboard/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
+  '/_dashboard/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/_dashboard/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/_dashboard/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/_dashboard/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -473,9 +492,11 @@ export interface FileRouteTypes {
     | '/api/ai/status'
     | '/api/ai/test-connection'
     | '/api/auth/$'
+    | '/api/billing/webhook'
     | '/dashboard/'
-    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
+    | '/dashboard/settings/billing'
+    | '/dashboard/settings/database'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/site_settings'
@@ -517,9 +538,11 @@ export interface FileRouteTypes {
     | '/api/ai/status'
     | '/api/ai/test-connection'
     | '/api/auth/$'
+    | '/api/billing/webhook'
     | '/dashboard'
-    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
+    | '/dashboard/settings/billing'
+    | '/dashboard/settings/database'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/site_settings'
@@ -566,9 +589,11 @@ export interface FileRouteTypes {
     | '/api/ai/status'
     | '/api/ai/test-connection'
     | '/api/auth/$'
+    | '/api/billing/webhook'
     | '/_dashboard/dashboard/'
-    | '/_dashboard/dashboard/admin/database'
     | '/_dashboard/dashboard/settings/ai_logs'
+    | '/_dashboard/dashboard/settings/billing'
+    | '/_dashboard/dashboard/settings/database'
     | '/_dashboard/dashboard/settings/dev_tools'
     | '/_dashboard/dashboard/settings/ia_config'
     | '/_dashboard/dashboard/settings/site_settings'
@@ -606,15 +631,16 @@ export interface RootRouteChildren {
   ApiAiStatusRoute: typeof ApiAiStatusRoute
   ApiAiTestConnectionRoute: typeof ApiAiTestConnectionRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiBillingWebhookRoute: typeof ApiBillingWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteRouteImport
+    '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof DashboardRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_landing': {
@@ -624,47 +650,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_dashboard': {
-      id: '/_dashboard'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof DashboardRouteRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/_landing/': {
-      id: '/_landing/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof LandingIndexRouteImport
-      parentRoute: typeof LandingRouteRoute
-    }
-    '/auth/sign-up': {
-      id: '/auth/sign-up'
-      path: '/sign-up'
-      fullPath: '/auth/sign-up'
-      preLoaderRoute: typeof AuthSignUpRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/auth/sign-in': {
-      id: '/auth/sign-in'
-      path: '/sign-in'
-      fullPath: '/auth/sign-in'
-      preLoaderRoute: typeof AuthSignInRouteImport
-      parentRoute: typeof AuthRouteRoute
-    }
-    '/api/health': {
-      id: '/api/health'
-      path: '/api/health'
-      fullPath: '/api/health'
-      preLoaderRoute: typeof ApiHealthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_landing/_docs': {
-      id: '/_landing/_docs'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof LandingDocsRouteImport
-      parentRoute: typeof LandingRouteRoute
     }
     '/_dashboard/dashboard': {
       id: '/_dashboard/dashboard'
@@ -673,81 +664,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardRouteRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/_landing/': {
+      id: '/_landing/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof LandingIndexRouteImport
+      parentRoute: typeof LandingRouteRoute
+    }
+    '/_landing/_docs': {
+      id: '/_landing/_docs'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof LandingDocsRouteImport
+      parentRoute: typeof LandingRouteRoute
+    }
+    '/api/health': {
+      id: '/api/health'
+      path: '/api/health'
+      fullPath: '/api/health'
+      preLoaderRoute: typeof ApiHealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/sign-in': {
+      id: '/auth/sign-in'
+      path: '/sign-in'
+      fullPath: '/auth/sign-in'
+      preLoaderRoute: typeof AuthSignInRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/auth/sign-up': {
+      id: '/auth/sign-up'
+      path: '/sign-up'
+      fullPath: '/auth/sign-up'
+      preLoaderRoute: typeof AuthSignUpRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
     '/_dashboard/dashboard/': {
       id: '/_dashboard/dashboard/'
       path: '/'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardDashboardIndexRouteImport
-      parentRoute: typeof DashboardDashboardRouteRoute
-    }
-    '/api/auth/$': {
-      id: '/api/auth/$'
-      path: '/api/auth/$'
-      fullPath: '/api/auth/$'
-      preLoaderRoute: typeof ApiAuthSplatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/test-connection': {
-      id: '/api/ai/test-connection'
-      path: '/api/ai/test-connection'
-      fullPath: '/api/ai/test-connection'
-      preLoaderRoute: typeof ApiAiTestConnectionRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/status': {
-      id: '/api/ai/status'
-      path: '/api/ai/status'
-      fullPath: '/api/ai/status'
-      preLoaderRoute: typeof ApiAiStatusRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/search': {
-      id: '/api/ai/search'
-      path: '/api/ai/search'
-      fullPath: '/api/ai/search'
-      preLoaderRoute: typeof ApiAiSearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/models': {
-      id: '/api/ai/models'
-      path: '/api/ai/models'
-      fullPath: '/api/ai/models'
-      preLoaderRoute: typeof ApiAiModelsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/config-store': {
-      id: '/api/ai/config-store'
-      path: '/api/ai/config-store'
-      fullPath: '/api/ai/config-store'
-      preLoaderRoute: typeof ApiAiConfigStoreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/ai/audit': {
-      id: '/api/ai/audit'
-      path: '/api/ai/audit'
-      fullPath: '/api/ai/audit'
-      preLoaderRoute: typeof ApiAiAuditRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_landing/_docs/docs': {
-      id: '/_landing/_docs/docs'
-      path: '/docs'
-      fullPath: '/docs'
-      preLoaderRoute: typeof LandingDocsDocsRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_dashboard/dashboard/users': {
-      id: '/_dashboard/dashboard/users'
-      path: '/users'
-      fullPath: '/dashboard/users'
-      preLoaderRoute: typeof DashboardDashboardUsersRouteImport
-      parentRoute: typeof DashboardDashboardRouteRoute
-    }
-    '/_dashboard/dashboard/help': {
-      id: '/_dashboard/dashboard/help'
-      path: '/help'
-      fullPath: '/dashboard/help'
-      preLoaderRoute: typeof DashboardDashboardHelpRouteImport
       parentRoute: typeof DashboardDashboardRouteRoute
     }
     '/_dashboard/dashboard/contact-messages': {
@@ -757,12 +713,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardContactMessagesRouteImport
       parentRoute: typeof DashboardDashboardRouteRoute
     }
-    '/api/ai/chat': {
-      id: '/api/ai/chat'
-      path: '/api/ai/chat'
-      fullPath: '/api/ai/chat'
-      preLoaderRoute: typeof ApiAiChatRouteRouteImport
-      parentRoute: typeof rootRouteImport
+    '/_dashboard/dashboard/help': {
+      id: '/_dashboard/dashboard/help'
+      path: '/help'
+      fullPath: '/dashboard/help'
+      preLoaderRoute: typeof DashboardDashboardHelpRouteImport
+      parentRoute: typeof DashboardDashboardRouteRoute
     }
     '/_dashboard/dashboard/settings': {
       id: '/_dashboard/dashboard/settings'
@@ -771,158 +727,88 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardSettingsRouteRouteImport
       parentRoute: typeof DashboardDashboardRouteRoute
     }
+    '/_dashboard/dashboard/users': {
+      id: '/_dashboard/dashboard/users'
+      path: '/users'
+      fullPath: '/dashboard/users'
+      preLoaderRoute: typeof DashboardDashboardUsersRouteImport
+      parentRoute: typeof DashboardDashboardRouteRoute
+    }
+    '/_landing/_docs/docs': {
+      id: '/_landing/_docs/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof LandingDocsDocsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/api/ai/audit': {
+      id: '/api/ai/audit'
+      path: '/api/ai/audit'
+      fullPath: '/api/ai/audit'
+      preLoaderRoute: typeof ApiAiAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/chat': {
+      id: '/api/ai/chat'
+      path: '/api/ai/chat'
+      fullPath: '/api/ai/chat'
+      preLoaderRoute: typeof ApiAiChatRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/config-store': {
+      id: '/api/ai/config-store'
+      path: '/api/ai/config-store'
+      fullPath: '/api/ai/config-store'
+      preLoaderRoute: typeof ApiAiConfigStoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/models': {
+      id: '/api/ai/models'
+      path: '/api/ai/models'
+      fullPath: '/api/ai/models'
+      preLoaderRoute: typeof ApiAiModelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/search': {
+      id: '/api/ai/search'
+      path: '/api/ai/search'
+      fullPath: '/api/ai/search'
+      preLoaderRoute: typeof ApiAiSearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/status': {
+      id: '/api/ai/status'
+      path: '/api/ai/status'
+      fullPath: '/api/ai/status'
+      preLoaderRoute: typeof ApiAiStatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/ai/test-connection': {
+      id: '/api/ai/test-connection'
+      path: '/api/ai/test-connection'
+      fullPath: '/api/ai/test-connection'
+      preLoaderRoute: typeof ApiAiTestConnectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/billing/webhook': {
+      id: '/api/billing/webhook'
+      path: '/api/billing/webhook'
+      fullPath: '/api/billing/webhook'
+      preLoaderRoute: typeof ApiBillingWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_dashboard/dashboard/settings/': {
       id: '/_dashboard/dashboard/settings/'
       path: '/'
       fullPath: '/dashboard/settings/'
       preLoaderRoute: typeof DashboardDashboardSettingsIndexRouteImport
-      parentRoute: typeof DashboardDashboardSettingsRouteRoute
-    }
-    '/api/ai/chat/completions': {
-      id: '/api/ai/chat/completions'
-      path: '/completions'
-      fullPath: '/api/ai/chat/completions'
-      preLoaderRoute: typeof ApiAiChatCompletionsRouteImport
-      parentRoute: typeof ApiAiChatRouteRoute
-    }
-    '/_landing/_docs/support/guides': {
-      id: '/_landing/_docs/support/guides'
-      path: '/support/guides'
-      fullPath: '/support/guides'
-      preLoaderRoute: typeof LandingDocsSupportGuidesRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/support/faq': {
-      id: '/_landing/_docs/support/faq'
-      path: '/support/faq'
-      fullPath: '/support/faq'
-      preLoaderRoute: typeof LandingDocsSupportFaqRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/support/examples': {
-      id: '/_landing/_docs/support/examples'
-      path: '/support/examples'
-      fullPath: '/support/examples'
-      preLoaderRoute: typeof LandingDocsSupportExamplesRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/support/documentation': {
-      id: '/_landing/_docs/support/documentation'
-      path: '/support/documentation'
-      fullPath: '/support/documentation'
-      preLoaderRoute: typeof LandingDocsSupportDocumentationRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/starter/module-map': {
-      id: '/_landing/_docs/starter/module-map'
-      path: '/starter/module-map'
-      fullPath: '/starter/module-map'
-      preLoaderRoute: typeof LandingDocsStarterModuleMapRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/starter/design-tokens': {
-      id: '/_landing/_docs/starter/design-tokens'
-      path: '/starter/design-tokens'
-      fullPath: '/starter/design-tokens'
-      preLoaderRoute: typeof LandingDocsStarterDesignTokensRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/starter/conventions': {
-      id: '/_landing/_docs/starter/conventions'
-      path: '/starter/conventions'
-      fullPath: '/starter/conventions'
-      preLoaderRoute: typeof LandingDocsStarterConventionsRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/starter/architecture': {
-      id: '/_landing/_docs/starter/architecture'
-      path: '/starter/architecture'
-      fullPath: '/starter/architecture'
-      preLoaderRoute: typeof LandingDocsStarterArchitectureRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/product/roadmap': {
-      id: '/_landing/_docs/product/roadmap'
-      path: '/product/roadmap'
-      fullPath: '/product/roadmap'
-      preLoaderRoute: typeof LandingDocsProductRoadmapRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/product/release-notes': {
-      id: '/_landing/_docs/product/release-notes'
-      path: '/product/release-notes'
-      fullPath: '/product/release-notes'
-      preLoaderRoute: typeof LandingDocsProductReleaseNotesRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/product/integrations': {
-      id: '/_landing/_docs/product/integrations'
-      path: '/product/integrations'
-      fullPath: '/product/integrations'
-      preLoaderRoute: typeof LandingDocsProductIntegrationsRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/product/changelog': {
-      id: '/_landing/_docs/product/changelog'
-      path: '/product/changelog'
-      fullPath: '/product/changelog'
-      preLoaderRoute: typeof LandingDocsProductChangelogRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/legal/terms': {
-      id: '/_landing/_docs/legal/terms'
-      path: '/legal/terms'
-      fullPath: '/legal/terms'
-      preLoaderRoute: typeof LandingDocsLegalTermsRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/legal/privacy': {
-      id: '/_landing/_docs/legal/privacy'
-      path: '/legal/privacy'
-      fullPath: '/legal/privacy'
-      preLoaderRoute: typeof LandingDocsLegalPrivacyRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/legal/licenses': {
-      id: '/_landing/_docs/legal/licenses'
-      path: '/legal/licenses'
-      fullPath: '/legal/licenses'
-      preLoaderRoute: typeof LandingDocsLegalLicensesRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_landing/_docs/legal/cookies': {
-      id: '/_landing/_docs/legal/cookies'
-      path: '/legal/cookies'
-      fullPath: '/legal/cookies'
-      preLoaderRoute: typeof LandingDocsLegalCookiesRouteImport
-      parentRoute: typeof LandingDocsRoute
-    }
-    '/_dashboard/dashboard/settings/system': {
-      id: '/_dashboard/dashboard/settings/system'
-      path: '/system'
-      fullPath: '/dashboard/settings/system'
-      preLoaderRoute: typeof DashboardDashboardSettingsSystemRouteImport
-      parentRoute: typeof DashboardDashboardSettingsRouteRoute
-    }
-    '/_dashboard/dashboard/settings/site_settings': {
-      id: '/_dashboard/dashboard/settings/site_settings'
-      path: '/site_settings'
-      fullPath: '/dashboard/settings/site_settings'
-      preLoaderRoute: typeof DashboardDashboardSettingsSite_settingsRouteImport
-      parentRoute: typeof DashboardDashboardSettingsRouteRoute
-    }
-    '/_dashboard/dashboard/settings/ia_config': {
-      id: '/_dashboard/dashboard/settings/ia_config'
-      path: '/ia_config'
-      fullPath: '/dashboard/settings/ia_config'
-      preLoaderRoute: typeof DashboardDashboardSettingsIa_configRouteImport
-      parentRoute: typeof DashboardDashboardSettingsRouteRoute
-    }
-    '/_dashboard/dashboard/settings/dev_tools': {
-      id: '/_dashboard/dashboard/settings/dev_tools'
-      path: '/dev_tools'
-      fullPath: '/dashboard/settings/dev_tools'
-      preLoaderRoute: typeof DashboardDashboardSettingsDev_toolsRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
     '/_dashboard/dashboard/settings/ai_logs': {
@@ -932,18 +818,174 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDashboardSettingsAi_logsRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
-    '/_dashboard/dashboard/admin/database': {
-      id: '/_dashboard/dashboard/admin/database'
-      path: '/admin/database'
-      fullPath: '/dashboard/admin/database'
-      preLoaderRoute: typeof DashboardDashboardAdminDatabaseRouteImport
-      parentRoute: typeof DashboardDashboardRouteRoute
+    '/_dashboard/dashboard/settings/billing': {
+      id: '/_dashboard/dashboard/settings/billing'
+      path: '/billing'
+      fullPath: '/dashboard/settings/billing'
+      preLoaderRoute: typeof DashboardDashboardSettingsBillingRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/database': {
+      id: '/_dashboard/dashboard/settings/database'
+      path: '/database'
+      fullPath: '/dashboard/settings/database'
+      preLoaderRoute: typeof DashboardDashboardSettingsDatabaseRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/dev_tools': {
+      id: '/_dashboard/dashboard/settings/dev_tools'
+      path: '/dev_tools'
+      fullPath: '/dashboard/settings/dev_tools'
+      preLoaderRoute: typeof DashboardDashboardSettingsDev_toolsRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/ia_config': {
+      id: '/_dashboard/dashboard/settings/ia_config'
+      path: '/ia_config'
+      fullPath: '/dashboard/settings/ia_config'
+      preLoaderRoute: typeof DashboardDashboardSettingsIa_configRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/site_settings': {
+      id: '/_dashboard/dashboard/settings/site_settings'
+      path: '/site_settings'
+      fullPath: '/dashboard/settings/site_settings'
+      preLoaderRoute: typeof DashboardDashboardSettingsSite_settingsRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/system': {
+      id: '/_dashboard/dashboard/settings/system'
+      path: '/system'
+      fullPath: '/dashboard/settings/system'
+      preLoaderRoute: typeof DashboardDashboardSettingsSystemRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_landing/_docs/legal/cookies': {
+      id: '/_landing/_docs/legal/cookies'
+      path: '/legal/cookies'
+      fullPath: '/legal/cookies'
+      preLoaderRoute: typeof LandingDocsLegalCookiesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/licenses': {
+      id: '/_landing/_docs/legal/licenses'
+      path: '/legal/licenses'
+      fullPath: '/legal/licenses'
+      preLoaderRoute: typeof LandingDocsLegalLicensesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/privacy': {
+      id: '/_landing/_docs/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LandingDocsLegalPrivacyRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/legal/terms': {
+      id: '/_landing/_docs/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LandingDocsLegalTermsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/changelog': {
+      id: '/_landing/_docs/product/changelog'
+      path: '/product/changelog'
+      fullPath: '/product/changelog'
+      preLoaderRoute: typeof LandingDocsProductChangelogRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/integrations': {
+      id: '/_landing/_docs/product/integrations'
+      path: '/product/integrations'
+      fullPath: '/product/integrations'
+      preLoaderRoute: typeof LandingDocsProductIntegrationsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/release-notes': {
+      id: '/_landing/_docs/product/release-notes'
+      path: '/product/release-notes'
+      fullPath: '/product/release-notes'
+      preLoaderRoute: typeof LandingDocsProductReleaseNotesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/product/roadmap': {
+      id: '/_landing/_docs/product/roadmap'
+      path: '/product/roadmap'
+      fullPath: '/product/roadmap'
+      preLoaderRoute: typeof LandingDocsProductRoadmapRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/architecture': {
+      id: '/_landing/_docs/starter/architecture'
+      path: '/starter/architecture'
+      fullPath: '/starter/architecture'
+      preLoaderRoute: typeof LandingDocsStarterArchitectureRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/conventions': {
+      id: '/_landing/_docs/starter/conventions'
+      path: '/starter/conventions'
+      fullPath: '/starter/conventions'
+      preLoaderRoute: typeof LandingDocsStarterConventionsRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/design-tokens': {
+      id: '/_landing/_docs/starter/design-tokens'
+      path: '/starter/design-tokens'
+      fullPath: '/starter/design-tokens'
+      preLoaderRoute: typeof LandingDocsStarterDesignTokensRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/starter/module-map': {
+      id: '/_landing/_docs/starter/module-map'
+      path: '/starter/module-map'
+      fullPath: '/starter/module-map'
+      preLoaderRoute: typeof LandingDocsStarterModuleMapRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/documentation': {
+      id: '/_landing/_docs/support/documentation'
+      path: '/support/documentation'
+      fullPath: '/support/documentation'
+      preLoaderRoute: typeof LandingDocsSupportDocumentationRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/examples': {
+      id: '/_landing/_docs/support/examples'
+      path: '/support/examples'
+      fullPath: '/support/examples'
+      preLoaderRoute: typeof LandingDocsSupportExamplesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/faq': {
+      id: '/_landing/_docs/support/faq'
+      path: '/support/faq'
+      fullPath: '/support/faq'
+      preLoaderRoute: typeof LandingDocsSupportFaqRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/_landing/_docs/support/guides': {
+      id: '/_landing/_docs/support/guides'
+      path: '/support/guides'
+      fullPath: '/support/guides'
+      preLoaderRoute: typeof LandingDocsSupportGuidesRouteImport
+      parentRoute: typeof LandingDocsRoute
+    }
+    '/api/ai/chat/completions': {
+      id: '/api/ai/chat/completions'
+      path: '/completions'
+      fullPath: '/api/ai/chat/completions'
+      preLoaderRoute: typeof ApiAiChatCompletionsRouteImport
+      parentRoute: typeof ApiAiChatRouteRoute
     }
   }
 }
 
 interface DashboardDashboardSettingsRouteRouteChildren {
   DashboardDashboardSettingsAi_logsRoute: typeof DashboardDashboardSettingsAi_logsRoute
+  DashboardDashboardSettingsBillingRoute: typeof DashboardDashboardSettingsBillingRoute
+  DashboardDashboardSettingsDatabaseRoute: typeof DashboardDashboardSettingsDatabaseRoute
   DashboardDashboardSettingsDev_toolsRoute: typeof DashboardDashboardSettingsDev_toolsRoute
   DashboardDashboardSettingsIa_configRoute: typeof DashboardDashboardSettingsIa_configRoute
   DashboardDashboardSettingsSite_settingsRoute: typeof DashboardDashboardSettingsSite_settingsRoute
@@ -955,6 +997,10 @@ const DashboardDashboardSettingsRouteRouteChildren: DashboardDashboardSettingsRo
   {
     DashboardDashboardSettingsAi_logsRoute:
       DashboardDashboardSettingsAi_logsRoute,
+    DashboardDashboardSettingsBillingRoute:
+      DashboardDashboardSettingsBillingRoute,
+    DashboardDashboardSettingsDatabaseRoute:
+      DashboardDashboardSettingsDatabaseRoute,
     DashboardDashboardSettingsDev_toolsRoute:
       DashboardDashboardSettingsDev_toolsRoute,
     DashboardDashboardSettingsIa_configRoute:
@@ -977,7 +1023,6 @@ interface DashboardDashboardRouteRouteChildren {
   DashboardDashboardHelpRoute: typeof DashboardDashboardHelpRoute
   DashboardDashboardUsersRoute: typeof DashboardDashboardUsersRoute
   DashboardDashboardIndexRoute: typeof DashboardDashboardIndexRoute
-  DashboardDashboardAdminDatabaseRoute: typeof DashboardDashboardAdminDatabaseRoute
 }
 
 const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren =
@@ -989,7 +1034,6 @@ const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren
     DashboardDashboardHelpRoute: DashboardDashboardHelpRoute,
     DashboardDashboardUsersRoute: DashboardDashboardUsersRoute,
     DashboardDashboardIndexRoute: DashboardDashboardIndexRoute,
-    DashboardDashboardAdminDatabaseRoute: DashboardDashboardAdminDatabaseRoute,
   }
 
 const DashboardDashboardRouteRouteWithChildren =
@@ -1106,6 +1150,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiAiStatusRoute: ApiAiStatusRoute,
   ApiAiTestConnectionRoute: ApiAiTestConnectionRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiBillingWebhookRoute: ApiBillingWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

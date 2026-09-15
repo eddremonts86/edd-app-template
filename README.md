@@ -86,7 +86,7 @@ pnpm db:seed     # optional: loads sample data
 ### 4. Run the dev server
 
 ```bash
-pnpm dev         # full bootstrap: db:up + db:migrate + db:seed:admin + AI model check + Vite on :3000
+pnpm dev         # full bootstrap: db:up + db:migrate + db:seed:admin + AI model check + Vite on :2999
 pnpm dev:fast    # skip DB setup — fastest startup (DB assumed already running)
 pnpm dev:e2e     # dev server with VITE_E2E=true for Playwright runs
 ```
@@ -205,10 +205,21 @@ Supported providers out of the box: **OpenAI**, **Anthropic Claude**, **Ollama**
 
 ### Routes & i18n
 
-| Command                 | Description                                         |
-| ----------------------- | --------------------------------------------------- |
-| `pnpm routes:inventory` | Regenerate `docs/testing/routes-inventory.yaml`     |
-| `pnpm i18n:check`       | Verify all 3 locales have matching translation keys |
+| Command                 | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| `pnpm routes:inventory` | Regenerate `docs/testing/routes-inventory.yaml`            |
+| `pnpm i18n:check`       | Locale parity, plus every `t()` key — literal and template |
+
+### Third-party verification
+
+Opt-in, never part of `pnpm test` — the integration conventions (§8.4) keep a
+live third-party account out of the suite. Point the `STRIPE_*` / `STORAGE_*`
+variables at an account you control and run them by hand.
+
+| Command               | Description                                                              |
+| --------------------- | ------------------------------------------------------------------------ |
+| `pnpm verify:stripe`  | Checkout, portal, and a real signed webhook against Stripe **test mode** |
+| `pnpm verify:storage` | Presign/upload/head/move/read/delete against a real S3 server (MinIO)    |
 
 ### Release
 
@@ -262,6 +273,89 @@ apps/edd-app-template/
 - [Claude Code orientation](CLAUDE.md) — entry point for AI agents
 
 ---
+
+## Deployment
+
+Coolify, triggered from GitHub Actions. Two workflows:
+
+| Workflow      | Runs on                              | Does                                                                                            |
+| ------------- | ------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `quality.yml` | PRs and pushes to `main`/`dev`       | type-check, lint, format, `env:check`, `i18n:check`, tests, **and builds the production image** |
+| `deploy.yml`  | pushes to `main`, or manual dispatch | triggers Coolify, then waits for the deployment to finish                                       |
+
+The image build is the step that matters. Coolify does not run `pnpm build` — it
+builds this `Dockerfile`. A lockfile that drifted or a dependency added without
+committing the lock passes every other check and fails the deploy.
+
+### Enabling it
+
+Three repository secrets. Without them `deploy.yml` skips with a notice rather
+than failing, so a fresh clone's Actions tab is not red on day one.
+
+```bash
+# Resolve the UUID by name — a stored one points at whichever app was
+# provisioned last, and deploying to the wrong app succeeds silently.
+curl -s -H "Authorization: Bearer $COOLIFY_API_TOKEN" \
+  "$COOLIFY_API_URL/api/v1/applications" | jq -r '.[] | "\(.uuid) \(.name)"'
+```
+
+```bash
+gh secret set COOLIFY_API_URL
+gh secret set COOLIFY_API_TOKEN
+gh secret set COOLIFY_APP_UUID
+```
+
+The names are not free choices — they are what the values are called in
+`ai-os/dev-env/env-config/.env` and in every other app's workflow.
+
+Two traps, both of which fail quietly:
+
+- **Use the write token.** `COOLIFY_API_TOKEN` in env-config is read-only;
+  `COOLIFY_API_TOKEN_WRITE` is the one that can trigger a deploy.
+- **Do not copy `COOLIFY_APP_UUID` from env-config.** It points at
+  `ai-os-landing`. Pasting it here means the first push to `main` deploys over
+  that site and reports success.
+
+### This template's own resource
+
+|             |                                                          |
+| ----------- | -------------------------------------------------------- |
+| Application | `edd-app-template` — `feres95vsd11rnop470un6ss`          |
+| Domain      | `https://edd-starter.eduardoinerarte.dk`                 |
+| Source      | the `coolify-eddremonts86` GitHub App, branch `main`     |
+| Build       | `dockerfile`, target **`prod`** pinned, port 2999        |
+| Health      | `/api/health` — deliberately does not touch the database |
+
+The target is pinned rather than left to default. `prod` is the last stage
+today, so the default is correct today; a stage added after it would silently
+become what production runs.
+
+Auto-deploy is off: `deploy.yml` is the only trigger, so a push cannot deploy
+twice. Coolify does not echo that flag back through the API — check it in the UI
+after any change to the resource.
+
+**It needs its environment before it serves anything but the landing page.** At
+minimum `DATABASE_URL`, `APP_URL`, `BETTER_AUTH_URL` (matching `APP_URL`),
+`BETTER_AUTH_SECRET`, `DB_CONFIG_SECRET`, `AUTH_MODE`, `NODE_ENV=production`
+and `PORT=2999`; `.env.example` is the full contract. The database is a separate
+Coolify resource and is not provisioned yet.
+
+### The rest of the pipeline
+
+`deploy.yml` covers production. The full shape — a `dev` branch, a local replica
+on the Mac tracking it, and branch protection — is per-app setup rather than
+template content:
+
+1. Create a `dev` branch from `main`.
+2. Point a local Coolify resource at it, domain `http://<app>.localhost`.
+3. Point the production resource at `main`.
+4. Set the three secrets above to **production's** UUID.
+5. Make `quality` a required status check on both branches, or it is decoration.
+6. Add the app to the local deploy poller — a GitHub-hosted runner cannot reach
+   your Mac, so nothing will ever trigger the local Coolify from a workflow.
+
+Verify the chain end to end once before trusting it: push to `dev`, watch the
+replica change, open a PR, watch the guardian, merge, watch production.
 
 ## Releasing the create-edd-app CLI
 

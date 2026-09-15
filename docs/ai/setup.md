@@ -85,4 +85,4 @@ Esto centraliza persistencia en un único volumen lógico y evita descargas repe
 
 - **El servicio no inicia**: Verifique que Docker tenga asignados suficientes recursos (RAM/CPU).
 - **Error de descarga**: Si la descarga automática falla, puede descargar manualmente el modelo GGUF y colocarlo en la carpeta `.docker_data/llm-models/llama-cpp`.
-- **Puertos ocupados**: Asegúrese de que los puertos 8080 (Llama.cpp), 11434 (Ollama) y 3000 (App) estén libres.
+- **Puertos ocupados**: Asegúrese de que los puertos 8080 (Llama.cpp), 11434 (Ollama) y 2999 (App) estén libres.

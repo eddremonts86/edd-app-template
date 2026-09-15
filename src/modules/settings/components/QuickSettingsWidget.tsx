@@ -1,7 +1,7 @@
 import { IconMoon, IconSun, IconDeviceDesktop } from '@tabler/icons-react'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui'
-import { languageFlags, languageNames, supportedLanguages } from '@/shared/lib/i18n'
+import { languageFlags, languageNames, setLocale, supportedLanguages } from '@/shared/lib/i18n'
 import { useTheme } from '@/shared/providers/theme-context'
 import { ToggleSelector } from '@/shared/ui/selectores/ToggleSelector'
 
@@ -16,7 +16,7 @@ export function QuickSettingsWidget() {
   const { theme, setTheme } = useTheme()
 
   function handleLanguage(lang: string) {
-    void i18n.changeLanguage(lang)
+    void setLocale(lang)
   }
 
   return (

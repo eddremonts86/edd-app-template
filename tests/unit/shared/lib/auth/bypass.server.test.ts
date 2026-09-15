@@ -71,7 +71,7 @@ describe('auth bypass server', () => {
   it('enables bypass with host that includes a port', async () => {
     restore = withEnv({
       NODE_ENV: 'development',
-      HOST: '127.0.0.1:3000',
+      HOST: '127.0.0.1:2999',
       SKIP_AUTH: undefined,
       VITE_SKIP_AUTH: 'true',
       VITE_E2E: undefined,

@@ -5,6 +5,7 @@ import { CheckCircle2, Circle, FileCode, Terminal } from 'lucide-react'
 import { useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Progress } from '@/components/ui'
+import type { FiveDaysDayId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 const DAYS = [
@@ -13,7 +14,12 @@ const DAYS = [
   { id: 'day3', num: 3, command: 'pnpm db:generate && pnpm db:migrate', file: 'drizzle.config.ts' },
   { id: 'day4', num: 4, command: 'pnpm routes:inventory', file: 'src/routes/' },
   { id: 'day5', num: 5, command: 'pnpm test:e2e && pnpm build', file: 'docker-compose.yml' },
-] as const
+] as const satisfies readonly {
+  id: FiveDaysDayId
+  num: number
+  command: string | undefined
+  file: string
+}[]
 
 const TASKS_PER_DAY = 3
 const TOTAL_TASKS = DAYS.length * TASKS_PER_DAY
@@ -130,7 +136,7 @@ export function FiveDaysScene() {
                       </p>
                     </div>
 
-                    <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground/75">
+                    <p className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground">
                       {t('home.fiveDays.tasksLabel', 'Checklist')}
                     </p>
                     <div className="grid gap-2">
@@ -143,9 +149,9 @@ export function FiveDaysScene() {
                             className="group flex items-start gap-3 rounded-lg border border-border/40 bg-background/50 p-3 text-left transition-all hover:bg-background"
                           >
                             {isChecked ? (
-                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-400" />
                             ) : (
-                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground/50 group-hover:text-foreground" />
+                              <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground group-hover:text-foreground" />
                             )}
                             <span
                               className={`text-xs font-medium sm:text-sm ${

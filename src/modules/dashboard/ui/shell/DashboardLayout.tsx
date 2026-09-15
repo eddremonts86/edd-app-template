@@ -34,7 +34,7 @@ export function DashboardLayout() {
 
   if (!isAuthBypassEnabled && !auth.isLoaded) {
     return (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex h-dvh items-center justify-center">
         <p>{t('common.loading', 'Loading...')}</p>
       </div>
     )
@@ -71,10 +71,10 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
   const { t } = useTranslation()
 
   return (
-    <SidebarInset data-testid="dashboard-shell" className="flex flex-col h-screen overflow-hidden">
+    <SidebarInset data-testid="dashboard-shell" className="flex flex-col h-dvh overflow-hidden">
       <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b pr-4 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
         <div className="flex items-center gap-2 px-4">
-          <SidebarTrigger className="-ml-1" />
+          <SidebarTrigger className="-ml-1 size-11 md:size-7" />
           <Separator orientation="vertical" className="mr-2 h-4" />
           <Breadcrumb>{children}</Breadcrumb>
         </div>
@@ -83,7 +83,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button variant="ghost" size="icon" asChild>
+                <Button variant="ghost" size="icon" className="size-11 md:size-9" asChild>
                   <a href="/">
                     <Home className="h-5 w-5" />
                     <span className="sr-only">{t('common.backToHome')}</span>

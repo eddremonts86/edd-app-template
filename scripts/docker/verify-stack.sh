@@ -30,7 +30,7 @@ require_container app
 require_container chromadb
 require_container lmstudio
 
-check_url app "http://localhost:3000"
+check_url app "http://localhost:2999"
 check_url chromadb "http://localhost:8000/api/v2/heartbeat"
 check_url lmstudio "http://localhost:1234/v1/models"
 

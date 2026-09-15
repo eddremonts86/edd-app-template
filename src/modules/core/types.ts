@@ -3,7 +3,15 @@ import type { ComponentType, ReactNode } from 'react'
 import type { AppRoleKey } from '@/modules/users/model/permissions'
 
 export type AppModuleRouteKind = 'page' | 'layout' | 'api'
-export type ModuleNavigationKind = 'main' | 'secondary'
+/**
+ * Where a module's navigation entry belongs.
+ *
+ * `settings` puts it inside the settings page's own nav rather than the
+ * sidebar. Billing and the database tools were sitting in the sidebar footer
+ * beside Help, which reads as "utilities" when both are settings — one of them
+ * is literally a `/dashboard/settings/*` route.
+ */
+export type ModuleNavigationKind = 'main' | 'secondary' | 'settings'
 export type ModuleActionId = 'open-ai-search'
 export type ModuleBadgeId = 'pending-transactions' | 'over-budget'
 export type WidgetSize = 'sm' | 'md' | 'lg' | 'full'
@@ -51,9 +59,29 @@ export interface AppModuleNavigationItem {
 export interface AppModuleNavigationSection {
   id: string
   title: string
+  /** Translated section label; `title` is the fallback. */
+  titleKey?: string
   kind: ModuleNavigationKind
   order: number
   items: AppModuleNavigationItem[]
+}
+
+/**
+ * What a module needs from the environment before it can do its job.
+ *
+ * A module can be enabled and unconfigured at the same time, and the two are
+ * different states (docs/architecture/integration-conventions.md §1): disabled
+ * means the surface does not exist, unconfigured means it exists and says so.
+ * Only modules that talk to a third party declare this; everything else is
+ * always configured.
+ */
+export interface AppModuleCapability {
+  /** Every one of these must be present and non-empty for the module to count as configured. */
+  requires: string[]
+  /** Unlocks extra behaviour, but the module works without it. */
+  optional?: string[]
+  /** i18n key for the sentence shown when the module is on but unconfigured. */
+  unconfiguredKey: string
 }
 
 export interface AppModuleManifest {
@@ -67,6 +95,8 @@ export interface AppModuleManifest {
   routes: AppModuleRouteDefinition[]
   navigation?: AppModuleNavigationSection[]
   widgets?: WidgetDefinition[]
+  /** Omit for modules with no third-party dependency — they are always configured. */
+  capability?: AppModuleCapability
 }
 
 export interface SidebarRuntimeItem {

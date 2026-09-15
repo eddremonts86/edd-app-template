@@ -103,13 +103,23 @@ export function AuthPage(): React.JSX.Element {
   const localAuthEnabled = isBetterAuthEnabled()
   const clerkAuthEnabled = isClerkEnabled() && !!getClerkPublishableKey()
 
+  // Sign-in is the first product surface a developer sees, so it follows the
+  // committed palette rather than the stock sky/emerald pair: PRODUCT.md lists
+  // "no cold blue enterprise" as an anti-reference and the identity is a coppery
+  // orange. Driven off the theme tokens so it reacts to light and dark instead
+  // of being tuned for one of them.
   const heroGlowStyle: React.CSSProperties = {
-    backgroundImage:
-      'radial-gradient(circle at top left, rgba(14,165,233,0.12), transparent 28%), radial-gradient(circle at 80% 20%, rgba(16,185,129,0.1), transparent 32%), radial-gradient(circle at bottom right, rgba(245,158,11,0.08), transparent 35%)',
+    backgroundImage: [
+      'radial-gradient(circle at top left, color-mix(in oklch, var(--primary) 14%, transparent), transparent 28%)',
+      'radial-gradient(circle at 80% 20%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 32%)',
+      'radial-gradient(circle at bottom right, color-mix(in oklch, var(--accent) 22%, transparent), transparent 35%)',
+    ].join(', '),
   }
   const heroGridStyle: React.CSSProperties = {
-    backgroundImage:
-      'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)',
+    backgroundImage: [
+      'linear-gradient(color-mix(in oklch, var(--border) 70%, transparent) 1px, transparent 1px)',
+      'linear-gradient(90deg, color-mix(in oklch, var(--border) 70%, transparent) 1px, transparent 1px)',
+    ].join(', '),
     backgroundSize: '32px 32px',
   }
 
@@ -127,7 +137,7 @@ export function AuthPage(): React.JSX.Element {
         {/* Subtle grid background with 15% opacity to avoid competing with forms */}
         <div className="absolute inset-0 opacity-15" style={heroGridStyle} />
         <div className="absolute left-[8%] top-24 h-52 w-52 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute right-[12%] top-40 h-72 w-72 rounded-full bg-emerald-500/5 blur-3xl" />
+        <div className="absolute right-[12%] top-40 h-72 w-72 rounded-full bg-accent/40 blur-3xl" />
 
         <div className="relative mx-auto flex w-full max-w-6xl flex-col justify-center px-4 py-8 md:py-12 flex-grow">
           {/* Header Action Menu */}
@@ -170,16 +180,19 @@ export function AuthPage(): React.JSX.Element {
                       variant="outline"
                       className="mb-4 rounded-full border-primary/20 bg-primary/5 px-3 py-1 text-xs uppercase tracking-[0.22em] text-primary"
                     >
-                      Authentication
+                      {t('auth.hero.eyebrow', 'Authentication')}
                     </Badge>
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl text-balance">
-                      Workspace access
+                      {t('auth.workspaceAccess', 'Workspace access')}
                     </h1>
                     <h2 className="text-lg font-bold tracking-tight text-foreground/80 mt-2">
                       {t('auth.hero.tagline', 'Sign in once. Keep moving.')}
                     </h2>
                     <p className="text-sm leading-relaxed text-muted-foreground mt-3">
-                      Use the method you already use. Same workspace, no extra steps.
+                      {t(
+                        'auth.hero.subtitle',
+                        'Use the method you already use. Same workspace, no extra steps.',
+                      )}
                     </p>
                   </div>
 
@@ -189,7 +202,7 @@ export function AuthPage(): React.JSX.Element {
                         <KeyRound className="h-3 w-3" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Use the same account you recognize
+                        {t('auth.pointOne', 'Use the same account you already recognize.')}
                       </p>
                     </div>
 
@@ -198,7 +211,7 @@ export function AuthPage(): React.JSX.Element {
                         <Sparkles className="h-3.5 w-3.5" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Switch methods without changing your destination
+                        {t('auth.pointTwo', 'Switch methods without changing your destination.')}
                       </p>
                     </div>
 
@@ -207,15 +220,17 @@ export function AuthPage(): React.JSX.Element {
                         <ShieldCheck className="h-3 w-3" />
                       </div>
                       <p className="text-sm text-muted-foreground">
-                        Continue right where you need to work
+                        {t('auth.pointThree', 'Sign in and continue right where you need to work.')}
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-border/30 text-xs text-muted-foreground">
-                  Secure access is encrypted via end-to-end token handshakes. Support response SLA:
-                  24–48h.
+                  {t(
+                    'auth.hero.security',
+                    'Secure access is encrypted via end-to-end token handshakes. Support response SLA: 24–48h.',
+                  )}
                 </div>
               </Card>
             </m.div>
@@ -238,6 +253,7 @@ export function AuthPage(): React.JSX.Element {
                     >
                       <Button
                         asChild
+                        variant="ghost"
                         role="tab"
                         data-testid="auth-tab-sign-in"
                         aria-selected={activeTab === 'sign-in'}
@@ -260,6 +276,7 @@ export function AuthPage(): React.JSX.Element {
                       </Button>
                       <Button
                         asChild
+                        variant="ghost"
                         role="tab"
                         data-testid="auth-tab-sign-up"
                         aria-selected={activeTab === 'sign-up'}

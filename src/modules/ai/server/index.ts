@@ -10,6 +10,8 @@ export {
 } from '@/modules/ai/providers'
 export { discoverProviderModels } from '@/modules/ai/providers'
 export { buildProviderSpecificOptions, resolveProviderModel } from './provider-models'
+export { dispatchProviderChat } from './chat-dispatch'
+export { toOpenAiChatCompletionsResponse } from './openai-compat'
 export { resolveAvailableProviderConfig } from './provider-resolution'
 export { buildChatModelOptions, streamLmStudioChat, streamOllamaChat } from './chat-streaming'
 export { createAiChatResponse } from './chat-execution'

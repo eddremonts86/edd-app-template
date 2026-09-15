@@ -3,6 +3,7 @@
 import { m, useReducedMotion, type Variants } from 'framer-motion'
 import { ChevronRight, Code, Database, Layers } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import type { FirstMinuteBoxId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 // Verbatim tool output — intentionally untranslated.
@@ -13,7 +14,7 @@ const TERMINAL_LINES = [
   '  ├─ drizzle/           migrations ready',
   '  ├─ e2e/               playwright configured',
   '  └─ .env.example       34 variables documented',
-  '✔ Done in 58s — pnpm dev to start',
+  '✔ Done in 58s. Run pnpm dev to start',
 ] as const
 
 const terminalContainer: Variants = {
@@ -37,7 +38,7 @@ const boxItem: Variants = {
 }
 
 interface ArchBox {
-  id: 'appShell' | 'modules' | 'integrations'
+  id: FirstMinuteBoxId
   icon: typeof Code
   chips: string[]
 }
@@ -60,7 +61,7 @@ export function FirstMinuteScene() {
           title={t('home.firstMinute.title', 'One command. A real codebase.')}
           description={t(
             'home.firstMinute.description',
-            'Not an empty folder — a typed monolith with twelve modules, migrations and CI hooks, named after your product.',
+            'Not an empty folder. A typed monolith with twelve modules, migrations and CI hooks, named after your product.',
           )}
         />
 
@@ -93,7 +94,7 @@ export function FirstMinuteScene() {
                   line.startsWith('$')
                     ? 'text-foreground'
                     : line.startsWith('✔')
-                      ? 'text-green-500'
+                      ? 'text-emerald-700 dark:text-emerald-400'
                       : 'text-muted-foreground'
                 }
               >
@@ -149,7 +150,7 @@ export function FirstMinuteScene() {
                 </div>
                 {index < ARCH_BOXES.length - 1 && (
                   <div
-                    className="absolute -right-[1.4rem] top-1/2 hidden -translate-y-1/2 text-muted-foreground/30 md:block"
+                    className="absolute -right-[1.4rem] top-1/2 hidden -translate-y-1/2 text-muted-foreground md:block"
                     aria-hidden="true"
                   >
                     <ChevronRight className="h-6 w-6 animate-pulse motion-reduce:animate-none" />

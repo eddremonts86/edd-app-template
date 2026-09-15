@@ -1,11 +1,12 @@
 'use client'
 
 import { m, useReducedMotion, type Variants } from 'framer-motion'
-import { ArrowRight, Check, ChevronDown, Copy, Sparkles } from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Copy } from 'lucide-react'
 import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui'
 import { useWaveAnimation } from '../../hooks/useWaveAnimation'
+import type { OpeningArcStopId } from '../../types/copy-ids'
 
 const INSTALL_COMMAND = 'npx @edd_remonts/create-edd-app my-product'
 
@@ -67,16 +68,6 @@ export function OpeningScene() {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 text-center md:px-8">
-        <m.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/40 bg-background/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md dark:border-border/60 dark:bg-background/80"
-        >
-          <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-          <span>{t('home.opening.badge', 'Modular · Typed · Tested')}</span>
-        </m.div>
-
         <m.h1
           variants={headlineContainer}
           initial="hidden"
@@ -103,7 +94,7 @@ export function OpeningScene() {
         >
           {t(
             'home.opening.description',
-            'Auth, database, AI, translations and tests come wired. Scaffold a project in a minute, sign into your own dashboard within the hour, and spend the week on your product — not on groundwork.',
+            'Auth, database, AI, translations and tests come wired. You start on your product, not on groundwork.',
           )}
         </m.p>
 
@@ -124,7 +115,11 @@ export function OpeningScene() {
               className="h-8 w-8 shrink-0 rounded-lg p-0 text-muted-foreground hover:bg-background/80 hover:text-foreground"
               aria-label={t('home.opening.copyCommandAria', 'Copy the install command')}
             >
-              {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
+              {copied ? (
+                <Check className="h-4 w-4 text-emerald-700 dark:text-emerald-400" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
             </Button>
           </div>
 
@@ -147,7 +142,7 @@ export function OpeningScene() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
-          aria-label={t('home.opening.arc.ariaLabel', 'What you get, and when')}
+          aria-label={t('home.opening.arcAriaLabel', 'What you get, and when')}
           className="w-full max-w-3xl"
         >
           <ul className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-background/60 backdrop-blur-md dark:border-border/60 dark:bg-background/70">
@@ -187,7 +182,7 @@ export function OpeningScene() {
   )
 }
 
-function getArcCopy(t: ReturnType<typeof useTranslation>['t'], stop: string) {
+function getArcCopy(t: ReturnType<typeof useTranslation>['t'], stop: OpeningArcStopId) {
   return {
     value: t(`home.opening.arc.${stop}.value`),
     label: t(`home.opening.arc.${stop}.label`),

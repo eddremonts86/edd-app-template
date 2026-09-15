@@ -3,7 +3,6 @@ name: tanstack-virtual
 description: Headless UI for virtualizing large element lists at 60FPS in TS/JS, React, Vue, Solid, Svelte, Lit & Angular.
 ---
 
-
 ## Overview
 
 TanStack Virtual provides virtualization logic for rendering only visible items in large lists, grids, and tables. It calculates which items are in the viewport and positions them with absolute positioning, keeping DOM node count minimal regardless of dataset size.
@@ -66,33 +65,33 @@ function VirtualList() {
 
 ### Required
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `count` | `number` | Total number of items |
-| `getScrollElement` | `() => Element \| null` | Returns scroll container |
-| `estimateSize` | `(index) => number` | Estimated item size (overestimate recommended) |
+| Option             | Type                    | Description                                    |
+| ------------------ | ----------------------- | ---------------------------------------------- |
+| `count`            | `number`                | Total number of items                          |
+| `getScrollElement` | `() => Element \| null` | Returns scroll container                       |
+| `estimateSize`     | `(index) => number`     | Estimated item size (overestimate recommended) |
 
 ### Optional
 
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| `overscan` | `number` | `1` | Extra items rendered beyond viewport |
-| `horizontal` | `boolean` | `false` | Horizontal virtualization |
-| `gap` | `number` | `0` | Gap between items (px) |
-| `lanes` | `number` | `1` | Number of lanes (masonry/grid) |
-| `paddingStart` | `number` | `0` | Padding before first item |
-| `paddingEnd` | `number` | `0` | Padding after last item |
-| `scrollPaddingStart` | `number` | `0` | Offset for scrollTo positioning |
-| `scrollPaddingEnd` | `number` | `0` | Offset for scrollTo positioning |
-| `initialOffset` | `number` | `0` | Starting scroll position |
-| `initialRect` | `Rect` | - | Initial dimensions (SSR) |
-| `enabled` | `boolean` | `true` | Enable/disable |
-| `getItemKey` | `(index) => Key` | `(i) => i` | Stable key for items |
-| `rangeExtractor` | `(range) => number[]` | default | Custom visible indices |
-| `scrollToFn` | `(offset, options, instance) => void` | default | Custom scroll behavior |
-| `measureElement` | `(el, entry, instance) => number` | default | Custom measurement |
-| `onChange` | `(instance, sync) => void` | - | State change callback |
-| `isScrollingResetDelay` | `number` | `150` | Delay before scroll complete |
+| Option                  | Type                                  | Default    | Description                          |
+| ----------------------- | ------------------------------------- | ---------- | ------------------------------------ |
+| `overscan`              | `number`                              | `1`        | Extra items rendered beyond viewport |
+| `horizontal`            | `boolean`                             | `false`    | Horizontal virtualization            |
+| `gap`                   | `number`                              | `0`        | Gap between items (px)               |
+| `lanes`                 | `number`                              | `1`        | Number of lanes (masonry/grid)       |
+| `paddingStart`          | `number`                              | `0`        | Padding before first item            |
+| `paddingEnd`            | `number`                              | `0`        | Padding after last item              |
+| `scrollPaddingStart`    | `number`                              | `0`        | Offset for scrollTo positioning      |
+| `scrollPaddingEnd`      | `number`                              | `0`        | Offset for scrollTo positioning      |
+| `initialOffset`         | `number`                              | `0`        | Starting scroll position             |
+| `initialRect`           | `Rect`                                | -          | Initial dimensions (SSR)             |
+| `enabled`               | `boolean`                             | `true`     | Enable/disable                       |
+| `getItemKey`            | `(index) => Key`                      | `(i) => i` | Stable key for items                 |
+| `rangeExtractor`        | `(range) => number[]`                 | default    | Custom visible indices               |
+| `scrollToFn`            | `(offset, options, instance) => void` | default    | Custom scroll behavior               |
+| `measureElement`        | `(el, entry, instance) => number`     | default    | Custom measurement                   |
+| `onChange`              | `(instance, sync) => void`            | -          | State change callback                |
+| `isScrollingResetDelay` | `number`                              | `150`      | Delay before scroll complete         |
 
 ## Virtualizer API
 
@@ -117,12 +116,12 @@ virtualizer.measure()
 
 ```typescript
 interface VirtualItem {
-  key: Key           // Unique key
-  index: number      // Index in source data
-  start: number      // Pixel offset (use for transform)
-  end: number        // End pixel offset
-  size: number       // Item dimension
-  lane: number       // Lane index (multi-column)
+  key: Key // Unique key
+  index: number // Index in source data
+  start: number // Pixel offset (use for transform)
+  end: number // End pixel offset
+  size: number // Item dimension
+  lane: number // Lane index (multi-column)
 }
 ```
 
@@ -137,23 +136,25 @@ const virtualizer = useVirtualizer({
   estimateSize: () => 50, // overestimate
 })
 
-{virtualizer.getVirtualItems().map((virtualItem) => (
-  <div
-    key={virtualItem.key}
-    data-index={virtualItem.index}  // REQUIRED for measurement
-    ref={virtualizer.measureElement} // Attach for dynamic measurement
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      transform: `translateY(${virtualItem.start}px)`,
-      // Do NOT set fixed height - let content determine it
-    }}
-  >
-    {items[virtualItem.index].content}
-  </div>
-))}
+{
+  virtualizer.getVirtualItems().map((virtualItem) => (
+    <div
+      key={virtualItem.key}
+      data-index={virtualItem.index} // REQUIRED for measurement
+      ref={virtualizer.measureElement} // Attach for dynamic measurement
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        transform: `translateY(${virtualItem.start}px)`,
+        // Do NOT set fixed height - let content determine it
+      }}
+    >
+      {items[virtualItem.index].content}
+    </div>
+  ))
+}
 ```
 
 ## Horizontal Virtualization
@@ -204,11 +205,13 @@ function VirtualGrid() {
 
   return (
     <div ref={parentRef} style={{ height: '500px', width: '500px', overflow: 'auto' }}>
-      <div style={{
-        height: `${rowVirtualizer.getTotalSize()}px`,
-        width: `${columnVirtualizer.getTotalSize()}px`,
-        position: 'relative',
-      }}>
+      <div
+        style={{
+          height: `${rowVirtualizer.getTotalSize()}px`,
+          width: `${columnVirtualizer.getTotalSize()}px`,
+          position: 'relative',
+        }}
+      >
         {rowVirtualizer.getVirtualItems().map((virtualRow) => (
           <Fragment key={virtualRow.key}>
             {columnVirtualizer.getVirtualItems().map((virtualColumn) => (
@@ -249,10 +252,12 @@ function WindowList() {
 
   return (
     <div ref={listRef}>
-      <div style={{
-        height: `${virtualizer.getTotalSize()}px`,
-        position: 'relative',
-      }}>
+      <div
+        style={{
+          height: `${virtualizer.getTotalSize()}px`,
+          position: 'relative',
+        }}
+      >
         {virtualizer.getVirtualItems().map((item) => (
           <div
             key={item.key}
@@ -316,10 +321,13 @@ const virtualizer = useVirtualizer({
   count: 1000,
   getScrollElement: () => parentRef.current,
   estimateSize: () => 50,
-  rangeExtractor: useCallback((range: Range) => {
-    const next = new Set([...stickyIndexes, ...defaultRangeExtractor(range)])
-    return [...next].sort((a, b) => a - b)
-  }, [stickyIndexes]),
+  rangeExtractor: useCallback(
+    (range: Range) => {
+      const next = new Set([...stickyIndexes, ...defaultRangeExtractor(range)])
+      return [...next].sort((a, b) => a - b)
+    },
+    [stickyIndexes],
+  ),
 })
 
 // Render sticky items with position: sticky; top: 0; zIndex: 1

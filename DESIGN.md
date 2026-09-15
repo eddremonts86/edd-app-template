@@ -48,6 +48,12 @@ All values in OKLCH. Neutrals are tinted toward hue ~240 (cool slate) in light m
 | `--sidebar`          | `oklch(0.20 0.01 30)`  | Sidebar (slightly off from bg)               |
 | `--border`           | `oklch(0.21 0.01 30)`  | Dark mode borders                            |
 
+### Chart & Accent Ramp
+
+`--chart-1` … `--chart-5` are one warm family (hue 25–80), separated by lightness and chroma, with a lifted variant for the dark ground. **Decorative accents and all data-viz colour must come from this ramp** — never from raw Tailwind palette classes (`bg-sky-500`, `text-violet-500`) or ad-hoc `hsl()`. The dashboard previously hardcoded the stock shadcn demo palette (blue-600, violet-500, teal-600), which contradicts two of PRODUCT.md's own anti-references.
+
+Semantic status colour is the one exception — see below.
+
 ### Semantic Colors (Status)
 
 Derived from Badge variants — not CSS vars, use Tailwind classes:
@@ -111,7 +117,8 @@ All from Shadcn UI at `src/components/ui/`. Key patterns:
 - **Badge** — `variant` options: `default`, `secondary`, `destructive`, `outline`, `success`, `warning`.
 - **Button** — Sizes: `sm`, `default`, `lg`, `icon`. Variants: `default`, `secondary`, `outline`, `ghost`, `destructive`, `link`.
 - **Select / Combobox** — Always pair with `Field` + `FieldLabel` from form helpers.
-- **Toast** — Used for all success/error feedback. No `window.confirm()` — confirmations use `toast.error` + action button pattern.
+- **Toast** — Used for all success/error feedback, and for confirming **reversible** actions via the `toast.error` + action button pattern. Never `window.confirm()`.
+- **AlertDialog** — Required for **irreversible** actions (deleting a user, dropping data). A toast is the wrong instrument here: it is transient, anchored far from the control that triggered it, styled identically to a failure, and moves no focus, so keyboard and screen-reader users never receive it. An irreversible confirmation must name the specific record it will destroy, open with Cancel focused, and disable the destructive action when the target would lock the operator out (e.g. deleting your own account).
 - **Collapsible** — From `radix-ui` directly: `import { Collapsible as CollapsiblePrimitive } from 'radix-ui'`.
 - **Switch** — Toggles for boolean settings. Always labeled.
 
@@ -131,6 +138,8 @@ Tailwind animate plugin (`tailwindcss-animate`) + custom keyframes:
 - Toast: handled by Sonner
 - No bounce/elastic easing — only `ease-out` or `ease-in-out`
 - Always include `prefers-reduced-motion` consideration: Tailwind's `motion-reduce:` variant
+- Reduced motion is handled globally, in two places, so components do not each re-implement it: `<MotionConfig reducedMotion="user">` in `AppProviders` covers every Framer Motion animation, and a `@media (prefers-reduced-motion: reduce)` block in `globals.css` covers the Tailwind utilities.
+- That block is **not** a blanket `* { animation-duration: 0.01ms }`. Entrances and exits land on their final state immediately and decorative loops (`animate-pulse`, `animate-bounce`) stop, but `animate-spin` is left alone: spinners are the only signal that a request is in flight, and removing them destroys feedback rather than calming motion.
 
 ---
 
@@ -143,6 +152,11 @@ Tailwind animate plugin (`tailwindcss-animate`) + custom keyframes:
 > Note: `IconWrench` does NOT exist in this package. Use `IconTool` instead.
 
 ---
+
+## Page Structure
+
+- **Exactly one `<h1>` per route**, and it is the page title. Section headings inside the page start at `<h2>`; never skip a level. `CardTitle` renders a `<div>` and contributes nothing to the outline, so a widget title is not a heading.
+- **Every route sets its own `document.title`** via `head: () => ({ meta: [{ title: '… · edd App Template' }] })` in its route file. Browser history and tab strips are unusable when every route shares one title.
 
 ## i18n
 

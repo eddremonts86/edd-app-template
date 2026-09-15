@@ -26,7 +26,7 @@ export function ClosingScene() {
             title={t('home.contact.title', 'Questions before you clone?')}
             description={t(
               'home.contact.description',
-              'Write to us about the template — a setup problem, a missing feature, an architectural doubt. Your message lands in the same contact-messages module that ships with the starter.',
+              'Write to us about the template: a setup problem, a missing feature, an architectural doubt. Your message lands in the same contact-messages module that ships with the starter.',
             )}
           />
           <m.p

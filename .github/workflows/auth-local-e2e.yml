@@ -49,10 +49,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      # No `version:` — the action reads `packageManager` from package.json.
+      # Pinning both makes the action refuse to run on a mismatch, which is how
+      # this workflow failed while `quality.yml`, already fixed, passed.
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
-        with:
-          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v5

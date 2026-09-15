@@ -1,0 +1,3 @@
+{
+  "unconfigured": "El almacenamiento de objetos no está configurado. Define STORAGE_PROVIDER como \"s3\" o \"local\", más las claves que requiera ese proveedor."
+}

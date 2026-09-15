@@ -131,12 +131,12 @@ None of its own. It **reads from** the migrations table that
 4. **Add a file-based route**:
 
    ```tsx
-   // src/routes/dashboard/admin/database.tsx
+   // src/routes/dashboard/settings/database.tsx
    import { createFileRoute, redirect } from '@tanstack/react-router'
    import { DatabaseAdminPage } from '@/modules/database-admin'
    import { useCurrentUser } from '@/modules/users'
 
-   export const Route = createFileRoute('/dashboard/admin/database')({
+   export const Route = createFileRoute('/dashboard/settings/database')({
      beforeLoad: () => {
        // gate at the route level — the manifest only hides the sidebar entry
        if (/* current user is not super_admin */) throw redirect({ to: '/dashboard' })

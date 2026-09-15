@@ -79,19 +79,19 @@ export function DevToolsPage() {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>{t('common.confirm.title', 'Are you sure?')}</AlertDialogTitle>
+              <AlertDialogTitle>
+                {t('common.confirmDialog.title', 'Are you sure?')}
+              </AlertDialogTitle>
               <AlertDialogDescription>
                 {t(
-                  'common.confirm.devtoolsReset',
+                  'common.confirmDialog.devtoolsReset',
                   'This action will restore all display settings back to default values.',
                 )}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>{t('common.buttons.cancel', 'Cancel')}</AlertDialogCancel>
-              <AlertDialogAction onClick={handleReset}>
-                {t('common.buttons.confirm', 'Confirm')}
-              </AlertDialogAction>
+              <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+              <AlertDialogAction onClick={handleReset}>{t('common.confirm')}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

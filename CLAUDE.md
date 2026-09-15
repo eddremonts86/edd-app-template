@@ -91,6 +91,7 @@ Husky + lint-staged runs prettier + i18n check on every commit. Don't bypass wit
 - **No business logic in routes** — routes are thin adapters; logic lives in modules.
 - **All user-visible strings via `t('key')`** — no hardcoded UI text.
 - **Env access via the typed config object** — never `process.env.X` directly in components.
+- **Third-party integrations** follow [`docs/architecture/integration-conventions.md`](docs/architecture/integration-conventions.md) — absent is a supported state, modules own their tables and translations, and no vendor type escapes the module.
 - **Server functions** go in `module/server/` or `module/api/`, never mixed with UI.
 
 ---

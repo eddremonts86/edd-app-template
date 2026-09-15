@@ -29,7 +29,7 @@ export function TableEmptyState({
     <div className="flex-1 flex items-center justify-center">
       <div className="text-center space-y-3">
         <div className="mx-auto w-12 h-12 rounded-full bg-secondary/30 flex items-center justify-center">
-          <SearchX className="w-5 h-5 text-muted-foreground/40" />
+          <SearchX className="w-5 h-5 text-muted-foreground" />
         </div>
         <p className="text-muted-foreground text-sm font-medium">
           {isSearchActive ? t(noResultsKey) : t(noDataKey)}

@@ -1,4 +1,16 @@
 {
+  "boundary": {
+    "title": "Oops! Something went wrong",
+    "description": "An unexpected error has occurred. We've been notified and are working to fix it.",
+    "goHome": "Go back home",
+    "retry": "Try again",
+    "showDetails": "Show technical details",
+    "hideDetails": "Hide technical details",
+    "errorMessage": "Error Message:",
+    "stackTrace": "Stack Trace:",
+    "unauthenticatedTitle": "Restricted access",
+    "unauthenticatedDescription": "Please sign in to view this content."
+  },
   "api": {
     "badRequest": "Invalid request data",
     "unauthorized": "Session expired. Please sign in again",
@@ -17,17 +29,5 @@
     "invalid": "Invalid value",
     "tooShort": "Value is too short",
     "tooLong": "Value is too long"
-  },
-  "boundary": {
-    "title": "Oops! Something went wrong",
-    "description": "An unexpected error has occurred. We've been notified and are working to fix it.",
-    "goHome": "Go back home",
-    "retry": "Try again",
-    "showDetails": "Show technical details",
-    "hideDetails": "Hide technical details",
-    "errorMessage": "Error Message:",
-    "stackTrace": "Stack Trace:",
-    "unauthenticatedTitle": "Restricted access",
-    "unauthenticatedDescription": "Please sign in to view this content."
   }
 }

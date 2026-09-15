@@ -35,7 +35,7 @@ export function ActionCardContent({
       {/* Warning for delete */}
       {warningText && status === 'idle' && (
         <div className="px-4 py-2 bg-red-50 dark:bg-red-950/20 border-t border-red-200/30 flex items-center gap-2">
-          <AlertTriangle size={14} className="text-red-500" />
+          <AlertTriangle size={14} className="text-red-700 dark:text-red-400" />
           <span className="text-[11px] text-red-600 dark:text-red-400 font-medium">
             {warningText}
           </span>

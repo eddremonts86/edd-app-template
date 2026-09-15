@@ -2,7 +2,7 @@
 
 set -eu
 
-BASE_URL="${APP_URL:-http://localhost:3000}"
+BASE_URL="${APP_URL:-http://localhost:2999}"
 URL="$BASE_URL/api/ai/chat?locale=es-ES"
 PROMPT="${1:-Responde solo con una frase corta en español confirmando que el chat funciona.}"
 

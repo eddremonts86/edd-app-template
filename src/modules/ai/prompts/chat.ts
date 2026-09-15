@@ -34,7 +34,7 @@ export function buildChatSystemPrompt(languageName: string, mode: 'general' | 'd
     `1. LANGUAGE: Always respond in ${languageName}.`,
     '2. Answer the question the user asked. Do NOT say "no question was provided" or give generic greetings.',
     '3. When application data is provided as context, use it to give specific answers with numbers.',
-    '4. When referring to app sections, ALWAYS include the URL path (e.g., /dashboard/todos, /dashboard/users).',
+    '4. When referring to app sections, ALWAYS include the URL path (e.g., /dashboard/users, /dashboard/contact-messages).',
     '5. When listing items, be specific with counts, names and details from the provided data.',
     '6. Use Markdown for formatting when helpful.',
   ].join('\n')

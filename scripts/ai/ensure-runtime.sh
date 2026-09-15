@@ -45,7 +45,7 @@ wait_http() {
 }
 
 echo "[ai-ensure] waiting for endpoints..."
-wait_http "app" "http://localhost:3000"
+wait_http "app" "http://localhost:2999"
 wait_http "llama-cpp" "http://localhost:8080/health"
 wait_http "ollama" "http://localhost:11435/v1/models"
 wait_http "lmstudio" "http://localhost:1234/v1/models"

@@ -1,0 +1,17 @@
+{
+  "unconfigured": "Email is not configured. Set RESEND_API_KEY and EMAIL_FROM to send verification and password-reset messages.",
+  "verification": {
+    "subject": "Confirm your email address",
+    "heading": "Confirm your email address",
+    "body": "Use the button below to finish setting up your account. The link works for one hour.",
+    "cta": "Confirm email",
+    "footer": "If you did not create an account, you can ignore this message."
+  },
+  "passwordReset": {
+    "subject": "Reset your password",
+    "heading": "Reset your password",
+    "body": "Use the button below to choose a new password. The link works for one hour and can be used once.",
+    "cta": "Choose a new password",
+    "footer": "If you did not ask for this, nothing has changed and you can ignore this message."
+  }
+}

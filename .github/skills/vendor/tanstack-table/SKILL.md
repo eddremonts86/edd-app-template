@@ -3,7 +3,6 @@ name: tanstack-table
 description: Headless UI for building powerful tables & datagrids for TS/JS, React, Vue, Solid, Svelte, Qwik, Angular, and Lit.
 ---
 
-
 ## Overview
 
 TanStack Table is a headless UI library for building data tables and datagrids. It provides logic for sorting, filtering, pagination, grouping, expanding, column pinning/ordering/visibility/resizing, and row selection - without rendering any markup or styles.
@@ -97,27 +96,27 @@ const columns = [
 
 ### Column Options
 
-| Option | Type | Description |
-|--------|------|-------------|
-| `id` | `string` | Unique identifier (auto-derived from accessorKey) |
-| `accessorKey` | `string` | Dot-notation path to row data |
-| `accessorFn` | `(row) => any` | Custom accessor function |
-| `header` | `string \| (context) => ReactNode` | Header renderer |
-| `cell` | `(context) => ReactNode` | Cell renderer |
-| `footer` | `(context) => ReactNode` | Footer renderer |
-| `size` | `number` | Default width (default: 150) |
-| `minSize` | `number` | Min width (default: 20) |
-| `maxSize` | `number` | Max width |
-| `enableSorting` | `boolean` | Enable sorting |
-| `sortingFn` | `string \| SortingFn` | Sort function |
-| `enableFiltering` | `boolean` | Enable filtering |
-| `filterFn` | `string \| FilterFn` | Filter function |
-| `enableGrouping` | `boolean` | Enable grouping |
-| `aggregationFn` | `string \| AggregationFn` | Aggregation function |
-| `enableHiding` | `boolean` | Enable visibility toggle |
-| `enableResizing` | `boolean` | Enable resizing |
-| `enablePinning` | `boolean` | Enable pinning |
-| `meta` | `any` | Custom metadata |
+| Option            | Type                               | Description                                       |
+| ----------------- | ---------------------------------- | ------------------------------------------------- |
+| `id`              | `string`                           | Unique identifier (auto-derived from accessorKey) |
+| `accessorKey`     | `string`                           | Dot-notation path to row data                     |
+| `accessorFn`      | `(row) => any`                     | Custom accessor function                          |
+| `header`          | `string \| (context) => ReactNode` | Header renderer                                   |
+| `cell`            | `(context) => ReactNode`           | Cell renderer                                     |
+| `footer`          | `(context) => ReactNode`           | Footer renderer                                   |
+| `size`            | `number`                           | Default width (default: 150)                      |
+| `minSize`         | `number`                           | Min width (default: 20)                           |
+| `maxSize`         | `number`                           | Max width                                         |
+| `enableSorting`   | `boolean`                          | Enable sorting                                    |
+| `sortingFn`       | `string \| SortingFn`              | Sort function                                     |
+| `enableFiltering` | `boolean`                          | Enable filtering                                  |
+| `filterFn`        | `string \| FilterFn`               | Filter function                                   |
+| `enableGrouping`  | `boolean`                          | Enable grouping                                   |
+| `aggregationFn`   | `string \| AggregationFn`          | Aggregation function                              |
+| `enableHiding`    | `boolean`                          | Enable visibility toggle                          |
+| `enableResizing`  | `boolean`                          | Enable resizing                                   |
+| `enablePinning`   | `boolean`                          | Enable pinning                                    |
+| `meta`            | `any`                              | Custom metadata                                   |
 
 ## Table Instance
 
@@ -277,9 +276,9 @@ table.previousPage()
 table.firstPage()
 table.lastPage()
 table.setPageSize(20)
-table.getCanNextPage()     // boolean
+table.getCanNextPage() // boolean
 table.getCanPreviousPage() // boolean
-table.getPageCount()       // total pages
+table.getPageCount() // total pages
 ```
 
 ## Row Selection
@@ -356,9 +355,9 @@ const table = useReactTable({
 })
 
 // Render pinned sections separately
-row.getLeftVisibleCells()   // Left-pinned
+row.getLeftVisibleCells() // Left-pinned
 row.getCenterVisibleCells() // Unpinned
-row.getRightVisibleCells()  // Right-pinned
+row.getRightVisibleCells() // Right-pinned
 ```
 
 ## Column Resizing
@@ -533,9 +532,7 @@ declare module '@tanstack/react-table' {
 const table = useReactTable({
   meta: {
     updateData: (rowIndex, columnId, value) => {
-      setData(old => old.map((row, i) =>
-        i === rowIndex ? { ...row, [columnId]: value } : row
-      ))
+      setData((old) => old.map((row, i) => (i === rowIndex ? { ...row, [columnId]: value } : row)))
     },
   },
 })
@@ -545,16 +542,33 @@ const table = useReactTable({
 
 ```typescript
 import {
-  createColumnHelper, flexRender, useReactTable,
-  getCoreRowModel, getSortedRowModel, getFilteredRowModel,
-  getPaginationRowModel, getGroupedRowModel, getExpandedRowModel,
-  getFacetedRowModel, getFacetedUniqueValues, getFacetedMinMaxValues,
+  createColumnHelper,
+  flexRender,
+  useReactTable,
+  getCoreRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getGroupedRowModel,
+  getExpandedRowModel,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFacetedMinMaxValues,
 } from '@tanstack/react-table'
 
 import type {
-  ColumnDef, SortingState, ColumnFiltersState, VisibilityState,
-  PaginationState, ExpandedState, RowSelectionState, GroupingState,
-  ColumnOrderState, ColumnPinningState, FilterFn, SortingFn,
+  ColumnDef,
+  SortingState,
+  ColumnFiltersState,
+  VisibilityState,
+  PaginationState,
+  ExpandedState,
+  RowSelectionState,
+  GroupingState,
+  ColumnOrderState,
+  ColumnPinningState,
+  FilterFn,
+  SortingFn,
 } from '@tanstack/react-table'
 ```
 

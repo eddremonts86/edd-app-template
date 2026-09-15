@@ -1,7 +1,17 @@
 // @vitest-environment node
 import fs from 'node:fs/promises'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { readAiConfig } from '../../src/modules/ai/config/file-store'
+
+// Provider defaults are env-derived and computed at import time, so pin the one
+// this suite asserts before importing. Without this the expected value is
+// whatever AI_OLLAMA_BASE_URL happens to be in the developer's .env, and the
+// test passes or fails depending on whose machine runs it.
+const OLLAMA_BASE_URL = 'http://localhost:11435/v1'
+vi.stubEnv('AI_OLLAMA_BASE_URL', OLLAMA_BASE_URL)
+vi.stubEnv('AI_API_BASE_URL', OLLAMA_BASE_URL)
+vi.stubEnv('VITE_AI_BASE_URL', OLLAMA_BASE_URL)
+
+const { readAiConfig } = await import('../../src/modules/ai/config/file-store')
 
 // Mock dependencies before import
 vi.mock('node:fs/promises')
@@ -23,7 +33,7 @@ describe('Configuration Loading System Integration', () => {
 
     expect(config.activeProvider).toBe('llama-cpp')
     expect(config.providers['ollama'].parameters.model).toBeDefined()
-    expect(config.providers['ollama'].baseUrl).toBe('http://localhost:11435/v1')
+    expect(config.providers['ollama'].baseUrl).toBe(OLLAMA_BASE_URL)
   })
 
   it('should load and merge user configuration correctly', async () => {

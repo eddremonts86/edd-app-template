@@ -27,6 +27,8 @@ export const authSessions = pgTable('auth_sessions', {
   expiresAt: timestamp('expires_at').notNull(),
   ipAddress: text('ip_address'),
   userAgent: text('user_agent'),
+  // Set by the Better Auth admin plugin while an admin impersonates a user.
+  impersonatedBy: text('impersonated_by'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 })

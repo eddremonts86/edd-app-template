@@ -9,10 +9,12 @@ import { useDashboardStats } from '../../api/dashboard.queries'
 import { BreakdownBars } from './BreakdownBars'
 
 const TYPE_COLORS: Record<string, string> = {
-  saas: 'hsl(221 83% 53%)',
-  landing: 'hsl(173 58% 39%)',
-  webapp: 'hsl(262 83% 58%)',
+  saas: 'var(--chart-1)',
+  landing: 'var(--chart-2)',
+  webapp: 'var(--chart-3)',
 }
+
+const FALLBACK_SEGMENT_COLOR = 'var(--chart-5)'
 
 interface ContactByTypeWidgetProps {
   className?: string
@@ -28,7 +30,7 @@ export function ContactByTypeWidget({ className }: Readonly<ContactByTypeWidgetP
         key: k,
         label: t(`dashboard.overview.contactByType.types.${k}`, { defaultValue: k }),
         value: v,
-        color: TYPE_COLORS[k] ?? 'hsl(220 9% 46%)',
+        color: TYPE_COLORS[k] ?? FALLBACK_SEGMENT_COLOR,
       }))
     : []
 

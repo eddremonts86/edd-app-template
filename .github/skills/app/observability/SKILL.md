@@ -80,7 +80,7 @@ if (isClerkServerEnabled() && !isAuthBypassEnabled()) middleware.push(clerkMiddl
 
 ```bash
 pnpm dev
-curl -s http://localhost:3000/api/health
+curl -s http://localhost:2999/api/health
 # in the pnpm dev terminal you should see:
 # [<iso>] [SERVER:INFO] GET /api/health → 200 (1ms)
 ```

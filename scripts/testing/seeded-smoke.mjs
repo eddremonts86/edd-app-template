@@ -1,6 +1,6 @@
 import { chromium } from '@playwright/test'
 
-const targetUrl = process.env.TARGET_URL ?? 'http://localhost:3000'
+const targetUrl = process.env.TARGET_URL ?? 'http://localhost:2999'
 const routes = [
   { path: '/dashboard', label: 'dashboard' },
   { path: '/dashboard/users', label: 'users' },

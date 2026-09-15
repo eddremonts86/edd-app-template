@@ -1,11 +1,14 @@
 import { aiModule } from '@/modules/ai/manifest'
 import { authModule } from '@/modules/auth/manifest'
+import { billingModule } from '@/modules/billing/manifest'
 import { contactMessagesModule } from '@/modules/contact-messages/manifest'
 import { dashboardModule } from '@/modules/dashboard/manifest'
 import { databaseAdminModule } from '@/modules/database-admin/manifest'
+import { emailModule } from '@/modules/email/manifest'
 import { helpModule } from '@/modules/help/manifest'
 import { landingModule } from '@/modules/landing/manifest'
 import { settingsModule } from '@/modules/settings/manifest'
+import { storageModule } from '@/modules/storage/manifest'
 import { updatesModule } from '@/modules/updates/manifest'
 import { usersModule } from '@/modules/users/manifest'
 import { getExplicitlyDisabledModuleIds, getExplicitlyEnabledModuleIds } from './config'
@@ -17,11 +20,14 @@ export const moduleRegistry: AppModuleManifest[] = [
   authModule,
   dashboardModule,
   aiModule,
+  emailModule,
+  billingModule,
   contactMessagesModule,
   usersModule,
   settingsModule,
   databaseAdminModule,
   helpModule,
+  storageModule,
 ]
 
 const moduleMap = new Map(moduleRegistry.map((module) => [module.id, module]))

@@ -2,9 +2,9 @@ import { spawnSync } from 'node:child_process'
 import { hashPassword } from 'better-auth/crypto'
 import postgres from 'postgres'
 
-const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5432/postgres'
+const adminUrl = 'postgresql://postgres:postgres@127.0.0.1:5433/postgres'
 const databaseName = 'tanstack_template_auth_e2e'
-const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5432/${databaseName}`
+const databaseUrl = `postgresql://postgres:postgres@127.0.0.1:5433/${databaseName}`
 
 async function waitForPostgresReady() {
   for (let attempt = 0; attempt < 20; attempt += 1) {
@@ -100,11 +100,15 @@ async function seedDefaultAdmin() {
     const accountId = crypto.randomUUID()
     const now = new Date()
 
+    // `super_admin`, like `scripts/db/seed-admin.ts`. The column defaults to
+    // 'user', so the account this suite calls "the default seeded admin" was
+    // not one, and the E2E exercised a role the app never bootstraps.
     const [user] = await db<{ id: string }[]>`
-      INSERT INTO auth_users (id, name, email, email_verified, created_at, updated_at)
-      VALUES (${userId}, ${name}, ${email}, true, ${now}, ${now})
+      INSERT INTO auth_users (id, name, email, email_verified, role, created_at, updated_at)
+      VALUES (${userId}, ${name}, ${email}, true, 'super_admin', ${now}, ${now})
       ON CONFLICT (email) DO UPDATE
       SET name = EXCLUDED.name,
+          role = 'super_admin',
           updated_at = now()
       RETURNING id
     `
@@ -116,7 +120,13 @@ async function seedDefaultAdmin() {
       VALUES (
         ${accountId},
         ${user.id},
-        ${email},
+        -- Better Auth >= 1.7 looks the credential account up by
+        -- account_id === the user id. This seeded the email instead, which
+        -- upserts cleanly and then fails every sign-in with
+        -- INVALID_EMAIL_OR_PASSWORD — no session, and /dashboard bounces back
+        -- to /auth. scripts/db/seed-admin.ts was fixed for this; this file
+        -- was not, so the suite has been one test red ever since.
+        ${user.id},
         'credential',
         ${hashedPassword},
         ${now},

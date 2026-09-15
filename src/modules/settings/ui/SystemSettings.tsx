@@ -24,8 +24,8 @@ export function SystemSettings() {
     pendingSettings,
     hasChanges,
     isSaving,
-    setPendingLanguage,
-    setPendingTheme,
+    selectTheme,
+    selectLanguage,
     saveSettings,
     resetToDefaults,
   } = useSettings()
@@ -64,8 +64,8 @@ export function SystemSettings() {
               </div>
             </CardHeader>
             <CardContent className="grid grid-cols-1 gap-8 pt-2 lg:grid-cols-2">
-              <LanguageSelector value={pendingSettings.language} onChange={setPendingLanguage} />
-              <ThemeSelector value={pendingSettings.theme} onChange={setPendingTheme} />
+              <LanguageSelector value={pendingSettings.language} onChange={selectLanguage} />
+              <ThemeSelector value={pendingSettings.theme} onChange={selectTheme} />
             </CardContent>
           </Card>
         </section>
@@ -80,19 +80,19 @@ export function SystemSettings() {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>{t('common.confirm.title', 'Are you sure?')}</AlertDialogTitle>
+              <AlertDialogTitle>
+                {t('common.confirmDialog.title', 'Are you sure?')}
+              </AlertDialogTitle>
               <AlertDialogDescription>
                 {t(
-                  'common.confirm.settingsReset',
+                  'common.confirmDialog.settingsReset',
                   'This action will restore all display settings back to default values.',
                 )}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>{t('common.buttons.cancel', 'Cancel')}</AlertDialogCancel>
-              <AlertDialogAction onClick={handleReset}>
-                {t('common.buttons.confirm', 'Confirm')}
-              </AlertDialogAction>
+              <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+              <AlertDialogAction onClick={handleReset}>{t('common.confirm')}</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

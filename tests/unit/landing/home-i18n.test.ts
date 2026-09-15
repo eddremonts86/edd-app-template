@@ -15,7 +15,6 @@ const getPath = (obj: unknown, path: string): unknown =>
 
 // One representative key per scene block, plus every dynamic prefix the scenes build.
 const REQUIRED_KEYS = [
-  'home.opening.badge',
   'home.opening.title',
   'home.opening.titleHighlight',
   'home.opening.description',

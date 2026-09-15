@@ -835,13 +835,13 @@ export function ToggleGroupSpacing() {
 
 The main component that wraps toggle group items.
 
-| Prop        | Type       | Default     |
+| Prop | Type | Default |
 | ----------- | ---------- | ----------- | ----------- | ----------- |
-| `type`      | `"single"  | "multiple"` | `"single"`  |
-| `variant`   | `"default" | "outline"`  | `"default"` |
-| `size`      | `"default" | "sm"        | "lg"`       | `"default"` |
-| `spacing`   | `number`   | `0`         |
-| `className` | `string`   | `''`        |
+| `type` | `"single"  | "multiple"` | `"single"` |
+| `variant` | `"default" | "outline"` | `"default"` |
+| `size` | `"default" | "sm"        | "lg"` | `"default"` |
+| `spacing` | `number` | `0` |
+| `className` | `string` | `''` |
 
 #### ToggleGroupItem
 

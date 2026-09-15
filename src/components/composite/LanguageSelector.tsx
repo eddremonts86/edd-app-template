@@ -1,7 +1,12 @@
 import { Globe } from 'lucide-react'
 import { useEffect, useState, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { languageNames, type SupportedLanguage, supportedLanguages } from '@/shared/lib/i18n'
+import {
+  languageNames,
+  setLocale,
+  type SupportedLanguage,
+  supportedLanguages,
+} from '@/shared/lib/i18n'
 import { cn } from '@/shared/lib/utils'
 
 const languageFlags: Record<SupportedLanguage, string> = {
@@ -25,12 +30,9 @@ export const LanguageSelector = memo(function LanguageSelector({
     setMounted(true)
   }, [])
 
-  const handleLanguageChange = useCallback(
-    (lang: SupportedLanguage) => {
-      i18n.changeLanguage(lang)
-    },
-    [i18n],
-  )
+  const handleLanguageChange = useCallback((lang: SupportedLanguage) => {
+    void setLocale(lang)
+  }, [])
 
   return (
     <div className="relative group">

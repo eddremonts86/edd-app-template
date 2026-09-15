@@ -14,10 +14,12 @@ import { useAiProviderStatuses } from '@/modules/settings'
 import { cn } from '@/shared/lib/utils'
 
 function StatusIcon({ status }: { status: AiProviderStatus['status'] }) {
-  if (status === 'available') return <IconCircleCheck className="h-4 w-4 text-green-500" />
-  if (status === 'auth_required') return <IconKey className="h-4 w-4 text-amber-500" />
+  if (status === 'available')
+    return <IconCircleCheck className="h-4 w-4 text-emerald-700 dark:text-emerald-400" />
+  if (status === 'auth_required')
+    return <IconKey className="h-4 w-4 text-amber-700 dark:text-amber-400" />
   if (status === 'unreachable' || status === 'error')
-    return <IconCircleX className="h-4 w-4 text-red-500" />
+    return <IconCircleX className="h-4 w-4 text-red-700 dark:text-red-400" />
   return <IconLoader2 className="h-4 w-4 animate-spin text-muted-foreground" />
 }
 
@@ -62,7 +64,9 @@ export function AiStatusWidget() {
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <div className="text-right">
-            <div className="text-2xl font-bold text-green-500">{available}</div>
+            <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
+              {available}
+            </div>
             <div className="text-xs text-muted-foreground">
               {t('dashboard.widgets.aiOnline', 'online')}
             </div>

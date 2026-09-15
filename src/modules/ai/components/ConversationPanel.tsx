@@ -196,10 +196,22 @@ export function ConversationPanel({
                   )}
                 </div>
                 <div className="flex items-center gap-1">
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onNew}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    aria-label={t('ai.chat.newConversation')}
+                    onClick={onNew}
+                  >
                     <MessageSquarePlus size={18} />
                   </Button>
-                  <Button variant="ghost" size="icon" className="h-8 w-8" onClick={onToggle}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-8 w-8"
+                    aria-label={t('ai.chat.conversations')}
+                    onClick={onToggle}
+                  >
                     <X size={18} />
                   </Button>
                 </div>
@@ -255,7 +267,7 @@ export function ConversationPanel({
 
                       return (
                         <div key={group} className="space-y-2">
-                          <h3 className="px-2 text-xs font-medium text-muted-foreground/70">
+                          <h3 className="px-2 text-xs font-medium text-muted-foreground">
                             {getGroupLabel(group)}
                           </h3>
                           <div className="space-y-1">
@@ -290,7 +302,7 @@ export function ConversationPanel({
                                     className={cn(
                                       'flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors',
                                       activeId === conv.id
-                                        ? 'bg-card text-primary shadow-sm dark:bg-primary/20 dark:text-primary-foreground'
+                                        ? 'bg-card text-primary shadow-sm dark:bg-primary/20'
                                         : 'bg-muted text-muted-foreground',
                                     )}
                                   >
@@ -307,7 +319,7 @@ export function ConversationPanel({
                                   >
                                     {conv.title || t('ai.chat.newConversation')}
                                   </p>
-                                  <p className="truncate text-xs text-muted-foreground/80">
+                                  <p className="truncate text-xs text-muted-foreground">
                                     {new Date(conv.updatedAt).toLocaleTimeString([], {
                                       hour: '2-digit',
                                       minute: '2-digit',
@@ -327,7 +339,8 @@ export function ConversationPanel({
                                       <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="h-6 w-6 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20"
+                                        className="h-6 w-6 text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
+                                        aria-label={t('ai.chat.deleteConversation')}
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           handleDelete(conv.id)
@@ -339,6 +352,7 @@ export function ConversationPanel({
                                         variant="ghost"
                                         size="icon"
                                         className="h-6 w-6"
+                                        aria-label={t('common.cancel')}
                                         onClick={(e) => {
                                           e.stopPropagation()
                                           setConfirmDeleteId(null)
@@ -351,7 +365,8 @@ export function ConversationPanel({
                                     <Button
                                       variant="ghost"
                                       size="icon"
-                                      className="h-7 w-7 text-muted-foreground hover:text-red-500"
+                                      className="h-7 w-7 text-muted-foreground hover:text-red-700 dark:hover:text-red-400"
+                                      aria-label={t('ai.chat.deleteConversation')}
                                       onClick={(e) => {
                                         e.stopPropagation()
                                         setConfirmDeleteId(conv.id)
@@ -401,12 +416,12 @@ export function ConversationPanel({
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full justify-start text-muted-foreground hover:text-red-500 hover:border-red-200 hover:bg-red-50 dark:hover:border-red-900/30 dark:hover:bg-red-900/10"
+                    className="w-full justify-start text-muted-foreground hover:text-red-700 dark:hover:text-red-400 hover:border-red-200 hover:bg-red-50 dark:hover:border-red-900/30 dark:hover:bg-red-900/10"
                     onClick={() => setConfirmDeleteAll(true)}
                     disabled={filteredConversations.length === 0}
                   >
                     <Trash2 size={14} className="mr-2" />
-                    {t('ai.chat.deleteAll')}
+                    {t('ai.chat.deleteAllConversations')}
                   </Button>
                 )}
               </div>

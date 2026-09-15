@@ -165,7 +165,7 @@ export function ErrorStateView({
                           </p>
                         </div>
                         <div className="relative">
-                          <pre className="max-h-72 overflow-auto px-4 py-3 whitespace-pre font-mono text-[11px] leading-5 text-muted-foreground/90 scrollbar-thin scrollbar-thumb-muted-foreground/20">
+                          <pre className="max-h-72 overflow-auto px-4 py-3 whitespace-pre font-mono text-[11px] leading-5 text-muted-foreground scrollbar-thin scrollbar-thumb-muted-foreground/20">
                             {stackTrace}
                           </pre>
                         </div>

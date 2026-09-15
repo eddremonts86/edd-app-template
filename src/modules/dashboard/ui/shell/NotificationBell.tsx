@@ -46,7 +46,7 @@ export function NotificationBell() {
         <Button
           variant="ghost"
           size="icon"
-          className="relative rounded-full"
+          className="relative rounded-full size-11 md:size-9"
           data-testid="dashboard-notification-trigger"
         >
           <Bell className="h-5 w-5" />
@@ -101,7 +101,7 @@ export function NotificationBell() {
                         New
                       </span>
                     )}
-                    <p className="mt-1 text-[11px] text-muted-foreground/80">
+                    <p className="mt-1 text-[11px] text-muted-foreground">
                       {new Date(item.createdAt).toLocaleString()}
                     </p>
                   </div>

@@ -96,7 +96,7 @@ ClerkProvider (si clerk enabled + key presente)
 
 - `AUTH_MODE=local` o `AUTH_MODE=hybrid`
 - Base de datos Postgres con tablas `auth_users`, `auth_sessions`, `auth_accounts`, `auth_verifications`
-- `BETTER_AUTH_URL` apuntando al server (default `http://localhost:3000`)
+- `BETTER_AUTH_URL` apuntando al server (default `http://localhost:2999`)
 - `BETTER_AUTH_SECRET` definido
 
 ### Flujo Sign-Up

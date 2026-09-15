@@ -138,6 +138,7 @@ function downloadCsv(fileName: string, csvContent: string) {
   URL.revokeObjectURL(url)
 }
 
+const EMPTY_GROUPING: GroupingState = []
 const EMPTY_FILTERS: DataTableFilterConfig[] = []
 const EMPTY_BULK_ACTIONS: never[] = []
 
@@ -264,7 +265,7 @@ export function UnifiedDataTable<TData, TValue>({
       globalFilter,
       columnVisibility,
       rowSelection,
-      grouping: enableGrouping ? grouping : [],
+      grouping: enableGrouping ? grouping : EMPTY_GROUPING,
       pagination,
     },
   })
@@ -437,7 +438,7 @@ export function UnifiedDataTable<TData, TValue>({
                     className="h-11 px-4 gap-2 border-dashed border-border/60 hover:border-primary/30 rounded-2xl"
                   >
                     <SlidersHorizontal className="w-4 h-4" />
-                    Columnas
+                    {t('dataTable.columns')}
                     <ChevronDown className="w-4 h-4 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -574,7 +575,7 @@ export function UnifiedDataTable<TData, TValue>({
                     return (
                       <TableHead
                         key={header.id}
-                        className="h-12 text-xs font-bold uppercase tracking-wider text-muted-foreground/70 px-6 border-b border-border/40 sticky top-0 bg-inherit"
+                        className="h-12 text-xs font-bold uppercase tracking-wider text-muted-foreground px-6 border-b border-border/40 sticky top-0 bg-inherit"
                       >
                         {header.isPlaceholder ? null : isSortable ? (
                           <Button
@@ -658,6 +659,7 @@ export function UnifiedDataTable<TData, TValue>({
               size="icon"
               variant="outline"
               className="h-9 w-9"
+              aria-label={t('common.previous')}
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
             >
@@ -670,6 +672,7 @@ export function UnifiedDataTable<TData, TValue>({
               size="icon"
               variant="outline"
               className="h-9 w-9"
+              aria-label={t('common.next')}
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
             >

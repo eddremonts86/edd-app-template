@@ -236,7 +236,7 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-48 p-0" align="end">
-                <Command>
+                <Command className="[&_[data-slot=command-group-heading]]:text-muted-foreground">
                   <CommandList>
                     <CommandGroup heading="Providers">
                       <CommandItem
@@ -276,7 +276,7 @@ export function AiLanguageAudit({ className }: AiLanguageAuditProps) {
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-40 p-0" align="end">
-                <Command>
+                <Command className="[&_[data-slot=command-group-heading]]:text-muted-foreground">
                   <CommandList>
                     <CommandGroup heading="Locales">
                       <CommandItem

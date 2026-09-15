@@ -1,10 +1,20 @@
 import { UserPlus } from 'lucide-react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 import { CrudSheetBody, CrudSheetContent, CrudSheetHeader } from '@/components/ui/crud-sheet'
 import { Sheet } from '@/components/ui/sheet'
-import { toast } from '@/shared/lib/toast'
+import { useAppAuth } from '@/shared/lib/auth/app-auth'
 import { TableEmptyState, TableErrorState, TableSkeleton } from '@/shared/ui/tables'
 import { useCreateUser, useDeleteUser, useUsers, useUpdateUser } from '../api/users.queries'
 import type { User } from '../model/types'
@@ -15,23 +25,26 @@ export function UsersPage() {
   const { t } = useTranslation()
   const [isCreateOpen, setIsCreateOpen] = React.useState(false)
   const [editingUser, setEditingUser] = React.useState<User | null>(null)
+  const [deletingUser, setDeletingUser] = React.useState<User | null>(null)
+  const { user: currentUser } = useAppAuth()
 
   const { data: allUsers, isLoading, isError } = useUsers(1000)
+  const users = React.useMemo(() => allUsers ?? [], [allUsers])
 
   const createMutation = useCreateUser()
   const updateMutation = useUpdateUser()
   const deleteMutation = useDeleteUser()
 
-  const handleDelete = (user: User) => {
-    toast.error(t('users.confirm.delete'), {
-      description: t('common.confirm'),
-      action: {
-        label: t('common.delete'),
-        onClick: () => deleteMutation.mutate(user.id),
-      },
-      duration: 10000,
-    })
-  }
+  // Deleting a user is irreversible, so it gets a focus-trapped modal that names
+  // the account — not a transient toast in the opposite corner that never says
+  // which user is about to go.
+  const handleDelete = React.useCallback((user: User) => setDeletingUser(user), [])
+
+  // Locking yourself out is unrecoverable from the UI.
+  const isSelf =
+    !!deletingUser &&
+    !!currentUser &&
+    (deletingUser.authUserId === currentUser.id || deletingUser.email === currentUser.email)
 
   if (isError) {
     return (
@@ -49,14 +62,14 @@ export function UsersPage() {
     <div className="flex flex-col h-full gap-5 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 shrink-0">
         <div className="space-y-1">
-          <h2 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-3xl font-bold tracking-tight">
             {t('users.title')}
             {totalCount > 0 && (
               <span className="ml-2 text-muted-foreground font-normal text-2xl">
                 ({totalCount})
               </span>
             )}
-          </h2>
+          </h1>
           <p className="text-muted-foreground">{t('users.subtitle')}</p>
         </div>
         <Button onClick={() => setIsCreateOpen(true)} className="gap-2">
@@ -70,7 +83,7 @@ export function UsersPage() {
       ) : totalCount === 0 ? (
         <TableEmptyState isSearchActive={false} onClearSearch={() => {}} />
       ) : (
-        <UserTable users={allUsers || []} onEdit={setEditingUser} onDelete={handleDelete} />
+        <UserTable users={users} onEdit={setEditingUser} onDelete={handleDelete} />
       )}
 
       <Sheet open={isCreateOpen} onOpenChange={setIsCreateOpen}>
@@ -117,6 +130,36 @@ export function UsersPage() {
           </CrudSheetBody>
         </CrudSheetContent>
       </Sheet>
+
+      <AlertDialog open={!!deletingUser} onOpenChange={(open) => !open && setDeletingUser(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t('users.confirm.deleteTitle')}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {isSelf
+                ? t('users.confirm.deleteSelf')
+                : t('users.confirm.deleteBody', {
+                    name: deletingUser?.name ?? '',
+                    email: deletingUser?.email ?? '',
+                  })}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>{t('common.cancel')}</AlertDialogCancel>
+            <AlertDialogAction
+              disabled={isSelf || deleteMutation.isPending}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={() => {
+                if (!deletingUser || isSelf) return
+                deleteMutation.mutate(deletingUser.id)
+                setDeletingUser(null)
+              }}
+            >
+              {t('common.delete')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   )
 }

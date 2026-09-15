@@ -7,17 +7,22 @@ import { cn } from '@/shared/lib/utils'
 import { useDashboardStats } from '../../api/dashboard.queries'
 import { BreakdownBars } from './BreakdownBars'
 
+// Read the theme's chart ramp instead of hardcoding hues: the previous values
+// were the stock shadcn demo palette (blue-600, violet-500, teal-600), which
+// PRODUCT.md rules out twice over.
 const ROLE_COLORS: Record<string, string> = {
-  super_admin: 'var(--color-primary, hsl(221 83% 53%))',
-  admin: 'hsl(262 83% 58%)',
-  user: 'hsl(173 58% 39%)',
+  super_admin: 'var(--chart-1)',
+  admin: 'var(--chart-2)',
+  user: 'var(--chart-3)',
 }
 
 const PROVIDER_COLORS: Record<string, string> = {
-  'better-auth': 'hsl(221 83% 53%)',
-  clerk: 'hsl(262 83% 58%)',
-  local: 'hsl(173 58% 39%)',
+  'better-auth': 'var(--chart-1)',
+  clerk: 'var(--chart-2)',
+  local: 'var(--chart-3)',
 }
+
+const FALLBACK_SEGMENT_COLOR = 'var(--chart-5)'
 
 interface UsersOverviewWidgetProps {
   className?: string
@@ -33,7 +38,7 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
         key: k,
         label: t(`users.roles.${k}`, { defaultValue: k }),
         value: v,
-        color: ROLE_COLORS[k] ?? 'hsl(220 9% 46%)',
+        color: ROLE_COLORS[k] ?? FALLBACK_SEGMENT_COLOR,
       }))
     : []
 
@@ -43,7 +48,7 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
           key: k,
           label: t(`dashboard.overview.providers.${k}`, { defaultValue: k }),
           value: v,
-          color: PROVIDER_COLORS[k] ?? 'hsl(220 9% 46%)',
+          color: PROVIDER_COLORS[k] ?? FALLBACK_SEGMENT_COLOR,
         }),
       )
     : []
@@ -68,7 +73,7 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
           className="h-8 w-8"
           onClick={() => refetch()}
           disabled={isFetching}
-          aria-label={t('common.refresh')}
+          aria-label={t('common.actions.refresh')}
         >
           <IconRefresh className={cn('h-4 w-4', isFetching && 'animate-spin')} aria-hidden />
         </Button>
@@ -92,8 +97,8 @@ export function UsersOverviewWidget({ className }: Readonly<UsersOverviewWidgetP
                 <p
                   className={cn(
                     'text-sm font-semibold tabular-nums',
-                    delta > 0 && 'text-emerald-500',
-                    delta < 0 && 'text-rose-500',
+                    delta > 0 && 'text-emerald-700 dark:text-emerald-400',
+                    delta < 0 && 'text-rose-700 dark:text-rose-400',
                     delta === 0 && 'text-muted-foreground',
                   )}
                 >

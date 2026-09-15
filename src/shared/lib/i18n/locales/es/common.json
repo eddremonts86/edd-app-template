@@ -1,63 +1,74 @@
 {
   "app": {
-    "name": "Plantilla App edd",
     "brand": "edd Starter",
+    "name": "Plantilla App edd",
     "description": "Punto de inicio reutilizable para cada SaaS, landing y app web de edd"
   },
   "nav": {
-    "home": "Inicio",
-    "services": "Bloques base",
     "timeline": "Ruta",
-    "contact": "Soporte",
-    "settings": "Configuración",
     "signIn": "Iniciar Sesión",
-    "signOut": "Cerrar Sesión"
+    "signOut": "Cerrar Sesión",
+    "docs": "Documentación",
+    "home": "Inicio",
+    "contact": "Soporte",
+    "settings": "Configuración"
   },
   "auth": {
-    "topbarCta": "Entrar",
-    "localCta": "Acceso con correo",
     "workspaceAccess": "Acceso al espacio",
-    "eyebrow": "Autenticación híbrida",
-    "title": "Elige cómo quieres entrar.",
-    "description": "Usa tu correo y contraseña, o continúa con tu cuenta externa desde la misma pantalla.",
-    "singleEntryTitle": "Entra una vez y sigue adelante.",
-    "singleEntryDescription": "Usa la opción que ya conoces. Ambas te llevan al mismo espacio sin pasos de más.",
-    "localOnly": "El acceso con correo no está disponible en este momento.",
-    "localOnlyDescription": "Usa la otra opción de acceso que aparece más abajo para continuar.",
-    "signInTab": "Entrar",
-    "signUpTab": "Crear cuenta",
-    "emailLabel": "Correo",
-    "passwordLabel": "Contraseña",
-    "nameLabel": "Nombre completo",
-    "emailPlaceholder": "tu@empresa.com",
-    "passwordPlaceholder": "Tu contraseña",
-    "passwordRequirementHint": "Usa al menos {{min}} caracteres con letras, números y un símbolo.",
-    "namePlaceholder": "Ada Lovelace",
-    "signInAction": "Entrar al espacio",
-    "signUpAction": "Crear cuenta",
-    "submitting": "Procesando...",
-    "recommendedLocal": "La forma más rápida de entrar",
-    "recommendedExternal": "Otra opción",
-    "signInHint": "Usa el correo con el que ya accedes a este espacio.",
-    "signUpHint": "Crea una cuenta nueva y empieza a usar el espacio en minutos.",
-    "localPanelTitle": "Correo y contraseña",
-    "localPanelDescription": "Entra con la cuenta que usas todos los días.",
-    "clerkPanelTitle": "Otra forma de entrar",
-    "clerkPanelDescription": "Usa tu cuenta de organización o tu acceso externo si esa es tu forma habitual de entrar.",
-    "clerkAction": "Continuar",
-    "clerkUnavailable": "Esta opción de acceso no está disponible en este momento.",
-    "clerkUnavailableLabel": "No disponible",
-    "clerkOffline": "Temporalmente no disponible",
-    "sideTitle": "Un solo espacio, tu forma habitual de entrar.",
-    "sideDescription": "Elige el método que te resulte más familiar. Llegarás al mismo lugar en cualquiera de los dos casos.",
     "pointOne": "Usa la cuenta que ya reconoces.",
     "pointTwo": "Cambia de método sin cambiar de destino.",
     "pointThree": "Entra y sigue justo donde tienes que trabajar.",
     "backHome": "Volver al inicio",
     "goDashboard": "Ir al dashboard",
-    "sessionVerificationError": "El servidor aún no confirmó tu sesión. Inténtalo de nuevo en un momento.",
     "nameRequiredError": "Escribe tu nombre completo para crear una cuenta.",
-    "passwordWeakError": "Usa al menos {{min}} caracteres con letras, números y un símbolo."
+    "passwordWeakError": "Usa al menos {{min}} caracteres con letras, números y un símbolo.",
+    "actions": {
+      "backToSignIn": "Volver a iniciar sesión",
+      "continueClerkSSO": "Continuar con Clerk SSO",
+      "enterWorkspace": "Entrar al espacio de trabajo",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "sendResetLink": "Enviar enlace de recuperación",
+      "signIn": "Iniciar sesión",
+      "signUp": "Crear cuenta"
+    },
+    "anotherWay": "Otra forma de iniciar sesión",
+    "descriptions": {
+      "resetPassword": "Introduce tu correo y te enviaremos un enlace de recuperación.",
+      "signIn": "Inicia sesión con la cuenta que usas cada día."
+    },
+    "forgotPassword": {
+      "checkEmail": "Revisa tu correo"
+    },
+    "headings": {
+      "emailPassword": "Correo y contraseña",
+      "resetPassword": "Restablece tu contraseña"
+    },
+    "hero": {
+      "tagline": "Inicia sesión una vez. Sigue avanzando.",
+      "eyebrow": "Autenticación",
+      "subtitle": "Usa el método que ya usas. El mismo espacio de trabajo, sin pasos extra.",
+      "security": "El acceso seguro se cifra mediante handshakes de token de extremo a extremo. SLA de respuesta de soporte: 24–48 h."
+    },
+    "labels": {
+      "email": "Correo electrónico",
+      "fullName": "Nombre completo",
+      "password": "Contraseña"
+    },
+    "localAuthDisabled": {
+      "body": "La base de datos de credenciales está desactivada. Usa los inicios de sesión de identidad dinámica.",
+      "otherMethods": "Los demás métodos no están disponibles temporalmente.",
+      "title": "Autenticación local desactivada"
+    },
+    "placeholders": {
+      "accountPassword": "La contraseña de tu cuenta",
+      "createPassword": "Crea una contraseña segura",
+      "email": "tu@empresa.com",
+      "fullName": "Juan Pérez",
+      "minChars": "Debe tener al menos {{min}} caracteres."
+    },
+    "tablist": {
+      "label": "Selector de modos de acceso"
+    }
   },
   "common": {
     "loading": "Loading...",
@@ -66,38 +77,24 @@
     "cancel": "Cancelar",
     "delete": "Eliminar",
     "edit": "Editar",
-    "create": "Crear",
     "search": "Buscar",
     "filter": "Filtrar",
-    "sort": "Ordenar",
     "actions": {
-      "move": "Move"
+      "label": "Acciones",
+      "refresh": "Actualizar",
+      "move": "Mover"
     },
     "confirm": "Confirmar",
-    "undoWarning": "Esta acción no se puede deshacer.",
     "noPermission": "No tienes permiso para realizar esta acción.",
-    "noPermissionEdit": "Solo puedes editar tareas que creaste o que te fueron asignadas.",
-    "noPermissionDelete": "Solo puedes eliminar tareas que creaste o que te fueron asignadas.",
-    "yes": "Sí",
-    "no": "No",
-    "submit": "Enviar",
-    "reset": "Reiniciar",
-    "back": "Atrás",
-    "next": "Siguiente",
-    "previous": "Anterior",
-    "loadMore": "Cargar más",
     "openMenu": "Abrir menú",
     "optional": "opcional",
     "pin": "Anclar",
     "unpin": "Unpin",
     "pinVisible": "Mantener visible",
     "stop": "Detener",
-    "clear": "Limpiar",
-    "clearFilters": "Limpiar filtros",
     "noResults": "No se encontraron resultados.",
     "noData": "No hay datos disponibles.",
     "clearSearch": "Limpiar búsqueda",
-    "selected": "seleccionado(s)",
     "send": "Enviar",
     "backToHome": "Volver al inicio",
     "retry": "Reintentar",
@@ -122,7 +119,33 @@
     },
     "placeholders": {
       "url": "https://"
-    }
+    },
+    "autoOs": "Automático (detectado del sistema)",
+    "confirmDialog": {
+      "title": "¿Estás seguro?",
+      "devtoolsReset": "Esta acción restaurará todos los ajustes de visualización a sus valores por defecto.",
+      "settingsReset": "Esta acción restaurará todos los ajustes de visualización a sus valores por defecto."
+    },
+    "langDanish": "Danés (dk)",
+    "langEnglish": "Inglés (en)",
+    "langSpanish": "Español (es)",
+    "create": "Crear",
+    "sort": "Ordenar",
+    "undoWarning": "Esta acción no se puede deshacer.",
+    "noPermissionEdit": "Solo puedes editar tareas que creaste o que te fueron asignadas.",
+    "noPermissionDelete": "Solo puedes eliminar tareas que creaste o que te fueron asignadas.",
+    "yes": "Sí",
+    "no": "No",
+    "submit": "Enviar",
+    "reset": "Reiniciar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "loadMore": "Cargar más",
+    "clear": "Limpiar",
+    "clearFilters": "Limpiar filtros",
+    "selected": "seleccionado(s)",
+    "copy": "Copiar"
   },
   "theme": {
     "light": "Claro",
@@ -134,51 +157,20 @@
     "loading": "Cargando..."
   },
   "projects": {
-    "title": "Proyectos",
     "description": "Gestiona tus proyectos y equipos.",
     "create": "Crear Proyecto",
     "edit": "Editar Proyecto",
     "delete": "Eliminar Proyecto",
     "deleteConfirm": "¿Estás seguro de que quieres eliminar este proyecto?",
     "actions": {
-      "create": "Crear Proyecto",
-      "createAnother": "Crear otro proyecto",
       "new": "Nuevo Proyecto",
       "edit": "Editar Proyecto",
       "delete": "Eliminar Proyecto"
     },
-    "success": {
-      "created": "Proyecto creado",
-      "updated": "Proyecto actualizado",
-      "deleted": "Proyecto eliminado"
-    },
     "form": {
-      "nameLabel": "Nombre del Proyecto",
-      "namePlaceholder": "Ej. Rediseño del sitio web",
-      "descriptionLabel": "Descripción",
-      "descriptionPlaceholder": "Describe los objetivos del proyecto...",
       "datesLabel": "Fechas",
-      "startDateLabel": "Fecha de Inicio",
-      "endDateLabel": "Fecha de Finalización",
-      "statusLabel": "Estado",
-      "typeLabel": "Tipo",
-      "priorityLabel": "Prioridad",
-      "budgetLabel": "Presupuesto",
-      "budgetPlaceholder": "0.00",
-      "editTitle": "Editar Proyecto",
-      "editDescription": "Actualiza la información del proyecto y gestiona el equipo.",
-      "createTitle": "Crear Proyecto",
-      "createDescription": "Define un nuevo proyecto y asigna los miembros iniciales del equipo.",
-      "confirmationDescription": "El proyecto ha sido creado exitosamente.",
-      "teamLabel": "Miembros del Equipo",
-      "teamPlaceholder": "Seleccionar miembros...",
       "teamEmpty": "No se encontraron usuarios.",
       "addNewUser": "Añadir nuevo usuario",
-      "technologiesLabel": "Tecnologías",
-      "technologiesPlaceholder": "Ej. React, Node.js",
-      "skillsLabel": "Habilidades",
-      "skillsPlaceholder": "Buscar habilidades...",
-      "skillsEmpty": "No se encontraron habilidades.",
       "statusPlaceholder": "Seleccionar estado",
       "typePlaceholder": "Seleccionar tipo",
       "priorityPlaceholder": "Seleccionar prioridad",
@@ -188,13 +180,6 @@
         "general": "General",
         "team": "Equipo"
       }
-    },
-    "status": {
-      "active": "Activo",
-      "completed": "Completado",
-      "on_hold": "En espera",
-      "planning": "Planificación",
-      "cancelled": "Cancelado"
     },
     "types": {
       "internal": "Interno",
@@ -223,14 +208,8 @@
       "deleted": "Proyecto eliminado correctamente"
     },
     "error": {
-      "hasTasks": "No se puede eliminar el proyecto '{{name}}' porque tiene tareas asociadas.",
-      "delete": "Error al eliminar el proyecto.",
-      "update": "Error al actualizar el proyecto.",
       "fetch": "No se pudieron cargar los proyectos.",
       "create": "Error al crear el proyecto"
-    },
-    "confirm": {
-      "delete": "¿Estás seguro de que quieres eliminar el proyecto '{{name}}'?"
     },
     "members": {
       "title": "Miembros del Equipo",
@@ -244,7 +223,6 @@
       "noMembers": "No hay miembros en este proyecto.",
       "noAvailableUsers": "No hay más usuarios disponibles.",
       "empty": "No se encontraron miembros.",
-      "removeConfirm": "¿Estás seguro de que quieres eliminar a {{name}} del proyecto?",
       "success": {
         "added": "Miembro añadido correctamente",
         "updated": "Rol actualizado correctamente",
@@ -278,26 +256,20 @@
   "users": {
     "title": "Usuarios",
     "subtitle": "Gestiona miembros del equipo, roles y permisos.",
-    "subtitlePrefix": "Gestiona los niveles de acceso para ",
-    "subtitleSuffix": " miembros del equipo.",
     "filters": {
-      "search": "Buscar usuarios por nombre o email"
+      "provider": "Proveedor",
+      "role": "Rol"
     },
     "description": "Gestiona los usuarios de la plataforma.",
     "create": "Nuevo Usuario",
     "edit": "Editar Usuario",
     "delete": "Eliminar Usuario",
     "actions": {
-      "new": "Nuevo Usuario",
-      "save": "Guardar Usuario",
-      "editProfile": "Editar Perfil",
-      "deleteAccount": "Eliminar Cuenta"
+      "new": "Nuevo Usuario"
     },
     "form": {
       "nameLabel": "Nombre",
-      "namePlaceholder": "Nombre completo",
       "emailLabel": "Correo electrónico",
-      "emailPlaceholder": "correo@ejemplo.com",
       "roleLabel": "Rol",
       "roleHelp": "El rol define los permisos del usuario.",
       "roleLocked": "Solo los administradores pueden cambiar roles.",
@@ -311,8 +283,6 @@
       "roleAdmin": "Administrador",
       "roleSuperAdmin": "Super Administrador",
       "avatarLabel": "URL del avatar",
-      "avatarPlaceholder": "https://...",
-      "avatarHelp": "Pega una URL o genera un avatar aleatorio.",
       "generateAvatar": "Generar avatar",
       "jobTitleLabel": "Cargo",
       "jobTitlePlaceholder": "ej. Desarrollador Senior",
@@ -363,13 +333,10 @@
       "editTitle": "Perfil de Usuario",
       "editDescription": "Actualiza la información de contacto y permisos."
     },
-    "toast": {
-      "created": "Usuario creado correctamente",
-      "updated": "Usuario actualizado correctamente",
-      "deleted": "Usuario eliminado correctamente"
-    },
     "confirm": {
-      "delete": "¿Estás seguro de que quieres eliminar este usuario?"
+      "deleteTitle": "¿Eliminar este usuario?",
+      "deleteBody": "{{name}} ({{email}}) se eliminará de forma permanente. Esto no se puede deshacer.",
+      "deleteSelf": "No puedes eliminar la cuenta con la que has iniciado sesión. Pide a otro administrador que la elimine."
     },
     "loadingMore": "Sincronizando...",
     "loadMore": "Cargar más usuarios",
@@ -377,6 +344,10 @@
       "title": "Error de conexión",
       "description": "No pudimos sincronizar la lista de usuarios. Por favor, inténtalo de nuevo.",
       "retry": "Reintentar"
+    },
+    "stats": {
+      "recent": "Se unieron esta semana",
+      "total": "Usuarios totales"
     }
   },
   "contactMessages": {
@@ -384,9 +355,7 @@
     "subtitle": "Revisa los briefs enviados desde la landing y mantén limpia la cola de seguimiento.",
     "unreadBadge": "{{count}} sin leer",
     "filters": {
-      "search": "Buscar por email o contenido",
       "status": "Estado",
-      "statusAll": "Todos",
       "statusNew": "Nuevo",
       "statusRead": "Leído"
     },
@@ -405,7 +374,8 @@
       "refresh": "Actualizar",
       "readFull": "Leer mensaje completo",
       "markRead": "Marcar leído",
-      "markNew": "Marcar nuevo"
+      "markNew": "Marcar nuevo",
+      "reply": "Responder por correo"
     },
     "sheet": {
       "title": "Detalle del mensaje",
@@ -417,13 +387,15 @@
       "markError": "No pudimos actualizar este mensaje"
     },
     "empty": {
-      "noData": "Aún no hay briefs de contacto.",
-      "noResults": "No hay briefs que coincidan con tus filtros."
+      "noData": "Aún no hay briefs de contacto."
     },
     "error": {
       "title": "No se pudieron cargar los mensajes de contacto",
       "description": "Vuelve a intentarlo en unos segundos.",
-      "retry": "Reintentar"
+      "architectureLink": "Manual de arquitectura y roles →",
+      "item1": "Comprueba que tienes los permisos correctos (se requiere rol de administrador).",
+      "item2": "Comprueba que has iniciado sesión en el espacio de trabajo.",
+      "item3": "Consulta la guía técnica sobre gestión de roles."
     },
     "widget": {
       "title": "Mensajes de contacto sin leer",
@@ -433,25 +405,6 @@
       "viewAll": "Abrir bandeja de contacto"
     },
     "backToDashboard": "Back to Dashboard"
-  },
-  "team": {
-    "title": "Equipo",
-    "actions": {
-      "new": "Nuevo equipo",
-      "create": "Crear equipo",
-      "edit": "Editar equipo"
-    },
-    "members": "Miembros",
-    "emptyMembers": "No hay miembros asignados.",
-    "emptyUsers": "No hay usuarios disponibles.",
-    "confirm": {
-      "delete": "¿Seguro que quieres eliminar \"{{name}}\"?"
-    },
-    "toast": {
-      "created": "Equipo creado correctamente",
-      "updated": "Equipo actualizado correctamente",
-      "deleted": "Equipo eliminado correctamente"
-    }
   },
   "sidebar": {
     "main": {
@@ -468,7 +421,6 @@
       "settings": "Configuración"
     },
     "secondary": {
-      "settings": "Configuración",
       "help": "Ayuda",
       "search": "Buscar"
     },
@@ -481,10 +433,7 @@
       "title": "Búsqueda IA",
       "description": "Pregunta al asistente o salta a una sección.",
       "placeholder": "Busca en el dashboard...",
-      "providerAuto": "Proveedor automático",
       "cta": "Buscar",
-      "searching": "Buscando...",
-      "shortcut": "⌘K / Ctrl+K",
       "offline": "Estás sin conexión. La búsqueda no está disponible.",
       "error": "No pudimos completar la búsqueda.",
       "resultsTitle": "Resumen",
@@ -493,7 +442,6 @@
     },
     "chat": {
       "title": "Chat IA",
-      "description": "Pregunta cualquier cosa al asistente.",
       "placeholder": "Escribe un mensaje...",
       "welcome": "¡Hola! ¿En qué puedo ayudarte hoy?",
       "clear": "Limpiar chat",
@@ -540,57 +488,31 @@
       "attachFile": "Attach file",
       "closePreview": "Close preview",
       "preview": "Preview",
-      "disclaimer": "AI can make mistakes. Verify important information."
+      "disclaimer": "AI can make mistakes. Verify important information.",
+      "allChats": "Todos los chats",
+      "data": "Datos:",
+      "flow": "Flujo:",
+      "myChats": "Mis chats",
+      "searchPlaceholder": "Buscar chats..."
     }
   },
   "validation": {
     "required": "Este campo es obligatorio",
     "invalidEmail": "Correo electrónico inválido",
-    "invalidUrl": "URL inválida",
-    "minLength": "Debe tener al menos {{count}} caracteres",
-    "maxLength": "Debe tener como máximo {{count}} caracteres",
     "invalidColor": "Color no válido",
     "invalidDate": "Fecha no válida",
     "futureDate": "La fecha debe ser en el futuro",
-    "minAmount": "Debe ser mayor que 0"
+    "minAmount": "Debe ser mayor que 0",
+    "minLength": "Debe tener al menos {{count}} caracteres",
+    "maxLength": "Debe tener como máximo {{count}} caracteres",
+    "invalidUrl": "URL inválida"
   },
   "todos": {
-    "title": "Tareas",
-    "subtitlePrefix": "Gestiona tu flujo de trabajo. Tienes ",
-    "subtitleSuffix": " tareas activas.",
-    "actions": {
-      "new": "Nueva Tarea",
-      "create": "Crear Tarea",
-      "update": "Actualizar Tarea",
-      "edit": "Editar Tarea",
-      "delete": "Eliminar"
-    },
     "form": {
-      "headerTitle": "Detalles de la Tarea",
-      "headerSubtitle": "Define objetivos y fechas de entrega.",
-      "titleLabel": "Título del Proyecto",
-      "titlePlaceholder": "Ej: Rediseño del dashboard",
-      "descriptionLabel": "Descripción Detallada",
-      "descriptionPlaceholder": "Describe los pasos a seguir...",
-      "statusLabel": "Estado Actual",
-      "statusPlaceholder": "Seleccionar estado",
-      "statusPending": "Pendiente",
-      "statusInProgress": "En Progreso",
       "statusTesting": "En Pruebas",
       "statusOnHold": "En Espera",
       "statusBlocked": "Bloqueado",
       "statusCancelled": "Cancelado",
-      "statusCompleted": "Completado",
-      "priorityLabel": "Prioridad",
-      "priorityPlaceholder": "Seleccionar prioridad",
-      "priorityLow": "Baja",
-      "priorityMedium": "Media",
-      "priorityHigh": "Alta",
-      "dueDateLabel": "Fecha de Entrega",
-      "dueDatePlaceholder": "Seleccionar fecha",
-      "assignedToLabel": "Asignado a",
-      "assignedToPlaceholder": "Seleccionar usuario",
-      "assignedToSelf": "Yo",
       "projectLabel": "Proyecto",
       "projectPlaceholder": "Seleccionar proyecto",
       "complexityLabel": "Complejidad",
@@ -621,60 +543,6 @@
           "description": "Gestiona el estado actual y vincula esta tarea con otras dependencias."
         }
       }
-    },
-    "status": {
-      "pending": "Pendiente",
-      "in_progress": "En Progreso",
-      "inProgress": "En Progreso",
-      "completed": "Completado",
-      "on_hold": "En espera",
-      "testing": "Pruebas",
-      "blocked": "Bloqueado",
-      "cancelled": "Cancelado"
-    },
-    "filters": {
-      "label": "Filtros",
-      "onlyMyTasks": "Solo mis tareas",
-      "allStatuses": "Todos los estados",
-      "allUsers": "Todos los usuarios",
-      "myTasks": "Mis tareas"
-    },
-    "priority": {
-      "low": "Baja",
-      "medium": "Media",
-      "high": "Alta"
-    },
-    "table": {
-      "title": "Tarea",
-      "status": "Estado",
-      "priority": "Prioridad",
-      "assignedTo": "Asignado a",
-      "createdAt": "Creado",
-      "dueDate": "Fecha de Entrega"
-    },
-    "confirm": {
-      "delete": "¿Estás seguro de que quieres eliminar esta tarea?"
-    },
-    "searchPlaceholder": "Buscar tareas...",
-    "noSearchResults": "No hay tareas que coincidan con tu búsqueda",
-    "empty": "No se encontraron tareas",
-    "clearSearch": "Limpiar búsqueda",
-    "loadingMore": "Cargando más tareas...",
-    "error": {
-      "title": "Error de Carga",
-      "description": "No pudimos obtener tus tareas. Revisa tu conexión e intenta de nuevo.",
-      "retry": "Reintentar"
-    },
-    "sheet": {
-      "createTitle": "Crear Tarea",
-      "createDescription": "Añade una nueva tarea a tu lista. Completa los detalles abajo.",
-      "editTitle": "Editar Tarea",
-      "editDescription": "Actualiza los detalles de tu tarea. Los cambios se guardan inmediatamente."
-    },
-    "toast": {
-      "created": "Tarea creada correctamente",
-      "updated": "Tarea actualizada correctamente",
-      "deleted": "Tarea eliminada correctamente"
     }
   },
   "dashboard": {
@@ -690,9 +558,6 @@
       "stats": {
         "totalUsers": "Total de usuarios",
         "registeredUsers": "Usuarios registrados",
-        "newUsersThisWeek": "Nuevos usuarios · 7d",
-        "lastSevenDays": "Últimos 7 días",
-        "vsPreviousWeekShort": "vs sem. ant.",
         "activeSessions": "Sesiones activas",
         "activeSessionsHint": "Conectados ahora",
         "unreadMessages": "Mensajes sin leer",
@@ -745,23 +610,6 @@
       }
     },
     "widgets": {
-      "projectsStatus": "Estado de Proyectos",
-      "projectsStatusDesc": "Resumen de proyectos por estado actual.",
-      "totalProjects": "Total de Proyectos",
-      "pendingApprovals": "Aprobaciones Pendientes",
-      "pendingApprovalsDesc": "Transacciones en espera de revisión.",
-      "awaitingReview": "en espera de revisión",
-      "reviewTransactions": "Revisar transacciones →",
-      "recentTransactions": "Transacciones Recientes",
-      "recentTransactionsDesc": "Actividad financiera más reciente.",
-      "teamOverview": "Vista del Equipo",
-      "teamOverviewDesc": "Todos los equipos y su número de miembros.",
-      "totalTeams": "Equipos",
-      "totalMembers": "Miembros",
-      "avgTeamSize": "Tamaño medio",
-      "largestTeams": "Equipos más grandes",
-      "noDescription": "Sin descripción",
-      "members": "miembros",
       "userStats": "Directorio de Usuarios",
       "userStatsDesc": "Total de empleados y departamentos principales.",
       "totalUsers": "Total de usuarios",
@@ -772,29 +620,14 @@
       "aiStatusDesc": "Estado de conexión de los proveedores IA configurados.",
       "aiOnline": "en línea",
       "models": "modelos",
-      "categoriesList": "Categorías",
-      "categoriesListDesc": "Todas las categorías disponibles de un vistazo.",
-      "totalCategories": "total",
       "quickLinks": "Accesos Rápidos",
       "quickLinksDesc": "Acceso rápido a las secciones clave del espacio.",
-      "linkProjects": "Proyectos",
-      "linkTransactions": "Transacciones",
-      "linkTasks": "Tareas",
-      "linkTeam": "Equipo",
       "linkSettings": "Configuración",
       "linkHelp": "Ayuda"
     },
     "actions": {
-      "refreshProjectsStatus": "Actualizar estado de proyectos",
-      "refreshPendingApprovals": "Actualizar aprobaciones pendientes",
-      "refreshRecentTransactions": "Actualizar transacciones",
-      "refreshTeamOverview": "Actualizar equipos",
       "refreshUserStats": "Actualizar estadísticas de usuarios",
-      "refreshAiStatus": "Actualizar estado IA",
-      "refreshCategories": "Actualizar categorías",
-      "refreshUpcomingTasks": "Actualizar tareas próximas",
-      "refreshExpenseDistribution": "Actualizar distribución de gastos",
-      "refreshWorkload": "Actualizar carga de trabajo"
+      "refreshAiStatus": "Actualizar estado IA"
     },
     "title": "Panel",
     "description": "Bienvenido a tu panel.",
@@ -839,7 +672,19 @@
     },
     "acmeInc": "Acme Inc.",
     "unpin": "Unpin",
-    "pinToRight": "Pin to right"
+    "pinToRight": "Pin to right",
+    "notifications": {
+      "pending": "pendientes",
+      "title": "Notificaciones",
+      "toggle": "Mostrar u ocultar notificaciones"
+    },
+    "starterRoutes": {
+      "label": "Rutas del starter",
+      "architecture": "Guía de arquitectura",
+      "moduleMap": "Mapa de módulos",
+      "designTokens": "Tokens de diseño",
+      "conventions": "Convenciones del proyecto"
+    }
   },
   "updates": {
     "subscribe": {
@@ -860,297 +705,25 @@
     }
   },
   "budgets": {
-    "title": "Presupuestos",
-    "description": "Administra y rastrea tus presupuestos financieros.",
-    "empty": {
-      "title": "Sin presupuestos todavía",
-      "description": "Crea tu primer presupuesto para comenzar a rastrear ingresos y gastos."
-    },
-    "actions": {
-      "create": "Nuevo Presupuesto",
-      "edit": "Editar Presupuesto",
-      "save": "Guardar Presupuesto",
-      "delete": "Eliminar Presupuesto",
-      "deleteConfirm": "¿Estás seguro de que deseas eliminar este presupuesto?"
-    },
-    "create": {
-      "title": "Nuevo Presupuesto",
-      "description": "Crea un nuevo presupuesto para rastrear ingresos y gastos."
-    },
-    "edit": {
-      "title": "Editar Presupuesto",
-      "description": "Actualiza los detalles de tu presupuesto."
-    },
-    "fields": {
-      "name": "Nombre del Presupuesto",
-      "namePlaceholder": "ej. Marketing T1",
-      "description": "Descripción",
-      "descriptionPlaceholder": "¿Para qué es este presupuesto?",
-      "scope": "Alcance",
-      "project": "Proyecto",
-      "projectPlaceholder": "Seleccionar proyecto",
-      "targetAmount": "Límite de gasto",
-      "noLimit": "Sin límite",
-      "currency": "Moneda",
-      "periodType": "Período",
-      "startDate": "Fecha de inicio",
-      "endDate": "Fecha de fin (opcional)"
-    },
     "scopes": {
-      "personal": "Personal",
-      "project": "Proyecto",
-      "department": "Departamento",
-      "company": "Empresa"
-    },
-    "periods": {
-      "monthly": "Mensual",
-      "quarterly": "Trimestral",
-      "semiannual": "Semestral",
-      "annual": "Anual",
-      "one_time": "Único"
-    },
-    "health": {
-      "healthy": "Saludable",
-      "on_track": "En curso",
-      "warning": "Advertencia",
-      "approaching": "Próximo al límite",
-      "overBudget": "Sobre el límite",
-      "noLimit": "Sin límite"
+      "personal": "Personal"
     },
     "summary": {
-      "income": "Ingresos",
-      "expenses": "Gastos",
-      "balance": "Saldo",
-      "remaining": "Restante",
-      "overBy": "Excedido por",
-      "noLimit": "Sin límite",
-      "used": "usado"
+      "balance": "Saldo"
     },
     "detail": {
-      "notFound": "Presupuesto no encontrado.",
-      "overBudget": "Sobre el límite",
-      "spent": "gastado",
-      "overBy": "Excedido por {{amount}}",
-      "totalSpent": "Total Gastado",
-      "balance": "Saldo",
-      "tabs": {
-        "transactions": "Transacciones",
-        "categories": "Categorías",
-        "members": "Miembros",
-        "recurring": "Recurrentes",
-        "report": "Reporte"
-      }
+      "balance": "Saldo"
     },
     "report": {
-      "title": "Reporte Anual",
-      "subtitle": "Gastos e ingresos por categoría a lo largo de los meses",
-      "item": "Transacciones",
-      "year": "Año",
-      "category": "Categoría",
-      "totalExpenses": "Total Gastos",
-      "totalIncome": "Total Ingresos",
-      "expensesTable": "Gastos por Categoría",
-      "incomeTable": "Ingresos por Categoría",
-      "balance": "Saldo",
-      "total": "Total",
-      "month": "Mes",
-      "accumExpenses": "Acum. Gastos",
-      "summarySection": "Resumen",
-      "noData": "Sin transacciones para {{year}}",
-      "showIncome": "Mostrar filas de ingresos",
-      "hideIncome": "Ocultar filas de ingresos",
-      "directLabel": "no planificado",
-      "directExpenseLabel": "no planificado"
-    },
-    "alerts": {
-      "overBudget": "presupuesto(s) sobre el límite"
-    },
-    "toast": {
-      "created": "Presupuesto creado exitosamente",
-      "updated": "Presupuesto actualizado exitosamente",
-      "deleted": "Presupuesto eliminado exitosamente"
-    },
-    "messages": {
-      "created": "Presupuesto creado exitosamente",
-      "updated": "Presupuesto actualizado exitosamente",
-      "deleted": "Presupuesto eliminado exitosamente",
-      "memberAdded": "Miembro agregado al presupuesto",
-      "memberRemoved": "Miembro eliminado del presupuesto",
-      "limitSet": "Límite de categoría guardado",
-      "recurrenceCreated": "Transacción recurrente creada",
-      "recurrenceDeleted": "Transacción recurrente eliminada"
-    },
-    "transactions": {
-      "count": "transacciones",
-      "add": "Agregar transacción",
-      "addTitle": "Agregar transacción al presupuesto",
-      "editTitle": "Editar transacción",
-      "deleteConfirm": "¿Eliminar esta transacción?",
-      "empty": "Sin transacciones vinculadas a este presupuesto.",
-      "noDescription": "Sin descripción",
-      "type": "Tipo",
-      "expense": "Gasto",
-      "income": "Ingreso",
-      "description": "Descripción",
-      "descriptionPlaceholder": "¿Para qué es esto?",
-      "amount": "Monto",
-      "date": "Fecha",
-      "category": "Categoría",
-      "categoryPlaceholder": "Seleccionar categoría"
-    },
-    "limits": {
-      "count": "límites de categoría",
-      "add": "Agregar límite",
-      "addTitle": "Establecer límite de categoría",
-      "editTitle": "Editar límite de categoría",
-      "empty": "Sin límites de categoría configurados.",
-      "category": "Categoría",
-      "selectCategory": "Seleccionar categoría",
-      "amount": "Monto límite",
-      "spent": "Gastado",
-      "allocated": "límite",
-      "toast": {
-        "upserted": "Límite de categoría guardado",
-        "deleted": "Límite de categoría eliminado"
-      }
-    },
-    "members": {
-      "count": "miembros",
-      "add": "Agregar miembro",
-      "addTitle": "Agregar miembro al presupuesto",
-      "empty": "Aún sin miembros.",
-      "owner": "Propietario",
-      "role": "Rol",
-      "searchUser": "Buscar usuarios",
-      "searchPlaceholder": "Escribe un nombre o email...",
-      "selectUser": "Seleccionar usuario",
-      "userPlaceholder": "Elige un usuario",
-      "addBtn": "Agregar Miembro",
-      "toast": {
-        "added": "Miembro agregado",
-        "roleUpdated": "Rol actualizado",
-        "removed": "Miembro eliminado"
-      }
-    },
-    "roles": {
-      "admin": "Administrador",
-      "contributor": "Contribuidor",
-      "viewer": "Lector"
+      "balance": "Saldo"
     },
     "recurrences": {
-      "count": "reglas",
-      "add": "Agregar regla",
-      "createTitle": "Crear regla de recurrencia",
-      "empty": "Aún sin reglas recurrentes.",
-      "noDescription": "Regla sin nombre",
-      "description": "Descripción",
-      "descriptionPlaceholder": "ej. Renta mensual",
-      "amount": "Monto",
-      "frequencyLabel": "Frecuencia",
-      "interval": "Cada (n)",
-      "startDate": "Fecha de inicio",
-      "category": "Categoría",
-      "categoryPlaceholder": "Sin categoría",
-      "nextOn": "próximo",
-      "pause": "Pausar",
-      "resume": "Reanudar",
-      "manualPause": "Pausado manualmente",
-      "status": {
-        "active": "Activo",
-        "paused": "Pausado",
-        "completed": "Completado"
-      },
-      "frequency": {
-        "daily": "Diario",
-        "weekly": "Semanal",
-        "monthly": "Mensual",
-        "quarterly": "Trimestral",
-        "semiannual": "Semestral",
-        "annual": "Anual"
-      },
-      "toast": {
-        "created": "Regla de recurrencia creada",
-        "updated": "Regla de recurrencia actualizada",
-        "deleted": "Regla de recurrencia eliminada"
-      },
       "type": "Tipo",
       "typeExpense": "Gasto",
       "typeIncome": "Ingreso"
-    },
-    "categories": {
-      "uncategorized": "Sin categoría"
-    },
-    "widgets": {
-      "refreshBalance": "Actualizar balance",
-      "refreshOverview": "Actualizar resumen",
-      "refreshCategories": "Actualizar categorías"
-    },
-    "import": {
-      "title": "Importar Presupuesto",
-      "description": "Sube un extracto bancario para analizar y crear un presupuesto con datos reales.",
-      "upload": {
-        "dropLabel": "Suelta el archivo aquí, o haz clic para seleccionar",
-        "dropSub": "Soportado: CSV, XLSX, extractos PDF bancarios",
-        "maxSize": "Máx {{size}}",
-        "supportedHint": "Compatible con cualquier formato bancario",
-        "supportedDesc": "Las columnas se detectan automáticamente en inglés, español y danés. Fechas y montos se manejan automáticamente."
-      },
-      "analysis": {
-        "title": "Resultados del Análisis",
-        "processing": "Analizando transacciones…",
-        "parsed": "Procesado",
-        "transactions": "transacciones",
-        "recurringFound": "{{count}} transacciones recurrentes detectadas",
-        "confidence": "Confianza",
-        "noRecurring": "No se detectaron transacciones recurrentes.",
-        "dateRange": "Período: {{from}} — {{to}}"
-      },
-      "confirm": {
-        "title": "Listo para Crear Presupuesto",
-        "readyTitle": "Importación lista",
-        "readyDesc": "{{recurrences}} reglas recurrentes y {{transactions}} transacciones en total. Crea el presupuesto para aplicarlas.",
-        "incomeRecurrences": "Ingresos recurrentes",
-        "expenseRecurrences": "Gastos recurrentes",
-        "nextStepHint": "Las reglas recurrentes se añadirán al nuevo presupuesto. Puedes revisarlas después de crearlo."
-      },
-      "actions": {
-        "import": "Importar",
-        "next": "Continuar",
-        "back": "Atrás",
-        "retry": "Intentar de nuevo",
-        "createBudget": "Crear Presupuesto",
-        "downloadOriginal": "Descargar archivo original"
-      },
-      "errors": {
-        "fileTooLarge": "El archivo supera el límite de 10 MB.",
-        "unsupportedType": "Solo se admiten archivos CSV, XLSX y PDF.",
-        "parseFailed": "No se pudo leer el archivo. Asegúrate de que sea un extracto bancario válido."
-      }
     }
   },
   "categories": {
-    "mutations": {
-      "created": "Categoría creada correctamente",
-      "updated": "Categoría actualizada correctamente",
-      "deleted": "Categoría eliminada correctamente"
-    },
-    "title": "Categorías",
-    "add": "Añadir Categoría",
-    "columns": {
-      "name": "Nombre",
-      "color": "Color"
-    },
-    "description": {
-      "create": "Añade una nueva categoría.",
-      "edit": "Actualizar detalles de la categoría."
-    },
-    "confirm": {
-      "delete": "¿Estás seguro de querer eliminar esta categoría?"
-    },
-    "error": {
-      "title": "Error",
-      "description": "Ocurrió un error al cargar las categorías."
-    },
     "nameLabel": "Nombre",
     "namePlaceholder": "Nombre de categoría",
     "colorLabel": "Color",
@@ -1159,17 +732,14 @@
   },
   "home": {
     "opening": {
-      "badge": "Modular · Tipado · Probado",
       "title": "La primera semana de cualquier SaaS,",
       "titleHighlight": "ya construida.",
-      "description": "La autenticación, la base de datos, la IA, las traducciones y los tests ya vienen conectados. Genere el proyecto en un minuto, entre en su propio dashboard en menos de una hora y dedique la semana a su producto, no a los cimientos.",
+      "description": "Auth, base de datos, IA, traducciones y tests vienen cableados. Empiezas por tu producto, no por los cimientos.",
       "ariaLabel": "Introducción: plantilla SaaS lista para producción",
       "copyCommandAria": "Copiar el comando de instalación",
-      "copiedFeedback": "Copiado",
       "ctaSecondary": "Vea qué incluye",
       "scrollCue": "Siga bajando",
       "arc": {
-        "ariaLabel": "Qué obtiene y cuándo",
         "scaffold": {
           "value": "60 s",
           "label": "para un proyecto en marcha"
@@ -1182,10 +752,10 @@
           "value": "5 d",
           "label": "para producción"
         }
-      }
+      },
+      "arcAriaLabel": "Qué obtiene y cuándo"
     },
     "friction": {
-      "eyebrow": "El costo oculto",
       "title": "Las primeras semanas desaparecen siempre en el mismo trabajo",
       "description": "Flujos de acceso, estructura de carpetas, runners de tests, Docker. Nada de eso diferencia su producto y todo puede salir mal. Esto es lo que la plantilla le quita de encima.",
       "withStarter": "Con la plantilla",
@@ -1370,7 +940,6 @@
       }
     },
     "manifesto": {
-      "eyebrow": "Por qué se sostiene",
       "items": {
         "structure": {
           "title": "Estructura",
@@ -1499,7 +1068,8 @@
     },
     "theme": {
       "title": "Theme",
-      "description": "Elige tu esquema de color preferido para la interfaz."
+      "description": "Elige tu esquema de color preferido para la interfaz.",
+      "label": "Tema"
     },
     "devtools": {
       "title": "Herramientas de desarrollador",
@@ -1560,7 +1130,10 @@
         "downloadEndpoint": "Endpoint de descarga",
         "statusEndpoint": "Endpoint de estado",
         "timeout": "Tiempo de espera (ms)",
-        "additionalParams": "Parámetros adicionales (JSON)"
+        "additionalParams": "Parámetros adicionales (JSON)",
+        "activeModel": "Modelo activo",
+        "apiUrl": "URL de la API",
+        "testResult": "Resultado de la prueba"
       },
       "actions": {
         "save": "Guardar configuración",
@@ -1577,7 +1150,8 @@
         "fallbackDescription": "El sistema intentará automáticamente el siguiente proveedor disponible si el activo falla.",
         "active": "Activo",
         "noModels": "No se encontraron modelos",
-        "modelsCount": "{{count}} modelos"
+        "modelsCount": "{{count}} modelos",
+        "updateError": "No se pudo actualizar el proveedor."
       }
     }
   },
@@ -1698,7 +1272,6 @@
       "statusPending": "Pendiente",
       "statusRejected": "Rechazado",
       "amountLabel": "Importe",
-      "amountPlaceholder": "0.00",
       "dateLabel": "Fecha",
       "userLabel": "Usuario",
       "userPlaceholder": "Seleccionar usuario",
@@ -1722,7 +1295,6 @@
       "delete": "¿Estás seguro de que quieres eliminar esta transacción?"
     },
     "error": {
-      "title": "Error",
       "description": "Ocurrió un error al cargar las transacciones."
     },
     "toast": {
@@ -1797,8 +1369,9 @@
     "export": "Exportar",
     "selectAllRows": "Seleccionar todas las filas",
     "selectRow": "Seleccionar fila",
-    "noResults": "No se encontraron resultados",
-    "clearFilters": "Limpiar filtros"
+    "all": "Todos",
+    "filterBy": "Filtrar por ",
+    "columns": "Columnas"
   },
   "databaseAdmin": {
     "title": "Administración de base de datos",
@@ -1881,7 +1454,7 @@
       "applied": "Aplicado",
       "pending": "Pendiente",
       "empty": "Sin migraciones en disco",
-      "dryRunOk": "Simulación OK — {{n}} archivo(s) pendiente(s)",
+      "dryRunOk": "Simulación OK: {{n}} archivo(s) pendiente(s)",
       "dryRunFail": "Simulación fallida",
       "confirmTitle": "¿Aplicar migraciones en {{label}}?",
       "confirmBody": "Cada archivo se confirmará por separado. Si falla, hace rollback y aborta la ejecución.",
@@ -1899,6 +1472,25 @@
       "result": "Resultado",
       "details": "Detalles",
       "empty": "Sin entradas de auditoría aún"
+    }
+  },
+  "aiLanguageAudit": {
+    "filters": {
+      "locale": "Idioma",
+      "provider": "Proveedor"
+    },
+    "table": {
+      "locale": "Idioma",
+      "provider": "Proveedor",
+      "querySnippet": "Fragmento de consulta",
+      "timestamp": "Fecha y hora"
+    }
+  },
+  "widgets": {
+    "configure": "Widgets",
+    "configurator": {
+      "reset": "Restablecer",
+      "title": "Gestionar widgets"
     }
   }
 }

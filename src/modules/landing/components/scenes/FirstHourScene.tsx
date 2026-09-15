@@ -16,6 +16,7 @@ import {
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui'
+import type { FirstHourStackItemId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 const STACK_ITEMS = [
@@ -25,7 +26,7 @@ const STACK_ITEMS = [
   { id: 'data', icon: Database },
   { id: 'ai', icon: Bot },
   { id: 'quality', icon: ShieldCheck },
-] as const
+] as const satisfies readonly { id: FirstHourStackItemId; icon: unknown }[]
 
 const gridContainer: Variants = {
   hidden: { opacity: 0 },
@@ -210,7 +211,9 @@ export function FirstHourScene() {
                           {t('home.firstHour.mock.volume', 'Volume')}
                         </p>
                         <p className="mt-0.5 text-sm font-semibold text-foreground">$12,450.00</p>
-                        <span className="text-[8px] font-bold text-green-500">▲ +12.4%</span>
+                        <span className="text-[8px] font-bold text-emerald-700 dark:text-emerald-400">
+                          ▲ +12.4%
+                        </span>
                       </div>
                       <div className="rounded-lg border border-border/40 bg-muted/20 p-3">
                         <p className="text-[10px] font-bold uppercase text-muted-foreground">
@@ -228,7 +231,7 @@ export function FirstHourScene() {
                           {t('home.firstHour.mock.apiLatency', 'API latency')}
                         </p>
                         <p className="mt-0.5 text-sm font-semibold text-foreground">48 ms</p>
-                        <span className="text-[8px] font-bold text-green-500">
+                        <span className="text-[8px] font-bold text-emerald-700 dark:text-emerald-400">
                           {t('home.firstHour.mock.operational', '100% operational')}
                         </span>
                       </div>
@@ -252,7 +255,7 @@ export function FirstHourScene() {
                             {t('home.firstHour.mock.today', 'Today, 10:14 AM')}
                           </span>
                           <span className="font-bold text-foreground">$1,200.00</span>
-                          <span className="rounded bg-green-500/10 px-1.5 text-[8px] font-semibold text-green-500">
+                          <span className="rounded bg-green-500/10 px-1.5 text-[8px] font-semibold text-emerald-700 dark:text-emerald-400">
                             {t('home.firstHour.mock.approved', 'Approved')}
                           </span>
                         </div>
@@ -264,7 +267,7 @@ export function FirstHourScene() {
                             {t('home.firstHour.mock.yesterday', 'Yesterday, 4:32 PM')}
                           </span>
                           <span className="font-bold text-foreground">$450.00</span>
-                          <span className="rounded bg-amber-500/10 px-1.5 text-[8px] font-semibold text-amber-500">
+                          <span className="rounded bg-amber-500/10 px-1.5 text-[8px] font-semibold text-amber-700 dark:text-amber-400">
                             {t('home.firstHour.mock.pending', 'Pending')}
                           </span>
                         </div>

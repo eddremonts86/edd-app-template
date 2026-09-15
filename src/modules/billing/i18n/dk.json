@@ -1,0 +1,29 @@
+{
+  "unconfigured": "Fakturering er ikke konfigureret. Sæt STRIPE_SECRET_KEY for at aktivere betaling.",
+  "nav": {
+    "title": "Fakturering",
+    "subscription": "Abonnement"
+  },
+  "title": "Fakturering",
+  "description": "Dit abonnement og din betalingsmetode.",
+  "status": {
+    "none": "Intet abonnement",
+    "trialing": "Prøveperiode",
+    "active": "Aktiv",
+    "past_due": "Betaling mislykkedes",
+    "canceled": "Annulleret",
+    "unknown": "Ukendt"
+  },
+  "renewsOn": "Fornyes den {{date}}",
+  "endsOn": "Slutter den {{date}}",
+  "cancelAtPeriodEnd": "Annulleres ved periodens udløb.",
+  "manage": "Administrer fakturering",
+  "webhookMissing": "Betaling virker, men STRIPE_WEBHOOK_SECRET er ikke sat — abonnementsændringer registreres ikke.",
+  "error": {
+    "unconfigured": "Fakturering er ikke konfigureret, så der er endnu intet at administrere.",
+    "unknown_customer": "Du har endnu ingen faktureringskonto. Den oprettes med dit første abonnement.",
+    "provider_rejected": "Stripe afviste anmodningen. Et nyt forsøg hjælper ikke — det kræver en ændring hos os.",
+    "provider_unavailable": "Stripe svarede ikke. Prøv igen om et øjeblik.",
+    "unexpected": "Faktureringsportalen kunne ikke åbnes. Prøv igen om et øjeblik."
+  }
+}

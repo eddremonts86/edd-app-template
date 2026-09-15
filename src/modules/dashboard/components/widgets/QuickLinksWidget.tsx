@@ -32,21 +32,21 @@ const LINKS: QuickLink[] = [
     labelKey: 'dashboard.overview.quickLinks.messages',
     descKey: 'dashboard.overview.quickLinks.messagesDesc',
     icon: <IconMessage2 className="h-4 w-4" />,
-    accent: 'bg-sky-500/10 text-sky-500',
+    accent: 'bg-[var(--chart-2)]/10 text-[var(--chart-2)]',
   },
   {
     to: '/dashboard/help',
     labelKey: 'dashboard.overview.quickLinks.help',
     descKey: 'dashboard.overview.quickLinks.helpDesc',
     icon: <IconHelpCircle className="h-4 w-4" />,
-    accent: 'bg-amber-500/10 text-amber-500',
+    accent: 'bg-[var(--chart-4)]/15 text-[var(--chart-4)]',
   },
   {
     to: '/dashboard/settings',
     labelKey: 'dashboard.overview.quickLinks.settings',
     descKey: 'dashboard.overview.quickLinks.settingsDesc',
     icon: <IconSettings className="h-4 w-4" />,
-    accent: 'bg-violet-500/10 text-violet-500',
+    accent: 'bg-[var(--chart-3)]/10 text-[var(--chart-3)]',
   },
 ]
 

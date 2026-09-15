@@ -3,7 +3,7 @@
 set -eu
 
 QUERY="${1:-resume las secciones principales del dashboard}"
-BASE_URL="${APP_URL:-http://localhost:3000}"
+BASE_URL="${APP_URL:-http://localhost:2999}"
 STATUS_URL="$BASE_URL/api/ai/status"
 SEARCH_URL="$BASE_URL/api/ai/search"
 
