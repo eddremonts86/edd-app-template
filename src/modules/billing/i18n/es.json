@@ -1,6 +1,8 @@
 {
   "unconfigured": "La facturación no está configurada. Define STRIPE_SECRET_KEY para habilitar el pago.",
-  "nav": { "title": "Facturación" },
+  "nav": {
+    "title": "Facturación"
+  },
   "title": "Facturación",
   "description": "Tu suscripción y tu método de pago.",
   "status": {
@@ -15,5 +17,12 @@
   "endsOn": "Termina el {{date}}",
   "cancelAtPeriodEnd": "Se cancela al final del periodo.",
   "manage": "Gestionar facturación",
-  "webhookMissing": "El pago funciona, pero STRIPE_WEBHOOK_SECRET no está definido — los cambios de suscripción no se registrarán."
+  "webhookMissing": "El pago funciona, pero STRIPE_WEBHOOK_SECRET no está definido — los cambios de suscripción no se registrarán.",
+  "error": {
+    "unconfigured": "La facturación no está configurada, así que todavía no hay nada que gestionar.",
+    "unknown_customer": "Todavía no tienes cuenta de facturación. Se crea con tu primera suscripción.",
+    "provider_rejected": "Stripe rechazó la petición. Reintentar no sirve — hace falta un cambio por nuestra parte.",
+    "provider_unavailable": "Stripe no respondió. Inténtalo de nuevo en un momento.",
+    "unexpected": "No se pudo abrir el portal de facturación. Inténtalo de nuevo en un momento."
+  }
 }

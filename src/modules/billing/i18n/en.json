@@ -1,6 +1,8 @@
 {
   "unconfigured": "Billing is not configured. Set STRIPE_SECRET_KEY to enable checkout.",
-  "nav": { "title": "Billing" },
+  "nav": {
+    "title": "Billing"
+  },
   "title": "Billing",
   "description": "Your subscription and payment method.",
   "status": {
@@ -15,5 +17,12 @@
   "endsOn": "Ends on {{date}}",
   "cancelAtPeriodEnd": "Cancels at the end of the period.",
   "manage": "Manage billing",
-  "webhookMissing": "Checkout works, but STRIPE_WEBHOOK_SECRET is not set — subscription changes will not be recorded."
+  "webhookMissing": "Checkout works, but STRIPE_WEBHOOK_SECRET is not set — subscription changes will not be recorded.",
+  "error": {
+    "unconfigured": "Billing is not configured, so there is nothing to manage yet.",
+    "unknown_customer": "You have no billing account yet. One is created with your first subscription.",
+    "provider_rejected": "Stripe refused the request. Trying again will not help — this needs a change on our side.",
+    "provider_unavailable": "Stripe did not answer. Try again in a moment.",
+    "unexpected": "The billing portal could not be opened. Try again in a moment."
+  }
 }

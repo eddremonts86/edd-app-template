@@ -39,6 +39,28 @@ export function BillingPanel() {
     },
   })
 
+  /**
+   * The server fn reports a refusal as `{ error: code }` rather than throwing,
+   * so it lands in `onSuccess` and the panel used to drop it — the button did
+   * nothing and the only thing left to try was pressing it again.
+   *
+   * A throw is separate and is not the provider's fault by default: it can be
+   * the session expiring or the request never leaving the browser.
+   */
+  const failureCode = portal.isPending
+    ? undefined
+    : portal.isError
+      ? 'unexpected'
+      : portal.data && 'error' in portal.data
+        ? portal.data.error
+        : undefined
+
+  // A code we have no copy for still says something, the way an unknown status
+  // does above, rather than printing an enum at somebody.
+  const failureMessage = failureCode
+    ? t(`billing.error.${failureCode}`, { defaultValue: t('billing.error.unexpected') })
+    : undefined
+
   const status = data?.summary.status
   const statusKey = status ? `billing.status.${status}` : 'billing.status.none'
   // Stripe may invent a status we have no label for; say "unknown" rather than
@@ -98,6 +120,13 @@ export function BillingPanel() {
             {t('billing.manage')}
           </Button>
         </div>
+
+        {failureMessage && (
+          <Alert variant="destructive">
+            <AlertCircle className="size-4" />
+            <AlertDescription>{failureMessage}</AlertDescription>
+          </Alert>
+        )}
       </CardContent>
     </Card>
   )
