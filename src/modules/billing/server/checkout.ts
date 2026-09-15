@@ -3,7 +3,7 @@ import { getDb } from '@/shared/lib/db'
 import { logger } from '@/shared/lib/observability'
 import { billingCustomers, billingSubscriptions } from '../model/schema'
 import { BillingError, isPaying, type BillingSummary } from '../model/types'
-import { resolveStripe } from './provider'
+import { classifyStripeFailure, resolveStripe } from './provider'
 
 /**
  * The three things the app asks billing to do. None of them takes a card.
@@ -31,7 +31,17 @@ async function customerIdFor(userId: string, email: string): Promise<string> {
   const client = resolveStripe()
   if (!client) throw new BillingError('unconfigured')
 
-  const customer = await client.customers.create({ email, metadata: { userId } })
+  // Outside the caller's try until a live run pointed it out, which made this
+  // the one path where a raw Stripe error left the module (§3.4).
+  let customer: Awaited<ReturnType<typeof client.customers.create>>
+  try {
+    customer = await client.customers.create({ email, metadata: { userId } })
+  } catch (error) {
+    const failure = classifyStripeFailure(error)
+    logger.warn('billing.customer.failed', failure.detail)
+    throw new BillingError(failure.code)
+  }
+
   await db
     .insert(billingCustomers)
     .values({ userId, providerCustomerId: customer.id })
@@ -77,9 +87,12 @@ export async function createCheckoutSession(request: CheckoutRequest): Promise<s
     return session.url
   } catch (error) {
     if (error instanceof BillingError) throw error
-    // The vendor's error class stops here.
-    logger.warn('billing.checkout.failed', {})
-    throw new BillingError('provider_unavailable')
+    // The vendor's error class stops here, but which side failed does not:
+    // a price we got wrong is `provider_rejected`, a 5xx is
+    // `provider_unavailable`, and the log says which.
+    const failure = classifyStripeFailure(error)
+    logger.warn('billing.checkout.failed', failure.detail)
+    throw new BillingError(failure.code)
   }
 }
 
@@ -103,9 +116,10 @@ export async function createBillingPortalLink(userId: string): Promise<string> {
       return_url: `${appUrl()}/dashboard/settings/billing`,
     })
     return session.url
-  } catch {
-    logger.warn('billing.portal.failed', {})
-    throw new BillingError('provider_unavailable')
+  } catch (error) {
+    const failure = classifyStripeFailure(error)
+    logger.warn('billing.portal.failed', failure.detail)
+    throw new BillingError(failure.code)
   }
 }
 

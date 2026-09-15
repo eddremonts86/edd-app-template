@@ -103,9 +103,11 @@ try {
       await createCheckoutSession({ userId, email, priceId: oneTime.id })
       check('a one-time price in subscription mode is refused', false, 'it was accepted')
     } catch (error) {
+      // Not just "a BillingError": the code has to say *our* parameters were
+      // wrong. It read `provider_unavailable` until a live run caught it.
       check(
-        'a one-time price raises BillingError, not a Stripe error',
-        error instanceof BillingError,
+        'a one-time price is provider_rejected, not provider_unavailable',
+        error instanceof BillingError && error.code === 'provider_rejected',
         `${(error as Error).name}/${(error as BillingError).code}`,
       )
     }

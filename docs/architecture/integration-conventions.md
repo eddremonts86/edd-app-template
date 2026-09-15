@@ -201,6 +201,23 @@ export class StorageProviderError extends Error {
 This is builderhunt's pattern and it is the reason its storage layer could move
 from one backend to another as a configuration change.
 
+**The union must separate a refusal from an outage.** `provider_rejected` means
+the vendor understood the request and said no — a price that does not exist, a
+key without the permission, a parameter we got wrong. The fix is in this
+repository. `provider_unavailable` means no verdict arrived — a connection
+failure, a 5xx, a rate limit. The fix is to wait.
+
+Collapsing them costs an incident: a bad price id reported as
+`provider_unavailable` sends whoever is on call to the vendor's status page to
+debug our own parameters. This happened here, and was only visible in a live
+run, because a mocked error is whichever one the test author chose.
+
+Classify with the SDK's own error subclasses where it has them rather than with
+status numbers — Stripe returns a rate limit as HTTP **400** with
+`code: 'rate_limit'` as well as as 429, and a hand-rolled check on the number
+gets that backwards. Log the classification and the vendor's stable code, never
+the vendor's message: the message can quote a parameter value back at you.
+
 ### 3.5 Pinned API versions travel with the SDK
 
 Where a vendor has dated API versions, pin them in a `const` beside the client

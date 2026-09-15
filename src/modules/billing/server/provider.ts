@@ -82,3 +82,58 @@ export function webhookSecrets(): string[] {
 export function isWebhookConfigured(): boolean {
   return webhookSecrets().length > 0
 }
+
+/**
+ * Which side a failure came from.
+ *
+ * `provider_rejected` means Stripe understood the request and refused it: a
+ * price that does not exist, a one-time price asked for in subscription mode, a
+ * key without the right permission. The verdict arrived; we do not like it. The
+ * fix is in this repository.
+ *
+ * `provider_unavailable` means no verdict arrived — a connection failure, a
+ * 5xx, a rate limit. The fix is to wait, or to look at Stripe.
+ *
+ * Collapsing the two is what this function exists to stop. A live run against
+ * test mode reported a bad price id as `provider_unavailable`, which sends
+ * whoever is on call to Stripe's status page to debug our own parameters.
+ *
+ * The classification is Stripe's own — its error subclasses already encode it,
+ * including the case a hand-rolled check gets wrong: a rate limit can arrive as
+ * HTTP 400 with `code: 'rate_limit'`, not only as 429.
+ */
+export interface StripeFailure {
+  code: 'provider_rejected' | 'provider_unavailable'
+  /** For the log. A class name and Stripe's stable code — never a value we sent. */
+  detail: Record<string, string>
+}
+
+export function classifyStripeFailure(error: unknown): StripeFailure {
+  const detail = {
+    // Stripe's classes leave `name` as 'Error' and put the subclass on `type`,
+    // so reading `name` here logs 'Error' for every one of them.
+    type:
+      error instanceof Stripe.errors.StripeError
+        ? error.type
+        : error instanceof Error
+          ? error.name
+          : 'unknown',
+    // Stripe's machine-readable code: `resource_missing`, `parameter_invalid_*`.
+    // An enum, not user data.
+    reason: (error as { code?: string } | null)?.code ?? 'none',
+  }
+
+  const noVerdict =
+    error instanceof Stripe.errors.StripeConnectionError ||
+    error instanceof Stripe.errors.StripeRateLimitError ||
+    error instanceof Stripe.errors.StripeAPIError
+
+  // Anything that is not a Stripe error at all is not ours to label either —
+  // it is a throw from somewhere we did not expect, so it gets the code that
+  // does not claim Stripe said anything.
+  if (noVerdict || !(error instanceof Stripe.errors.StripeError)) {
+    return { code: 'provider_unavailable', detail }
+  }
+
+  return { code: 'provider_rejected', detail }
+}
