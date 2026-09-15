@@ -350,7 +350,10 @@ template content:
 2. Point a local Coolify resource at it, domain `http://<app>.localhost`.
 3. Point the production resource at `main`.
 4. Set the three secrets above to **production's** UUID.
-5. Make `quality` a required status check on both branches, or it is decoration.
+5. Make both workflows required status checks on both branches, or they are
+   decoration. Neither may carry a `paths` filter once required: a filtered
+   workflow does not run when a pull request touches none of its paths, so the
+   required check never reports and the pull request can never be merged.
 6. Add the app to the local deploy poller — a GitHub-hosted runner cannot reach
    your Mac, so nothing will ever trigger the local Coolify from a workflow.
 

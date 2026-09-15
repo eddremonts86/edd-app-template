@@ -1,44 +1,23 @@
 name: auth-local-e2e
 
+# No `paths` filter, and `dev` alongside `main`.
+#
+# This is a required status check. A filtered workflow simply does not run when
+# a pull request touches none of its paths, the required check never reports,
+# and the pull request can never be merged — the check is not "passed", it is
+# permanently pending. The filter saved about ninety seconds and could deadlock
+# every merge that did not happen to touch auth.
 on:
   pull_request:
     branches:
       - main
       - master
-    paths:
-      - '.github/workflows/auth-local-e2e.yml'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'playwright.auth-local.config.ts'
-      - 'scripts/testing/e2e-ci-local.sh'
-      - 'scripts/testing/prepare-auth-e2e-db.ts'
-      - 'src/shared/lib/auth/**'
-      - 'src/modules/auth/**'
-      - 'src/modules/users/**'
-      - 'src/modules/dashboard/ui/navigation/NavUser.tsx'
-      - 'tests/e2e/auth*.local.spec.ts'
-      - 'tests/e2e/utils/auth-local*.ts'
-      - 'src/shared/lib/db/schema.ts'
-      - 'drizzle/**'
+      - dev
   push:
     branches:
       - main
       - master
-    paths:
-      - '.github/workflows/auth-local-e2e.yml'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'playwright.auth-local.config.ts'
-      - 'scripts/testing/e2e-ci-local.sh'
-      - 'scripts/testing/prepare-auth-e2e-db.ts'
-      - 'src/shared/lib/auth/**'
-      - 'src/modules/auth/**'
-      - 'src/modules/users/**'
-      - 'src/modules/dashboard/ui/navigation/NavUser.tsx'
-      - 'tests/e2e/auth*.local.spec.ts'
-      - 'tests/e2e/utils/auth-local*.ts'
-      - 'src/shared/lib/db/schema.ts'
-      - 'drizzle/**'
+      - dev
 
 jobs:
   auth-local:
