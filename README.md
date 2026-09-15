@@ -210,6 +210,17 @@ Supported providers out of the box: **OpenAI**, **Anthropic Claude**, **Ollama**
 | `pnpm routes:inventory` | Regenerate `docs/testing/routes-inventory.yaml`     |
 | `pnpm i18n:check`       | Verify all 3 locales have matching translation keys |
 
+### Third-party verification
+
+Opt-in, never part of `pnpm test` — the integration conventions (§8.4) keep a
+live third-party account out of the suite. Point the `STRIPE_*` / `STORAGE_*`
+variables at an account you control and run them by hand.
+
+| Command               | Description                                                              |
+| --------------------- | ------------------------------------------------------------------------ |
+| `pnpm verify:stripe`  | Checkout, portal, and a real signed webhook against Stripe **test mode** |
+| `pnpm verify:storage` | Presign/upload/head/move/read/delete against a real S3 server (MinIO)    |
+
 ### Release
 
 | Command        | Description                                                |

@@ -439,8 +439,16 @@ credential store and follow the same rules: server-only, listed in
   every module. This is the contract, so it is the test that must exist.
 - **Contract:** webhook signature verification against a recorded raw payload,
   including one with the previous secret.
-- **Never:** a test that requires a live third-party account. The unconfigured
-  path is testable by construction, which is another reason it is the default.
+- **Never in the suite:** a test that requires a live third-party account. The
+  unconfigured path is testable by construction, which is another reason it is
+  the default.
+- **Opt-in verification, outside the suite:** `scripts/verify/<integration>.ts`,
+  run by hand against an account you control, never from CI. It exists for the
+  claims a mock cannot settle — that a presigned PUT really does not cap the
+  body size, that the signed `content-type` really is enforced, that a real
+  subscription object really carries `current_period_end` on the item rather
+  than on the subscription. Each of those was prose in a comment until a live
+  run turned it into a result.
 - A dev/E2E capture transport (email writes to a table instead of sending) is
   what makes the rest testable. builderhunt has it; port it.
 

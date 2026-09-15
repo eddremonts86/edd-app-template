@@ -84,7 +84,9 @@
     "i18n:check": "tsx scripts/i18n/check-translations.ts",
     "validate": "pnpm type-check && pnpm lint && pnpm prettier --check src/ && pnpm prettier --check tests/ && pnpm env:check && pnpm i18n:check && pnpm test",
     "prepare": "husky",
-    "env:check": "tsx scripts/env/check-env.ts"
+    "env:check": "tsx scripts/env/check-env.ts",
+    "verify:stripe": "tsx --env-file=.env scripts/verify/stripe.ts",
+    "verify:storage": "tsx --env-file=.env scripts/verify/storage.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": [
