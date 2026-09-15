@@ -77,7 +77,7 @@
       {
         "label": "Database",
         "labelEs": "Database",
-        "url": "/dashboard/admin/database",
+        "url": "/dashboard/settings/database",
         "description": "Database administration: migrations, connection profiles and audit. Super admin only.",
         "descriptionEs": "Database administration: migrations, connection profiles and audit. Super admin only."
       }
@@ -163,7 +163,7 @@
       "features": ["Branding", "Social links"],
       "actions": ["Edit the branding"]
     },
-    "/dashboard/admin/database": {
+    "/dashboard/settings/database": {
       "title": "Database administration",
       "titleEs": "Database administration",
       "features": [
@@ -181,7 +181,7 @@
       "contactMessages": "Contact messages are at /dashboard/contact-messages.",
       "settings": "Settings are under /dashboard/settings — language and theme at /dashboard/settings/system.",
       "ai": "The AI provider and model are configured at /dashboard/settings/ia_config.",
-      "database": "Database administration is at /dashboard/admin/database, for super admins only.",
+      "database": "Database administration is at /dashboard/settings/database, for super admins only.",
       "help": "The AI assistant is at /dashboard/help."
     },
     "howTo": {

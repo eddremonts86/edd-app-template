@@ -3,7 +3,15 @@ import type { ComponentType, ReactNode } from 'react'
 import type { AppRoleKey } from '@/modules/users/model/permissions'
 
 export type AppModuleRouteKind = 'page' | 'layout' | 'api'
-export type ModuleNavigationKind = 'main' | 'secondary'
+/**
+ * Where a module's navigation entry belongs.
+ *
+ * `settings` puts it inside the settings page's own nav rather than the
+ * sidebar. Billing and the database tools were sitting in the sidebar footer
+ * beside Help, which reads as "utilities" when both are settings — one of them
+ * is literally a `/dashboard/settings/*` route.
+ */
+export type ModuleNavigationKind = 'main' | 'secondary' | 'settings'
 export type ModuleActionId = 'open-ai-search'
 export type ModuleBadgeId = 'pending-transactions' | 'over-budget'
 export type WidgetSize = 'sm' | 'md' | 'lg' | 'full'
@@ -51,6 +59,8 @@ export interface AppModuleNavigationItem {
 export interface AppModuleNavigationSection {
   id: string
   title: string
+  /** Translated section label; `title` is the fallback. */
+  titleKey?: string
   kind: ModuleNavigationKind
   order: number
   items: AppModuleNavigationItem[]

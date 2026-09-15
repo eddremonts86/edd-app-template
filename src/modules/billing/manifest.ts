@@ -21,13 +21,16 @@ export const billingModule: AppModuleManifest = {
     {
       id: 'billing',
       title: 'Billing',
-      kind: 'secondary',
+      titleKey: 'billing.nav.title',
+      kind: 'settings',
       order: 60,
       items: [
         {
           id: 'billing-settings',
-          titleKey: 'billing.nav.title',
-          fallbackTitle: 'Billing',
+          // The group is already called Billing; repeating it in the only
+          // item reads as a stutter, the way Branding does not repeat itself.
+          titleKey: 'billing.nav.subscription',
+          fallbackTitle: 'Subscription',
           icon: IconCreditCard,
           to: '/dashboard/settings/billing',
         },

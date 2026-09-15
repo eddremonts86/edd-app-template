@@ -7,19 +7,22 @@ export const databaseAdminModule: AppModuleManifest = {
   description:
     'Super-admin tools for managing database connection profiles, running migrations, and inspecting an audit trail.',
   enabledByDefault: true,
-  routes: [{ path: '/dashboard/admin/database', kind: 'page' }],
+  routes: [{ path: '/dashboard/settings/database', kind: 'page' }],
   navigation: [
     {
-      id: 'admin',
-      title: 'Administration',
-      kind: 'secondary',
-      order: 90,
+      // Merges into the settings page's "Advanced" group, whose description
+      // has always read "DB, logs, tokens" while the database tools lived in
+      // the sidebar footer instead.
+      id: 'system',
+      title: 'Advanced',
+      kind: 'settings',
+      order: 30,
       items: [
         {
           id: 'database-admin',
           titleKey: 'databaseAdmin.nav.title',
           fallbackTitle: 'Database',
-          to: '/dashboard/admin/database',
+          to: '/dashboard/settings/database',
           icon: IconDatabase,
           requiredRole: 'super_admin',
           order: 10,

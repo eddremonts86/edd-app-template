@@ -1,7 +1,8 @@
 {
   "unconfigured": "Fakturering er ikke konfigureret. Sæt STRIPE_SECRET_KEY for at aktivere betaling.",
   "nav": {
-    "title": "Fakturering"
+    "title": "Fakturering",
+    "subscription": "Abonnement"
   },
   "title": "Fakturering",
   "description": "Dit abonnement og din betalingsmetode.",

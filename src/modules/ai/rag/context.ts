@@ -561,7 +561,7 @@ export async function injectDynamicContext(query: string, locale: string = 'en')
         contactMessages: '/dashboard/contact-messages',
         settings: '/dashboard/settings/system',
         ai: '/dashboard/settings/ia_config',
-        database: '/dashboard/admin/database',
+        database: '/dashboard/settings/database',
         help: '/dashboard/help',
       }
 

@@ -33,10 +33,10 @@ import { Route as ApiAiStatusRouteImport } from './routes/api/ai/status'
 import { Route as ApiAiTestConnectionRouteImport } from './routes/api/ai/test-connection'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as ApiBillingWebhookRouteImport } from './routes/api/billing/webhook'
-import { Route as DashboardDashboardAdminDatabaseRouteImport } from './routes/_dashboard/dashboard/admin/database'
 import { Route as DashboardDashboardSettingsIndexRouteImport } from './routes/_dashboard/dashboard/settings/index'
 import { Route as DashboardDashboardSettingsAi_logsRouteImport } from './routes/_dashboard/dashboard/settings/ai_logs'
 import { Route as DashboardDashboardSettingsBillingRouteImport } from './routes/_dashboard/dashboard/settings/billing'
+import { Route as DashboardDashboardSettingsDatabaseRouteImport } from './routes/_dashboard/dashboard/settings/database'
 import { Route as DashboardDashboardSettingsDev_toolsRouteImport } from './routes/_dashboard/dashboard/settings/dev_tools'
 import { Route as DashboardDashboardSettingsIa_configRouteImport } from './routes/_dashboard/dashboard/settings/ia_config'
 import { Route as DashboardDashboardSettingsSite_settingsRouteImport } from './routes/_dashboard/dashboard/settings/site_settings'
@@ -178,12 +178,6 @@ const ApiBillingWebhookRoute = ApiBillingWebhookRouteImport.update({
   path: '/api/billing/webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardDashboardAdminDatabaseRoute =
-  DashboardDashboardAdminDatabaseRouteImport.update({
-    id: '/admin/database',
-    path: '/admin/database',
-    getParentRoute: () => DashboardDashboardRouteRoute,
-  } as any)
 const DashboardDashboardSettingsIndexRoute =
   DashboardDashboardSettingsIndexRouteImport.update({
     id: '/',
@@ -200,6 +194,12 @@ const DashboardDashboardSettingsBillingRoute =
   DashboardDashboardSettingsBillingRouteImport.update({
     id: '/billing',
     path: '/billing',
+    getParentRoute: () => DashboardDashboardSettingsRouteRoute,
+  } as any)
+const DashboardDashboardSettingsDatabaseRoute =
+  DashboardDashboardSettingsDatabaseRouteImport.update({
+    id: '/database',
+    path: '/database',
     getParentRoute: () => DashboardDashboardSettingsRouteRoute,
   } as any)
 const DashboardDashboardSettingsDev_toolsRoute =
@@ -346,9 +346,9 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/dashboard/': typeof DashboardDashboardIndexRoute
-  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -392,9 +392,9 @@ export interface FileRoutesByTo {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/dashboard': typeof DashboardDashboardIndexRoute
-  '/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -444,9 +444,9 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/api/billing/webhook': typeof ApiBillingWebhookRoute
   '/_dashboard/dashboard/': typeof DashboardDashboardIndexRoute
-  '/_dashboard/dashboard/admin/database': typeof DashboardDashboardAdminDatabaseRoute
   '/_dashboard/dashboard/settings/ai_logs': typeof DashboardDashboardSettingsAi_logsRoute
   '/_dashboard/dashboard/settings/billing': typeof DashboardDashboardSettingsBillingRoute
+  '/_dashboard/dashboard/settings/database': typeof DashboardDashboardSettingsDatabaseRoute
   '/_dashboard/dashboard/settings/dev_tools': typeof DashboardDashboardSettingsDev_toolsRoute
   '/_dashboard/dashboard/settings/ia_config': typeof DashboardDashboardSettingsIa_configRoute
   '/_dashboard/dashboard/settings/site_settings': typeof DashboardDashboardSettingsSite_settingsRoute
@@ -494,9 +494,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/billing/webhook'
     | '/dashboard/'
-    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/billing'
+    | '/dashboard/settings/database'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/site_settings'
@@ -540,9 +540,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/billing/webhook'
     | '/dashboard'
-    | '/dashboard/admin/database'
     | '/dashboard/settings/ai_logs'
     | '/dashboard/settings/billing'
+    | '/dashboard/settings/database'
     | '/dashboard/settings/dev_tools'
     | '/dashboard/settings/ia_config'
     | '/dashboard/settings/site_settings'
@@ -591,9 +591,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/api/billing/webhook'
     | '/_dashboard/dashboard/'
-    | '/_dashboard/dashboard/admin/database'
     | '/_dashboard/dashboard/settings/ai_logs'
     | '/_dashboard/dashboard/settings/billing'
+    | '/_dashboard/dashboard/settings/database'
     | '/_dashboard/dashboard/settings/dev_tools'
     | '/_dashboard/dashboard/settings/ia_config'
     | '/_dashboard/dashboard/settings/site_settings'
@@ -804,13 +804,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiBillingWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_dashboard/dashboard/admin/database': {
-      id: '/_dashboard/dashboard/admin/database'
-      path: '/admin/database'
-      fullPath: '/dashboard/admin/database'
-      preLoaderRoute: typeof DashboardDashboardAdminDatabaseRouteImport
-      parentRoute: typeof DashboardDashboardRouteRoute
-    }
     '/_dashboard/dashboard/settings/': {
       id: '/_dashboard/dashboard/settings/'
       path: '/'
@@ -830,6 +823,13 @@ declare module '@tanstack/react-router' {
       path: '/billing'
       fullPath: '/dashboard/settings/billing'
       preLoaderRoute: typeof DashboardDashboardSettingsBillingRouteImport
+      parentRoute: typeof DashboardDashboardSettingsRouteRoute
+    }
+    '/_dashboard/dashboard/settings/database': {
+      id: '/_dashboard/dashboard/settings/database'
+      path: '/database'
+      fullPath: '/dashboard/settings/database'
+      preLoaderRoute: typeof DashboardDashboardSettingsDatabaseRouteImport
       parentRoute: typeof DashboardDashboardSettingsRouteRoute
     }
     '/_dashboard/dashboard/settings/dev_tools': {
@@ -985,6 +985,7 @@ declare module '@tanstack/react-router' {
 interface DashboardDashboardSettingsRouteRouteChildren {
   DashboardDashboardSettingsAi_logsRoute: typeof DashboardDashboardSettingsAi_logsRoute
   DashboardDashboardSettingsBillingRoute: typeof DashboardDashboardSettingsBillingRoute
+  DashboardDashboardSettingsDatabaseRoute: typeof DashboardDashboardSettingsDatabaseRoute
   DashboardDashboardSettingsDev_toolsRoute: typeof DashboardDashboardSettingsDev_toolsRoute
   DashboardDashboardSettingsIa_configRoute: typeof DashboardDashboardSettingsIa_configRoute
   DashboardDashboardSettingsSite_settingsRoute: typeof DashboardDashboardSettingsSite_settingsRoute
@@ -998,6 +999,8 @@ const DashboardDashboardSettingsRouteRouteChildren: DashboardDashboardSettingsRo
       DashboardDashboardSettingsAi_logsRoute,
     DashboardDashboardSettingsBillingRoute:
       DashboardDashboardSettingsBillingRoute,
+    DashboardDashboardSettingsDatabaseRoute:
+      DashboardDashboardSettingsDatabaseRoute,
     DashboardDashboardSettingsDev_toolsRoute:
       DashboardDashboardSettingsDev_toolsRoute,
     DashboardDashboardSettingsIa_configRoute:
@@ -1020,7 +1023,6 @@ interface DashboardDashboardRouteRouteChildren {
   DashboardDashboardHelpRoute: typeof DashboardDashboardHelpRoute
   DashboardDashboardUsersRoute: typeof DashboardDashboardUsersRoute
   DashboardDashboardIndexRoute: typeof DashboardDashboardIndexRoute
-  DashboardDashboardAdminDatabaseRoute: typeof DashboardDashboardAdminDatabaseRoute
 }
 
 const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren =
@@ -1032,7 +1034,6 @@ const DashboardDashboardRouteRouteChildren: DashboardDashboardRouteRouteChildren
     DashboardDashboardHelpRoute: DashboardDashboardHelpRoute,
     DashboardDashboardUsersRoute: DashboardDashboardUsersRoute,
     DashboardDashboardIndexRoute: DashboardDashboardIndexRoute,
-    DashboardDashboardAdminDatabaseRoute: DashboardDashboardAdminDatabaseRoute,
   }
 
 const DashboardDashboardRouteRouteWithChildren =

@@ -35,18 +35,18 @@ Every module has its own README with copy-paste instructions, dependencies, and 
 
 ### Business modules
 
-| Module                                             | Routes                        | Role gate            | What it is                                                         |
-| -------------------------------------------------- | ----------------------------- | -------------------- | ------------------------------------------------------------------ |
-| [`landing`](./landing/README.md)                   | `/`                           | public               | Public marketing page (hero, features, services, contact, footer). |
-| [`auth`](./auth/README.md)                         | `/auth`, `/api/auth/$`        | public               | Sign-in / sign-up / password recovery UI.                          |
-| [`dashboard`](./dashboard/README.md)               | `/dashboard`                  | authenticated        | Protected app shell, sidebar, default dashboard page.              |
-| [`users`](./users/README.md)                       | `/dashboard/users`            | admin+               | User directory, role helpers, current-user context.                |
-| [`settings`](./settings/README.md)                 | `/dashboard/settings/*`       | user (system: super) | Theme, language, AI config, dev tools, system settings.            |
-| [`help`](./help/README.md)                         | `/dashboard/help`             | authenticated        | Help page + Quick Links widget. (Smallest module.)                 |
-| [`ai`](./ai/README.md)                             | `/api/ai/*`                   | authenticated        | Multi-provider AI, RAG, streaming chat, action cards, audit log.   |
-| [`contact-messages`](./contact-messages/README.md) | `/dashboard/contact-messages` | admin+               | Landing contact form inbox + dashboard unread widget.              |
-| [`database-admin`](./database-admin/README.md)     | `/dashboard/admin/database`   | super_admin          | DB connection profiles, migration runner, audit trail.             |
-| [`updates`](./updates/README.md)                   | (no UI page; data only)       | public (form only)   | Starter "subscribe to updates" block. `enabledByDefault: false`.   |
+| Module                                             | Routes                         | Role gate            | What it is                                                         |
+| -------------------------------------------------- | ------------------------------ | -------------------- | ------------------------------------------------------------------ |
+| [`landing`](./landing/README.md)                   | `/`                            | public               | Public marketing page (hero, features, services, contact, footer). |
+| [`auth`](./auth/README.md)                         | `/auth`, `/api/auth/$`         | public               | Sign-in / sign-up / password recovery UI.                          |
+| [`dashboard`](./dashboard/README.md)               | `/dashboard`                   | authenticated        | Protected app shell, sidebar, default dashboard page.              |
+| [`users`](./users/README.md)                       | `/dashboard/users`             | admin+               | User directory, role helpers, current-user context.                |
+| [`settings`](./settings/README.md)                 | `/dashboard/settings/*`        | user (system: super) | Theme, language, AI config, dev tools, system settings.            |
+| [`help`](./help/README.md)                         | `/dashboard/help`              | authenticated        | Help page + Quick Links widget. (Smallest module.)                 |
+| [`ai`](./ai/README.md)                             | `/api/ai/*`                    | authenticated        | Multi-provider AI, RAG, streaming chat, action cards, audit log.   |
+| [`contact-messages`](./contact-messages/README.md) | `/dashboard/contact-messages`  | admin+               | Landing contact form inbox + dashboard unread widget.              |
+| [`database-admin`](./database-admin/README.md)     | `/dashboard/settings/database` | super_admin          | DB connection profiles, migration runner, audit trail.             |
+| [`updates`](./updates/README.md)                   | (no UI page; data only)        | public (form only)   | Starter "subscribe to updates" block. `enabledByDefault: false`.   |
 
 ### Cross-module bucket
 

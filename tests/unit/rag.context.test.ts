@@ -153,7 +153,7 @@ describe('App Knowledge Base', () => {
       '/dashboard/help',
       '/dashboard/settings/system',
       '/dashboard/settings/ia_config',
-      '/dashboard/admin/database',
+      '/dashboard/settings/database',
     ]) {
       expect(urls).toContain(url)
     }
@@ -176,7 +176,7 @@ describe('App Knowledge Base', () => {
     const answers = knowledge!.commonQuestions.whereToFind
     expect(answers.users).toContain('/dashboard/users')
     expect(answers.contactMessages).toContain('/dashboard/contact-messages')
-    expect(answers.database).toContain('/dashboard/admin/database')
+    expect(answers.database).toContain('/dashboard/settings/database')
   })
 })
 

@@ -1,7 +1,8 @@
 {
   "unconfigured": "La facturación no está configurada. Define STRIPE_SECRET_KEY para habilitar el pago.",
   "nav": {
-    "title": "Facturación"
+    "title": "Facturación",
+    "subscription": "Suscripción"
   },
   "title": "Facturación",
   "description": "Tu suscripción y tu método de pago.",

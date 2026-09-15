@@ -1,7 +1,8 @@
 {
   "unconfigured": "Billing is not configured. Set STRIPE_SECRET_KEY to enable checkout.",
   "nav": {
-    "title": "Billing"
+    "title": "Billing",
+    "subscription": "Subscription"
   },
   "title": "Billing",
   "description": "Your subscription and payment method.",
