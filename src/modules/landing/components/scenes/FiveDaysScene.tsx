@@ -5,6 +5,7 @@ import { CheckCircle2, Circle, FileCode, Terminal } from 'lucide-react'
 import { useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Progress } from '@/components/ui'
+import type { FiveDaysDayId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 const DAYS = [
@@ -13,7 +14,12 @@ const DAYS = [
   { id: 'day3', num: 3, command: 'pnpm db:generate && pnpm db:migrate', file: 'drizzle.config.ts' },
   { id: 'day4', num: 4, command: 'pnpm routes:inventory', file: 'src/routes/' },
   { id: 'day5', num: 5, command: 'pnpm test:e2e && pnpm build', file: 'docker-compose.yml' },
-] as const
+] as const satisfies readonly {
+  id: FiveDaysDayId
+  num: number
+  command: string | undefined
+  file: string
+}[]
 
 const TASKS_PER_DAY = 3
 const TOTAL_TASKS = DAYS.length * TASKS_PER_DAY

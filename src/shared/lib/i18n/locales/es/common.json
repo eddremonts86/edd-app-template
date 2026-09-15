@@ -740,7 +740,6 @@
       "ctaSecondary": "Vea qué incluye",
       "scrollCue": "Siga bajando",
       "arc": {
-        "ariaLabel": "Qué obtiene y cuándo",
         "scaffold": {
           "value": "60 s",
           "label": "para un proyecto en marcha"
@@ -753,7 +752,8 @@
           "value": "5 d",
           "label": "para producción"
         }
-      }
+      },
+      "arcAriaLabel": "Qué obtiene y cuándo"
     },
     "friction": {
       "title": "Las primeras semanas desaparecen siempre en el mismo trabajo",

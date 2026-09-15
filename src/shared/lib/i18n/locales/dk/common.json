@@ -980,7 +980,6 @@
       "ctaSecondary": "Se hvad der følger med",
       "scrollCue": "Scroll videre",
       "arc": {
-        "ariaLabel": "Hvad du får, og hvornår",
         "scaffold": {
           "value": "60 s",
           "label": "til et kørende projekt"
@@ -993,7 +992,8 @@
           "value": "5 d",
           "label": "til produktion"
         }
-      }
+      },
+      "arcAriaLabel": "Hvad du får, og hvornår"
     },
     "friction": {
       "title": "De første uger forsvinder altid i det samme arbejde",

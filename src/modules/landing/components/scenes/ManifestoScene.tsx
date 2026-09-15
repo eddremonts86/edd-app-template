@@ -2,8 +2,7 @@
 
 import { m } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-
-const ITEMS = ['structure', 'security', 'longevity'] as const
+import { manifestoItemIds } from '../../types/copy-ids'
 
 export function ManifestoScene() {
   const { t } = useTranslation()
@@ -12,7 +11,7 @@ export function ManifestoScene() {
     <section className="px-6 py-28 md:py-40">
       <div className="mx-auto max-w-5xl">
         <div className="divide-y divide-border/40">
-          {ITEMS.map((id, index) => (
+          {manifestoItemIds.map((id, index) => (
             <m.div
               key={id}
               initial={{ opacity: 0, y: 40 }}

@@ -980,7 +980,6 @@
       "ctaSecondary": "See what's inside",
       "scrollCue": "Keep scrolling",
       "arc": {
-        "ariaLabel": "What you get, and when",
         "scaffold": {
           "value": "60 s",
           "label": "to a running scaffold"
@@ -993,7 +992,8 @@
           "value": "5 d",
           "label": "to production"
         }
-      }
+      },
+      "arcAriaLabel": "What you get, and when"
     },
     "friction": {
       "title": "The first weeks always disappear into the same work",

@@ -3,9 +3,8 @@
 import { m } from 'framer-motion'
 import { Check, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { frictionRowIds } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
-
-const ROW_IDS = ['auth', 'architecture', 'tests', 'ai', 'docker'] as const
 
 export function FrictionScene() {
   const { t } = useTranslation()
@@ -28,7 +27,7 @@ export function FrictionScene() {
         </div>
 
         <div className="flex flex-col gap-6">
-          {ROW_IDS.map((id, index) => (
+          {frictionRowIds.map((id, index) => (
             <m.article
               key={id}
               initial={{ opacity: 0, y: 32 }}

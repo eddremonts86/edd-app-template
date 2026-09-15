@@ -16,6 +16,7 @@ import {
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui'
+import type { FirstHourStackItemId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 const STACK_ITEMS = [
@@ -25,7 +26,7 @@ const STACK_ITEMS = [
   { id: 'data', icon: Database },
   { id: 'ai', icon: Bot },
   { id: 'quality', icon: ShieldCheck },
-] as const
+] as const satisfies readonly { id: FirstHourStackItemId; icon: unknown }[]
 
 const gridContainer: Variants = {
   hidden: { opacity: 0 },

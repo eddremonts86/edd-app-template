@@ -3,6 +3,7 @@
 import { m, useReducedMotion, type Variants } from 'framer-motion'
 import { ChevronRight, Code, Database, Layers } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import type { FirstMinuteBoxId } from '../../types/copy-ids'
 import { SceneHeader } from './SceneHeader'
 
 // Verbatim tool output — intentionally untranslated.
@@ -37,7 +38,7 @@ const boxItem: Variants = {
 }
 
 interface ArchBox {
-  id: 'appShell' | 'modules' | 'integrations'
+  id: FirstMinuteBoxId
   icon: typeof Code
   chips: string[]
 }

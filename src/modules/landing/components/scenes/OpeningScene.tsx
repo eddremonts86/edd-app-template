@@ -6,6 +6,7 @@ import { useCallback, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui'
 import { useWaveAnimation } from '../../hooks/useWaveAnimation'
+import type { OpeningArcStopId } from '../../types/copy-ids'
 
 const INSTALL_COMMAND = 'npx @edd_remonts/create-edd-app my-product'
 
@@ -141,7 +142,7 @@ export function OpeningScene() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
-          aria-label={t('home.opening.arc.ariaLabel', 'What you get, and when')}
+          aria-label={t('home.opening.arcAriaLabel', 'What you get, and when')}
           className="w-full max-w-3xl"
         >
           <ul className="grid grid-cols-3 divide-x divide-border/40 rounded-2xl border border-border/40 bg-background/60 backdrop-blur-md dark:border-border/60 dark:bg-background/70">
@@ -181,7 +182,7 @@ export function OpeningScene() {
   )
 }
 
-function getArcCopy(t: ReturnType<typeof useTranslation>['t'], stop: string) {
+function getArcCopy(t: ReturnType<typeof useTranslation>['t'], stop: OpeningArcStopId) {
   return {
     value: t(`home.opening.arc.${stop}.value`),
     label: t(`home.opening.arc.${stop}.label`),
