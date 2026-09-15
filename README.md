@@ -334,6 +334,10 @@ Auto-deploy is off: `deploy.yml` is the only trigger, so a push cannot deploy
 twice. Coolify does not echo that flag back through the API — check it in the UI
 after any change to the resource.
 
+`scripts/verify/coolify-bootstrap.sh` does the remaining setup in one run —
+database, environment, deploy, and the wait for a terminal status. Run it once,
+by hand; it is not wired into anything.
+
 **It needs its environment before it serves anything but the landing page.** At
 minimum `DATABASE_URL`, `APP_URL`, `BETTER_AUTH_URL` (matching `APP_URL`),
 `BETTER_AUTH_SECRET`, `DB_CONFIG_SECRET`, `AUTH_MODE`, `NODE_ENV=production`
