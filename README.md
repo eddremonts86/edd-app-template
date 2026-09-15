@@ -205,10 +205,10 @@ Supported providers out of the box: **OpenAI**, **Anthropic Claude**, **Ollama**
 
 ### Routes & i18n
 
-| Command                 | Description                                         |
-| ----------------------- | --------------------------------------------------- |
-| `pnpm routes:inventory` | Regenerate `docs/testing/routes-inventory.yaml`     |
-| `pnpm i18n:check`       | Verify all 3 locales have matching translation keys |
+| Command                 | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| `pnpm routes:inventory` | Regenerate `docs/testing/routes-inventory.yaml`            |
+| `pnpm i18n:check`       | Locale parity, plus every `t()` key — literal and template |
 
 ### Third-party verification
 

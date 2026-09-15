@@ -408,6 +408,23 @@ them unmovable.
   three languages — it is the string most likely to be seen by someone who
   cannot fix it themselves.
 
+**A key built at runtime needs two checks, not one.** `t(`billing.error.${code}`)`
+is invisible to a text scan: the gate once printed "All translations are
+complete" with the key deleted from all three languages while the UI rendered
+`billing.error.provider_rejected` on screen.
+
+`i18n:check` now reads template keys too and proves what a static reader can —
+the group exists, is a group, is not empty, and every entry that could be one of
+the hole's values carries the field the call site reads. It deliberately judges
+only entries of the right shape: a group often holds the hole's values beside a
+sibling that is not one, and the first version of this rule failed on exactly
+that.
+
+What it cannot prove is that the group covers every value the variable can take,
+because that lives in a TypeScript union rather than in these files. **That half
+is a test beside the code that owns the union** — enumerate the codes, assert a
+string in each language. Both halves, or the gap is still there.
+
 ---
 
 ## 8. Cross-cutting rules
