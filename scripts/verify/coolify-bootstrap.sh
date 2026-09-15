@@ -20,7 +20,10 @@ DOMAIN=https://edd-starter.eduardoinerarte.dk
 api() { curl -sS --max-time 90 -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' "$@"; }
 
 echo "==> 1/4  Postgres"
-PGPASS=$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 32)
+# No pipeline: `... | head -c 32` makes head close the pipe, the writer dies of
+# SIGPIPE, and `set -o pipefail` turns that into a non-zero status that `set -e`
+# then treats as a fatal error — the script exited here having printed nothing.
+PGPASS=$(openssl rand -hex 16)
 DB_JSON=$(api -X POST "$API/api/v1/databases/postgresql" -d "$(cat <<JSON
 {"project_uuid":"$PROJECT_UUID","server_uuid":"$SERVER_UUID",
  "environment_name":"production","environment_uuid":"$ENV_UUID",
