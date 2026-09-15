@@ -97,3 +97,12 @@ env.zip
 # A real MiniMax key was committed here once; keep it out of version control.
 src/modules/ai/data/ai-config-store.json
 src/modules/ai/data/audit-logs.json
+
+# A personal global gitignore with `ENV/` matches `scripts/env/` on a
+# case-insensitive filesystem, so this directory silently never reached the
+# repository: `pnpm validate` passed locally, where the file exists, while CI
+# checked out a tree without it and `env:check` failed for four commits.
+# A repo .gitignore outranks the global one, and the directory has to be
+# re-included before a file inside it can be.
+!scripts/env/
+!scripts/env/**
