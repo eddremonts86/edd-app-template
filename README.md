@@ -308,6 +308,38 @@ gh secret set COOLIFY_APP_UUID
 The names are not free choices — they are what the values are called in
 `ai-os/dev-env/env-config/.env` and in every other app's workflow.
 
+Two traps, both of which fail quietly:
+
+- **Use the write token.** `COOLIFY_API_TOKEN` in env-config is read-only;
+  `COOLIFY_API_TOKEN_WRITE` is the one that can trigger a deploy.
+- **Do not copy `COOLIFY_APP_UUID` from env-config.** It points at
+  `ai-os-landing`. Pasting it here means the first push to `main` deploys over
+  that site and reports success.
+
+### This template's own resource
+
+|             |                                                          |
+| ----------- | -------------------------------------------------------- |
+| Application | `edd-app-template` — `feres95vsd11rnop470un6ss`          |
+| Domain      | `https://edd-starter.eduardoinerarte.dk`                 |
+| Source      | the `coolify-eddremonts86` GitHub App, branch `main`     |
+| Build       | `dockerfile`, target **`prod`** pinned, port 2999        |
+| Health      | `/api/health` — deliberately does not touch the database |
+
+The target is pinned rather than left to default. `prod` is the last stage
+today, so the default is correct today; a stage added after it would silently
+become what production runs.
+
+Auto-deploy is off: `deploy.yml` is the only trigger, so a push cannot deploy
+twice. Coolify does not echo that flag back through the API — check it in the UI
+after any change to the resource.
+
+**It needs its environment before it serves anything but the landing page.** At
+minimum `DATABASE_URL`, `APP_URL`, `BETTER_AUTH_URL` (matching `APP_URL`),
+`BETTER_AUTH_SECRET`, `DB_CONFIG_SECRET`, `AUTH_MODE`, `NODE_ENV=production`
+and `PORT=2999`; `.env.example` is the full contract. The database is a separate
+Coolify resource and is not provisioned yet.
+
 ### The rest of the pipeline
 
 `deploy.yml` covers production. The full shape — a `dev` branch, a local replica
