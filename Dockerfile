@@ -54,4 +54,16 @@ COPY server.prod.mjs ./server.prod.mjs
 
 EXPOSE 2999
 
+# Docker reports health, not Coolify. Coolify's own probe shells out to curl or
+# wget inside the container, and node:22-bookworm-slim has neither — the first
+# deploy built fine, the server logged "Listening on http://0.0.0.0:2999", and
+# Coolify rolled it back over ten failed `curl: not found` probes.
+#
+# node's fetch is already in the image. The endpoint is deliberately shallow
+# (no database touch): database liveness belongs to the database's own
+# healthcheck, and coupling them turns planned maintenance into a rollback.
+# start-period covers the TanStack Start server boot.
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD node -e "fetch('http://127.0.0.1:'+(process.env.PORT||2999)+'/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+
 CMD ["node", "server.prod.mjs"]
