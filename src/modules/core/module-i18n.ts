@@ -1,5 +1,6 @@
 import { billingTranslations } from '@/modules/billing/i18n'
 import { emailTranslations } from '@/modules/email/i18n'
+import { storageTranslations } from '@/modules/storage/i18n'
 import type { SupportedLanguage } from '@/shared/lib/i18n/locales'
 
 /** One module's translations, one object per supported language. */
@@ -22,6 +23,7 @@ export type ModuleTranslations = Record<SupportedLanguage, Record<string, unknow
 export const moduleTranslations: Record<string, ModuleTranslations> = {
   email: emailTranslations,
   billing: billingTranslations,
+  storage: storageTranslations,
 }
 
 export function buildModuleResources(language: SupportedLanguage): Record<string, unknown> {

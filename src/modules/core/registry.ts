@@ -8,6 +8,7 @@ import { emailModule } from '@/modules/email/manifest'
 import { helpModule } from '@/modules/help/manifest'
 import { landingModule } from '@/modules/landing/manifest'
 import { settingsModule } from '@/modules/settings/manifest'
+import { storageModule } from '@/modules/storage/manifest'
 import { updatesModule } from '@/modules/updates/manifest'
 import { usersModule } from '@/modules/users/manifest'
 import { getExplicitlyDisabledModuleIds, getExplicitlyEnabledModuleIds } from './config'
@@ -26,6 +27,7 @@ export const moduleRegistry: AppModuleManifest[] = [
   settingsModule,
   databaseAdminModule,
   helpModule,
+  storageModule,
 ]
 
 const moduleMap = new Map(moduleRegistry.map((module) => [module.id, module]))

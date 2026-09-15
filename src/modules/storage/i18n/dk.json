@@ -1,0 +1,3 @@
+{
+  "unconfigured": "Objektlagring er ikke konfigureret. Sæt STORAGE_PROVIDER til \"s3\" eller \"local\" samt de nøgler, den udbyder kræver."
+}

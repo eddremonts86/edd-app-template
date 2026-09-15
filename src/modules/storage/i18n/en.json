@@ -1,0 +1,3 @@
+{
+  "unconfigured": "Object storage is not configured. Set STORAGE_PROVIDER to \"s3\" or \"local\", plus the keys that provider needs."
+}
