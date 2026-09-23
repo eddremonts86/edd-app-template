@@ -43,7 +43,7 @@ services:
 
   db:
     profiles: ['standalone', 'docker']
-    image: postgres:15-alpine
+    image: postgres:18-alpine
     container_name: edd-app-template-db
     ports:
       - '5433:5432'
@@ -52,7 +52,10 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: edd_app_template
     volumes:
-      - ./.docker_data/postgres:/var/lib/postgresql/data
+      # PG18+: mount at /var/lib/postgresql, not .../data — the image now keeps
+      # the cluster in a major-version subdirectory of this mount. A pre-18
+      # data dir mounted here makes the entrypoint refuse to start.
+      - ./.docker_data/postgres:/var/lib/postgresql
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 5s
